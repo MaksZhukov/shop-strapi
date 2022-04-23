@@ -1578,6 +1578,33 @@
     styled-components "5.3.3"
     whatwg-fetch "^3.6.2"
 
+"@strapi/helper-plugin@^4.1.1":
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/@strapi/helper-plugin/-/helper-plugin-4.1.8.tgz#75f20f369d5beac03699a397884e3bd1e00c7c03"
+  integrity sha512-Jt5v7Z+1HeXHN2YhT7xchvbVx2CHbBjh4rxjQkTyTT7mv6zyKHGro3hwl8j92KG/KkGt9dnP+2aQonXOmWMaBA==
+  dependencies:
+    "@fortawesome/fontawesome-free" "^5.15.2"
+    "@fortawesome/fontawesome-svg-core" "^1.2.35"
+    "@fortawesome/free-brands-svg-icons" "^5.15.2"
+    "@fortawesome/free-solid-svg-icons" "^5.15.3"
+    "@fortawesome/react-fontawesome" "^0.1.14"
+    axios "0.25.0"
+    babel-plugin-styled-components "2.0.2"
+    formik "2.2.9"
+    invariant "^2.2.1"
+    lodash "4.17.21"
+    match-sorter "^4.0.2"
+    mini-css-extract-plugin "2.4.4"
+    moment "^2.29.1"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+    react-helmet "^6.1.0"
+    react-intl "5.20.2"
+    react-router "^5.2.0"
+    react-router-dom "5.2.0"
+    styled-components "5.3.3"
+    whatwg-fetch "^3.6.2"
+
 "@strapi/icons@0.0.1-alpha.79":
   version "0.0.1-alpha.79"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-0.0.1-alpha.79.tgz#eff8790ea3897419489a61cbfd72a436661d1420"
@@ -1774,6 +1801,17 @@
   version "4.2.0-beta.1"
   resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.2.0-beta.1.tgz#e356c2837e9cf9693984bb4dcb26ea69c0e8caf2"
   integrity sha512-jfqqqboZx1/VHGlxci45kPkPAspIbgZssPHl4WIg4sqYBblyxOLzHnSz5HRgJimtSXXyVQLdK16RV47QvhKJgQ==
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
+    date-fns "2.24.0"
+    http-errors "1.8.0"
+    lodash "4.17.21"
+    yup "0.32.9"
+
+"@strapi/utils@^4.1.1":
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/@strapi/utils/-/utils-4.1.8.tgz#22c5b10b145f0ce005aefdb5611552ac73d02b23"
+  integrity sha512-FMC9gNQ+cXQNRkOaIiom6NlMIqqzo1gA9W/MkR/qezKIsivp+2nC+RsY4amS70D58yU/kjr1BdN5FtnwuyzOLQ==
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     date-fns "2.24.0"
@@ -9370,6 +9408,14 @@ std-env@^2.2.1:
   integrity sha512-eOsoKTWnr6C8aWrqJJ2KAReXoa7Vn5Ywyw6uCXgA/xDhxPoaIsBa5aNJmISY04dLwXPBnDHW4diGM7Sn5K4R/g==
   dependencies:
     ci-info "^3.1.1"
+
+strapi-plugin-migrations@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-migrations/-/strapi-plugin-migrations-1.0.3.tgz#6c0ceafccd49ff48fe992c5da33b37b6fb25319d"
+  integrity sha512-vDaxKVmY0zjRgjZgsDL+v9tCd2jnXpvw77iup0om1OaaXyGYq21GqRy328yOfx7NpZzTIV5OFc1sMV85S8cKUQ==
+  dependencies:
+    "@strapi/helper-plugin" "^4.1.1"
+    "@strapi/utils" "^4.1.1"
 
 stream-browserify@^3.0.0:
   version "3.0.0"

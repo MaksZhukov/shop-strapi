@@ -10,6 +10,7 @@ exports.default = ({ env }) => ({
             user: env("DATABASE_USERNAME", "admin"),
             password: env("DATABASE_PASSWORD", "admin"),
             ssl: env.bool("DATABASE_SSL", true),
+            multipleStatements: true,
         },
     },
 });
