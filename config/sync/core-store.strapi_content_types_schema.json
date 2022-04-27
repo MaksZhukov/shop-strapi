@@ -733,21 +733,22 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "Description": {
+        "description": {
           "type": "richtext"
         },
         "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
           "allowedTypes": [
             "images",
             "files",
             "videos",
             "audios"
-          ],
-          "type": "media",
-          "multiple": false
+          ]
         },
         "createdAt": {
           "type": "datetime"
@@ -795,21 +796,22 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "Description": {
+          "description": {
             "type": "richtext"
           },
           "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
             "allowedTypes": [
               "images",
               "files",
               "videos",
               "audios"
-            ],
-            "type": "media",
-            "multiple": false
+            ]
           }
         },
         "kind": "collectionType"

@@ -15,7 +15,5 @@ exports.default = {
      * This gives you an opportunity to set up your data model,
      * run jobs, or perform some special logic.
      */
-    async bootstrap({ strapi }) {
-        console.log(strapi.entityService);
-    },
+    bootstrap({ strapi }) { },
 };

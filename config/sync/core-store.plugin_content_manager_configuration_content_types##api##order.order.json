@@ -27,7 +27,7 @@
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "Name"
+          "mainField": "name"
         },
         "list": {
           "label": "products",
@@ -86,11 +86,11 @@
         "users_permissions_users",
         "createdAt"
       ],
+      "edit": [],
       "editRelations": [
         "products",
         "users_permissions_users"
-      ],
-      "edit": []
+      ]
     }
   },
   "type": "object",
