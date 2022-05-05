@@ -16,7 +16,7 @@
     "@strapi/strapi": "4.2.0-beta.1",
     "connection-string": "^4.3.5",
     "mysql": "2.18.1",
-    "strapi-plugin-config-sync": "^1.0.0",
+    "strapi-plugin-config-sync": "^1.0.1",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
     "strapi-plugin-migrations": "^1.0.3"
   },
