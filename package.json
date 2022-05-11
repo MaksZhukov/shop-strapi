@@ -4,12 +4,11 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "strapi develop --watch-admin",
+    "develop": "strapi develop",
     "start": "strapi start dist",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
     "@strapi/plugin-i18n": "4.2.0-beta.1",
     "@strapi/plugin-users-permissions": "4.2.0-beta.1",
@@ -18,7 +17,9 @@
     "mysql": "2.18.1",
     "strapi-plugin-config-sync": "^1.0.1",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
-    "strapi-plugin-migrations": "^1.0.3"
+    "strapi-plugin-migrations": "^1.0.3",
+    "strapi-plugin-transformer": "^2.0.1",
+    "strapi-utils": "^3.6.9"
   },
   "author": {
     "name": "A Strapi developer"
