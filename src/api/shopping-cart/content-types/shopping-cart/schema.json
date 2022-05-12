@@ -4,7 +4,8 @@
   "info": {
     "singularName": "shopping-cart",
     "pluralName": "shopping-carts",
-    "displayName": "Shopping cart"
+    "displayName": "Shopping cart",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,10 +17,13 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "products": {
+    "product": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::product.product"
+    },
+    "count": {
+      "type": "integer"
     }
   }
 }

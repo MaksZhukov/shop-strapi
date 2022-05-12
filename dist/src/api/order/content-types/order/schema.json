@@ -4,7 +4,8 @@
     "info": {
         "singularName": "order",
         "pluralName": "orders",
-        "displayName": "Order"
+        "displayName": "Order",
+        "description": ""
     },
     "options": {
         "draftAndPublish": true
@@ -20,6 +21,9 @@
             "type": "relation",
             "relation": "oneToMany",
             "target": "plugin::users-permissions.user"
+        },
+        "count": {
+            "type": "integer"
         }
     }
 }
