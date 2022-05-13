@@ -12,6 +12,7 @@
   "dependencies": {
     "@strapi/plugin-i18n": "4.2.0-beta.1",
     "@strapi/plugin-users-permissions": "4.2.0-beta.1",
+    "@strapi/provider-email-nodemailer": "^4.1.10",
     "@strapi/strapi": "4.2.0-beta.1",
     "connection-string": "^4.3.5",
     "mysql": "2.18.1",

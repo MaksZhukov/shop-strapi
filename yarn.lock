@@ -1793,6 +1793,14 @@
     "request" "^2.83.0"
     "url-join" "4.0.1"
 
+"@strapi/provider-email-nodemailer@^4.1.10":
+  "integrity" "sha512-ocM5x4qdHBHZr0CdoCXPmeQ7wID0vzMGxDwWajrvjccOG9/CYizgoTnM8ampCtsIFlXPwTsYbrCuQSXHAf0ugw=="
+  "resolved" "https://registry.npmjs.org/@strapi/provider-email-nodemailer/-/provider-email-nodemailer-4.1.10.tgz"
+  "version" "4.1.10"
+  dependencies:
+    "lodash" "4.17.21"
+    "nodemailer" "6.7.3"
+
 "@strapi/provider-email-sendmail@4.2.0-beta.1":
   "integrity" "sha512-VVvZKZlixNxuw7DpGUQNyPsR/FkGkyogYUnvKMkUrTvFMesqxds1c3e1+YpB6xaqd0RUpbiv7yIz1Dp9Ao90FQ=="
   "resolved" "https://registry.npmjs.org/@strapi/provider-email-sendmail/-/provider-email-sendmail-4.2.0-beta.1.tgz"
@@ -7623,6 +7631,11 @@
   "version" "1.1.0"
   dependencies:
     "nodemailer-fetch" "1.6.0"
+
+"nodemailer@6.7.3":
+  "integrity" "sha512-KUdDsspqx89sD4UUyUKzdlUOper3hRkDVkrKh/89G+d9WKsU5ox51NWS4tB1XR5dPUdR4SP0E3molyEfOvSa3g=="
+  "resolved" "https://registry.npmjs.org/nodemailer/-/nodemailer-6.7.3.tgz"
+  "version" "6.7.3"
 
 "normalize-path@^3.0.0", "normalize-path@~3.0.0":
   "integrity" "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA=="
