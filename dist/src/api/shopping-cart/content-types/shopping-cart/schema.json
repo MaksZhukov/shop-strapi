@@ -21,9 +21,6 @@
             "type": "relation",
             "relation": "oneToOne",
             "target": "api::product.product"
-        },
-        "count": {
-            "type": "integer"
         }
     }
 }

@@ -33,6 +33,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
     }
   }
 }
