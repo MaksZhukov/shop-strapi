@@ -1883,10 +1883,10 @@
     "lodash" "4.17.21"
     "typescript" "4.6.2"
 
-"@strapi/utils@^4.1.1":
-  "integrity" "sha512-FMC9gNQ+cXQNRkOaIiom6NlMIqqzo1gA9W/MkR/qezKIsivp+2nC+RsY4amS70D58yU/kjr1BdN5FtnwuyzOLQ=="
-  "resolved" "https://registry.npmjs.org/@strapi/utils/-/utils-4.1.8.tgz"
-  "version" "4.1.8"
+"@strapi/utils@^4.0.7", "@strapi/utils@^4.1.1":
+  "integrity" "sha512-BiYYn4Er1VQhFXdqtSPScHS5Pbc8H2sjK1K5MKnI0ri7ckAeEOUUISU6G0HHEZPiN5EGRbxup5igtizOFoaROA=="
+  "resolved" "https://registry.npmjs.org/@strapi/utils/-/utils-4.1.11.tgz"
+  "version" "4.1.11"
   dependencies:
     "@sindresorhus/slugify" "1.1.0"
     "date-fns" "2.24.0"
@@ -9598,6 +9598,11 @@
   "resolved" "https://registry.npmjs.org/sliced/-/sliced-1.0.1.tgz"
   "version" "1.0.1"
 
+"slugify@^1.6.5":
+  "integrity" "sha512-8mo9bslnBO3tr5PEVFzMPIWwWnipGS0xVbYf65zxDqfNwmzYn1LpiKNrR6DlClusuvo+hDHd1zKpmfAe83NQSQ=="
+  "resolved" "https://registry.npmjs.org/slugify/-/slugify-1.6.5.tgz"
+  "version" "1.6.5"
+
 "snake-case@^2.1.0":
   "integrity" "sha1-Qb2xtz8w7GagTU4srRt2OH1NbZ8="
   "resolved" "https://registry.npmjs.org/snake-case/-/snake-case-2.1.0.tgz"
@@ -9838,6 +9843,13 @@
   dependencies:
     "@strapi/helper-plugin" "^4.1.1"
     "@strapi/utils" "^4.1.1"
+
+"strapi-plugin-slugify@^2.2.2":
+  "integrity" "sha512-Kra7uXZUM+70m02Qoa/su+HxBxqrFhxyLt/B90kd4LwnEjebXA6nsAsa0dxafMunQfqWQey7JOV+qToB4a3FXg=="
+  "resolved" "https://registry.npmjs.org/strapi-plugin-slugify/-/strapi-plugin-slugify-2.2.2.tgz"
+  "version" "2.2.2"
+  dependencies:
+    "@sindresorhus/slugify" "1.1.0"
 
 "strapi-plugin-transformer@^2.0.1":
   "integrity" "sha512-2FCODb84vIYH4NMkNYH0ttghohl9bns9qHDGBjYmJPAbXfmU34sxJSFOKe9yAbPXsvQv6FvIYFeuKvX5r1+wMQ=="
