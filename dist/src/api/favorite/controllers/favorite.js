@@ -1,10 +1,10 @@
 "use strict";
 /**
- *  shopping-cart controller
+ *  favorite controller
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
-exports.default = strapi_1.factories.createCoreController("api::shopping-cart.shopping-cart", 
+exports.default = strapi_1.factories.createCoreController('api::favorite.favorite', 
 // @ts-ignore
 ({ strapi }) => ({
     async find(ctx) {
@@ -17,10 +17,15 @@ exports.default = strapi_1.factories.createCoreController("api::shopping-cart.sh
         };
         return await super.find(ctx);
     },
+    async create(ctx) {
+        const userId = ctx.state.user.id;
+        ctx.request.body.data.users_permissions_user = userId;
+        return await super.create(ctx);
+    },
     async delete(ctx) {
         const { id } = ctx.params;
         const userId = ctx.state.user.id;
-        if (await strapi.db.query("api::shopping-cart.shopping-cart").findOne({
+        if (await strapi.db.query("api::favorite.favorite").findOne({
             where: {
                 id,
                 users_permissions_user: userId,
@@ -28,5 +33,5 @@ exports.default = strapi_1.factories.createCoreController("api::shopping-cart.sh
         })) {
             return await super.delete(ctx);
         }
-    },
+    }
 }));
