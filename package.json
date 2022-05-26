@@ -12,16 +12,16 @@
   "dependencies": {
     "@strapi/plugin-i18n": "4.2.0-beta.1",
     "@strapi/plugin-users-permissions": "4.2.0-beta.1",
-    "@strapi/provider-email-nodemailer": "^4.1.10",
+    "@strapi/provider-email-nodemailer": "^4.1.11",
     "@strapi/strapi": "4.2.0-beta.1",
     "connection-string": "^4.3.5",
     "mysql": "2.18.1",
     "slugify": "^1.6.5",
     "strapi-plugin-config-sync": "^1.0.1",
     "strapi-plugin-entity-relationship-chart": "^4.1.0",
-    "strapi-plugin-migrations": "^1.0.3",
+    "strapi-plugin-migrations": "^1.0.4",
     "strapi-plugin-transformer": "^2.0.1",
-    "strapi-utils": "^3.6.9"
+    "strapi-utils": "^3.6.10"
   },
   "author": {
     "name": "A Strapi developer"

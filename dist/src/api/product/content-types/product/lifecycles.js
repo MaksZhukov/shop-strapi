@@ -7,14 +7,14 @@ const slugify_1 = __importDefault(require("slugify"));
 exports.default = {
     beforeCreate(event) {
         const { data } = event.params;
-        if (data.vendorCode && data.name) {
-            data.slug = (0, slugify_1.default)(data.name, { lower: true }) + "-" + data.vendorCode;
+        if (data.id && data.name) {
+            data.slug = (0, slugify_1.default)(data.name, { lower: true }) + "-" + data.id;
         }
     },
     beforeUpdate(event) {
         const { data } = event.params;
-        if (data.vendorCode && data.name) {
-            data.slug = (0, slugify_1.default)(data.name, { lower: true }) + "-" + data.vendorCode;
+        if (data.id && data.name) {
+            data.slug = (0, slugify_1.default)(data.name, { lower: true }) + "-" + data.id;
         }
     },
 };
