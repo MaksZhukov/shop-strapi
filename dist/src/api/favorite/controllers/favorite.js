@@ -4,9 +4,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
-exports.default = strapi_1.factories.createCoreController('api::favorite.favorite', 
-// @ts-ignore
-({ strapi }) => ({
+exports.default = strapi_1.factories.createCoreController('api::favorite.favorite', ({ strapi }) => ({
     async find(ctx) {
         const userId = ctx.state.user.id;
         ctx.query = {
@@ -25,7 +23,9 @@ exports.default = strapi_1.factories.createCoreController('api::favorite.favorit
     async delete(ctx) {
         const { id } = ctx.params;
         const userId = ctx.state.user.id;
-        if (await strapi.db.query("api::favorite.favorite").findOne({
+        if (
+        //@ts-ignore
+        await strapi.db.query("api::favorite.favorite").findOne({
             where: {
                 id,
                 users_permissions_user: userId,

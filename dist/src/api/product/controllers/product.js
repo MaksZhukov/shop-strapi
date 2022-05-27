@@ -9,6 +9,7 @@ exports.default = strapi_1.factories.createCoreController("api::product.product"
 ({ strapi }) => ({
     async findOne(ctx) {
         const { id } = ctx.params;
+        //@ts-ignore
         const entity = await strapi.db.query("api::product.product").findOne({
             where: { $or: [{ slug: id }, { id }] },
         });

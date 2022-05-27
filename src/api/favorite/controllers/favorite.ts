@@ -5,7 +5,6 @@
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::favorite.favorite',
-    // @ts-ignore
     ({ strapi }) => ({
         async find(ctx) {
             const userId = ctx.state.user.id;
@@ -26,6 +25,7 @@ export default factories.createCoreController('api::favorite.favorite',
             const { id } = ctx.params;
             const userId = ctx.state.user.id;
             if (
+                //@ts-ignore
                 await strapi.db.query("api::favorite.favorite").findOne({
                     where: {
                         id,

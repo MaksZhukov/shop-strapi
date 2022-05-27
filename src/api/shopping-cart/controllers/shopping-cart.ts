@@ -6,7 +6,6 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController(
     "api::shopping-cart.shopping-cart",
-    // @ts-ignore
     ({ strapi }) => ({
         async find(ctx) {
             const userId = ctx.state.user.id;
@@ -23,6 +22,7 @@ export default factories.createCoreController(
             const { id } = ctx.params;
             const userId = ctx.state.user.id;
             if (
+                //@ts-ignore
                 await strapi.db.query("api::shopping-cart.shopping-cart").findOne({
                     where: {
                         id,
