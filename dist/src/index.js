@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const generate_data_1 = require("./services/generate-data/generate-data");
 exports.default = {
     /**
      * An asynchronous register function that runs before
@@ -15,5 +16,7 @@ exports.default = {
      * This gives you an opportunity to set up your data model,
      * run jobs, or perform some special logic.
      */
-    bootstrap({ strapi }) { },
+    bootstrap({ strapi }) {
+        (0, generate_data_1.generateProducts)(strapi);
+    },
 };
