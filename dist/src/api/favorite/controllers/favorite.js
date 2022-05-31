@@ -4,7 +4,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
-exports.default = strapi_1.factories.createCoreController('api::favorite.favorite', ({ strapi }) => ({
+exports.default = strapi_1.factories.createCoreController("api::favorite.favorite", 
+//@ts-ignore
+({ strapi }) => ({
     async find(ctx) {
         const userId = ctx.state.user.id;
         ctx.query = {
@@ -33,5 +35,5 @@ exports.default = strapi_1.factories.createCoreController('api::favorite.favorit
         })) {
             return await super.delete(ctx);
         }
-    }
+    },
 }));

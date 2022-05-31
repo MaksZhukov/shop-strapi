@@ -2,14 +2,15 @@
   "extends": "@strapi/typescript-utils/lib/configs/server",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "noEmitOnError": false
   },
   "include": [
     "./",
     "src/**/*.json"
   ],
   "exclude": [
-    "node_modules/",
+    "node_modules",
     "build/",
     "dist/",
     ".cache/",

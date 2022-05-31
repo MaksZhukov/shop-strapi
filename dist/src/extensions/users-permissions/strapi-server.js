@@ -15,7 +15,7 @@ exports.default = (plugin) => {
         path: "/users/me",
         handler: 'user.updateMe',
         config: {
-            prefix: '',
+            prefix: ''
         }
     });
     return plugin;
