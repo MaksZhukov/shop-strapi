@@ -1,5 +1,8 @@
 import { StrapiInterface } from "@strapi/strapi";
-import { generateProducts } from "./services/generate-data/generate-data";
+import {
+  flushProducts,
+  generateProducts,
+} from "./services/generate-data/generate-data";
 
 export default {
     /**
@@ -10,14 +13,14 @@ export default {
      */
     register(/*{ strapi }*/) { },
 
-    /**
-     * An asynchronous bootstrap function that runs before
-     * your application gets started.
-     *
-     * This gives you an opportunity to set up your data model,
-     * run jobs, or perform some special logic.
-     */
-    bootstrap({ strapi }) {
-        generateProducts(strapi)
-    },
+  /**
+   * An asynchronous bootstrap function that runs before
+   * your application gets started.
+   *
+   * This gives you an opportunity to set up your data model,
+   * run jobs, or perform some special logic.
+   */
+  bootstrap({ strapi }) {
+    // generateProducts(strapi);
+  },
 };
