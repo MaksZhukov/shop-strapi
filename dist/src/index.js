@@ -16,7 +16,8 @@ exports.default = {
      * This gives you an opportunity to set up your data model,
      * run jobs, or perform some special logic.
      */
-    bootstrap({ strapi }) {
+    async bootstrap({ strapi }) {
+        await Promise.all([(0, generate_data_1.flushProducts)(strapi), (0, generate_data_1.flushUploads)(strapi)]);
         (0, generate_data_1.generateProducts)(strapi);
     },
 };
