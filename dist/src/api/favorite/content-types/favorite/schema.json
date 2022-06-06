@@ -21,6 +21,10 @@
             "type": "relation",
             "relation": "oneToOne",
             "target": "plugin::users-permissions.user"
+        },
+        "uuid": {
+            "type": "uid",
+            "required": true
         }
     }
 }

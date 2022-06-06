@@ -629,292 +629,6 @@
       "plugin": "admin",
       "globalId": "AdminApiToken"
     },
-    "api::order.order": {
-      "kind": "collectionType",
-      "collectionName": "orders",
-      "info": {
-        "singularName": "order",
-        "pluralName": "orders",
-        "displayName": "Order"
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "products": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::product.product"
-        },
-        "users_permissions_users": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "plugin::users-permissions.user"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "orders",
-        "info": {
-          "singularName": "order",
-          "pluralName": "orders",
-          "displayName": "Order"
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "products": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::product.product"
-          },
-          "users_permissions_users": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "plugin::users-permissions.user"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "order",
-      "connection": "default",
-      "uid": "api::order.order",
-      "apiName": "order",
-      "globalId": "Order",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::product.product": {
-      "kind": "collectionType",
-      "collectionName": "products",
-      "info": {
-        "singularName": "product",
-        "pluralName": "products",
-        "displayName": "Product",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "richtext"
-        },
-        "image": {
-          "type": "media",
-          "multiple": false,
-          "required": false,
-          "allowedTypes": [
-            "images",
-            "files",
-            "videos",
-            "audios"
-          ]
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "products",
-        "info": {
-          "singularName": "product",
-          "pluralName": "products",
-          "displayName": "Product",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "richtext"
-          },
-          "image": {
-            "type": "media",
-            "multiple": false,
-            "required": false,
-            "allowedTypes": [
-              "images",
-              "files",
-              "videos",
-              "audios"
-            ]
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "product",
-      "connection": "default",
-      "uid": "api::product.product",
-      "apiName": "product",
-      "globalId": "Product",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::shopping-cart.shopping-cart": {
-      "kind": "collectionType",
-      "collectionName": "shopping_carts",
-      "info": {
-        "singularName": "shopping-cart",
-        "pluralName": "shopping-carts",
-        "displayName": "Shopping cart"
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "products": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::product.product"
-        },
-        "users_permissions_user": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "plugin::users-permissions.user"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "shopping_carts",
-        "info": {
-          "singularName": "shopping-cart",
-          "pluralName": "shopping-carts",
-          "displayName": "Shopping cart"
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "products": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::product.product"
-          },
-          "users_permissions_user": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "plugin::users-permissions.user"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "shopping-cart",
-      "connection": "default",
-      "uid": "api::shopping-cart.shopping-cart",
-      "apiName": "shopping-cart",
-      "globalId": "ShoppingCart",
-      "actions": {},
-      "lifecycles": {}
-    },
     "plugin::upload.file": {
       "collectionName": "files",
       "info": {
@@ -1518,6 +1232,12 @@
           "inversedBy": "users",
           "configurable": false
         },
+        "phone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1623,6 +1343,12 @@
             "target": "plugin::users-permissions.role",
             "inversedBy": "users",
             "configurable": false
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
           }
         },
         "kind": "collectionType"
@@ -1633,6 +1359,492 @@
       "uid": "plugin::users-permissions.user",
       "plugin": "users-permissions",
       "globalId": "UsersPermissionsUser"
+    },
+    "api::category.category": {
+      "kind": "collectionType",
+      "collectionName": "categories",
+      "info": {
+        "singularName": "category",
+        "pluralName": "categories",
+        "displayName": "Category",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "categories",
+        "info": {
+          "singularName": "category",
+          "pluralName": "categories",
+          "displayName": "Category",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "category",
+      "connection": "default",
+      "uid": "api::category.category",
+      "apiName": "category",
+      "globalId": "Category",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::favorite.favorite": {
+      "kind": "collectionType",
+      "collectionName": "favorites",
+      "info": {
+        "singularName": "favorite",
+        "pluralName": "favorites",
+        "displayName": "Favorite",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "product": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::product.product"
+        },
+        "users_permissions_user": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "plugin::users-permissions.user"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "favorites",
+        "info": {
+          "singularName": "favorite",
+          "pluralName": "favorites",
+          "displayName": "Favorite",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "product": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::product.product"
+          },
+          "users_permissions_user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "favorite",
+      "connection": "default",
+      "uid": "api::favorite.favorite",
+      "apiName": "favorite",
+      "globalId": "Favorite",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::order.order": {
+      "kind": "collectionType",
+      "collectionName": "orders",
+      "info": {
+        "singularName": "order",
+        "pluralName": "orders",
+        "displayName": "Order",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "products": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::product.product"
+        },
+        "users_permissions_users": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "plugin::users-permissions.user"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "orders",
+        "info": {
+          "singularName": "order",
+          "pluralName": "orders",
+          "displayName": "Order",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "products": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::product.product"
+          },
+          "users_permissions_users": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "plugin::users-permissions.user"
+          },
+          "count": {
+            "type": "integer"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "order",
+      "connection": "default",
+      "uid": "api::order.order",
+      "apiName": "order",
+      "globalId": "Order",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::product.product": {
+      "kind": "collectionType",
+      "collectionName": "products",
+      "info": {
+        "singularName": "product",
+        "pluralName": "products",
+        "displayName": "Product",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "image": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "category": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::category.category"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "name",
+          "required": false
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "products",
+        "info": {
+          "singularName": "product",
+          "pluralName": "products",
+          "displayName": "Product",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "richtext"
+          },
+          "image": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "category": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::category.category"
+          },
+          "price": {
+            "type": "integer"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "name",
+            "required": false
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "product",
+      "connection": "default",
+      "uid": "api::product.product",
+      "apiName": "product",
+      "globalId": "Product",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::shopping-cart.shopping-cart": {
+      "kind": "collectionType",
+      "collectionName": "shopping_carts",
+      "info": {
+        "singularName": "shopping-cart",
+        "pluralName": "shopping-carts",
+        "displayName": "Shopping cart",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": true
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "users_permissions_user": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "plugin::users-permissions.user"
+        },
+        "product": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::product.product"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "publishedAt": {
+          "type": "datetime",
+          "configurable": false,
+          "writable": true,
+          "visible": false
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "shopping_carts",
+        "info": {
+          "singularName": "shopping-cart",
+          "pluralName": "shopping-carts",
+          "displayName": "Shopping cart",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": true
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "users_permissions_user": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user"
+          },
+          "product": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::product.product"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "shopping-cart",
+      "connection": "default",
+      "uid": "api::shopping-cart.shopping-cart",
+      "apiName": "shopping-cart",
+      "globalId": "ShoppingCart",
+      "actions": {},
+      "lifecycles": {}
     }
   },
   "type": "object",

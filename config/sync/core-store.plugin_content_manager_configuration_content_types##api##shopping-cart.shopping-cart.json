@@ -20,21 +20,6 @@
           "sortable": true
         }
       },
-      "products": {
-        "edit": {
-          "label": "products",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "products",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "users_permissions_user": {
         "edit": {
           "label": "users_permissions_user",
@@ -46,6 +31,21 @@
         },
         "list": {
           "label": "users_permissions_user",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "product": {
+        "edit": {
+          "label": "product",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "product",
           "searchable": true,
           "sortable": true
         }
@@ -82,14 +82,14 @@
     "layouts": {
       "list": [
         "id",
-        "products",
         "users_permissions_user",
-        "createdAt"
+        "createdAt",
+        "product"
       ],
       "edit": [],
       "editRelations": [
-        "products",
-        "users_permissions_user"
+        "users_permissions_user",
+        "product"
       ]
     }
   },

@@ -5,11 +5,99 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::favorite.favorite",
+      "properties": {
+        "fields": [
+          "product",
+          "users_permissions_user"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::favorite.favorite",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::favorite.favorite",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::favorite.favorite",
+      "properties": {
+        "fields": [
+          "product",
+          "users_permissions_user"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::favorite.favorite",
+      "properties": {
+        "fields": [
+          "product",
+          "users_permissions_user"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::order.order",
       "properties": {
         "fields": [
           "products",
-          "users_permissions_users"
+          "users_permissions_users",
+          "count"
         ]
       },
       "conditions": []
@@ -32,7 +120,8 @@
       "properties": {
         "fields": [
           "products",
-          "users_permissions_users"
+          "users_permissions_users",
+          "count"
         ]
       },
       "conditions": []
@@ -43,7 +132,8 @@
       "properties": {
         "fields": [
           "products",
-          "users_permissions_users"
+          "users_permissions_users",
+          "count"
         ]
       },
       "conditions": []
@@ -55,7 +145,10 @@
         "fields": [
           "name",
           "description",
-          "image"
+          "image",
+          "category",
+          "price",
+          "slug"
         ]
       },
       "conditions": []
@@ -79,7 +172,10 @@
         "fields": [
           "name",
           "description",
-          "image"
+          "image",
+          "category",
+          "price",
+          "slug"
         ]
       },
       "conditions": []
@@ -91,7 +187,10 @@
         "fields": [
           "name",
           "description",
-          "image"
+          "image",
+          "category",
+          "price",
+          "slug"
         ]
       },
       "conditions": []
@@ -101,8 +200,8 @@
       "subject": "api::shopping-cart.shopping-cart",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_user"
+          "users_permissions_user",
+          "product"
         ]
       },
       "conditions": []
@@ -124,8 +223,8 @@
       "subject": "api::shopping-cart.shopping-cart",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_user"
+          "users_permissions_user",
+          "product"
         ]
       },
       "conditions": []
@@ -135,8 +234,8 @@
       "subject": "api::shopping-cart.shopping-cart",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_user"
+          "users_permissions_user",
+          "product"
         ]
       },
       "conditions": []
@@ -292,7 +391,9 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "phone",
+          "address"
         ]
       },
       "conditions": []
@@ -316,7 +417,9 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "phone",
+          "address"
         ]
       },
       "conditions": []
@@ -334,7 +437,9 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "phone",
+          "address"
         ]
       },
       "conditions": []
