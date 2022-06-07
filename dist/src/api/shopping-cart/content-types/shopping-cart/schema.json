@@ -21,6 +21,10 @@
             "type": "relation",
             "relation": "oneToOne",
             "target": "api::product.product"
+        },
+        "uuid": {
+            "type": "uid",
+            "required": true
         }
     }
 }

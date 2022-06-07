@@ -10,6 +10,7 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "@strapi/icons": "^0.0.1-alpha.79",
     "@strapi/plugin-i18n": "4.2.0-beta.3",
     "@strapi/plugin-users-permissions": "4.2.0-beta.3",
     "@strapi/provider-email-nodemailer": "^4.1.12",
