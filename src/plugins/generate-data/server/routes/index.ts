@@ -8,4 +8,13 @@ export default [
             auth: false,
         },
     },
+    {
+        method: "POST",
+        path: "/flush/:contentType",
+        handler: "myController.flush",
+        config: {
+            policies: [],
+            auth: false,
+        },
+    },
 ];

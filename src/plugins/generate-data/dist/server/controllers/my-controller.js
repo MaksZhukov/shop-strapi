@@ -7,4 +7,8 @@ exports.default = ({ strapi }) => ({
             .service("myService")
             .getWelcomeMessage();
     },
+    flush(ctx) {
+        const { contentType } = ctx.params;
+        return strapi.entityService.deleteMany(contentType);
+    },
 });
