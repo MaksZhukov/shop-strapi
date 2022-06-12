@@ -10,38 +10,41 @@ import { Select, Option } from "@strapi/design-system/Select";
 import { Typography } from "@strapi/design-system/Typography";
 import { Box } from "@strapi/design-system/Box";
 import { faker } from "@faker-js/faker";
+import { Loader } from "@strapi/design-system/Loader";
 import {
-    BaseHeaderLayout,
     HeaderLayout,
     ContentLayout,
     Layout,
 } from "@strapi/design-system/Layout";
-import { Table, Thead, Tbody, Tr, Td, Th } from "@strapi/design-system/Table";
-import {
-    Dots,
-    NextLink,
-    PageLink,
-    Pagination,
-    PreviousLink,
-} from "@strapi/design-system/v2/Pagination";
 
 import { Flex } from "@strapi/design-system/Flex";
 import { Button } from "@strapi/design-system/Button";
 import { NumberInput } from "@strapi/design-system/NumberInput";
 import { Checkbox } from "@strapi/design-system/Checkbox";
-import pluginId from "../../pluginId";
+import { Alert } from "@strapi/design-system/Alert";
 import axios from "../../utils/axiosInstance";
+import GeneratedDataTable from "../../components/GeneratedDataTable/GeneratedDataTable";
+
+interface ContentType {
+    apiID: string;
+    uid: string;
+    schema: { attributes: { [key: string]: { type: string } } };
+}
 
 const COUNT_PAGINATION_ROWS = 25;
+const COUNT_UPLOADED_DATA_ONCE = 25;
 
 const includeTypes = ["integer", "string", "richtext"];
 
 const HomePage: React.VoidFunctionComponent = () => {
-    const [contentTypes, setContentTypes] = useState([]);
-    const [selectedTypeUID, setSelectedTypeUID] = useState(null);
-    const [values, setValues] = useState(null);
+    const [contentTypes, setContentTypes] = useState<ContentType[]>([]);
+    const [isUploadingData, setIsUploadingData] = useState<boolean>(false);
+    const [showAlert, setShowAlert] = useState<boolean>(false);
+    const [selectedTypeUID, setSelectedTypeUID] = useState<string | null>(null);
+    const [values, setValues] = useState<{
+        [key: string]: { count: number } | { min: number; max: number };
+    } | null>(null);
     const [count, setCount] = useState<number>(10);
-    const [activePage, setActivePage] = useState<number>(1);
     const [checkedAttributes, setCheckedAttributes] = useState<string[]>([]);
     const [generatedData, setGeneratedData] = useState([]);
     const [isFlushedPreviousData, setIsFlashedPreviousData] =
@@ -58,7 +61,7 @@ const HomePage: React.VoidFunctionComponent = () => {
 
     const selectedType = contentTypes.find(
         (item) => item.uid === selectedTypeUID
-    );
+    ) as unknown as ContentType;
 
     const attributes = selectedType
         ? Object.keys(selectedType.schema.attributes).reduce((prev, key) => {
@@ -73,7 +76,7 @@ const HomePage: React.VoidFunctionComponent = () => {
     useEffect(() => {
         if (attributes && !values) {
             let obj = {};
-            let newCheckedAttributes = [];
+            let newCheckedAttributes: string[] = [];
             Object.keys(attributes).forEach((key) => {
                 if (attributes[key].type === "integer") {
                     obj[key] = { min: 0, max: 10 };
@@ -98,40 +101,36 @@ const HomePage: React.VoidFunctionComponent = () => {
 
     const handleClickGenerate = () => {
         let data = [];
-        for (let i = 0; i < count; i++) {
-            let obj = {};
-            Object.keys(attributes)
-                .filter((key) => checkedAttributes.includes(key))
-                .forEach((key) => {
-                    if (attributes[key].type === "integer") {
-                        let { min, max } = values[key];
-                        obj[key] = faker.datatype.number({ min, max });
-                    }
-                    if (
-                        attributes[key].type === "string" ||
-                        "richtext" === attributes[key].type
-                    ) {
-                        let { count } = values[key];
-                        obj[key] = faker.random.words(count);
-                    }
-                });
-            data.push(obj);
+        if (attributes) {
+            for (let i = 0; i < count; i++) {
+                let obj = {};
+                Object.keys(attributes)
+                    .filter((key) => checkedAttributes.includes(key))
+                    .forEach((key) => {
+                        if (attributes[key].type === "integer") {
+                            let { min, max } = values[key];
+                            obj[key] = faker.datatype.number({ min, max });
+                        }
+                        if (
+                            attributes[key].type === "string" ||
+                            "richtext" === attributes[key].type
+                        ) {
+                            let { count } = values[key];
+                            obj[key] = faker.random.words(count);
+                        }
+                    });
+                data.push(obj);
+            }
         }
         setGeneratedData(data);
-        setActivePage(1);
     };
 
     const handleValueChange =
         (key: string, field: string) => (value: number) => {
-            console.log(value < 1);
             if (value > 0) {
                 setValues({ ...values, [key]: { [field]: value } });
             }
         };
-
-    const handleChangePagination = (page: number) => () => {
-        setActivePage(page);
-    };
 
     const handleChangeChecked = (key: string) => () => {
         if (checkedAttributes.includes(key)) {
@@ -148,17 +147,40 @@ const HomePage: React.VoidFunctionComponent = () => {
     };
 
     const handleUploadData = async () => {
-        if (isFlushedPreviousData) {
-            axios.post(`/generate-data/flush/${selectedType.uid}`);
+        setIsUploadingData(true);
+        setShowAlert(false);
+
+        if (selectedType) {
+            try {
+                if (isFlushedPreviousData) {
+                    await axios.post(
+                        `/generate-data/flush/${selectedType.uid}`
+                    );
+                }
+                let uploadData = async (data) => {
+                    if (!data.length) {
+                        return;
+                    }
+                    let dataByCount = data.slice(0, COUNT_UPLOADED_DATA_ONCE);
+                    await Promise.all(
+                        dataByCount.map((item) =>
+                            axios.post(
+                                `/content-manager/collection-types/${selectedType.uid}`,
+                                item
+                            )
+                        )
+                    );
+                    return uploadData(data.slice(COUNT_UPLOADED_DATA_ONCE));
+                };
+                await uploadData(generatedData);
+            } catch (err) {}
         }
-        await Promise.all(
-            generatedData.map((item) =>
-                axios.post(
-                    `/content-manager/collection-types/${selectedType.uid}`,
-                    item
-                )
-            )
-        );
+        setIsUploadingData(false);
+        setShowAlert(true);
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
     };
 
     let renderStringInput = (key: string) => (
@@ -225,7 +247,7 @@ const HomePage: React.VoidFunctionComponent = () => {
                         </Option>
                     ))}
                 </Select>
-                {selectedType &&
+                {attributes &&
                     values &&
                     Object.keys(attributes).map(
                         (key) => getAttributeInputs(key)[attributes[key].type]
@@ -244,74 +266,43 @@ const HomePage: React.VoidFunctionComponent = () => {
                         </Flex>
                     </Box>
                 )}
-                {!!generatedData.length && (
+                {generatedData && (
                     <>
-                        <Table
-                            footer={
-                                <Pagination
-                                    activePage={activePage}
-                                    pageCount={pageCount}
-                                    className="hello"
-                                >
-                                    {new Array(pageCount)
-                                        .fill(null)
-                                        .map((item, index) => (
-                                            <PageLink
-                                                number={index + 1}
-                                                onClick={handleChangePagination(
-                                                    index + 1
-                                                )}
-                                            >
-                                                Go to page {index + 1}
-                                            </PageLink>
-                                        ))}
-                                </Pagination>
-                            }
+                        <GeneratedDataTable
+                            data={generatedData}
+                        ></GeneratedDataTable>
+                        <Flex
+                            alignItems="center"
+                            marginTop="20px"
+                            marginBottom="20px"
+                            gap="20px"
                         >
-                            <Thead>
-                                <Tr>
-                                    <Th>row</Th>
-                                    {Object.keys(generatedData[0]).map(
-                                        (key) => (
-                                            <Th>{key}</Th>
-                                        )
-                                    )}
-                                </Tr>
-                            </Thead>
-                            <Tbody>
-                                {generatedData
-                                    .slice(
-                                        (activePage - 1) *
-                                            COUNT_PAGINATION_ROWS,
-                                        COUNT_PAGINATION_ROWS * activePage
-                                    )
-                                    .map((item, index) => (
-                                        <Tr>
-                                            <Td>
-                                                {index +
-                                                    1 +
-                                                    (activePage - 1) *
-                                                        COUNT_PAGINATION_ROWS}
-                                            </Td>
-                                            {Object.keys(item).map((key) => (
-                                                <Td>{item[key]}</Td>
-                                            ))}
-                                        </Tr>
-                                    ))}
-                            </Tbody>
-                        </Table>
-                        <Flex alignItems="center" paddingTop="20px" gap="20px">
                             <Checkbox
+                                disabled={isUploadingData}
                                 checked={isFlushedPreviousData}
                                 onChange={handleChangeIsFlushedPreviousData}
                             >
                                 Flush previous content type data before upload
                             </Checkbox>
-                            <Button onClick={handleUploadData}>
+                            <Button
+                                loading={isUploadingData}
+                                onClick={handleUploadData}
+                            >
                                 Upload data
                             </Button>
                         </Flex>
                     </>
+                )}
+                {showAlert && selectedType && (
+                    <Alert
+                        className="hello"
+                        variant="success"
+                        onClose={handleCloseAlert}
+                        closeLabel="Close alert"
+                        title="Uploaded Alert"
+                    >
+                        The data for <b>{selectedType.apiID}</b> was uploaded
+                    </Alert>
                 )}
             </ContentLayout>
         </Layout>
