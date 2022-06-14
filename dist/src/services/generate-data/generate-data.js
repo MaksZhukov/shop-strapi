@@ -18,7 +18,7 @@ let flushUploads = async (strapi) => {
     strapi.log.info("UPLOADS FLUSHED");
 };
 exports.flushUploads = flushUploads;
-let countProductsByChank = 10;
+let countProductsByChank = 5;
 let generateProducts = async (strapi, count = 50) => {
     if (count < 0) {
         strapi.log.info("GENERATE PRODUCTS FINISHED");
@@ -30,7 +30,7 @@ let generateProducts = async (strapi, count = 50) => {
         for (let i = 0; i < countProductsByChank; i++) {
             let data = {
                 id: faker_1.faker.unique(faker_1.faker.datatype.number),
-                name: faker_1.faker.commerce.product(),
+                name: faker_1.faker.random.words(10),
                 description: faker_1.faker.random.words(100),
                 price: faker_1.faker.datatype.number({ min: 20, max: 1000 }),
             };
@@ -56,7 +56,7 @@ let generateProducts = async (strapi, count = 50) => {
             }
             formData.append("ref", "api::product.product");
             formData.append("refId", items[index].id.toString());
-            formData.append("field", "image");
+            formData.append("field", "images");
             return axios_1.default.post("http://localhost:1337/api/upload", formData, { timeout: 600000 });
         }));
         (0, exports.generateProducts)(strapi, count - countProductsByChank);

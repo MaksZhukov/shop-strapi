@@ -22,9 +22,9 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-        // await Promise.all([flushProducts(strapi), flushUploads(strapi)]);
+        await Promise.all([flushProducts(strapi), flushUploads(strapi)]);
         setTimeout(() => {
-            // generateProducts(strapi);
-        }, 3000);
+            generateProducts(strapi);
+        }, 4000);
     },
 };

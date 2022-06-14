@@ -10,7 +10,8 @@ exports.default = strapi_1.factories.createCoreController("api::favorite.favorit
     async find(ctx) {
         const userId = ctx.state.user.id;
         ctx.query = {
-            populate: "product",
+            ...ctx.query,
+            populate: { product: { populate: "images" } },
             filters: {
                 users_permissions_user: userId,
             },

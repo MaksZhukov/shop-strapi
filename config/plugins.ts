@@ -34,6 +34,5 @@ export default () => ({
     },
     "generate-data": {
         enabled: true,
-        resolve: "./src/plugins/generate-data",
     },
 });
