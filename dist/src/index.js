@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const generate_data_1 = require("./services/generate-data/generate-data");
 exports.default = {
     /**
      * An asynchronous register function that runs before
@@ -17,9 +16,9 @@ exports.default = {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-        await Promise.all([(0, generate_data_1.flushProducts)(strapi), (0, generate_data_1.flushUploads)(strapi)]);
-        setTimeout(() => {
-            (0, generate_data_1.generateProducts)(strapi);
-        }, 4000);
+        // await Promise.all([flushProducts(strapi), flushUploads(strapi)]);
+        // setTimeout(() => {
+        //     generateProducts(strapi);
+        // }, 4000);
     },
 };

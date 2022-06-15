@@ -6,7 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateProducts = exports.flushUploads = exports.flushProducts = void 0;
 const faker_1 = require("@faker-js/faker");
 const axios_1 = __importDefault(require("axios"));
+const https_1 = __importDefault(require("https"));
 const form_data_1 = __importDefault(require("form-data"));
+const client = axios_1.default.create({
+    timeout: 600000,
+    maxContentLength: 500 * 1000 * 1000,
+    httpsAgent: new https_1.default.Agent({ keepAlive: true })
+});
 let flushProducts = async (strapi) => {
     await strapi.entityService.deleteMany("api::product.product");
     strapi.log.info("PRODUCTS FLUSHED");
@@ -18,9 +24,9 @@ let flushUploads = async (strapi) => {
     strapi.log.info("UPLOADS FLUSHED");
 };
 exports.flushUploads = flushUploads;
-let countProductsByChank = 5;
-let generateProducts = async (strapi, count = 50) => {
-    if (count < 0) {
+let countProductsByChank = 100;
+let generateProducts = async (strapi, count = 10000) => {
+    if (count <= 0) {
         strapi.log.info("GENERATE PRODUCTS FINISHED");
         return;
     }
@@ -45,7 +51,7 @@ let generateProducts = async (strapi, count = 50) => {
             .map(() => new Array(faker_1.faker.datatype.number({ min: 3, max: 6 }))
             .fill(null)
             .map(() => faker_1.faker.image.image()));
-        let imagesResponse = await Promise.all(imageUrls.map((urls) => Promise.all(urls.map((url) => (0, axios_1.default)(url, { responseType: "arraybuffer" })))));
+        let imagesResponse = await Promise.all(imageUrls.map((urls) => Promise.all(urls.map((url) => client(url, { responseType: "arraybuffer" })))));
         await Promise.all(new Array(countProductsByChank).fill(null).map((el, index) => {
             let formData = new form_data_1.default();
             for (let i = 0; i < imagesResponse[index].length; i++) {
@@ -57,11 +63,12 @@ let generateProducts = async (strapi, count = 50) => {
             formData.append("ref", "api::product.product");
             formData.append("refId", items[index].id.toString());
             formData.append("field", "images");
-            return axios_1.default.post("http://localhost:1337/api/upload", formData, { timeout: 600000 });
+            return client.post("http://localhost:1337/api/upload", formData);
         }));
         (0, exports.generateProducts)(strapi, count - countProductsByChank);
     }
     catch (err) {
+        console.log(err);
         strapi.log.error("Error", err);
     }
 };

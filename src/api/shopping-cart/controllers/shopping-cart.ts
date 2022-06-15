@@ -19,7 +19,6 @@ export default factories.createCoreController(
         },
 
         create(ctx) {
-            console.log("hello");
             const userId = ctx.state.user.id;
             ctx.query = { populate: "product" };
             ctx.request.body.data.users_permissions_user = userId;

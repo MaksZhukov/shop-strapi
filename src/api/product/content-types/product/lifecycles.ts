@@ -13,4 +13,12 @@ export default {
             data.slug = slugify(data.name, { lower: true }) + "-" + data.id;
         }
     },
+    async beforeDelete(event) {
+        const { id } = event.params.where;
+        await Promise.all([
+            strapi.db
+                .query("api::favorite.favorite").delete({ where: { product: id } }),
+            strapi.db.query('api::shopping-cart.shopping-cart').delete({ where: { product: id } })
+        ];
+    }
 };

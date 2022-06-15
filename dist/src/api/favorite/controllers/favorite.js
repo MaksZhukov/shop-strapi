@@ -20,7 +20,7 @@ exports.default = strapi_1.factories.createCoreController("api::favorite.favorit
     },
     async create(ctx) {
         const userId = ctx.state.user.id;
-        ctx.query = { populate: "product" };
+        ctx.query = { populate: { product: { populate: 'images' } } };
         ctx.request.body.data.users_permissions_user = userId;
         ctx.request.body.data.uuid = `${userId}-${ctx.request.body.data.product}`;
         return await super.create(ctx);

@@ -1,6 +1,13 @@
 import { faker } from "@faker-js/faker";
 import axios from "axios";
+import https from 'https';
 import FormData from "form-data";
+
+const client = axios.create({
+    timeout: 600000,
+    maxContentLength: 500 * 1000 * 1000,
+    httpsAgent: new https.Agent({ keepAlive: true })
+})
 
 export let flushProducts = async (strapi) => {
     await strapi.entityService.deleteMany("api::product.product");
@@ -17,10 +24,11 @@ export let flushUploads = async (strapi) => {
     strapi.log.info("UPLOADS FLUSHED");
 };
 
-let countProductsByChank = 5;
+let countProductsByChank = 100;
 
-export let generateProducts = async (strapi, count = 50) => {
-    if (count < 0) {
+
+export let generateProducts = async (strapi, count = 10000) => {
+    if (count <= 0) {
         strapi.log.info("GENERATE PRODUCTS FINISHED");
         return;
     }
@@ -56,7 +64,7 @@ export let generateProducts = async (strapi, count = 50) => {
             imageUrls.map((urls) =>
                 Promise.all(
                     urls.map((url) =>
-                        axios(url, { responseType: "arraybuffer" })
+                        client(url, { responseType: "arraybuffer" })
                     )
                 )
             )
@@ -79,15 +87,15 @@ export let generateProducts = async (strapi, count = 50) => {
                 formData.append("ref", "api::product.product");
                 formData.append("refId", items[index].id.toString());
                 formData.append("field", "images");
-                return axios.post(
+                return client.post(
                     "http://localhost:1337/api/upload",
-                    formData,
-                    { timeout: 600000 }
+                    formData
                 );
             })
         );
         generateProducts(strapi, count - countProductsByChank);
     } catch (err) {
+        console.log(err)
         strapi.log.error("Error", err);
     }
 };

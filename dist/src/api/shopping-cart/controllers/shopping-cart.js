@@ -16,7 +16,6 @@ exports.default = strapi_1.factories.createCoreController("api::shopping-cart.sh
         return super.find(ctx);
     },
     create(ctx) {
-        console.log("hello");
         const userId = ctx.state.user.id;
         ctx.query = { populate: "product" };
         ctx.request.body.data.users_permissions_user = userId;
