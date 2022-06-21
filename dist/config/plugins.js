@@ -34,7 +34,4 @@ exports.default = () => ({
             },
         },
     },
-    "generate-data": {
-        enabled: true,
-    },
 });
