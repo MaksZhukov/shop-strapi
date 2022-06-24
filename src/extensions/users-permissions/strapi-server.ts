@@ -7,16 +7,16 @@ export default (plugin) => {
         }
         ctx.params.id = id;
         return plugin.controllers.user.update(ctx);
-    }
+    };
 
-    plugin.routes['content-api'].routes.unshift({
+    plugin.routes["content-api"].routes.unshift({
         method: "PUT",
         path: "/users/me",
-        handler: 'user.updateMe',
+        handler: "user.updateMe",
         config: {
-            prefix: ''
-        }
+            prefix: "",
+        },
     });
 
     return plugin;
-}
+};

@@ -13,13 +13,13 @@
     "pluginOptions": {},
     "attributes": {
         "description": {
-            "type": "richtext"
-        },
-        "title": {
-            "type": "string"
+            "type": "richtext",
+            "required": false,
+            "maxLength": 500
         },
         "authorName": {
-            "type": "string"
+            "type": "string",
+            "required": true
         },
         "rating": {
             "type": "integer",
