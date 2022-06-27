@@ -34,5 +34,6 @@ export default () => ({
     },
     "generate-data": {
         enabled: true,
+        resolve: "./src/plugins/strapi-plugin-generate-data",
     },
 });
