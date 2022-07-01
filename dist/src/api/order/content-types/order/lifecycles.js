@@ -2,6 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     afterCreate(event) {
-        // TODO: Send request to
+        // TODO: Send request to 1c
     },
 };
