@@ -18,6 +18,11 @@ export default {
         {
             method: "DELETE",
             path: "/shopping-cart",
+            handler: "shopping-cart.deleteMany",
+        },
+        {
+            method: "DELETE",
+            path: "/shopping-cart/:id",
             handler: "shopping-cart.delete",
         },
     ],

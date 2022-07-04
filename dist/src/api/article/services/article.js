@@ -1,7 +1,7 @@
 "use strict";
 /**
- * review router.
+ * article service.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const strapi_1 = require("@strapi/strapi");
-exports.default = strapi_1.factories.createCoreRouter("api::review.review");
+exports.default = strapi_1.factories.createCoreService('api::article.article');

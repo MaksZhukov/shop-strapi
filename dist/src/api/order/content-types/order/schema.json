@@ -12,15 +12,22 @@
     },
     "pluginOptions": {},
     "attributes": {
+        "username": {
+            "type": "string"
+        },
+        "email": {
+            "type": "email"
+        },
+        "address": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
         "products": {
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::product.product"
-        },
-        "users_permissions_users": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "plugin::users-permissions.user"
         }
     }
 }
