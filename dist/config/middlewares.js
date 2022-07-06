@@ -11,4 +11,5 @@ exports.default = [
     'strapi::session',
     'strapi::favicon',
     'strapi::public',
+    'api::favorite.middleware'
 ];

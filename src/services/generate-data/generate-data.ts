@@ -27,7 +27,7 @@ export let flushUploads = async (strapi) => {
 let countProductsByChank = 100;
 
 
-export let generateProducts = async (strapi, count = 10000) => {
+export let generateProducts = async (strapi, count = 100) => {
     if (count <= 0) {
         strapi.log.info("GENERATE PRODUCTS FINISHED");
         return;
@@ -42,6 +42,7 @@ export let generateProducts = async (strapi, count = 10000) => {
                 name: faker.random.words(10),
                 description: faker.random.words(100),
                 price: faker.datatype.number({ min: 20, max: 1000 }),
+                publishedAt: new Date()
             };
             items.push(data);
             promisesProducts.push(
