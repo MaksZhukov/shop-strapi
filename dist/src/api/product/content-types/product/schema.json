@@ -54,6 +54,18 @@
         },
         "year": {
             "type": "integer"
+        },
+        "fuel": {
+            "type": "string"
+        },
+        "volume": {
+            "type": "decimal"
+        },
+        "transmission": {
+            "type": "string"
+        },
+        "bodyStyle": {
+            "type": "string"
         }
     }
 }
