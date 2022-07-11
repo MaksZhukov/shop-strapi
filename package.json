@@ -22,7 +22,7 @@
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.2",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
-        "strapi-plugin-generate-data": "^1.0.9",
+        "strapi-plugin-generate-data": "^1.0.10",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-transformer": "^2.0.2",
         "strapi-utils": "^3.6.10"

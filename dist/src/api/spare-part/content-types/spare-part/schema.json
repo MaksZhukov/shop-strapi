@@ -1,0 +1,18 @@
+{
+    "kind": "collectionType",
+    "collectionName": "spare_parts",
+    "info": {
+        "singularName": "spare-part",
+        "pluralName": "spare-parts",
+        "displayName": "Spare part"
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        }
+    }
+}
