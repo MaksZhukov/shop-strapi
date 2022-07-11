@@ -26,11 +26,6 @@
                 "images"
             ]
         },
-        "category": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "api::category.category"
-        },
         "price": {
             "type": "integer"
         },
@@ -50,6 +45,15 @@
             "relation": "manyToOne",
             "target": "api::model.model",
             "inversedBy": "products"
+        },
+        "sparePart": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::spare-part.spare-part",
+            "inversedBy": "products"
+        },
+        "year": {
+            "type": "integer"
         }
     }
 }
