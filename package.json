@@ -10,6 +10,7 @@
         "strapi": "strapi"
     },
     "dependencies": {
+        "@abskmj/exchangeratesapi": "^3.0.1",
         "@strapi/icons": "^1.2.0",
         "@strapi/plugin-i18n": "4.2.0-beta.4",
         "@strapi/plugin-users-permissions": "4.2.0-beta.4",

@@ -1,4 +1,3 @@
-import { StrapiInterface } from "@strapi/strapi";
 import {
     flushProducts,
     flushUploads,

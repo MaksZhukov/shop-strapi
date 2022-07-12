@@ -54,6 +54,27 @@
         },
         "year": {
             "type": "integer"
+        },
+        "fuel": {
+            "type": "string"
+        },
+        "bodyStyle": {
+            "type": "string"
+        },
+        "transmission": {
+            "type": "string"
+        },
+        "generation": {
+            "type": "string"
+        },
+        "vendorCode": {
+            "type": "uid"
+        },
+        "number": {
+            "type": "string"
+        },
+        "priceUSD": {
+            "type": "decimal"
         }
     }
 }
