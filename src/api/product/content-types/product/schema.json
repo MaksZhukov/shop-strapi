@@ -66,6 +66,9 @@
     },
     "bodyStyle": {
       "type": "string"
+    },
+    "generation": {
+      "type": "string"
     }
   }
 }
