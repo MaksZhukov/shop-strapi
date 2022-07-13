@@ -58,14 +58,33 @@
     "fuel": {
       "type": "string"
     },
+<<<<<<< HEAD
     "volume": {
       "type": "decimal"
+=======
+    "bodyStyle": {
+      "type": "string"
+>>>>>>> 3398ef4749b639b94ed467686fb367137c7c1a7b
     },
     "transmission": {
       "type": "string"
     },
+<<<<<<< HEAD
     "bodyStyle": {
       "type": "string"
+=======
+    "generation": {
+      "type": "string"
+    },
+    "vendorCode": {
+      "type": "uid"
+    },
+    "number": {
+      "type": "string"
+    },
+    "priceUSD": {
+      "type": "decimal"
+>>>>>>> 3398ef4749b639b94ed467686fb367137c7c1a7b
     }
   }
 }
