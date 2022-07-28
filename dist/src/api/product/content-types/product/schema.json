@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
     "kind": "collectionType",
     "collectionName": "products",
@@ -23,9 +22,7 @@
             "type": "media",
             "multiple": true,
             "required": false,
-            "allowedTypes": [
-                "images"
-            ]
+            "allowedTypes": ["images"]
         },
         "price": {
             "type": "integer"
@@ -70,79 +67,9 @@
         },
         "generation": {
             "type": "string"
-        }
-    }
-}
-=======
-{
-    "kind": "collectionType",
-    "collectionName": "products",
-    "info": {
-        "singularName": "product",
-        "pluralName": "products",
-        "displayName": "Product",
-        "description": ""
-    },
-    "options": {
-        "draftAndPublish": false
-    },
-    "pluginOptions": {},
-    "attributes": {
-        "name": {
-            "type": "string"
         },
-        "description": {
-            "type": "richtext"
-        },
-        "images": {
-            "type": "media",
-            "multiple": true,
-            "required": false,
-            "allowedTypes": [
-                "images"
-            ]
-        },
-        "price": {
-            "type": "integer"
-        },
-        "slug": {
-            "type": "uid",
-            "targetField": "name",
-            "required": false
-        },
-        "brand": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::brand.brand",
-            "inversedBy": "products"
-        },
-        "model": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::model.model",
-            "inversedBy": "products"
-        },
-        "sparePart": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::spare-part.spare-part",
-            "inversedBy": "products"
-        },
-        "year": {
-            "type": "integer"
-        },
-        "fuel": {
-            "type": "string"
-        },
-        "volume": {
+        "priceUSD": {
             "type": "decimal"
-        },
-        "transmission": {
-            "type": "string"
-        },
-        "bodyStyle": {
-            "type": "string"
         }
     }
 }
->>>>>>> b8904ba89e5860fe80f3613021019fbf98f9d8ed
