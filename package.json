@@ -21,6 +21,7 @@
         "form-data": "^4.0.0",
         "koa2-ratelimit": "^1.1.1",
         "mysql": "2.18.1",
+        "qs": "^6.11.0",
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.2",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
