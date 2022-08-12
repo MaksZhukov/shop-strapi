@@ -3,6 +3,7 @@ import {
     flushUploads,
     generateProducts,
 } from "./services/generate-data/generate-data";
+console.log("hello");
 
 export default {
     /**
