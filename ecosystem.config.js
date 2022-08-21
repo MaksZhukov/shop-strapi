@@ -19,6 +19,9 @@ module.exports = {
         {
             script: "server.js",
             instances: "max",
+            env: {
+                NODE_ENV: "production",
+            },
             exec_mode: "cluster",
         },
     ],
