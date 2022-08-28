@@ -45,9 +45,11 @@ export default factories.createCoreController(
                         brand: true,
                     },
                 });
-            entity.priceUSD = entity.price * coefficient;
-            const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-            return this.transformResponse(sanitizedEntity);
+            if (entity) {
+                entity.priceUSD = entity.price * coefficient;
+                const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+                return this.transformResponse(sanitizedEntity);
+            }
         },
         async find(ctx) {
             const response = await super.find(ctx);

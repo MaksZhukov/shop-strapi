@@ -18,11 +18,11 @@ module.exports = {
         // },
         {
             script: "server.js",
-            instances: "max",
+            // instances: "max",
             env: {
                 NODE_ENV: "production",
             },
-            exec_mode: "cluster",
+            // exec_mode: "cluster",
         },
     ],
 };
