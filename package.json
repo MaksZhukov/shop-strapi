@@ -23,11 +23,12 @@
         "mysql": "2.18.1",
         "qs": "^6.11.0",
         "slugify": "^1.6.5",
-        "strapi-plugin-config-sync": "^1.0.2",
+        "strapi-plugin-config-sync": "^1.0.3",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
-        "strapi-plugin-generate-data": "^1.0.12",
+        "strapi-plugin-generate-data": "^1.0.15",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-transformer": "^2.0.2",
+        "strapi-provider-email-smtp": "^1.0.3",
         "strapi-utils": "^3.6.10"
     },
     "author": {
@@ -42,7 +43,7 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@faker-js/faker": "^7.3.0",
+        "@faker-js/faker": "^7.4.0",
         "typescript": "^4.7.4"
     }
 }

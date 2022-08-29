@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
     migrations: {
         enabled: true,
         config: {
@@ -34,6 +34,25 @@ export default () => ({
     },
     "generate-data": {
         enabled: true,
-        resolve: "./src/plugins/strapi-plugin-generate-data",
+    },
+    email: {
+        config: {
+            provider: "strapi-provider-email-smtp",
+            providerOptions: {
+                host: env("SMTP_HOST"), //SMTP Host
+                port: 465, //SMTP Port
+                secure: true,
+                username: env("SMTP_USERNAME"),
+                password: env("SMTP_PASSWORD"),
+                rejectUnauthorized: true,
+                requireTLS: true,
+                connectionTimeout: 1,
+            },
+        },
+        settings: {
+            defaultFrom: env("SMTP_USERNAME"),
+            defaultReplyTo: env("SMTP_USERNAME"),
+            testAddress: env("SMTP_USERNAME"),
+        },
     },
 });
