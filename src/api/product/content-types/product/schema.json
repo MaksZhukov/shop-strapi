@@ -1,75 +1,74 @@
 {
-    "kind": "collectionType",
-    "collectionName": "products",
-    "info": {
-        "singularName": "product",
-        "pluralName": "products",
-        "displayName": "Product",
-        "description": ""
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
     },
-    "options": {
-        "draftAndPublish": false
+    "description": {
+      "type": "richtext"
     },
-    "pluginOptions": {},
-    "attributes": {
-        "name": {
-            "type": "string"
-        },
-        "description": {
-            "type": "richtext"
-        },
-        "images": {
-            "type": "media",
-            "multiple": true,
-            "required": false,
-            "allowedTypes": ["images"]
-        },
-        "price": {
-            "type": "integer"
-        },
-        "slug": {
-            "type": "uid",
-            "targetField": "name",
-            "required": false
-        },
-        "brand": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::brand.brand",
-            "inversedBy": "products"
-        },
-        "model": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::model.model",
-            "inversedBy": "products"
-        },
-        "sparePart": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::spare-part.spare-part",
-            "inversedBy": "products"
-        },
-        "year": {
-            "type": "integer"
-        },
-        "fuel": {
-            "type": "string"
-        },
-        "volume": {
-            "type": "decimal"
-        },
-        "transmission": {
-            "type": "string"
-        },
-        "bodyStyle": {
-            "type": "string"
-        },
-        "generation": {
-            "type": "string"
-        },
-        "priceUSD": {
-            "type": "decimal"
-        }
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": false
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "products"
+    },
+    "sparePart": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::spare-part.spare-part",
+      "inversedBy": "products"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "transmission": {
+      "type": "string"
+    },
+    "bodyStyle": {
+      "type": "string"
+    },
+    "generation": {
+      "type": "string"
+    },
+    "priceUSD": {
+      "type": "decimal"
     }
+  }
 }

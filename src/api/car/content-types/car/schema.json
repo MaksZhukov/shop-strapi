@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars",
+  "info": {
+    "singularName": "car",
+    "pluralName": "cars",
+    "displayName": "Car",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "cars"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "cars"
+    },
+    "manufactureDate": {
+      "type": "date"
+    },
+    "deliveryDate": {
+      "type": "date"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "mileage": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "fuel": {
+      "type": "enumeration",
+      "enum": [
+        "бензин",
+        "дизель",
+        "электро",
+        "гибрид"
+      ]
+    }
+  }
+}
