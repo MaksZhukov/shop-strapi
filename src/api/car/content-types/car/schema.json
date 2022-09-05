@@ -55,6 +55,10 @@
         "электро",
         "гибрид"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
