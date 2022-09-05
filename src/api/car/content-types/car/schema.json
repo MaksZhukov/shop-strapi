@@ -41,12 +41,6 @@
     "volume": {
       "type": "decimal"
     },
-    "mileage": {
-      "type": "integer"
-    },
-    "name": {
-      "type": "string"
-    },
     "fuel": {
       "type": "enumeration",
       "enum": [
@@ -58,7 +52,16 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "bodyStyle"
+    },
+    "generation": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "bodyStyle": {
+      "type": "string"
     }
   }
 }
