@@ -62,6 +62,9 @@
     },
     "bodyStyle": {
       "type": "string"
+    },
+    "mileage": {
+      "type": "integer"
     }
   }
 }
