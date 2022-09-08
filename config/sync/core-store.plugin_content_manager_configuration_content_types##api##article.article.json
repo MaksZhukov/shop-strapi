@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::favorite.favorite",
+  "key": "plugin_content_manager_configuration_content_types::api::article.article",
   "value": {
-    "uid": "api::favorite.favorite",
+    "uid": "api::article.article",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "title",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,48 +20,32 @@
           "sortable": true
         }
       },
-      "product": {
+      "title": {
         "edit": {
-          "label": "product",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "product",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "users_permissions_user": {
-        "edit": {
-          "label": "users_permissions_user",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "username"
-        },
-        "list": {
-          "label": "users_permissions_user",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "uuid": {
-        "edit": {
-          "label": "uuid",
+          "label": "title",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "uuid",
+          "label": "title",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -96,19 +80,22 @@
     "layouts": {
       "list": [
         "id",
-        "product",
-        "users_permissions_user",
-        "uuid"
+        "title",
+        "createdAt",
+        "updatedAt"
       ],
-      "editRelations": [
-        "product",
-        "users_permissions_user"
-      ],
+      "editRelations": [],
       "edit": [
         [
           {
-            "name": "uuid",
+            "name": "title",
             "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 12
           }
         ]
       ]

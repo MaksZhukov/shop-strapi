@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::order.order",
+  "key": "plugin_content_manager_configuration_content_types::api::tire.tire",
   "value": {
-    "uid": "api::order.order",
+    "uid": "api::tire.tire",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "username",
-      "defaultSortBy": "username",
+      "mainField": "diameter",
+      "defaultSortBy": "diameter",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,75 +20,102 @@
           "sortable": true
         }
       },
-      "username": {
+      "diameter": {
         "edit": {
-          "label": "username",
+          "label": "diameter",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "username",
+          "label": "diameter",
           "searchable": true,
           "sortable": true
         }
       },
-      "email": {
+      "width": {
         "edit": {
-          "label": "email",
+          "label": "width",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "email",
+          "label": "width",
           "searchable": true,
           "sortable": true
         }
       },
-      "address": {
+      "height": {
         "edit": {
-          "label": "address",
+          "label": "height",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "address",
+          "label": "height",
           "searchable": true,
           "sortable": true
         }
       },
-      "phone": {
+      "season": {
         "edit": {
-          "label": "phone",
+          "label": "season",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "phone",
+          "label": "season",
           "searchable": true,
           "sortable": true
         }
       },
-      "products": {
+      "brand": {
         "edit": {
-          "label": "products",
+          "label": "brand",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "name"
+          "editable": true
         },
         "list": {
-          "label": "products",
-          "searchable": false,
-          "sortable": false
+          "label": "brand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "price",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "price",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "priceUSD": {
+        "edit": {
+          "label": "priceUSD",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "priceUSD",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
@@ -123,32 +150,46 @@
     "layouts": {
       "list": [
         "id",
-        "username",
-        "email",
-        "address"
+        "diameter",
+        "width",
+        "height"
       ],
-      "editRelations": [
-        "products"
-      ],
+      "editRelations": [],
       "edit": [
         [
           {
-            "name": "username",
+            "name": "diameter",
             "size": 6
           },
           {
-            "name": "email",
+            "name": "width",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "height",
+            "size": 4
+          },
+          {
+            "name": "season",
             "size": 6
           }
         ],
         [
           {
-            "name": "address",
+            "name": "brand",
             "size": 6
           },
           {
-            "name": "phone",
-            "size": 6
+            "name": "price",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "priceUSD",
+            "size": 4
           }
         ]
       ]

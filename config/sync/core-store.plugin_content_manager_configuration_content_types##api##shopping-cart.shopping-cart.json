@@ -50,6 +50,20 @@
           "sortable": true
         }
       },
+      "uuid": {
+        "edit": {
+          "label": "uuid",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uuid",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -83,13 +97,20 @@
       "list": [
         "id",
         "users_permissions_user",
-        "createdAt",
-        "product"
+        "product",
+        "uuid"
       ],
-      "edit": [],
       "editRelations": [
         "users_permissions_user",
         "product"
+      ],
+      "edit": [
+        [
+          {
+            "name": "uuid",
+            "size": 6
+          }
+        ]
       ]
     }
   },

@@ -4,10 +4,40 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::product.product.create"
+      "action": "api::article.article.find"
     },
     {
-      "action": "api::product.product.delete"
+      "action": "api::article.article.findOne"
+    },
+    {
+      "action": "api::brand.brand.find"
+    },
+    {
+      "action": "api::brand.brand.findOne"
+    },
+    {
+      "action": "api::car.car.find"
+    },
+    {
+      "action": "api::car.car.findOne"
+    },
+    {
+      "action": "api::favorite.favorite.find"
+    },
+    {
+      "action": "api::favorite.favorite.findOne"
+    },
+    {
+      "action": "api::model.model.find"
+    },
+    {
+      "action": "api::model.model.findOne"
+    },
+    {
+      "action": "api::order.order.find"
+    },
+    {
+      "action": "api::order.order.findOne"
     },
     {
       "action": "api::product.product.find"
@@ -16,7 +46,31 @@
       "action": "api::product.product.findOne"
     },
     {
-      "action": "api::product.product.update"
+      "action": "api::review.review.checkStatus"
+    },
+    {
+      "action": "api::review.review.create"
+    },
+    {
+      "action": "api::review.review.find"
+    },
+    {
+      "action": "api::review.review.findOne"
+    },
+    {
+      "action": "api::review.review.update"
+    },
+    {
+      "action": "api::spare-part.spare-part.find"
+    },
+    {
+      "action": "api::spare-part.spare-part.findOne"
+    },
+    {
+      "action": "api::wheel.wheel.find"
+    },
+    {
+      "action": "api::wheel.wheel.findOne"
     },
     {
       "action": "plugin::email.email.send"
@@ -25,7 +79,7 @@
       "action": "plugin::upload.content-api.find"
     },
     {
-      "action": "plugin::upload.content-api.upload"
+      "action": "plugin::upload.content-api.findOne"
     },
     {
       "action": "plugin::users-permissions.auth.callback"

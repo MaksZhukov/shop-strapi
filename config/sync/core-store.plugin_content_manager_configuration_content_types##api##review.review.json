@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::favorite.favorite",
+  "key": "plugin_content_manager_configuration_content_types::api::review.review",
   "value": {
-    "uid": "api::favorite.favorite",
+    "uid": "api::review.review",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "authorName",
+      "defaultSortBy": "authorName",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,46 +20,58 @@
           "sortable": true
         }
       },
-      "product": {
+      "description": {
         "edit": {
-          "label": "product",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "product",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "users_permissions_user": {
-        "edit": {
-          "label": "users_permissions_user",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "username"
-        },
-        "list": {
-          "label": "users_permissions_user",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "uuid": {
-        "edit": {
-          "label": "uuid",
+          "label": "description",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "uuid",
+          "label": "description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "authorName": {
+        "edit": {
+          "label": "authorName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "authorName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "rating": {
+        "edit": {
+          "label": "rating",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "rating",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "email": {
+        "edit": {
+          "label": "email",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "email",
           "searchable": true,
           "sortable": true
         }
@@ -96,18 +108,31 @@
     "layouts": {
       "list": [
         "id",
-        "product",
-        "users_permissions_user",
-        "uuid"
+        "authorName",
+        "rating",
+        "email"
       ],
-      "editRelations": [
-        "product",
-        "users_permissions_user"
-      ],
+      "editRelations": [],
       "edit": [
         [
           {
-            "name": "uuid",
+            "name": "description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "authorName",
+            "size": 6
+          },
+          {
+            "name": "rating",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "email",
             "size": 6
           }
         ]

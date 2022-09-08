@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::plugin::upload.file",
+  "key": "plugin_content_manager_configuration_content_types::api::car.car",
   "value": {
-    "uid": "plugin::upload.file",
+    "uid": "api::car.car",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "generation",
+      "defaultSortBy": "generation",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,205 +20,23 @@
           "sortable": true
         }
       },
-      "name": {
+      "images": {
         "edit": {
-          "label": "name",
+          "label": "images",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "alternativeText": {
-        "edit": {
-          "label": "alternativeText",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "alternativeText",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "caption": {
-        "edit": {
-          "label": "caption",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "caption",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "width": {
-        "edit": {
-          "label": "width",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "width",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "height": {
-        "edit": {
-          "label": "height",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "height",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "formats": {
-        "edit": {
-          "label": "formats",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "formats",
+          "label": "images",
           "searchable": false,
           "sortable": false
         }
       },
-      "hash": {
+      "brand": {
         "edit": {
-          "label": "hash",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "hash",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "ext": {
-        "edit": {
-          "label": "ext",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "ext",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "mime": {
-        "edit": {
-          "label": "mime",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "mime",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "size": {
-        "edit": {
-          "label": "size",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "size",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "url": {
-        "edit": {
-          "label": "url",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "url",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "previewUrl": {
-        "edit": {
-          "label": "previewUrl",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "previewUrl",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "provider": {
-        "edit": {
-          "label": "provider",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "provider",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "provider_metadata": {
-        "edit": {
-          "label": "provider_metadata",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "provider_metadata",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "folder": {
-        "edit": {
-          "label": "folder",
+          "label": "brand",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -226,21 +44,148 @@
           "mainField": "name"
         },
         "list": {
-          "label": "folder",
+          "label": "brand",
           "searchable": true,
           "sortable": true
         }
       },
-      "folderPath": {
+      "model": {
         "edit": {
-          "label": "folderPath",
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "manufactureDate": {
+        "edit": {
+          "label": "manufactureDate",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "folderPath",
+          "label": "manufactureDate",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "deliveryDate": {
+        "edit": {
+          "label": "deliveryDate",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "deliveryDate",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "volume": {
+        "edit": {
+          "label": "volume",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "volume",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "fuel": {
+        "edit": {
+          "label": "fuel",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "fuel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "engine": {
+        "edit": {
+          "label": "engine",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "engine",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "bodyStyle": {
+        "edit": {
+          "label": "bodyStyle",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "bodyStyle",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "mileage": {
+        "edit": {
+          "label": "mileage",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "mileage",
           "searchable": true,
           "sortable": true
         }
@@ -277,94 +222,65 @@
     "layouts": {
       "list": [
         "id",
-        "name",
-        "alternativeText",
-        "caption"
+        "images",
+        "brand",
+        "model"
+      ],
+      "editRelations": [
+        "brand",
+        "model"
       ],
       "edit": [
         [
           {
-            "name": "name",
+            "name": "images",
             "size": 6
           },
           {
-            "name": "alternativeText",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "caption",
-            "size": 6
-          },
-          {
-            "name": "width",
+            "name": "manufactureDate",
             "size": 4
           }
         ],
         [
           {
-            "name": "height",
+            "name": "deliveryDate",
+            "size": 4
+          },
+          {
+            "name": "volume",
             "size": 4
           }
         ],
         [
           {
-            "name": "formats",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "hash",
+            "name": "fuel",
             "size": 6
           },
           {
-            "name": "ext",
+            "name": "slug",
             "size": 6
           }
         ],
         [
           {
-            "name": "mime",
+            "name": "generation",
             "size": 6
           },
           {
-            "name": "size",
+            "name": "engine",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "bodyStyle",
+            "size": 6
+          },
+          {
+            "name": "mileage",
             "size": 4
-          }
-        ],
-        [
-          {
-            "name": "url",
-            "size": 6
-          },
-          {
-            "name": "previewUrl",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "provider",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "provider_metadata",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "folderPath",
-            "size": 6
           }
         ]
-      ],
-      "editRelations": [
-        "folder"
       ]
     }
   },

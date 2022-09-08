@@ -48,33 +48,18 @@
           "sortable": false
         }
       },
-      "image": {
+      "images": {
         "edit": {
-          "label": "image",
+          "label": "images",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "image",
+          "label": "images",
           "searchable": false,
           "sortable": false
-        }
-      },
-      "category": {
-        "edit": {
-          "label": "category",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "category",
-          "searchable": true,
-          "sortable": true
         }
       },
       "price": {
@@ -101,6 +86,135 @@
         },
         "list": {
           "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "brand": {
+        "edit": {
+          "label": "brand",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "brand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "model": {
+        "edit": {
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "sparePart": {
+        "edit": {
+          "label": "sparePart",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "sparePart",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "year": {
+        "edit": {
+          "label": "year",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "year",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "volume": {
+        "edit": {
+          "label": "volume",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "volume",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "transmission": {
+        "edit": {
+          "label": "transmission",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "transmission",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "bodyStyle": {
+        "edit": {
+          "label": "bodyStyle",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "bodyStyle",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "priceUSD": {
+        "edit": {
+          "label": "priceUSD",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "priceUSD",
           "searchable": true,
           "sortable": true
         }
@@ -137,16 +251,12 @@
     "layouts": {
       "list": [
         "id",
-        "createdAt",
-        "updatedAt",
-        "name"
+        "name",
+        "images",
+        "price"
       ],
       "edit": [
         [
-          {
-            "name": "image",
-            "size": 6
-          },
           {
             "name": "name",
             "size": 6
@@ -160,17 +270,55 @@
         ],
         [
           {
+            "name": "images",
+            "size": 6
+          },
+          {
             "name": "price",
             "size": 4
-          },
+          }
+        ],
+        [
           {
             "name": "slug",
             "size": 6
+          },
+          {
+            "name": "year",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "volume",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "transmission",
+            "size": 6
+          },
+          {
+            "name": "bodyStyle",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "generation",
+            "size": 6
+          },
+          {
+            "name": "priceUSD",
+            "size": 4
           }
         ]
       ],
       "editRelations": [
-        "category"
+        "brand",
+        "model",
+        "sparePart"
       ]
     }
   },

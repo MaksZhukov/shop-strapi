@@ -4,25 +4,127 @@
   "type": "authenticated",
   "permissions": [
     {
+      "action": "api::article.article.find"
+    },
+    {
+      "action": "api::article.article.findOne"
+    },
+    {
+      "action": "api::brand.brand.find"
+    },
+    {
+      "action": "api::brand.brand.findOne"
+    },
+    {
+      "action": "api::car.car.find"
+    },
+    {
+      "action": "api::car.car.findOne"
+    },
+    {
+      "action": "api::favorite.favorite.create"
+    },
+    {
+      "action": "api::favorite.favorite.delete"
+    },
+    {
+      "action": "api::favorite.favorite.find"
+    },
+    {
+      "action": "api::favorite.favorite.findOne"
+    },
+    {
+      "action": "api::order.order.create"
+    },
+    {
+      "action": "api::order.order.delete"
+    },
+    {
+      "action": "api::order.order.find"
+    },
+    {
+      "action": "api::order.order.findOne"
+    },
+    {
       "action": "api::product.product.find"
     },
     {
       "action": "api::product.product.findOne"
     },
     {
+      "action": "api::review.review.checkStatus"
+    },
+    {
+      "action": "api::review.review.create"
+    },
+    {
+      "action": "api::review.review.find"
+    },
+    {
+      "action": "api::review.review.findOne"
+    },
+    {
+      "action": "api::review.review.update"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.create"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.delete"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.deleteMany"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.find"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.findOne"
+    },
+    {
+      "action": "api::shopping-cart.shopping-cart.update"
+    },
+    {
+      "action": "api::spare-part.spare-part.find"
+    },
+    {
+      "action": "api::spare-part.spare-part.findOne"
+    },
+    {
+      "action": "api::tire.tire.find"
+    },
+    {
+      "action": "api::tire.tire.findOne"
+    },
+    {
+      "action": "api::wheel.wheel.find"
+    },
+    {
+      "action": "api::wheel.wheel.findOne"
+    },
+    {
       "action": "plugin::email.email.send"
     },
     {
-      "action": "plugin::users-permissions.auth.connect"
+      "action": "plugin::upload.content-api.find"
     },
     {
-      "action": "plugin::users-permissions.user.find"
+      "action": "plugin::upload.content-api.findOne"
+    },
+    {
+      "action": "plugin::users-permissions.auth.connect"
     },
     {
       "action": "plugin::users-permissions.user.findOne"
     },
     {
       "action": "plugin::users-permissions.user.me"
+    },
+    {
+      "action": "plugin::users-permissions.user.update"
+    },
+    {
+      "action": "plugin::users-permissions.user.updateMe"
     }
   ]
 }

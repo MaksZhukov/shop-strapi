@@ -5,42 +5,159 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::category.category",
+      "subject": "api::article.article",
       "properties": {
         "fields": [
-          "name"
+          "title",
+          "description"
         ]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::category.category",
+      "subject": "api::article.article",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::category.category",
+      "subject": "api::article.article",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::category.category",
+      "subject": "api::article.article",
       "properties": {
         "fields": [
-          "name"
+          "title",
+          "description"
         ]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::category.category",
+      "subject": "api::article.article",
       "properties": {
         "fields": [
-          "name"
+          "title",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::brand.brand",
+      "properties": {
+        "fields": [
+          "name",
+          "models",
+          "products",
+          "cars"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::brand.brand",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::brand.brand",
+      "properties": {
+        "fields": [
+          "name",
+          "models",
+          "products",
+          "cars"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::brand.brand",
+      "properties": {
+        "fields": [
+          "name",
+          "models",
+          "products",
+          "cars"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::car.car",
+      "properties": {
+        "fields": [
+          "images",
+          "brand",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "volume",
+          "fuel",
+          "slug",
+          "generation",
+          "engine",
+          "bodyStyle",
+          "mileage"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::car.car",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::car.car",
+      "properties": {
+        "fields": [
+          "images",
+          "brand",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "volume",
+          "fuel",
+          "slug",
+          "generation",
+          "engine",
+          "bodyStyle",
+          "mileage"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::car.car",
+      "properties": {
+        "fields": [
+          "images",
+          "brand",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "volume",
+          "fuel",
+          "slug",
+          "generation",
+          "engine",
+          "bodyStyle",
+          "mileage"
         ]
       },
       "conditions": []
@@ -51,7 +168,8 @@
       "properties": {
         "fields": [
           "product",
-          "users_permissions_user"
+          "users_permissions_user",
+          "uuid"
         ]
       },
       "conditions": []
@@ -63,18 +181,13 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::favorite.favorite",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::favorite.favorite",
       "properties": {
         "fields": [
           "product",
-          "users_permissions_user"
+          "users_permissions_user",
+          "uuid"
         ]
       },
       "conditions": []
@@ -85,7 +198,53 @@
       "properties": {
         "fields": [
           "product",
-          "users_permissions_user"
+          "users_permissions_user",
+          "uuid"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::model.model",
+      "properties": {
+        "fields": [
+          "name",
+          "brand",
+          "products",
+          "cars"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::model.model",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::model.model",
+      "properties": {
+        "fields": [
+          "name",
+          "brand",
+          "products",
+          "cars"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::model.model",
+      "properties": {
+        "fields": [
+          "name",
+          "brand",
+          "products",
+          "cars"
         ]
       },
       "conditions": []
@@ -95,9 +254,11 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_users",
-          "count"
+          "username",
+          "email",
+          "address",
+          "phone",
+          "products"
         ]
       },
       "conditions": []
@@ -119,9 +280,11 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_users",
-          "count"
+          "username",
+          "email",
+          "address",
+          "phone",
+          "products"
         ]
       },
       "conditions": []
@@ -131,9 +294,11 @@
       "subject": "api::order.order",
       "properties": {
         "fields": [
-          "products",
-          "users_permissions_users",
-          "count"
+          "username",
+          "email",
+          "address",
+          "phone",
+          "products"
         ]
       },
       "conditions": []
@@ -145,10 +310,18 @@
         "fields": [
           "name",
           "description",
-          "image",
-          "category",
+          "images",
           "price",
-          "slug"
+          "slug",
+          "brand",
+          "model",
+          "sparePart",
+          "year",
+          "volume",
+          "transmission",
+          "bodyStyle",
+          "generation",
+          "priceUSD"
         ]
       },
       "conditions": []
@@ -160,22 +333,24 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::product.product",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::product.product",
       "properties": {
         "fields": [
           "name",
           "description",
-          "image",
-          "category",
+          "images",
           "price",
-          "slug"
+          "slug",
+          "brand",
+          "model",
+          "sparePart",
+          "year",
+          "volume",
+          "transmission",
+          "bodyStyle",
+          "generation",
+          "priceUSD"
         ]
       },
       "conditions": []
@@ -187,10 +362,69 @@
         "fields": [
           "name",
           "description",
-          "image",
-          "category",
+          "images",
           "price",
-          "slug"
+          "slug",
+          "brand",
+          "model",
+          "sparePart",
+          "year",
+          "volume",
+          "transmission",
+          "bodyStyle",
+          "generation",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::review.review",
+      "properties": {
+        "fields": [
+          "description",
+          "authorName",
+          "rating",
+          "email"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::review.review",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::review.review",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::review.review",
+      "properties": {
+        "fields": [
+          "description",
+          "authorName",
+          "rating",
+          "email"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::review.review",
+      "properties": {
+        "fields": [
+          "description",
+          "authorName",
+          "rating",
+          "email"
         ]
       },
       "conditions": []
@@ -201,7 +435,8 @@
       "properties": {
         "fields": [
           "users_permissions_user",
-          "product"
+          "product",
+          "uuid"
         ]
       },
       "conditions": []
@@ -213,18 +448,13 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::shopping-cart.shopping-cart",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::shopping-cart.shopping-cart",
       "properties": {
         "fields": [
           "users_permissions_user",
-          "product"
+          "product",
+          "uuid"
         ]
       },
       "conditions": []
@@ -235,7 +465,167 @@
       "properties": {
         "fields": [
           "users_permissions_user",
-          "product"
+          "product",
+          "uuid"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::spare-part.spare-part",
+      "properties": {
+        "fields": [
+          "name",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::spare-part.spare-part",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::spare-part.spare-part",
+      "properties": {
+        "fields": [
+          "name",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::spare-part.spare-part",
+      "properties": {
+        "fields": [
+          "name",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::tire.tire",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "season",
+          "brand",
+          "price",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::tire.tire",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::tire.tire",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::tire.tire",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "season",
+          "brand",
+          "price",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::tire.tire",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "season",
+          "brand",
+          "price",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel.wheel",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "brand",
+          "images",
+          "price",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel.wheel",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::wheel.wheel",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel.wheel",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "brand",
+          "images",
+          "price",
+          "priceUSD"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel.wheel",
+      "properties": {
+        "fields": [
+          "diameter",
+          "width",
+          "height",
+          "brand",
+          "images",
+          "price",
+          "priceUSD"
         ]
       },
       "conditions": []
@@ -278,6 +668,18 @@
     },
     {
       "action": "admin::marketplace.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::project-settings.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::project-settings.update",
       "subject": null,
       "properties": {},
       "conditions": []
