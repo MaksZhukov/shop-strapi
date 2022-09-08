@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheels",
+  "info": {
+    "singularName": "wheel",
+    "pluralName": "wheels",
+    "displayName": "Wheel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "diameter": {
+      "type": "string"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "price": {
+      "type": "integer"
+    },
+    "priceUSD": {
+      "type": "integer"
+    }
+  }
+}
