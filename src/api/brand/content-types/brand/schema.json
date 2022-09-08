@@ -26,6 +26,12 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "brand"
+    },
+    "cars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car.car",
+      "mappedBy": "brand"
     }
   }
 }
