@@ -17,6 +17,10 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
     }
   }
 }
