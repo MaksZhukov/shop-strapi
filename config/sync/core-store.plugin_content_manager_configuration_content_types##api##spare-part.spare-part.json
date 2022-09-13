@@ -34,9 +34,149 @@
           "sortable": true
         }
       },
-      "products": {
+      "description": {
         "edit": {
-          "label": "products",
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "images": {
+        "edit": {
+          "label": "images",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "images",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "price",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "price",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "priceUSD": {
+        "edit": {
+          "label": "priceUSD",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "priceUSD",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "year": {
+        "edit": {
+          "label": "year",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "year",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "volume": {
+        "edit": {
+          "label": "volume",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "volume",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "bodyStyle": {
+        "edit": {
+          "label": "bodyStyle",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "bodyStyle",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "transmission": {
+        "edit": {
+          "label": "transmission",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "transmission",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "brand": {
+        "edit": {
+          "label": "brand",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -44,9 +184,39 @@
           "mainField": "name"
         },
         "list": {
-          "label": "products",
-          "searchable": false,
-          "sortable": false
+          "label": "brand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "model": {
+        "edit": {
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "kindSparePart": {
+        "edit": {
+          "label": "kindSparePart",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "kindSparePart",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
@@ -82,19 +252,71 @@
       "list": [
         "id",
         "name",
-        "products",
-        "createdAt"
-      ],
-      "editRelations": [
-        "products"
+        "description",
+        "images"
       ],
       "edit": [
         [
           {
             "name": "name",
             "size": 6
+          },
+          {
+            "name": "description",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "images",
+            "size": 6
+          },
+          {
+            "name": "price",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "priceUSD",
+            "size": 4
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "size": 4
+          },
+          {
+            "name": "volume",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "bodyStyle",
+            "size": 6
+          },
+          {
+            "name": "generation",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "transmission",
+            "size": 6
           }
         ]
+      ],
+      "editRelations": [
+        "brand",
+        "model",
+        "kindSparePart"
       ]
     }
   },

@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::shopping-cart.shopping-cart",
+  "key": "plugin_content_manager_configuration_content_types::api::kind-spare-part.kind-spare-part",
   "value": {
-    "uid": "api::shopping-cart.shopping-cart",
+    "uid": "api::kind-spare-part.kind-spare-part",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "name",
+      "defaultSortBy": "name",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,24 +20,23 @@
           "sortable": true
         }
       },
-      "users_permissions_user": {
+      "name": {
         "edit": {
-          "label": "users_permissions_user",
+          "label": "name",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "username"
+          "editable": true
         },
         "list": {
-          "label": "users_permissions_user",
+          "label": "name",
           "searchable": true,
           "sortable": true
         }
       },
-      "sparePart": {
+      "spare_parts": {
         "edit": {
-          "label": "sparePart",
+          "label": "spare_parts",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -45,23 +44,9 @@
           "mainField": "name"
         },
         "list": {
-          "label": "sparePart",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "uuid": {
-        "edit": {
-          "label": "uuid",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "uuid",
-          "searchable": true,
-          "sortable": true
+          "label": "spare_parts",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -96,21 +81,20 @@
     "layouts": {
       "list": [
         "id",
-        "users_permissions_user",
-        "uuid",
-        "sparePart"
+        "name",
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
           {
-            "name": "uuid",
+            "name": "name",
             "size": 6
           }
         ]
       ],
       "editRelations": [
-        "users_permissions_user",
-        "sparePart"
+        "spare_parts"
       ]
     }
   },

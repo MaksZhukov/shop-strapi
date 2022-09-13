@@ -24,10 +24,10 @@
     "phone": {
       "type": "string"
     },
-    "products": {
+    "spareParts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product"
+      "target": "api::spare-part.spare-part"
     }
   }
 }

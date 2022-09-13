@@ -12,19 +12,18 @@ export default factories.createCoreController(
             const userId = ctx.state.user.id;
             ctx.query = {
                 ...ctx.query,
-                populate: { product: { populate: "images" } },
+                populate: "*",
                 filters: {
-                    users_permissions_user: userId,
+                    usersPermissionsUser: userId,
                 },
             };
             return await super.find(ctx);
         },
-        async create(ctx) {
+        async update(ctx) {
             const userId = ctx.state.user.id;
-            ctx.query = { populate: { product: { populate: 'images' } } };
-            ctx.request.body.data.users_permissions_user = userId;
-            ctx.request.body.data.uuid = `${userId}-${ctx.request.body.data.product}`;
-            return await super.create(ctx);
+            ctx.query = { populate: { sparePart: { populate: "images" } } };
+            ctx.request.body.data.usersPermissionsUser = userId;
+            return await super.update(ctx);
         },
         async delete(ctx) {
             const { id } = ctx.params;

@@ -21,16 +21,16 @@
       "target": "api::model.model",
       "mappedBy": "brand"
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "brand"
-    },
     "cars": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::car.car",
+      "mappedBy": "brand"
+    },
+    "spareParts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::spare-part.spare-part",
       "mappedBy": "brand"
     }
   }

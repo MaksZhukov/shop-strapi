@@ -76,9 +76,9 @@
           "sortable": true
         }
       },
-      "products": {
+      "spareParts": {
         "edit": {
-          "label": "products",
+          "label": "spareParts",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -86,7 +86,7 @@
           "mainField": "name"
         },
         "list": {
-          "label": "products",
+          "label": "spareParts",
           "searchable": false,
           "sortable": false
         }
@@ -127,9 +127,6 @@
         "email",
         "address"
       ],
-      "editRelations": [
-        "products"
-      ],
       "edit": [
         [
           {
@@ -151,6 +148,9 @@
             "size": 6
           }
         ]
+      ],
+      "editRelations": [
+        "spareParts"
       ]
     }
   },

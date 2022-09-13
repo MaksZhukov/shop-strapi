@@ -4,10 +4,11 @@
   "info": {
     "singularName": "tire",
     "pluralName": "tires",
-    "displayName": "Tire"
+    "displayName": "Tire",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

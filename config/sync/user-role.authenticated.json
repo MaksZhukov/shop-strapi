@@ -34,6 +34,12 @@
       "action": "api::favorite.favorite.findOne"
     },
     {
+      "action": "api::kind-spare-part.kind-spare-part.find"
+    },
+    {
+      "action": "api::kind-spare-part.kind-spare-part.findOne"
+    },
+    {
       "action": "api::order.order.create"
     },
     {
@@ -44,12 +50,6 @@
     },
     {
       "action": "api::order.order.findOne"
-    },
-    {
-      "action": "api::product.product.find"
-    },
-    {
-      "action": "api::product.product.findOne"
     },
     {
       "action": "api::review.review.checkStatus"

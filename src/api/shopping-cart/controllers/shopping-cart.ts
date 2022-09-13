@@ -10,7 +10,7 @@ export default factories.createCoreController(
         find(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = {
-                populate: "product",
+                populate: "sparePart",
                 filters: {
                     users_permissions_user: userId,
                 },
@@ -20,9 +20,9 @@ export default factories.createCoreController(
 
         create(ctx) {
             const userId = ctx.state.user.id;
-            ctx.query = { populate: "product" };
+            ctx.query = { populate: "sparePart" };
             ctx.request.body.data.users_permissions_user = userId;
-            ctx.request.body.data.uuid = `${userId}-${ctx.request.body.data.product}`;
+            ctx.request.body.data.uuid = `${userId}-${ctx.request.body.data.sparePart}`;
             return super.create(ctx);
         },
         async delete(ctx) {

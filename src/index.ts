@@ -1,10 +1,3 @@
-import {
-    flushProducts,
-    flushUploads,
-    generateProducts,
-} from "./services/generate-data/generate-data";
-console.log("hello");
-
 export default {
     /**
      * An asynchronous register function that runs before

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "spare-part",
     "pluralName": "spare-parts",
-    "displayName": "Spare part"
+    "displayName": "Spare Part",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -14,11 +15,68 @@
     "name": {
       "type": "string"
     },
-    "products": {
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "price": {
+      "type": "integer"
+    },
+    "priceUSD": {
+      "type": "decimal"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "volume": {
+      "type": "integer"
+    },
+    "bodyStyle": {
+      "type": "string"
+    },
+    "generation": {
+      "type": "string"
+    },
+    "transmission": {
+      "type": "enumeration",
+      "enum": [
+        "акпп",
+        "мкпп",
+        "робот",
+        "вариатор"
+      ]
+    },
+    "kindSparePart": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "sparePart"
+      "relation": "manyToOne",
+      "target": "api::kind-spare-part.kind-spare-part",
+      "inversedBy": "spare_parts"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "spareParts"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "spareParts"
     }
   }
 }

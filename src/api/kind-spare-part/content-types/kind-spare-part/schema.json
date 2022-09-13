@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kind_spare_parts",
+  "info": {
+    "singularName": "kind-spare-part",
+    "pluralName": "kind-spare-parts",
+    "displayName": "Kind spare part",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "spare_parts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::spare-part.spare-part",
+      "mappedBy": "kindSparePart"
+    }
+  }
+}

@@ -12,19 +12,25 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "product": {
+    "spareParts": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::product.product"
+      "relation": "oneToMany",
+      "target": "api::spare-part.spare-part"
     },
-    "users_permissions_user": {
+    "usersPermissionsUser": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "uuid": {
-      "type": "uid",
-      "required": true
+    "wheels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel"
+    },
+    "tires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tire.tire"
     }
   }
 }

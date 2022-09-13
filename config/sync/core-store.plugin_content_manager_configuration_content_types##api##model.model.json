@@ -49,21 +49,6 @@
           "sortable": true
         }
       },
-      "products": {
-        "edit": {
-          "label": "products",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "products",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "cars": {
         "edit": {
           "label": "cars",
@@ -75,6 +60,21 @@
         },
         "list": {
           "label": "cars",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "spareParts": {
+        "edit": {
+          "label": "spareParts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "spareParts",
           "searchable": false,
           "sortable": false
         }
@@ -112,8 +112,7 @@
       "list": [
         "id",
         "name",
-        "brand",
-        "products"
+        "brand"
       ],
       "edit": [
         [
@@ -125,8 +124,8 @@
       ],
       "editRelations": [
         "brand",
-        "products",
-        "cars"
+        "cars",
+        "spareParts"
       ]
     }
   },
