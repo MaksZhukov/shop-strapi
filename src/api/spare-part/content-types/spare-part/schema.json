@@ -77,6 +77,10 @@
       "relation": "manyToOne",
       "target": "api::brand.brand",
       "inversedBy": "spareParts"
+    },
+    "type": {
+      "type": "string",
+      "default": "sparePart"
     }
   }
 }

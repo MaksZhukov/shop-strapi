@@ -12,33 +12,21 @@ export default factories.createCoreController(
             const userId = ctx.state.user.id;
             ctx.query = {
                 ...ctx.query,
-                populate: "*",
+                populate: ["spareParts", "wheels", "tires"],
                 filters: {
                     usersPermissionsUser: userId,
                 },
             };
-            return await super.find(ctx);
+            let { data } = await super.find(ctx);
+            const sanitizedEntity = await this.sanitizeOutput(data[0], ctx);
+            return this.transformResponse(sanitizedEntity);
         },
         async update(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = { populate: { sparePart: { populate: "images" } } };
             ctx.request.body.data.usersPermissionsUser = userId;
+            console.log(ctx.request.body);
             return await super.update(ctx);
-        },
-        async delete(ctx) {
-            const { id } = ctx.params;
-            const userId = ctx.state.user.id;
-            if (
-                //@ts-ignore
-                await strapi.db.query("api::favorite.favorite").findOne({
-                    where: {
-                        id,
-                        users_permissions_user: userId,
-                    },
-                })
-            ) {
-                return await super.delete(ctx);
-            }
         },
     })
 );
