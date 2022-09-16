@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_spare_parts",
+  "info": {
+    "displayName": "Spare part"
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::spare-part.spare-part"
+    }
+  }
+}

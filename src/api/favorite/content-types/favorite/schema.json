@@ -12,25 +12,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "spareParts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::spare-part.spare-part"
-    },
     "usersPermissionsUser": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "wheels": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::wheel.wheel"
-    },
-    "tires": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tire.tire"
+    "product": {
+      "type": "dynamiczone",
+      "components": [
+        "product.tire",
+        "product.wheel"
+      ]
     }
   }
 }

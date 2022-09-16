@@ -37,6 +37,10 @@
     },
     "priceUSD": {
       "type": "integer"
+    },
+    "type": {
+      "type": "string",
+      "default": "tire"
     }
   }
 }

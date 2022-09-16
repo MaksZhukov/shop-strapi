@@ -12,21 +12,49 @@ export default factories.createCoreController(
             const userId = ctx.state.user.id;
             ctx.query = {
                 ...ctx.query,
-                populate: ["spareParts", "wheels", "tires"],
+                populate: "product.product.images",
                 filters: {
                     usersPermissionsUser: userId,
                 },
             };
-            let { data } = await super.find(ctx);
-            const sanitizedEntity = await this.sanitizeOutput(data[0], ctx);
-            return this.transformResponse(sanitizedEntity);
+            const result = await super.find(ctx);
+            const { data } = strapi
+                .service("plugin::transformer.transformService")
+                //@ts-ignore
+                .response(
+                    strapi.services[
+                        "plugin::transformer.settingsService"
+                    ].get(),
+                    result
+                );
+            return {
+                data: data.map((item) => ({
+                    ...item,
+                    product: item.product[0].product,
+                })),
+            };
         },
-        async update(ctx) {
+        async create(ctx) {
             const userId = ctx.state.user.id;
-            ctx.query = { populate: { sparePart: { populate: "images" } } };
+            ctx.query = { populate: ["product.product.images"] };
+            console.log(ctx.request.body.data);
             ctx.request.body.data.usersPermissionsUser = userId;
-            console.log(ctx.request.body);
-            return await super.update(ctx);
+            const result = await super.create(ctx);
+            const { data } = strapi
+                .service("plugin::transformer.transformService")
+                //@ts-ignore
+                .response(
+                    strapi.services[
+                        "plugin::transformer.settingsService"
+                    ].get(),
+                    result
+                );
+            return { data: { ...data, product: data.product[0].product } };
+        },
+        async delete(ctx) {
+            const userId = ctx.state.user.id;
+            ctx.request.body.data.usersPermissionsUser = userId;
+            return await super.delete(ctx);
         },
     })
 );
