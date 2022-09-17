@@ -2,7 +2,6 @@
  * shopping-cart router.
  */
 
-// @ts-ignore
 export default {
     routes: [
         {

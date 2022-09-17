@@ -23,7 +23,8 @@
         "product.tire",
         "product.wheel",
         "product.spare-part"
-      ]
+      ],
+      "max": 1
     }
   }
 }
