@@ -37,7 +37,6 @@ export default factories.createCoreController(
         async create(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = { populate: ["product.product.images"] };
-            console.log(ctx.request.body.data);
             ctx.request.body.data.usersPermissionsUser = userId;
             const result = await super.create(ctx);
             const { data } = strapi
@@ -53,7 +52,7 @@ export default factories.createCoreController(
         },
         async delete(ctx) {
             const userId = ctx.state.user.id;
-            ctx.request.body.data.usersPermissionsUser = userId;
+            ctx.request.body = { data: { usersPermissionsUser: userId } };
             return await super.delete(ctx);
         },
     })
