@@ -12,19 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
+    "usersPermissionsUser": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
     },
-    "sparePart": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::spare-part.spare-part"
-    },
-    "uuid": {
-      "type": "uid",
-      "required": true
+    "product": {
+      "type": "dynamiczone",
+      "components": [
+        "product.spare-part",
+        "product.tire",
+        "product.wheel"
+      ]
     }
   }
 }

@@ -51,9 +51,18 @@ export default factories.createCoreController(
             return { data: { ...data, product: data.product[0].product } };
         },
         async delete(ctx) {
+            const { id } = ctx.params;
             const userId = ctx.state.user.id;
-            ctx.request.body = { data: { usersPermissionsUser: userId } };
-            return await super.delete(ctx);
+            if (
+                await strapi.db.query("api::favorite.favorite").findOne({
+                    where: {
+                        id,
+                        usersPermissionsUser: userId,
+                    },
+                })
+            ) {
+                return super.delete(ctx);
+            }
         },
     })
 );

@@ -7,35 +7,59 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreController(
     "api::shopping-cart.shopping-cart",
     ({ strapi }) => ({
-        find(ctx) {
+        async find(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = {
-                populate: "sparePart",
+                ...ctx.query,
+                populate: "product.product.images",
                 filters: {
-                    users_permissions_user: userId,
+                    usersPermissionsUser: userId,
                 },
             };
-            return super.find(ctx);
+            const result = await super.find(ctx);
+            const { data } = strapi
+                .service("plugin::transformer.transformService")
+                //@ts-ignore
+                .response(
+                    strapi.services[
+                        "plugin::transformer.settingsService"
+                    ].get(),
+                    result
+                );
+            return {
+                data: data.map((item) => ({
+                    ...item,
+                    product: item.product[0].product,
+                })),
+            };
         },
 
-        create(ctx) {
+        async create(ctx) {
             const userId = ctx.state.user.id;
-            ctx.query = { populate: "sparePart" };
-            ctx.request.body.data.users_permissions_user = userId;
-            ctx.request.body.data.uuid = `${userId}-${ctx.request.body.data.sparePart}`;
-            return super.create(ctx);
+            ctx.query = { populate: ["product.product.images"] };
+            ctx.request.body.data.usersPermissionsUser = userId;
+            const result = await super.create(ctx);
+            const { data } = strapi
+                .service("plugin::transformer.transformService")
+                //@ts-ignore
+                .response(
+                    strapi.services[
+                        "plugin::transformer.settingsService"
+                    ].get(),
+                    result
+                );
+            return { data: { ...data, product: data.product[0].product } };
         },
         async delete(ctx) {
             const { id } = ctx.params;
             const userId = ctx.state.user.id;
             if (
-                //@ts-ignore
                 await strapi.db
                     .query("api::shopping-cart.shopping-cart")
                     .findOne({
                         where: {
                             id,
-                            users_permissions_user: userId,
+                            usersPermissionsUser: userId,
                         },
                     })
             ) {
@@ -48,7 +72,7 @@ export default factories.createCoreController(
                 "api::shopping-cart.shopping-cart",
                 {
                     filters: {
-                        users_permissions_user: userId,
+                        usersPermissionsUser: userId,
                     },
                 }
             );
@@ -63,12 +87,6 @@ export default factories.createCoreController(
                 }
             );
             return this.transformResponse(result);
-            // await strapi.entityService.
-            //         .deleteMany("api::shopping-cart.shopping-cart",{
-            //             where: {
-            //                 users_permissions_user: userId,
-            //             },
-            //         })
         },
     })
 );
