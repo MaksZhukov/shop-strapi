@@ -20,21 +20,6 @@
           "sortable": true
         }
       },
-      "spareParts": {
-        "edit": {
-          "label": "spareParts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "spareParts",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "usersPermissionsUser": {
         "edit": {
           "label": "usersPermissionsUser",
@@ -50,46 +35,16 @@
           "sortable": true
         }
       },
-      "uuid": {
+      "product": {
         "edit": {
-          "label": "uuid",
+          "label": "product",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "uuid",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "wheels": {
-        "edit": {
-          "label": "wheels",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "diameter"
-        },
-        "list": {
-          "label": "wheels",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "tires": {
-        "edit": {
-          "label": "tires",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "diameter"
-        },
-        "list": {
-          "label": "tires",
+          "label": "product",
           "searchable": false,
           "sortable": false
         }
@@ -126,23 +81,19 @@
     "layouts": {
       "list": [
         "id",
-        "uuid",
-        "usersPermissionsUser",
-        "spareParts"
+        "createdAt",
+        "usersPermissionsUser"
       ],
       "edit": [
         [
           {
-            "name": "uuid",
-            "size": 6
+            "name": "product",
+            "size": 12
           }
         ]
       ],
       "editRelations": [
-        "usersPermissionsUser",
-        "wheels",
-        "tires",
-        "spareParts"
+        "usersPermissionsUser"
       ]
     }
   },

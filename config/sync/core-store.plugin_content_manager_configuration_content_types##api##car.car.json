@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "generation",
-      "defaultSortBy": "generation",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -223,12 +223,8 @@
       "list": [
         "id",
         "images",
-        "brand",
-        "model"
-      ],
-      "editRelations": [
-        "brand",
-        "model"
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
@@ -255,32 +251,38 @@
           {
             "name": "fuel",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "slug",
             "size": 6
-          }
-        ],
-        [
+          },
           {
             "name": "generation",
             "size": 6
-          },
-          {
-            "name": "engine",
-            "size": 6
           }
         ],
         [
           {
-            "name": "bodyStyle",
+            "name": "engine",
             "size": 6
           },
+          {
+            "name": "bodyStyle",
+            "size": 6
+          }
+        ],
+        [
           {
             "name": "mileage",
             "size": 4
           }
         ]
+      ],
+      "editRelations": [
+        "brand",
+        "model"
       ]
     }
   },

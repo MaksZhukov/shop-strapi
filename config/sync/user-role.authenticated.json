@@ -10,12 +10,6 @@
       "action": "api::article.article.findOne"
     },
     {
-      "action": "api::brand.brand.find"
-    },
-    {
-      "action": "api::brand.brand.findOne"
-    },
-    {
       "action": "api::car.car.find"
     },
     {
@@ -34,22 +28,13 @@
       "action": "api::favorite.favorite.findOne"
     },
     {
-      "action": "api::kind-spare-part.kind-spare-part.find"
+      "action": "api::favorite.favorite.update"
     },
     {
-      "action": "api::kind-spare-part.kind-spare-part.findOne"
+      "action": "api::model.model.create"
     },
     {
       "action": "api::order.order.create"
-    },
-    {
-      "action": "api::order.order.delete"
-    },
-    {
-      "action": "api::order.order.find"
-    },
-    {
-      "action": "api::order.order.findOne"
     },
     {
       "action": "api::review.review.checkStatus"
@@ -62,9 +47,6 @@
     },
     {
       "action": "api::review.review.findOne"
-    },
-    {
-      "action": "api::review.review.update"
     },
     {
       "action": "api::shopping-cart.shopping-cart.create"
@@ -91,18 +73,6 @@
       "action": "api::spare-part.spare-part.findOne"
     },
     {
-      "action": "api::tire.tire.find"
-    },
-    {
-      "action": "api::tire.tire.findOne"
-    },
-    {
-      "action": "api::wheel.wheel.find"
-    },
-    {
-      "action": "api::wheel.wheel.findOne"
-    },
-    {
       "action": "plugin::email.email.send"
     },
     {
@@ -112,7 +82,58 @@
       "action": "plugin::upload.content-api.findOne"
     },
     {
+      "action": "plugin::upload.content-api.upload"
+    },
+    {
+      "action": "plugin::users-permissions.auth.callback"
+    },
+    {
       "action": "plugin::users-permissions.auth.connect"
+    },
+    {
+      "action": "plugin::users-permissions.auth.emailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.auth.forgotPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.register"
+    },
+    {
+      "action": "plugin::users-permissions.auth.resetPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.permissions.getPermissions"
+    },
+    {
+      "action": "plugin::users-permissions.role.createRole"
+    },
+    {
+      "action": "plugin::users-permissions.role.deleteRole"
+    },
+    {
+      "action": "plugin::users-permissions.role.find"
+    },
+    {
+      "action": "plugin::users-permissions.role.findOne"
+    },
+    {
+      "action": "plugin::users-permissions.role.updateRole"
+    },
+    {
+      "action": "plugin::users-permissions.user.count"
+    },
+    {
+      "action": "plugin::users-permissions.user.create"
+    },
+    {
+      "action": "plugin::users-permissions.user.destroy"
+    },
+    {
+      "action": "plugin::users-permissions.user.find"
     },
     {
       "action": "plugin::users-permissions.user.findOne"

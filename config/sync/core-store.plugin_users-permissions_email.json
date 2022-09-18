@@ -6,12 +6,12 @@
       "icon": "sync",
       "options": {
         "from": {
-          "name": "Administration Panel",
-          "email": "no-reply@strapi.io"
+          "name": "Администратор",
+          "email": "makszhukov1997@gmail.com"
         },
         "response_email": "",
-        "object": "Reset password",
-        "message": "<p>We heard that you lost your password. Sorry about that!</p>\n\n<p>But don’t worry! You can use the following link to reset your password:</p>\n<p><%= URL %>?code=<%= TOKEN %></p>\n\n<p>Thanks.</p>"
+        "object": "Сброс пароля",
+        "message": "<p>Мы слышали, что вы потеряли свой пароль.</p>\n\n<p>Но не волнуйтесь! Вы можете использовать следующую ссылку для сброса пароля:</p>\n<p><%= URL %>?code=<%= TOKEN %></p>\n\n<p>Спасибо.</p>"
       }
     },
     "email_confirmation": {

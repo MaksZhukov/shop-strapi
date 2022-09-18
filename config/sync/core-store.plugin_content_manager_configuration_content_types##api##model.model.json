@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -56,7 +56,7 @@
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "generation"
+          "mainField": "id"
         },
         "list": {
           "label": "cars",
@@ -111,7 +111,8 @@
     "layouts": {
       "list": [
         "id",
-        "name",
+        "createdAt",
+        "updatedAt",
         "brand"
       ],
       "edit": [

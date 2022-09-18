@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "username",
-      "defaultSortBy": "username",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -76,17 +76,16 @@
           "sortable": true
         }
       },
-      "spareParts": {
+      "products": {
         "edit": {
-          "label": "spareParts",
+          "label": "products",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true,
-          "mainField": "name"
+          "editable": true
         },
         "list": {
-          "label": "spareParts",
+          "label": "products",
           "searchable": false,
           "sortable": false
         }
@@ -123,9 +122,9 @@
     "layouts": {
       "list": [
         "id",
+        "createdAt",
         "username",
-        "email",
-        "address"
+        "email"
       ],
       "edit": [
         [
@@ -147,11 +146,15 @@
             "name": "phone",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "products",
+            "size": 12
+          }
         ]
       ],
-      "editRelations": [
-        "spareParts"
-      ]
+      "editRelations": []
     }
   },
   "type": "object",

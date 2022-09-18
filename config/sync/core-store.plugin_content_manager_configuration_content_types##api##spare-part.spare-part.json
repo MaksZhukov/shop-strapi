@@ -174,9 +174,9 @@
           "sortable": true
         }
       },
-      "brand": {
+      "kindSparePart": {
         "edit": {
-          "label": "brand",
+          "label": "kindSparePart",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -184,7 +184,7 @@
           "mainField": "name"
         },
         "list": {
-          "label": "brand",
+          "label": "kindSparePart",
           "searchable": true,
           "sortable": true
         }
@@ -204,9 +204,9 @@
           "sortable": true
         }
       },
-      "kindSparePart": {
+      "brand": {
         "edit": {
-          "label": "kindSparePart",
+          "label": "brand",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -214,7 +214,21 @@
           "mainField": "name"
         },
         "list": {
-          "label": "kindSparePart",
+          "label": "brand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
           "searchable": true,
           "sortable": true
         }
@@ -252,8 +266,8 @@
       "list": [
         "id",
         "name",
-        "description",
-        "images"
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
@@ -310,13 +324,17 @@
           {
             "name": "transmission",
             "size": 6
+          },
+          {
+            "name": "type",
+            "size": 6
           }
         ]
       ],
       "editRelations": [
-        "brand",
+        "kindSparePart",
         "model",
-        "kindSparePart"
+        "brand"
       ]
     }
   },

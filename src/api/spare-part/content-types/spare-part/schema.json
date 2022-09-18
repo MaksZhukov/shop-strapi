@@ -60,12 +60,6 @@
         "вариатор"
       ]
     },
-    "kindSparePart": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::kind-spare-part.kind-spare-part",
-      "inversedBy": "spare_parts"
-    },
     "model": {
       "type": "relation",
       "relation": "manyToOne",
@@ -81,6 +75,12 @@
     "type": {
       "type": "string",
       "default": "sparePart"
+    },
+    "kindSparePart": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kind-spare-part.kind-spare-part",
+      "inversedBy": "spareParts"
     }
   }
 }

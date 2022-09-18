@@ -109,10 +109,8 @@
       "list": [
         "id",
         "authorName",
-        "rating",
-        "email"
+        "rating"
       ],
-      "editRelations": [],
       "edit": [
         [
           {
@@ -124,19 +122,20 @@
           {
             "name": "authorName",
             "size": 6
-          },
-          {
-            "name": "rating",
-            "size": 4
           }
         ],
         [
+          {
+            "name": "rating",
+            "size": 4
+          },
           {
             "name": "email",
             "size": 6
           }
         ]
-      ]
+      ],
+      "editRelations": []
     }
   },
   "type": "object",

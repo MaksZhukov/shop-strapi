@@ -16,16 +16,28 @@
       "action": "api::brand.brand.findOne"
     },
     {
+      "action": "api::car.car.create"
+    },
+    {
       "action": "api::car.car.find"
     },
     {
       "action": "api::car.car.findOne"
     },
     {
+      "action": "api::car.car.update"
+    },
+    {
+      "action": "api::favorite.favorite.create"
+    },
+    {
+      "action": "api::favorite.favorite.delete"
+    },
+    {
       "action": "api::favorite.favorite.find"
     },
     {
-      "action": "api::favorite.favorite.findOne"
+      "action": "api::favorite.favorite.update"
     },
     {
       "action": "api::kind-spare-part.kind-spare-part.find"
@@ -40,10 +52,7 @@
       "action": "api::model.model.findOne"
     },
     {
-      "action": "api::order.order.find"
-    },
-    {
-      "action": "api::order.order.findOne"
+      "action": "api::order.order.create"
     },
     {
       "action": "api::review.review.checkStatus"
@@ -55,10 +64,7 @@
       "action": "api::review.review.find"
     },
     {
-      "action": "api::review.review.findOne"
-    },
-    {
-      "action": "api::review.review.update"
+      "action": "api::shopping-cart.shopping-cart.create"
     },
     {
       "action": "api::spare-part.spare-part.find"
@@ -88,16 +94,70 @@
       "action": "plugin::upload.content-api.findOne"
     },
     {
+      "action": "plugin::upload.content-api.upload"
+    },
+    {
       "action": "plugin::users-permissions.auth.callback"
     },
     {
       "action": "plugin::users-permissions.auth.connect"
     },
     {
+      "action": "plugin::users-permissions.auth.emailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.auth.forgotPassword"
+    },
+    {
       "action": "plugin::users-permissions.auth.register"
     },
     {
+      "action": "plugin::users-permissions.auth.resetPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.permissions.getPermissions"
+    },
+    {
+      "action": "plugin::users-permissions.role.createRole"
+    },
+    {
+      "action": "plugin::users-permissions.role.deleteRole"
+    },
+    {
+      "action": "plugin::users-permissions.role.find"
+    },
+    {
+      "action": "plugin::users-permissions.role.findOne"
+    },
+    {
+      "action": "plugin::users-permissions.role.updateRole"
+    },
+    {
+      "action": "plugin::users-permissions.user.count"
+    },
+    {
+      "action": "plugin::users-permissions.user.create"
+    },
+    {
+      "action": "plugin::users-permissions.user.destroy"
+    },
+    {
+      "action": "plugin::users-permissions.user.find"
+    },
+    {
+      "action": "plugin::users-permissions.user.findOne"
+    },
+    {
       "action": "plugin::users-permissions.user.me"
+    },
+    {
+      "action": "plugin::users-permissions.user.update"
+    },
+    {
+      "action": "plugin::users-permissions.user.updateMe"
     }
   ]
 }

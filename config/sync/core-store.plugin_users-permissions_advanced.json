@@ -4,8 +4,8 @@
     "unique_email": true,
     "allow_register": true,
     "email_confirmation": false,
-    "email_reset_password": null,
-    "email_confirmation_redirection": null,
+    "email_reset_password": "http://localhost:3000",
+    "email_confirmation_redirection": "",
     "default_role": "authenticated"
   },
   "type": "object",

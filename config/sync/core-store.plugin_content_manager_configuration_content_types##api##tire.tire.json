@@ -118,6 +118,20 @@
           "sortable": true
         }
       },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -154,7 +168,6 @@
         "width",
         "height"
       ],
-      "editRelations": [],
       "edit": [
         [
           {
@@ -190,9 +203,14 @@
           {
             "name": "priceUSD",
             "size": 4
+          },
+          {
+            "name": "type",
+            "size": 6
           }
         ]
-      ]
+      ],
+      "editRelations": []
     }
   },
   "type": "object",

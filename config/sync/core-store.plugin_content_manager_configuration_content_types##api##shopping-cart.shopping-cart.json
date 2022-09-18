@@ -20,9 +20,9 @@
           "sortable": true
         }
       },
-      "users_permissions_user": {
+      "usersPermissionsUser": {
         "edit": {
-          "label": "users_permissions_user",
+          "label": "usersPermissionsUser",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -30,38 +30,23 @@
           "mainField": "username"
         },
         "list": {
-          "label": "users_permissions_user",
+          "label": "usersPermissionsUser",
           "searchable": true,
           "sortable": true
         }
       },
-      "sparePart": {
+      "product": {
         "edit": {
-          "label": "sparePart",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "sparePart",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "uuid": {
-        "edit": {
-          "label": "uuid",
+          "label": "product",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "uuid",
-          "searchable": true,
-          "sortable": true
+          "label": "product",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -96,21 +81,19 @@
     "layouts": {
       "list": [
         "id",
-        "users_permissions_user",
-        "uuid",
-        "sparePart"
+        "createdAt",
+        "usersPermissionsUser"
       ],
       "edit": [
         [
           {
-            "name": "uuid",
-            "size": 6
+            "name": "product",
+            "size": 12
           }
         ]
       ],
       "editRelations": [
-        "users_permissions_user",
-        "sparePart"
+        "usersPermissionsUser"
       ]
     }
   },

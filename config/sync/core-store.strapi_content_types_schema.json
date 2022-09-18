@@ -1937,29 +1937,19 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "spareParts": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::spare-part.spare-part"
-        },
         "usersPermissionsUser": {
           "type": "relation",
           "relation": "oneToOne",
           "target": "plugin::users-permissions.user"
         },
-        "uuid": {
-          "type": "uid",
-          "required": true
-        },
-        "wheels": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::wheel.wheel"
-        },
-        "tires": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::tire.tire"
+        "product": {
+          "type": "dynamiczone",
+          "components": [
+            "product.tire",
+            "product.wheel",
+            "product.spare-part"
+          ],
+          "max": 1
         },
         "createdAt": {
           "type": "datetime"
@@ -2001,29 +1991,19 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "spareParts": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::spare-part.spare-part"
-          },
           "usersPermissionsUser": {
             "type": "relation",
             "relation": "oneToOne",
             "target": "plugin::users-permissions.user"
           },
-          "uuid": {
-            "type": "uid",
-            "required": true
-          },
-          "wheels": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::wheel.wheel"
-          },
-          "tires": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::tire.tire"
+          "product": {
+            "type": "dynamiczone",
+            "components": [
+              "product.tire",
+              "product.wheel",
+              "product.spare-part"
+            ],
+            "max": 1
           }
         },
         "kind": "collectionType"
@@ -2054,7 +2034,7 @@
         "name": {
           "type": "string"
         },
-        "spare_parts": {
+        "spareParts": {
           "type": "relation",
           "relation": "oneToMany",
           "target": "api::spare-part.spare-part",
@@ -2103,7 +2083,7 @@
           "name": {
             "type": "string"
           },
-          "spare_parts": {
+          "spareParts": {
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::spare-part.spare-part",
@@ -2239,7 +2219,7 @@
         "description": ""
       },
       "options": {
-        "draftAndPublish": true
+        "draftAndPublish": false
       },
       "pluginOptions": {},
       "attributes": {
@@ -2255,22 +2235,19 @@
         "phone": {
           "type": "string"
         },
-        "spareParts": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::spare-part.spare-part"
+        "products": {
+          "type": "dynamiczone",
+          "components": [
+            "product.spare-part",
+            "product.tire",
+            "product.wheel"
+          ]
         },
         "createdAt": {
           "type": "datetime"
         },
         "updatedAt": {
           "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
         },
         "createdBy": {
           "type": "relation",
@@ -2302,7 +2279,7 @@
           "description": ""
         },
         "options": {
-          "draftAndPublish": true
+          "draftAndPublish": false
         },
         "pluginOptions": {},
         "attributes": {
@@ -2318,10 +2295,13 @@
           "phone": {
             "type": "string"
           },
-          "spareParts": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::spare-part.spare-part"
+          "products": {
+            "type": "dynamiczone",
+            "components": [
+              "product.spare-part",
+              "product.tire",
+              "product.wheel"
+            ]
           }
         },
         "kind": "collectionType"
@@ -2463,19 +2443,19 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "users_permissions_user": {
+        "usersPermissionsUser": {
           "type": "relation",
           "relation": "oneToOne",
           "target": "plugin::users-permissions.user"
         },
-        "sparePart": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "api::spare-part.spare-part"
-        },
-        "uuid": {
-          "type": "uid",
-          "required": true
+        "product": {
+          "type": "dynamiczone",
+          "components": [
+            "product.spare-part",
+            "product.tire",
+            "product.wheel"
+          ],
+          "max": 1
         },
         "createdAt": {
           "type": "datetime"
@@ -2517,19 +2497,19 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "users_permissions_user": {
+          "usersPermissionsUser": {
             "type": "relation",
             "relation": "oneToOne",
             "target": "plugin::users-permissions.user"
           },
-          "sparePart": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "api::spare-part.spare-part"
-          },
-          "uuid": {
-            "type": "uid",
-            "required": true
+          "product": {
+            "type": "dynamiczone",
+            "components": [
+              "product.spare-part",
+              "product.tire",
+              "product.wheel"
+            ],
+            "max": 1
           }
         },
         "kind": "collectionType"
@@ -2549,7 +2529,7 @@
       "info": {
         "singularName": "spare-part",
         "pluralName": "spare-parts",
-        "displayName": "Spare Part",
+        "displayName": "Spare part",
         "description": ""
       },
       "options": {
@@ -2605,12 +2585,6 @@
             "вариатор"
           ]
         },
-        "kindSparePart": {
-          "type": "relation",
-          "relation": "manyToOne",
-          "target": "api::kind-spare-part.kind-spare-part",
-          "inversedBy": "spare_parts"
-        },
         "model": {
           "type": "relation",
           "relation": "manyToOne",
@@ -2621,6 +2595,16 @@
           "type": "relation",
           "relation": "manyToOne",
           "target": "api::brand.brand",
+          "inversedBy": "spareParts"
+        },
+        "type": {
+          "type": "string",
+          "default": "sparePart"
+        },
+        "kindSparePart": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::kind-spare-part.kind-spare-part",
           "inversedBy": "spareParts"
         },
         "createdAt": {
@@ -2655,7 +2639,7 @@
         "info": {
           "singularName": "spare-part",
           "pluralName": "spare-parts",
-          "displayName": "Spare Part",
+          "displayName": "Spare part",
           "description": ""
         },
         "options": {
@@ -2711,12 +2695,6 @@
               "вариатор"
             ]
           },
-          "kindSparePart": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::kind-spare-part.kind-spare-part",
-            "inversedBy": "spare_parts"
-          },
           "model": {
             "type": "relation",
             "relation": "manyToOne",
@@ -2727,6 +2705,16 @@
             "type": "relation",
             "relation": "manyToOne",
             "target": "api::brand.brand",
+            "inversedBy": "spareParts"
+          },
+          "type": {
+            "type": "string",
+            "default": "sparePart"
+          },
+          "kindSparePart": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::kind-spare-part.kind-spare-part",
             "inversedBy": "spareParts"
           }
         },
@@ -2780,6 +2768,10 @@
         },
         "priceUSD": {
           "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "default": "tire"
         },
         "createdAt": {
           "type": "datetime"
@@ -2846,6 +2838,10 @@
           },
           "priceUSD": {
             "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "default": "tire"
           }
         },
         "kind": "collectionType"
@@ -2901,6 +2897,10 @@
         },
         "priceUSD": {
           "type": "integer"
+        },
+        "type": {
+          "type": "string",
+          "default": "wheel"
         },
         "createdAt": {
           "type": "datetime"
@@ -2970,6 +2970,10 @@
           },
           "priceUSD": {
             "type": "integer"
+          },
+          "type": {
+            "type": "string",
+            "default": "wheel"
           }
         },
         "kind": "collectionType"

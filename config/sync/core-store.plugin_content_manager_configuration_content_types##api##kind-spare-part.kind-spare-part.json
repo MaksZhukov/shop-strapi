@@ -34,9 +34,9 @@
           "sortable": true
         }
       },
-      "spare_parts": {
+      "spareParts": {
         "edit": {
-          "label": "spare_parts",
+          "label": "spareParts",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -44,7 +44,7 @@
           "mainField": "name"
         },
         "list": {
-          "label": "spare_parts",
+          "label": "spareParts",
           "searchable": false,
           "sortable": false
         }
@@ -83,7 +83,7 @@
         "id",
         "name",
         "createdAt",
-        "updatedAt"
+        "spareParts"
       ],
       "edit": [
         [
@@ -94,7 +94,7 @@
         ]
       ],
       "editRelations": [
-        "spare_parts"
+        "spareParts"
       ]
     }
   },

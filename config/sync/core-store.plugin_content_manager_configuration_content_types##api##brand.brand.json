@@ -56,7 +56,7 @@
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "generation"
+          "mainField": "id"
         },
         "list": {
           "label": "cars",
@@ -112,8 +112,8 @@
       "list": [
         "id",
         "name",
-        "models",
-        "spareParts"
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
