@@ -20,20 +20,6 @@
           "sortable": true
         }
       },
-      "diameter": {
-        "edit": {
-          "label": "diameter",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "diameter",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "width": {
         "edit": {
           "label": "width",
@@ -58,20 +44,6 @@
         },
         "list": {
           "label": "height",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "brand": {
-        "edit": {
-          "label": "brand",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "brand",
           "searchable": true,
           "sortable": true
         }
@@ -132,6 +104,49 @@
           "sortable": true
         }
       },
+      "diameter": {
+        "edit": {
+          "label": "diameter",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "diameter",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "wheelBrand": {
+        "edit": {
+          "label": "wheelBrand",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "wheelBrand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -183,10 +198,6 @@
           {
             "name": "height",
             "size": 4
-          },
-          {
-            "name": "brand",
-            "size": 6
           }
         ],
         [
@@ -208,9 +219,17 @@
             "name": "type",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "name",
+            "size": 6
+          }
         ]
       ],
-      "editRelations": []
+      "editRelations": [
+        "wheelBrand"
+      ]
     }
   },
   "type": "object",

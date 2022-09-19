@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::kind-spare-part.kind-spare-part",
+  "key": "plugin_content_manager_configuration_content_types::api::wheel-brand.wheel-brand",
   "value": {
-    "uid": "api::kind-spare-part.kind-spare-part",
+    "uid": "api::wheel-brand.wheel-brand",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -34,17 +34,17 @@
           "sortable": true
         }
       },
-      "spareParts": {
+      "wheels": {
         "edit": {
-          "label": "spareParts",
+          "label": "wheels",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true,
-          "mainField": "name"
+          "mainField": "type"
         },
         "list": {
-          "label": "spareParts",
+          "label": "wheels",
           "searchable": false,
           "sortable": false
         }
@@ -82,11 +82,8 @@
       "list": [
         "id",
         "name",
-        "spareParts",
-        "createdAt"
-      ],
-      "editRelations": [
-        "spareParts"
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
@@ -95,6 +92,9 @@
             "size": 6
           }
         ]
+      ],
+      "editRelations": [
+        "wheels"
       ]
     }
   },

@@ -563,17 +563,57 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-brand.wheel-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-brand.wheel-brand",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-brand.wheel-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-brand.wheel-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "diameter",
           "width",
           "height",
-          "brand",
           "images",
           "price",
           "priceUSD",
-          "type"
+          "type",
+          "diameter",
+          "name",
+          "wheelBrand"
         ]
       },
       "conditions": []
@@ -589,14 +629,15 @@
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "diameter",
           "width",
           "height",
-          "brand",
           "images",
           "price",
           "priceUSD",
-          "type"
+          "type",
+          "diameter",
+          "name",
+          "wheelBrand"
         ]
       },
       "conditions": []
@@ -606,14 +647,15 @@
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "diameter",
           "width",
           "height",
-          "brand",
           "images",
           "price",
           "priceUSD",
-          "type"
+          "type",
+          "diameter",
+          "name",
+          "wheelBrand"
         ]
       },
       "conditions": []

@@ -40,12 +40,6 @@
       "action": "api::favorite.favorite.update"
     },
     {
-      "action": "api::kind-spare-part.kind-spare-part.find"
-    },
-    {
-      "action": "api::kind-spare-part.kind-spare-part.findOne"
-    },
-    {
       "action": "api::model.model.find"
     },
     {
@@ -73,10 +67,10 @@
       "action": "api::spare-part.spare-part.findOne"
     },
     {
-      "action": "api::tire.tire.find"
+      "action": "api::wheel-brand.wheel-brand.find"
     },
     {
-      "action": "api::tire.tire.findOne"
+      "action": "api::wheel-brand.wheel-brand.findOne"
     },
     {
       "action": "api::wheel.wheel.find"

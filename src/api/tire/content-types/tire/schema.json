@@ -29,9 +29,6 @@
         "всесезонные"
       ]
     },
-    "brand": {
-      "type": "string"
-    },
     "price": {
       "type": "integer"
     },
@@ -41,6 +38,15 @@
     "type": {
       "type": "string",
       "default": "tire"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tire-brand.tire-brand",
+      "inversedBy": "tires"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

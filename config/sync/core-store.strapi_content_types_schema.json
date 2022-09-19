@@ -2869,17 +2869,11 @@
       },
       "pluginOptions": {},
       "attributes": {
-        "diameter": {
-          "type": "string"
-        },
         "width": {
           "type": "integer"
         },
         "height": {
           "type": "integer"
-        },
-        "brand": {
-          "type": "string"
         },
         "images": {
           "type": "media",
@@ -2901,6 +2895,18 @@
         "type": {
           "type": "string",
           "default": "wheel"
+        },
+        "diameter": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "wheelBrand": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::wheel-brand.wheel-brand",
+          "inversedBy": "wheels"
         },
         "createdAt": {
           "type": "datetime"
@@ -2942,17 +2948,11 @@
         },
         "pluginOptions": {},
         "attributes": {
-          "diameter": {
-            "type": "string"
-          },
           "width": {
             "type": "integer"
           },
           "height": {
             "type": "integer"
-          },
-          "brand": {
-            "type": "string"
           },
           "images": {
             "type": "media",
@@ -2974,6 +2974,18 @@
           "type": {
             "type": "string",
             "default": "wheel"
+          },
+          "diameter": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "wheelBrand": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::wheel-brand.wheel-brand",
+            "inversedBy": "wheels"
           }
         },
         "kind": "collectionType"
@@ -2984,6 +2996,90 @@
       "uid": "api::wheel.wheel",
       "apiName": "wheel",
       "globalId": "Wheel",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::wheel-brand.wheel-brand": {
+      "kind": "collectionType",
+      "collectionName": "wheel_brands",
+      "info": {
+        "singularName": "wheel-brand",
+        "pluralName": "wheel-brands",
+        "displayName": "Wheel brand",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "wheels": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::wheel.wheel",
+          "mappedBy": "wheelBrand"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "wheel_brands",
+        "info": {
+          "singularName": "wheel-brand",
+          "pluralName": "wheel-brands",
+          "displayName": "Wheel brand",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "wheels": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::wheel.wheel",
+            "mappedBy": "wheelBrand"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "wheel-brand",
+      "connection": "default",
+      "uid": "api::wheel-brand.wheel-brand",
+      "apiName": "wheel-brand",
+      "globalId": "WheelBrand",
       "actions": {},
       "lifecycles": {}
     }

@@ -12,17 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "diameter": {
-      "type": "string"
-    },
     "width": {
       "type": "integer"
     },
     "height": {
       "type": "integer"
-    },
-    "brand": {
-      "type": "string"
     },
     "images": {
       "type": "media",
@@ -44,6 +38,12 @@
     "type": {
       "type": "string",
       "default": "wheel"
+    },
+    "diameter": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

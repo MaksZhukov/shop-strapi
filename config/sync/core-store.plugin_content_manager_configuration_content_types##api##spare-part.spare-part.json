@@ -174,21 +174,6 @@
           "sortable": true
         }
       },
-      "kindSparePart": {
-        "edit": {
-          "label": "kindSparePart",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "kindSparePart",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "model": {
         "edit": {
           "label": "model",
@@ -229,6 +214,21 @@
         },
         "list": {
           "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "kindSparePart": {
+        "edit": {
+          "label": "kindSparePart",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "kindSparePart",
           "searchable": true,
           "sortable": true
         }
@@ -332,9 +332,9 @@
         ]
       ],
       "editRelations": [
-        "kindSparePart",
         "model",
-        "brand"
+        "brand",
+        "kindSparePart"
       ]
     }
   },

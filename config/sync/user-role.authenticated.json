@@ -73,6 +73,18 @@
       "action": "api::spare-part.spare-part.findOne"
     },
     {
+      "action": "api::wheel-brand.wheel-brand.find"
+    },
+    {
+      "action": "api::wheel-brand.wheel-brand.findOne"
+    },
+    {
+      "action": "api::wheel.wheel.find"
+    },
+    {
+      "action": "api::wheel.wheel.findOne"
+    },
+    {
       "action": "plugin::email.email.send"
     },
     {
