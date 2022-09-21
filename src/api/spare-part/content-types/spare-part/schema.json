@@ -30,7 +30,8 @@
       ]
     },
     "price": {
-      "type": "integer"
+      "type": "integer",
+      "default": 0
     },
     "priceUSD": {
       "type": "decimal"
