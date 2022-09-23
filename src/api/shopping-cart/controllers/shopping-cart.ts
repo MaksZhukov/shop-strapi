@@ -17,20 +17,16 @@ export default factories.createCoreController(
                 },
             };
             const result = await super.find(ctx);
-            const { data } = strapi
-                .service("plugin::transformer.transformService")
-                //@ts-ignore
-                .response(
-                    strapi.services[
-                        "plugin::transformer.settingsService"
-                    ].get(),
-                    result
-                );
             return {
-                data: data.map((item) => ({
-                    ...item,
-                    product: item.product[0].product,
-                })),
+                data: result.data.map((item) => {
+                    return {
+                        ...item,
+                        attributes: {
+                            ...item.attributes,
+                            product: item.attributes.product[0].product.data,
+                        },
+                    };
+                }),
             };
         },
 
@@ -39,16 +35,15 @@ export default factories.createCoreController(
             ctx.query = { populate: ["product.product.images"] };
             ctx.request.body.data.usersPermissionsUser = userId;
             const result = await super.create(ctx);
-            const { data } = strapi
-                .service("plugin::transformer.transformService")
-                //@ts-ignore
-                .response(
-                    strapi.services[
-                        "plugin::transformer.settingsService"
-                    ].get(),
-                    result
-                );
-            return { data: { ...data, product: data.product[0].product } };
+            return {
+                data: {
+                    ...result.data,
+                    attributes: {
+                        ...result.data.attributes,
+                        product: result.data.attributes.product[0].product.data,
+                    },
+                },
+            };
         },
         async delete(ctx) {
             const { id } = ctx.params;
