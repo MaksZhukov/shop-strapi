@@ -34,6 +34,8 @@ export default factories.createCoreController(
             const userId = ctx.state.user.id;
             ctx.query = { populate: ["product.product.images"] };
             ctx.request.body.data.usersPermissionsUser = userId;
+            const productId = ctx.request.body.data.product[0].product;
+            ctx.request.body.data.uid = userId + "-" + productId;
             const result = await super.create(ctx);
             return {
                 data: {

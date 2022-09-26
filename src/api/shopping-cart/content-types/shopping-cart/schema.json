@@ -25,6 +25,10 @@
         "product.wheel"
       ],
       "max": 1
+    },
+    "uid": {
+      "type": "uid",
+      "required": true
     }
   }
 }
