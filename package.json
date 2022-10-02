@@ -12,13 +12,13 @@
     },
     "dependencies": {
         "@abskmj/exchangeratesapi": "^3.0.1",
-        "@strapi/icons": "^1.2.3",
-        "@strapi/plugin-i18n": "4.3.9",
-        "@strapi/plugin-users-permissions": "4.3.9",
-        "@strapi/provider-email-nodemailer": "^4.3.9",
-        "@strapi/strapi": "4.3.9",
+        "@strapi/icons": "^1.2.4",
+        "@strapi/plugin-i18n": "4.4.1",
+        "@strapi/plugin-users-permissions": "4.4.1",
+        "@strapi/provider-email-nodemailer": "^4.4.1",
+        "@strapi/strapi": "4.4.1",
         "axios": "^0.27.2",
-        "connection-string": "^4.3.5",
+        "connection-string": "^4.3.6",
         "form-data": "^4.0.0",
         "koa2-ratelimit": "^1.1.2",
         "lodash.uniqby": "^4.7.0",
@@ -27,7 +27,7 @@
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.4",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
-        "strapi-plugin-generate-data": "^1.0.17",
+        "strapi-plugin-generate-data": "1.0.18",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-rest-cache": "^4.2.4",
         "strapi-plugin-transformer": "^2.1.0",
@@ -50,6 +50,6 @@
         "@faker-js/faker": "^7.5.0",
         "@types/lodash.uniqby": "^4.7.7",
         "patch-package": "^6.4.7",
-        "typescript": "^4.8.3"
+        "typescript": "^4.8.4"
     }
 }
