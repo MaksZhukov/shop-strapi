@@ -17,11 +17,9 @@
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "audios",
-        "images",
-        "videos",
-        "files"
-      ]
+        "images"
+      ],
+      "private": true
     },
     "brand": {
       "type": "relation",
@@ -68,9 +66,6 @@
     },
     "mileage": {
       "type": "integer"
-    },
-    "test": {
-      "type": "json"
     }
   }
 }

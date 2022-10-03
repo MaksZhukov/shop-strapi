@@ -23,6 +23,26 @@ export default ({ env }) => ({
             ],
         },
     },
+    "rest-cache": {
+        config: {
+            provider: {
+                name: "memory",
+                options: {
+                    max: 32767,
+                    maxAge: 3600,
+                },
+            },
+            strategy: {
+                contentTypes: [
+                    "api::wheel.wheel",
+                    "api::spare-part.spare-part",
+                    "api::tire.tire",
+                    "api::car.car",
+                    "api::review.review",
+                ],
+            },
+        },
+    },
     transformer: {
         enabled: true,
         config: {
@@ -54,25 +74,6 @@ export default ({ env }) => ({
             defaultFrom: env("SMTP_USERNAME"),
             defaultReplyTo: env("SMTP_USERNAME"),
             testAddress: env("SMTP_USERNAME"),
-        },
-    },
-    "rest-cache": {
-        config: {
-            provider: {
-                name: "memory",
-                options: {
-                    max: 32767,
-                    maxAge: 3600,
-                },
-            },
-            strategy: {
-                contentTypes: [
-                    "api::wheel.wheel",
-                    "api::spare-part.spare-part",
-                    "api::tire.tire",
-                    "api::car.car",
-                ],
-            },
         },
     },
 });
