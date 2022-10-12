@@ -4,9 +4,10 @@
 import { Agent } from "https";
 import axios from "axios";
 
-export default ({ strapi }) => {
-    let coefficient = 0;
+let timerId = null;
+let coefficient = 0;
 
+export default ({ strapi }) => {
     let key = strapi.config.get("api.currency-freaks-key");
 
     const fetchCoefficient = async () => {
@@ -25,11 +26,13 @@ export default ({ strapi }) => {
         }
     };
 
-    fetchCoefficient();
-
-    setInterval(() => {
+    if (!timerId) {
         fetchCoefficient();
-    }, 60 * 60 * 1000);
+
+        timerId = setInterval(() => {
+            fetchCoefficient();
+        }, 60 * 60 * 1000);
+    }
 
     return {
         getCoefficient: () => coefficient,

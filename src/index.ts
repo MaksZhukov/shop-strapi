@@ -1,3 +1,5 @@
+import currencyFreaksService from "./api/currency-freaks/services/currency-freaks";
+
 export default {
     /**
      * An asynchronous register function that runs before
@@ -15,6 +17,6 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-
+        currencyFreaksService({ strapi });
     },
 };

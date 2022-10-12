@@ -11,10 +11,9 @@ export default factories.createCoreController(
             const { id } = ctx.params;
             const entity = await strapi.db.query("api::wheel.wheel").findOne({
                 where: { $or: [{ slug: id }, { id }] },
-                populate: ["images", "sparePart", "model", "brand"],
+                populate: ["images"],
             });
-            const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-            return this.transformResponse(sanitizedEntity);
+            return this.transformResponse(entity);
         },
     })
 );

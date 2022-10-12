@@ -13,10 +13,9 @@ export default factories.createCoreController(
                 .query("api::spare-part.spare-part")
                 .findOne({
                     where: { $or: [{ slug: id }, { id }] },
-                    populate: ["images", "sparePart", "model", "brand"],
+                    populate: ["images", "kindSparePart", "model", "brand"],
                 });
-            const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-            return this.transformResponse(sanitizedEntity);
+            return this.transformResponse(entity);
         },
     })
 );
