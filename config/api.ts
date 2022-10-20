@@ -5,4 +5,5 @@ export default ({ env }) => ({
         withCount: true,
     },
     "currency-freaks-key": env("CURRENCY_KEY"),
+    apiToken: env("API_TOKEN"),
 });
