@@ -13,7 +13,7 @@ export default factories.createCoreController(
                 .query("api::spare-part.spare-part")
                 .findOne({
                     where: { $or: [{ slug: id }, { id }] },
-                    populate: ["images", "kindSparePart", "model", "brand"],
+                    populate: ["images", "kindSparePart", "model", "brand", "generation"],
                 });
             return this.transformResponse(entity);
         },

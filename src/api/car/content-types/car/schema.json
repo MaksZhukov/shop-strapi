@@ -18,8 +18,7 @@
       "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "private": true
+      ]
     },
     "brand": {
       "type": "relation",
@@ -55,9 +54,6 @@
       "type": "uid",
       "targetField": "bodyStyle"
     },
-    "generation": {
-      "type": "string"
-    },
     "engine": {
       "type": "string"
     },
@@ -66,6 +62,12 @@
     },
     "mileage": {
       "type": "integer"
+    },
+    "generation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::generation.generation",
+      "inversedBy": "cars"
     }
   }
 }

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "generations",
+  "info": {
+    "singularName": "generation",
+    "pluralName": "generations",
+    "displayName": "Generation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "spareParts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::spare-part.spare-part",
+      "mappedBy": "generation"
+    },
+    "cars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car.car",
+      "mappedBy": "generation"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "generations"
+    }
+  }
+}
