@@ -1,2 +1,3 @@
-const { exec } = require("child_process");
-exec("npm run start");
+const strapi = require("@strapi/strapi");
+
+strapi({ distDir: "./dist" }).start();
