@@ -38,6 +38,12 @@
       "relation": "oneToMany",
       "target": "api::generation.generation",
       "mappedBy": "model"
+    },
+    "wheels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel",
+      "mappedBy": "model"
     }
   }
 }

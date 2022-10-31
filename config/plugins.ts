@@ -39,6 +39,8 @@ export default ({ env }) => ({
                     "api::tire.tire",
                     "api::car.car",
                     "api::review.review",
+                    "api::model.model",
+                    "api::brand.brand",
                 ],
             },
         },

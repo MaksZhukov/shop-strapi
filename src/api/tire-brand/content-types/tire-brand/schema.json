@@ -4,10 +4,11 @@
   "info": {
     "singularName": "tire-brand",
     "pluralName": "tire-brands",
-    "displayName": "Tire brand"
+    "displayName": "Tire brand",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

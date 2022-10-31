@@ -15,9 +15,6 @@
     "width": {
       "type": "integer"
     },
-    "height": {
-      "type": "integer"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -40,15 +37,46 @@
       "type": "string",
       "default": "wheel"
     },
-    "diameter": {
-      "type": "integer"
-    },
     "name": {
       "type": "string"
     },
     "slug": {
       "type": "uid",
       "targetField": "name"
+    },
+    "numberHoles": {
+      "type": "integer"
+    },
+    "diameterCenterHole": {
+      "type": "decimal"
+    },
+    "diameter": {
+      "type": "string"
+    },
+    "diskOffset": {
+      "type": "decimal"
+    },
+    "distanceBetweenCenters": {
+      "type": "decimal"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "wheels"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "wheels"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "штампованный",
+        "литой"
+      ]
     }
   }
 }
