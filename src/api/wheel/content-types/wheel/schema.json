@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "width": {
-      "type": "integer"
+      "type": "decimal"
     },
     "images": {
       "type": "media",
