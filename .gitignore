@@ -115,3 +115,7 @@ dist
 .strapi-updater.json
 
 strapi-plugin-generate-data
+
+
+# bash
+check_git_updates.sh
