@@ -6,4 +6,6 @@ export default ({ env }) => ({
     },
     "currency-freaks-key": env("CURRENCY_KEY"),
     apiToken: env("API_TOKEN"),
+    clientUrl: env("CLIENT_URL"),
+    revalidateToken: env("REVALIDATE_TOKEN"),
 });
