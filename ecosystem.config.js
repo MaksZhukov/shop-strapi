@@ -23,7 +23,7 @@ module.exports = {
             },
             instances: "max",
             exec_mode: "cluster",
-            max_memory_restart: "800m",
+            max_memory_restart: "800M",
         },
     ],
 };
