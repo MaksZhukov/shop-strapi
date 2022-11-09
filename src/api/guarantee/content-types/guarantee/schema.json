@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "guarantees",
+  "info": {
+    "singularName": "guarantee",
+    "pluralName": "guarantees",
+    "displayName": "Guarantee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
