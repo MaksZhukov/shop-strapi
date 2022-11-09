@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "contacts",
+  "collectionName": "page_contacts",
   "info": {
-    "singularName": "contact",
-    "pluralName": "contacts",
-    "displayName": "Contacts",
+    "singularName": "page-contact",
+    "pluralName": "page-contacts",
+    "displayName": "Page contacts",
     "description": ""
   },
   "options": {

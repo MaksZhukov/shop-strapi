@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "guarantees",
+  "collectionName": "page_guarantees",
   "info": {
-    "singularName": "guarantee",
-    "pluralName": "guarantees",
-    "displayName": "Guarantee",
+    "singularName": "page-guarantee",
+    "pluralName": "page-guarantees",
+    "displayName": "Page guarantee",
     "description": ""
   },
   "options": {
