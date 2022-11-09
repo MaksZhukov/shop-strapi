@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_reviews",
+  "info": {
+    "singularName": "page-review",
+    "pluralName": "page-reviews",
+    "displayName": "Page reviews",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
