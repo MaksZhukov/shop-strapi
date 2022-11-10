@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_shipping_and_payments",
+  "info": {
+    "singularName": "page-shipping-and-payment",
+    "pluralName": "page-shipping-and-payments",
+    "displayName": "Page shipping and payment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
