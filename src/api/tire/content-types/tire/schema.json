@@ -63,6 +63,9 @@
     },
     "count": {
       "type": "integer"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
