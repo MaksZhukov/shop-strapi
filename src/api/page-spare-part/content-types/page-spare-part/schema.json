@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_spare_parts",
+  "info": {
+    "singularName": "page-spare-part",
+    "pluralName": "page-spare-parts",
+    "displayName": "Page spare parts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

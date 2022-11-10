@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_tires",
+  "info": {
+    "singularName": "page-tire",
+    "pluralName": "page-tires",
+    "displayName": "Page tires"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

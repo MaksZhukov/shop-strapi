@@ -85,6 +85,11 @@
       "relation": "manyToOne",
       "target": "api::generation.generation",
       "inversedBy": "spareParts"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

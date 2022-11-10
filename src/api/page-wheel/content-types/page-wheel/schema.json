@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_wheels",
+  "info": {
+    "singularName": "page-wheel",
+    "pluralName": "page-wheels",
+    "displayName": "Page wheels"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

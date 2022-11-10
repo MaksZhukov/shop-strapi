@@ -68,6 +68,11 @@
       "relation": "manyToOne",
       "target": "api::generation.generation",
       "inversedBy": "cars"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
