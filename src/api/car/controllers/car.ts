@@ -9,7 +9,7 @@ export default factories.createCoreController("api::car.car", ({ strapi }) => ({
         const { id } = ctx.params;
         const entity = await strapi.db.query("api::car.car").findOne({
             where: { $or: [{ slug: id }, { id }] },
-            populate: ["images", "model", "brand", "generation", "seo"],
+            populate: ["images", "model", "brand", "generation", "seo.images"],
         });
         if (entity) {
             const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
