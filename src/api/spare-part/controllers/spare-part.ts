@@ -19,7 +19,7 @@ export default factories.createCoreController(
                         "model",
                         "brand",
                         "generation",
-                        "seo",
+                        "seo.images",
                     ],
                 });
             return this.transformResponse(entity);
