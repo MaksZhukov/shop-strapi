@@ -8,7 +8,7 @@ export default factories.createCoreController(
     "api::page-shipping-and-payment.page-shipping-and-payment",
     () => ({
         find(ctx) {
-            ctx.query.populate = "*";
+            ctx.query.populate = "seo.images";
             return super.find(ctx);
         },
     })

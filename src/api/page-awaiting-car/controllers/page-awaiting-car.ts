@@ -8,7 +8,7 @@ export default factories.createCoreController(
     "api::page-awaiting-car.page-awaiting-car",
     () => ({
         find(ctx) {
-            ctx.query.populate = "*";
+            ctx.query.populate = "seo.images";
             return super.find(ctx);
         },
     })
