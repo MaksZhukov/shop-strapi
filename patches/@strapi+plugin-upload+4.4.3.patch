@@ -1,0 +1,304 @@
+diff --git a/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js b/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
+index d2e9cee..0d7ac08 100644
+--- a/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
++++ b/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
+@@ -4,125 +4,129 @@
+  * 
+  */ 
+  
+-import PropTypes from 'prop-types';
+-import React, { useRef, useState } from 'react';
+-import { useIntl } from 'react-intl';
+-import isEqual from 'lodash/isEqual';
+-import styled from 'styled-components';
+-import { ModalLayout, ModalBody, ModalFooter } from '@strapi/design-system/ModalLayout';
+-import { Stack } from '@strapi/design-system/Stack';
+-import { Flex } from '@strapi/design-system/Flex';
+-import { Loader } from '@strapi/design-system/Loader';
+-import { Grid, GridItem } from '@strapi/design-system/Grid';
+-import { Button } from '@strapi/design-system/Button';
+-import { FieldLabel } from '@strapi/design-system/Field';
+-import { TextInput } from '@strapi/design-system/TextInput';
+-import { getFileExtension, Form, pxToRem, useTracking } from '@strapi/helper-plugin';
+-import { VisuallyHidden } from '@strapi/design-system/VisuallyHidden';
+-import { Formik } from 'formik';
+-import * as yup from 'yup';
+-
+-import { DialogHeader } from './DialogHeader';
+-import { PreviewBox } from './PreviewBox';
+-import { ContextInfo } from '../ContextInfo';
+-import { AssetDefinition } from '../../constants';
+-import { getTrad, findRecursiveFolderByValue } from '../../utils';
+-import formatBytes from '../../utils/formatBytes';
+-import { useEditAsset } from '../../hooks/useEditAsset';
+-import { useFolderStructure } from '../../hooks/useFolderStructure';
+-import { ReplaceMediaButton } from './ReplaceMediaButton';
+-import SelectTree from '../SelectTree';
+-
+-const LoadingBody = styled(Flex)`
+-  /* 80px are coming from the Tabs component that is not included in the ModalBody */
+-  min-height: ${() => `calc(60vh + ${pxToRem(80)})`};
+-`;
+-
+-const fileInfoSchema = yup.object({
+-  name: yup.string().required(),
+-  alternativeText: yup.string(),
+-  caption: yup.string(),
+-  folder: yup.number(),
+-});
+-
+-export const EditAssetDialog = ({
+-  onClose,
+-  asset,
+-  canUpdate,
+-  canCopyLink,
+-  canDownload,
+-  trackedLocation,
+-}) => {
+-  const { formatMessage, formatDate } = useIntl();
+-  const { trackUsage } = useTracking();
+-  const submitButtonRef = useRef(null);
+-  const [isCropping, setIsCropping] = useState(false);
+-  const [replacementFile, setReplacementFile] = useState();
+-  const { editAsset, isLoading } = useEditAsset();
+-
+-  const { data: folderStructure, isLoading: folderStructureIsLoading } = useFolderStructure({
+-    enabled: true,
+-  });
+-
+-  const handleSubmit = async (values) => {
+-    const nextAsset = { ...asset, ...values, folder: values.parent.value };
+-
+-    if (asset.isLocal) {
+-      onClose(nextAsset);
+-    } else {
+-      const editedAsset = await editAsset(nextAsset, replacementFile);
+-
+-      const assetType = asset?.mime.split('/')[0];
+-      // if the folder parent was the root of Media Library, its id is null
+-      // we know it changed location if the new parent value exists
+-      const didChangeLocation = asset?.folder?.id
+-        ? asset.folder.id !== values.parent.value
+-        : asset.folder === null && !!values.parent.value;
+-
+-      trackUsage('didEditMediaLibraryElements', {
+-        location: trackedLocation,
+-        type: assetType,
+-        changeLocation: didChangeLocation,
+-      });
+-
+-      onClose(editedAsset);
+-    }
+-  };
+-
+-  const handleStartCropping = () => {
+-    setIsCropping(true);
+-  };
+-
+-  const handleCancelCropping = () => {
+-    setIsCropping(false);
+-  };
+-
+-  const handleFinishCropping = () => {
+-    setIsCropping(false);
+-    onClose();
+-  };
+-
+-  const formDisabled = !canUpdate || isCropping;
+-
+-  const handleConfirmClose = () => {
+-    // eslint-disable-next-line no-alert
+-    const confirm = window.confirm(
+-      formatMessage({
+-        id: 'window.confirm.close-modal.file',
+-        defaultMessage: 'Are you sure? Your changes will be lost.',
+-      })
+-    );
+-
+-    if (confirm) {
+-      onClose();
+-    }
+-  };
++ import PropTypes from 'prop-types'; 
++ import React, { useRef, useState } from 'react'; 
++ import { useIntl } from 'react-intl'; 
++ import isEqual from 'lodash/isEqual'; 
++ import styled from 'styled-components'; 
++ import { ModalLayout, ModalBody, ModalFooter } from '@strapi/design-system/ModalLayout'; 
++ import { Stack } from '@strapi/design-system/Stack'; 
++ import { Flex } from '@strapi/design-system/Flex'; 
++ import { Loader } from '@strapi/design-system/Loader'; 
++ import { Grid, GridItem } from '@strapi/design-system/Grid'; 
++ import { Button } from '@strapi/design-system/Button'; 
++ import { FieldLabel } from '@strapi/design-system/Field'; 
++ import { TextInput } from '@strapi/design-system/TextInput'; 
++ import { getFileExtension, Form, pxToRem, useTracking } from '@strapi/helper-plugin'; 
++ import { VisuallyHidden } from '@strapi/design-system/VisuallyHidden'; 
++ import { Formik } from 'formik'; 
++ import * as yup from 'yup'; 
++  
++ import { DialogHeader } from './DialogHeader'; 
++ import { PreviewBox } from './PreviewBox'; 
++ import { ContextInfo } from '../ContextInfo'; 
++ import { AssetDefinition } from '../../constants'; 
++ import { getTrad, findRecursiveFolderByValue } from '../../utils'; 
++ import formatBytes from '../../utils/formatBytes'; 
++ import { useEditAsset } from '../../hooks/useEditAsset'; 
++ import { useFolderStructure } from '../../hooks/useFolderStructure'; 
++ import { ReplaceMediaButton } from './ReplaceMediaButton'; 
++ import SelectTree from '../SelectTree'; 
++  
++ const LoadingBody = styled(Flex)` 
++   /* 80px are coming from the Tabs component that is not included in the ModalBody */ 
++   min-height: ${() => `calc(60vh + ${pxToRem(80)})`}; 
++ `; 
++  
++ const fileInfoSchema = yup.object({ 
++   name: yup.string().required(), 
++   alternativeText: yup.string(), 
++   caption: yup.string(), 
++   signature: yup.string(), 
++   description: yup.string(), 
++   folder: yup.number(), 
++ }); 
++  
++ export const EditAssetDialog = ({ 
++   onClose, 
++   asset, 
++   canUpdate, 
++   canCopyLink, 
++   canDownload, 
++   trackedLocation, 
++ }) => { 
++   const { formatMessage, formatDate } = useIntl(); 
++   const { trackUsage } = useTracking(); 
++   const submitButtonRef = useRef(null); 
++   const [isCropping, setIsCropping] = useState(false); 
++   const [replacementFile, setReplacementFile] = useState(); 
++   const { editAsset, isLoading } = useEditAsset(); 
++  
++   const { data: folderStructure, isLoading: folderStructureIsLoading } = useFolderStructure({ 
++     enabled: true, 
++   }); 
++  
++   const handleSubmit = async (values) => { 
++     const nextAsset = { ...asset, ...values, folder: values.parent.value }; 
++  
++     if (asset.isLocal) { 
++       onClose(nextAsset); 
++     } else { 
++       const editedAsset = await editAsset(nextAsset, replacementFile); 
++  
++       const assetType = asset?.mime.split('/')[0]; 
++       // if the folder parent was the root of Media Library, its id is null 
++       // we know it changed location if the new parent value exists 
++       const didChangeLocation = asset?.folder?.id 
++         ? asset.folder.id !== values.parent.value 
++         : asset.folder === null && !!values.parent.value; 
++  
++       trackUsage('didEditMediaLibraryElements', { 
++         location: trackedLocation, 
++         type: assetType, 
++         changeLocation: didChangeLocation, 
++       }); 
++  
++       onClose(editedAsset); 
++     } 
++   }; 
++  
++   const handleStartCropping = () => { 
++     setIsCropping(true); 
++   }; 
++  
++   const handleCancelCropping = () => { 
++     setIsCropping(false); 
++   }; 
++  
++   const handleFinishCropping = () => { 
++     setIsCropping(false); 
++     onClose(); 
++   }; 
++  
++   const formDisabled = !canUpdate || isCropping; 
++  
++   const handleConfirmClose = () => { 
++     // eslint-disable-next-line no-alert 
++     const confirm = window.confirm( 
++       formatMessage({ 
++         id: 'window.confirm.close-modal.file', 
++         defaultMessage: 'Are you sure? Your changes will be lost.', 
++       }) 
++     ); 
++  
++     if (confirm) { 
++       onClose(); 
++     } 
++   }; 
+ 
+   const activeFolderId = asset?.folder?.id;
+   const initialFormData = !folderStructureIsLoading && {
+     name: asset.name,
+     alternativeText: asset.alternativeText ?? undefined,
+     caption: asset.caption ?? undefined,
++    signature: asset.signature ?? undefined, 
++    description: asset.description ?? undefined,
+     parent: {
+       value: activeFolderId ?? undefined,
+       label:
+@@ -268,6 +272,30 @@ export const EditAssetDialog = ({
+                       disabled={formDisabled}
+                     />
+ 
++                    <TextInput 
++                      label={formatMessage({ 
++                        id: getTrad('form.input.label.file-signature'), 
++                        defaultMessage: 'Signature', 
++                      })} 
++                      name="signature" 
++                      value={values.signature} 
++                      error={errors.signature} 
++                      onChange={handleChange} 
++                      disabled={formDisabled} 
++                    /> 
++ 
++                    <TextInput 
++                      label={formatMessage({ 
++                        id: getTrad('form.input.label.file-description'), 
++                        defaultMessage: 'Description', 
++                      })} 
++                      name="description" 
++                      value={values.description} 
++                      error={errors.description} 
++                      onChange={handleChange} 
++                      disabled={formDisabled} 
++                    /> 
++
+                     <Stack spacing={1}>
+                       <FieldLabel htmlFor="asset-folder">
+                         {formatMessage({
+diff --git a/node_modules/@strapi/plugin-upload/admin/src/constants.js b/node_modules/@strapi/plugin-upload/admin/src/constants.js
+index c81204d..37ef938 100644
+--- a/node_modules/@strapi/plugin-upload/admin/src/constants.js
++++ b/node_modules/@strapi/plugin-upload/admin/src/constants.js
+@@ -67,6 +67,8 @@ export const AssetDefinition = PropTypes.shape({
+   updatedAt: PropTypes.string, 
+   alternativeText: PropTypes.string, 
+   caption: PropTypes.string, 
++  signatute: PropTypes.string, 
++  description: PropTypes.string, 
+   folder: PropTypes.shape(FolderDefinition), 
+   formats: PropTypes.shape({ 
+     thumbnail: PropTypes.shape({ 
+diff --git a/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js b/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
+index 01eb8f0..f3cc21f 100644
+--- a/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
++++ b/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
+@@ -23,6 +23,8 @@ const editAssetRequest = (asset, file, cancelToken, onProgress) => {
+       caption: asset.caption, 
+       folder: asset.folder, 
+       name: asset.name, 
++      signature: asset.signature, 
++      description: asset.description 
+     }) 
+   ); 
+  
