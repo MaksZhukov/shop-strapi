@@ -1,11 +1,11 @@
 diff --git a/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js b/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
-index d2e9cee..0d7ac08 100644
+index d2e9cee..0349094 100644
 --- a/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
 +++ b/node_modules/@strapi/plugin-upload/admin/src/components/EditAssetDialog/index.js
 @@ -4,125 +4,129 @@
-  * 
-  */ 
-  
+  *
+  */
+ 
 -import PropTypes from 'prop-types';
 -import React, { useRef, useState } from 'react';
 -import { useIntl } from 'react-intl';
@@ -277,28 +277,89 @@ index d2e9cee..0d7ac08 100644
                        <FieldLabel htmlFor="asset-folder">
                          {formatMessage({
 diff --git a/node_modules/@strapi/plugin-upload/admin/src/constants.js b/node_modules/@strapi/plugin-upload/admin/src/constants.js
-index c81204d..37ef938 100644
+index c81204d..4ac59ba 100644
 --- a/node_modules/@strapi/plugin-upload/admin/src/constants.js
 +++ b/node_modules/@strapi/plugin-upload/admin/src/constants.js
 @@ -67,6 +67,8 @@ export const AssetDefinition = PropTypes.shape({
-   updatedAt: PropTypes.string, 
-   alternativeText: PropTypes.string, 
-   caption: PropTypes.string, 
+   updatedAt: PropTypes.string,
+   alternativeText: PropTypes.string,
+   caption: PropTypes.string,
 +  signatute: PropTypes.string, 
 +  description: PropTypes.string, 
-   folder: PropTypes.shape(FolderDefinition), 
-   formats: PropTypes.shape({ 
-     thumbnail: PropTypes.shape({ 
+   folder: PropTypes.shape(FolderDefinition),
+   formats: PropTypes.shape({
+     thumbnail: PropTypes.shape({
 diff --git a/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js b/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
-index 01eb8f0..f3cc21f 100644
+index 01eb8f0..8219b38 100644
 --- a/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
 +++ b/node_modules/@strapi/plugin-upload/admin/src/hooks/useEditAsset.js
 @@ -23,6 +23,8 @@ const editAssetRequest = (asset, file, cancelToken, onProgress) => {
-       caption: asset.caption, 
-       folder: asset.folder, 
-       name: asset.name, 
+       caption: asset.caption,
+       folder: asset.folder,
+       name: asset.name,
 +      signature: asset.signature, 
 +      description: asset.description 
-     }) 
-   ); 
-  
+     })
+   );
+ 
+diff --git a/node_modules/@strapi/plugin-upload/server/content-types/file/schema.js b/node_modules/@strapi/plugin-upload/server/content-types/file/schema.js
+index 9131bf5..0386c0d 100644
+--- a/node_modules/@strapi/plugin-upload/server/content-types/file/schema.js
++++ b/node_modules/@strapi/plugin-upload/server/content-types/file/schema.js
+@@ -100,6 +100,12 @@ module.exports = {
+       required: true,
+       private: true,
+     },
++    signature: {
++      type: 'string'
++    },
++    description: {
++        type: 'string'
++    }
+   },
+   // experimental feature:
+   indexes: [
+diff --git a/node_modules/@strapi/plugin-upload/server/controllers/validation/admin/upload.js b/node_modules/@strapi/plugin-upload/server/controllers/validation/admin/upload.js
+index 0d47663..b54d4c0 100644
+--- a/node_modules/@strapi/plugin-upload/server/controllers/validation/admin/upload.js
++++ b/node_modules/@strapi/plugin-upload/server/controllers/validation/admin/upload.js
+@@ -8,6 +8,8 @@ const fileInfoSchema = yup.object({
+   name: yup.string().nullable(),
+   alternativeText: yup.string().nullable(),
+   caption: yup.string().nullable(),
++  signature: yup.string().nullable(),
++  description: yup.string().nullable(),
+   folder: yup
+     .strapiID()
+     .nullable()
+diff --git a/node_modules/@strapi/plugin-upload/server/services/upload.js b/node_modules/@strapi/plugin-upload/server/services/upload.js
+index 484b98d..cff6434 100644
+--- a/node_modules/@strapi/plugin-upload/server/services/upload.js
++++ b/node_modules/@strapi/plugin-upload/server/services/upload.js
+@@ -84,6 +84,8 @@ module.exports = ({ strapi }) => ({
+       name: usedName,
+       alternativeText: fileInfo.alternativeText,
+       caption: fileInfo.caption,
++      signature: fileInfo.signature,
++      description: fileInfo.description,
+       folder: fileInfo.folder,
+       folderPath: await fileService.getFolderPath(fileInfo.folder),
+       hash: generateFileName(basename),
+@@ -258,7 +260,7 @@ module.exports = ({ strapi }) => ({
+     return this.add(fileData, { user });
+   },
+ 
+-  async updateFileInfo(id, { name, alternativeText, caption, folder }, { user } = {}) {
++  async updateFileInfo(id, { name, alternativeText, caption, folder, description, signature }, { user } = {}) {
+     const dbFile = await this.findOne(id);
+ 
+     if (!dbFile) {
+@@ -272,6 +274,8 @@ module.exports = ({ strapi }) => ({
+       name: newName,
+       alternativeText: _.isNil(alternativeText) ? dbFile.alternativeText : alternativeText,
+       caption: _.isNil(caption) ? dbFile.caption : caption,
++      description: _.isNil(description) ? dbFile.description : description,
++      signature: _.isNil(signature) ? dbFile.signature : signature,
+       folder: _.isUndefined(folder) ? dbFile.folder : folder,
+       folderPath: _.isUndefined(folder) ? dbFile.path : await fileService.getFolderPath(folder),
+     };
