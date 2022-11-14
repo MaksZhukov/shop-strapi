@@ -90,6 +90,15 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "fuel": {
+      "type": "enumeration",
+      "enum": [
+        "бензин",
+        "дизель",
+        "электро",
+        "гибрид"
+      ]
     }
   }
 }
