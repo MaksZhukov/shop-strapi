@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "description": "A Strapi application",
     "scripts": {
-        "develop": "strapi develop --watch-admin",
+        "develop": "strapi develop",
         "start": "strapi start dist",
         "build": "strapi build",
         "strapi": "strapi",
@@ -24,6 +24,7 @@
         "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",
         "qs": "^6.11.0",
+        "sharp": "^0.31.2",
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.4",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
