@@ -85,13 +85,14 @@
         "role",
         "createdAt"
       ],
-      "editRelations": [
-        "role"
-      ],
       "edit": [
         [
           {
             "name": "action",
+            "size": 6
+          },
+          {
+            "name": "role",
             "size": 6
           }
         ]

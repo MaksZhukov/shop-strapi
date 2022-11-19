@@ -49,6 +49,20 @@
           "sortable": false
         }
       },
+      "uid": {
+        "edit": {
+          "label": "uid",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "uid",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -82,7 +96,8 @@
       "list": [
         "id",
         "createdAt",
-        "usersPermissionsUser"
+        "usersPermissionsUser",
+        "uid"
       ],
       "edit": [
         [
@@ -90,10 +105,17 @@
             "name": "product",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "uid",
+            "size": 6
+          },
+          {
+            "name": "usersPermissionsUser",
+            "size": 6
+          }
         ]
-      ],
-      "editRelations": [
-        "usersPermissionsUser"
       ]
     }
   },

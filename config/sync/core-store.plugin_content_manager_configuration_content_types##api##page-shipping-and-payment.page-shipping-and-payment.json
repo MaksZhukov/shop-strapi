@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::wheel-brand.wheel-brand",
+  "key": "plugin_content_manager_configuration_content_types::api::page-shipping-and-payment.page-shipping-and-payment",
   "value": {
-    "uid": "api::wheel-brand.wheel-brand",
+    "uid": "api::page-shipping-and-payment.page-shipping-and-payment",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,31 +20,16 @@
           "sortable": true
         }
       },
-      "name": {
+      "seo": {
         "edit": {
-          "label": "name",
+          "label": "seo",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "wheels": {
-        "edit": {
-          "label": "wheels",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "type"
-        },
-        "list": {
-          "label": "wheels",
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
@@ -81,20 +66,17 @@
     "layouts": {
       "list": [
         "id",
-        "name",
+        "seo",
         "createdAt",
         "updatedAt"
       ],
       "edit": [
         [
           {
-            "name": "name",
-            "size": 6
+            "name": "seo",
+            "size": 12
           }
         ]
-      ],
-      "editRelations": [
-        "wheels"
       ]
     }
   },

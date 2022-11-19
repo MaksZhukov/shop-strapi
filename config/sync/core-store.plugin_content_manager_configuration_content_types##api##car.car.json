@@ -134,20 +134,6 @@
           "sortable": true
         }
       },
-      "generation": {
-        "edit": {
-          "label": "generation",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "generation",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "engine": {
         "edit": {
           "label": "engine",
@@ -188,6 +174,35 @@
           "label": "mileage",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -257,10 +272,6 @@
           {
             "name": "slug",
             "size": 6
-          },
-          {
-            "name": "generation",
-            "size": 6
           }
         ],
         [
@@ -278,11 +289,29 @@
             "name": "mileage",
             "size": 4
           }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "brand",
+            "size": 6
+          },
+          {
+            "name": "model",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "generation",
+            "size": 6
+          }
         ]
-      ],
-      "editRelations": [
-        "brand",
-        "model"
       ]
     }
   },

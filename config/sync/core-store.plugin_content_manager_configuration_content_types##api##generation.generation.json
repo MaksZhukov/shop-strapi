@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::plugin::i18n.locale",
+  "key": "plugin_content_manager_configuration_content_types::api::generation.generation",
   "value": {
-    "uid": "plugin::i18n.locale",
+    "uid": "api::generation.generation",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -34,16 +34,47 @@
           "sortable": true
         }
       },
-      "code": {
+      "spareParts": {
         "edit": {
-          "label": "code",
+          "label": "spareParts",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "name"
         },
         "list": {
-          "label": "code",
+          "label": "spareParts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "cars": {
+        "edit": {
+          "label": "cars",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "engine"
+        },
+        "list": {
+          "label": "cars",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "model": {
+        "edit": {
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
           "searchable": true,
           "sortable": true
         }
@@ -81,8 +112,8 @@
       "list": [
         "id",
         "name",
-        "code",
-        "createdAt"
+        "spareParts",
+        "cars"
       ],
       "edit": [
         [
@@ -91,7 +122,17 @@
             "size": 6
           },
           {
-            "name": "code",
+            "name": "spareParts",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "model",
+            "size": 6
+          },
+          {
+            "name": "cars",
             "size": 6
           }
         ]

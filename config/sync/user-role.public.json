@@ -4,12 +4,6 @@
   "type": "public",
   "permissions": [
     {
-      "action": "api::article.article.find"
-    },
-    {
-      "action": "api::article.article.findOne"
-    },
-    {
       "action": "api::brand.brand.find"
     },
     {
@@ -40,6 +34,9 @@
       "action": "api::favorite.favorite.update"
     },
     {
+      "action": "api::kind-spare-part.kind-spare-part.find"
+    },
+    {
       "action": "api::model.model.find"
     },
     {
@@ -47,6 +44,36 @@
     },
     {
       "action": "api::order.order.create"
+    },
+    {
+      "action": "api::page-awaiting-car.page-awaiting-car.find"
+    },
+    {
+      "action": "api::page-buying-car.page-buying-car.find"
+    },
+    {
+      "action": "api::page-contact.page-contact.find"
+    },
+    {
+      "action": "api::page-guarantee.page-guarantee.find"
+    },
+    {
+      "action": "api::page-product.page-product.find"
+    },
+    {
+      "action": "api::page-review.page-review.find"
+    },
+    {
+      "action": "api::page-shipping-and-payment.page-shipping-and-payment.find"
+    },
+    {
+      "action": "api::page-spare-part.page-spare-part.find"
+    },
+    {
+      "action": "api::page-tire.page-tire.find"
+    },
+    {
+      "action": "api::page-wheel.page-wheel.find"
     },
     {
       "action": "api::review.review.checkStatus"
@@ -67,10 +94,16 @@
       "action": "api::spare-part.spare-part.findOne"
     },
     {
-      "action": "api::wheel-brand.wheel-brand.find"
+      "action": "api::tire-brand.tire-brand.find"
     },
     {
-      "action": "api::wheel-brand.wheel-brand.findOne"
+      "action": "api::tire-brand.tire-brand.findOne"
+    },
+    {
+      "action": "api::tire.tire.find"
+    },
+    {
+      "action": "api::tire.tire.findOne"
     },
     {
       "action": "api::wheel.wheel.find"
@@ -92,6 +125,9 @@
     },
     {
       "action": "plugin::users-permissions.auth.callback"
+    },
+    {
+      "action": "plugin::users-permissions.auth.changePassword"
     },
     {
       "action": "plugin::users-permissions.auth.connect"
