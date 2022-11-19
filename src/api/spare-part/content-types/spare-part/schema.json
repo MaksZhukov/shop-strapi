@@ -99,6 +99,11 @@
         "электро",
         "гибрид"
       ]
+    },
+    "snippets": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.snippets"
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_product_link_and_images",
+  "info": {
+    "displayName": "Link&image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

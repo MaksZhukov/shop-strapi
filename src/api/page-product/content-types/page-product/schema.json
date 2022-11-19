@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_products",
+  "info": {
+    "singularName": "page-product",
+    "pluralName": "page-products",
+    "displayName": "Page product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "linksWithImages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.link-and-image",
+      "max": 4
+    }
+  }
+}
