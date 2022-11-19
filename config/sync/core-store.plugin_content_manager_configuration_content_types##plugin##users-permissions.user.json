@@ -246,11 +246,12 @@
           {
             "name": "address",
             "size": 6
+          },
+          {
+            "name": "role",
+            "size": 6
           }
         ]
-      ],
-      "editRelations": [
-        "role"
       ]
     }
   },

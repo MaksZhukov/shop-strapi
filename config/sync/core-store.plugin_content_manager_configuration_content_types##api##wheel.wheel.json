@@ -7,8 +7,8 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "diameter",
-      "defaultSortBy": "diameter",
+      "mainField": "type",
+      "defaultSortBy": "type",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -30,20 +30,6 @@
         },
         "list": {
           "label": "width",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "height": {
-        "edit": {
-          "label": "height",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "height",
           "searchable": true,
           "sortable": true
         }
@@ -104,20 +90,6 @@
           "sortable": true
         }
       },
-      "diameter": {
-        "edit": {
-          "label": "diameter",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "diameter",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "name": {
         "edit": {
           "label": "name",
@@ -132,9 +104,93 @@
           "sortable": true
         }
       },
-      "wheelBrand": {
+      "slug": {
         "edit": {
-          "label": "wheelBrand",
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "numberHoles": {
+        "edit": {
+          "label": "numberHoles",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "numberHoles",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "diameterCenterHole": {
+        "edit": {
+          "label": "diameterCenterHole",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "diameterCenterHole",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "diameter": {
+        "edit": {
+          "label": "diameter",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "diameter",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "diskOffset": {
+        "edit": {
+          "label": "diskOffset",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "diskOffset",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "distanceBetweenCenters": {
+        "edit": {
+          "label": "distanceBetweenCenters",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "distanceBetweenCenters",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "brand": {
+        "edit": {
+          "label": "brand",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -142,9 +198,94 @@
           "mainField": "name"
         },
         "list": {
-          "label": "wheelBrand",
+          "label": "brand",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "model": {
+        "edit": {
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "kind": {
+        "edit": {
+          "label": "kind",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "kind",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "count": {
+        "edit": {
+          "label": "count",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "count",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "snippets": {
+        "edit": {
+          "label": "snippets",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "snippets",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -179,24 +320,14 @@
     "layouts": {
       "list": [
         "id",
-        "diameter",
         "width",
-        "height"
+        "images",
+        "brand"
       ],
       "edit": [
         [
           {
-            "name": "diameter",
-            "size": 6
-          },
-          {
             "name": "width",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "height",
             "size": 4
           }
         ],
@@ -222,13 +353,76 @@
         ],
         [
           {
+            "name": "diameter",
+            "size": 4
+          },
+          {
             "name": "name",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "slug",
+            "size": 6
+          },
+          {
+            "name": "numberHoles",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "diameterCenterHole",
+            "size": 4
+          },
+          {
+            "name": "diskOffset",
+            "size": 4
+          },
+          {
+            "name": "distanceBetweenCenters",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "kind",
+            "size": 6
+          },
+          {
+            "name": "count",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "brand",
+            "size": 6
+          },
+          {
+            "name": "model",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "snippets",
+            "size": 12
+          }
         ]
-      ],
-      "editRelations": [
-        "wheelBrand"
       ]
     }
   },

@@ -4,12 +4,6 @@
   "type": "authenticated",
   "permissions": [
     {
-      "action": "api::article.article.find"
-    },
-    {
-      "action": "api::article.article.findOne"
-    },
-    {
       "action": "api::car.car.find"
     },
     {
@@ -37,6 +31,33 @@
       "action": "api::order.order.create"
     },
     {
+      "action": "api::page-awaiting-car.page-awaiting-car.find"
+    },
+    {
+      "action": "api::page-buying-car.page-buying-car.find"
+    },
+    {
+      "action": "api::page-contact.page-contact.find"
+    },
+    {
+      "action": "api::page-guarantee.page-guarantee.find"
+    },
+    {
+      "action": "api::page-review.page-review.find"
+    },
+    {
+      "action": "api::page-shipping-and-payment.page-shipping-and-payment.find"
+    },
+    {
+      "action": "api::page-spare-part.page-spare-part.find"
+    },
+    {
+      "action": "api::page-tire.page-tire.find"
+    },
+    {
+      "action": "api::page-wheel.page-wheel.find"
+    },
+    {
       "action": "api::review.review.checkStatus"
     },
     {
@@ -49,40 +70,16 @@
       "action": "api::review.review.findOne"
     },
     {
-      "action": "api::shopping-cart.shopping-cart.create"
-    },
-    {
-      "action": "api::shopping-cart.shopping-cart.delete"
-    },
-    {
-      "action": "api::shopping-cart.shopping-cart.deleteMany"
-    },
-    {
-      "action": "api::shopping-cart.shopping-cart.find"
-    },
-    {
-      "action": "api::shopping-cart.shopping-cart.findOne"
-    },
-    {
-      "action": "api::shopping-cart.shopping-cart.update"
-    },
-    {
       "action": "api::spare-part.spare-part.find"
     },
     {
       "action": "api::spare-part.spare-part.findOne"
     },
     {
-      "action": "api::wheel-brand.wheel-brand.find"
+      "action": "api::tire-brand.tire-brand.find"
     },
     {
-      "action": "api::wheel-brand.wheel-brand.findOne"
-    },
-    {
-      "action": "api::wheel.wheel.find"
-    },
-    {
-      "action": "api::wheel.wheel.findOne"
+      "action": "api::tire-brand.tire-brand.findOne"
     },
     {
       "action": "plugin::email.email.send"

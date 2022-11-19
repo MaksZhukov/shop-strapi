@@ -146,20 +146,6 @@
           "sortable": true
         }
       },
-      "generation": {
-        "edit": {
-          "label": "generation",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "generation",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "transmission": {
         "edit": {
           "label": "transmission",
@@ -231,6 +217,63 @@
           "label": "kindSparePart",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "fuel": {
+        "edit": {
+          "label": "fuel",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "fuel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "snippets": {
+        "edit": {
+          "label": "snippets",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "snippets",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -314,10 +357,6 @@
           {
             "name": "bodyStyle",
             "size": 6
-          },
-          {
-            "name": "generation",
-            "size": 6
           }
         ],
         [
@@ -329,12 +368,39 @@
             "name": "type",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "fuel",
+            "size": 6
+          },
+          {
+            "name": "model",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "brand",
+            "size": 6
+          },
+          {
+            "name": "kindSparePart",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "snippets",
+            "size": 12
+          }
         ]
-      ],
-      "editRelations": [
-        "model",
-        "brand",
-        "kindSparePart"
       ]
     }
   },

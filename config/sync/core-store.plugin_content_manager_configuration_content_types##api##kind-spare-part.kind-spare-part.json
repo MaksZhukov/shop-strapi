@@ -85,13 +85,14 @@
         "spareParts",
         "createdAt"
       ],
-      "editRelations": [
-        "spareParts"
-      ],
       "edit": [
         [
           {
             "name": "name",
+            "size": 6
+          },
+          {
+            "name": "spareParts",
             "size": 6
           }
         ]

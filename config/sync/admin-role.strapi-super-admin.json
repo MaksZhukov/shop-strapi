@@ -5,61 +5,14 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::article.article",
-      "properties": {
-        "fields": [
-          "title",
-          "description",
-          "slug"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::article.article",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::article.article",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::article.article",
-      "properties": {
-        "fields": [
-          "title",
-          "description",
-          "slug"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::article.article",
-      "properties": {
-        "fields": [
-          "title",
-          "description",
-          "slug"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
       "subject": "api::brand.brand",
       "properties": {
         "fields": [
           "name",
           "models",
           "cars",
-          "spareParts"
+          "spareParts",
+          "wheels"
         ]
       },
       "conditions": []
@@ -78,7 +31,8 @@
           "name",
           "models",
           "cars",
-          "spareParts"
+          "spareParts",
+          "wheels"
         ]
       },
       "conditions": []
@@ -91,7 +45,8 @@
           "name",
           "models",
           "cars",
-          "spareParts"
+          "spareParts",
+          "wheels"
         ]
       },
       "conditions": []
@@ -109,10 +64,16 @@
           "volume",
           "fuel",
           "slug",
-          "generation",
           "engine",
           "bodyStyle",
-          "mileage"
+          "mileage",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
         ]
       },
       "conditions": []
@@ -136,10 +97,16 @@
           "volume",
           "fuel",
           "slug",
-          "generation",
           "engine",
           "bodyStyle",
-          "mileage"
+          "mileage",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
         ]
       },
       "conditions": []
@@ -157,10 +124,16 @@
           "volume",
           "fuel",
           "slug",
-          "generation",
           "engine",
           "bodyStyle",
-          "mileage"
+          "mileage",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
         ]
       },
       "conditions": []
@@ -171,7 +144,8 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
         ]
       },
       "conditions": []
@@ -188,7 +162,8 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
         ]
       },
       "conditions": []
@@ -199,7 +174,53 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::generation.generation",
+      "properties": {
+        "fields": [
+          "name",
+          "spareParts",
+          "cars",
+          "model"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::generation.generation",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::generation.generation",
+      "properties": {
+        "fields": [
+          "name",
+          "spareParts",
+          "cars",
+          "model"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::generation.generation",
+      "properties": {
+        "fields": [
+          "name",
+          "spareParts",
+          "cars",
+          "model"
         ]
       },
       "conditions": []
@@ -251,7 +272,9 @@
           "name",
           "brand",
           "cars",
-          "spareParts"
+          "spareParts",
+          "generations",
+          "wheels"
         ]
       },
       "conditions": []
@@ -270,7 +293,9 @@
           "name",
           "brand",
           "cars",
-          "spareParts"
+          "spareParts",
+          "generations",
+          "wheels"
         ]
       },
       "conditions": []
@@ -283,7 +308,9 @@
           "name",
           "brand",
           "cars",
-          "spareParts"
+          "spareParts",
+          "generations",
+          "wheels"
         ]
       },
       "conditions": []
@@ -332,6 +359,504 @@
           "address",
           "phone",
           "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-awaiting-car.page-awaiting-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-awaiting-car.page-awaiting-car",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-awaiting-car.page-awaiting-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-awaiting-car.page-awaiting-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-buying-car.page-buying-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-buying-car.page-buying-car",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-buying-car.page-buying-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-buying-car.page-buying-car",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-contact.page-contact",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-contact.page-contact",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-contact.page-contact",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-contact.page-contact",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-guarantee.page-guarantee",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-guarantee.page-guarantee",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-guarantee.page-guarantee",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-guarantee.page-guarantee",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-product.page-product",
+      "properties": {
+        "fields": [
+          "linksWithImages.image",
+          "linksWithImages.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-product.page-product",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-product.page-product",
+      "properties": {
+        "fields": [
+          "linksWithImages.image",
+          "linksWithImages.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-product.page-product",
+      "properties": {
+        "fields": [
+          "linksWithImages.image",
+          "linksWithImages.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-review.page-review",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-tire.page-tire",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
         ]
       },
       "conditions": []
@@ -393,7 +918,8 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
         ]
       },
       "conditions": []
@@ -410,7 +936,8 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
         ]
       },
       "conditions": []
@@ -421,7 +948,8 @@
       "properties": {
         "fields": [
           "usersPermissionsUser",
-          "product"
+          "product",
+          "uid"
         ]
       },
       "conditions": []
@@ -440,12 +968,22 @@
           "year",
           "volume",
           "bodyStyle",
-          "generation",
           "transmission",
           "model",
           "brand",
           "type",
-          "kindSparePart"
+          "kindSparePart",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "fuel",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -470,12 +1008,22 @@
           "year",
           "volume",
           "bodyStyle",
-          "generation",
           "transmission",
           "model",
           "brand",
           "type",
-          "kindSparePart"
+          "kindSparePart",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "fuel",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -494,12 +1042,61 @@
           "year",
           "volume",
           "bodyStyle",
-          "generation",
           "transmission",
           "model",
           "brand",
           "type",
-          "kindSparePart"
+          "kindSparePart",
+          "generation",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "fuel",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::tire-brand.tire-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::tire-brand.tire-brand",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::tire-brand.tire-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::tire-brand.tire-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
         ]
       },
       "conditions": []
@@ -513,10 +1110,24 @@
           "width",
           "height",
           "season",
-          "brand",
           "price",
           "priceUSD",
-          "type"
+          "type",
+          "brand",
+          "name",
+          "slug",
+          "images",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -536,10 +1147,24 @@
           "width",
           "height",
           "season",
-          "brand",
           "price",
           "priceUSD",
-          "type"
+          "type",
+          "brand",
+          "name",
+          "slug",
+          "images",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -553,49 +1178,24 @@
           "width",
           "height",
           "season",
+          "price",
+          "priceUSD",
+          "type",
           "brand",
-          "price",
-          "priceUSD",
-          "type"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::wheel-brand.wheel-brand",
-      "properties": {
-        "fields": [
           "name",
-          "wheels"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::wheel-brand.wheel-brand",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::wheel-brand.wheel-brand",
-      "properties": {
-        "fields": [
-          "name",
-          "wheels"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::wheel-brand.wheel-brand",
-      "properties": {
-        "fields": [
-          "name",
-          "wheels"
+          "slug",
+          "images",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -606,14 +1206,31 @@
       "properties": {
         "fields": [
           "width",
-          "height",
           "images",
           "price",
           "priceUSD",
           "type",
-          "diameter",
           "name",
-          "wheelBrand"
+          "slug",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "diskOffset",
+          "distanceBetweenCenters",
+          "brand",
+          "model",
+          "kind",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -630,14 +1247,31 @@
       "properties": {
         "fields": [
           "width",
-          "height",
           "images",
           "price",
           "priceUSD",
           "type",
-          "diameter",
           "name",
-          "wheelBrand"
+          "slug",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "diskOffset",
+          "distanceBetweenCenters",
+          "brand",
+          "model",
+          "kind",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
       "conditions": []
@@ -648,16 +1282,39 @@
       "properties": {
         "fields": [
           "width",
-          "height",
           "images",
           "price",
           "priceUSD",
           "type",
-          "diameter",
           "name",
-          "wheelBrand"
+          "slug",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "diskOffset",
+          "distanceBetweenCenters",
+          "brand",
+          "model",
+          "kind",
+          "count",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "snippets.textAfterDescription",
+          "snippets.benefits",
+          "snippets.textAfterBenefits"
         ]
       },
+      "conditions": []
+    },
+    {
+      "action": "admin::api-tokens.access",
+      "subject": null,
+      "properties": {},
       "conditions": []
     },
     {
@@ -674,6 +1331,12 @@
     },
     {
       "action": "admin::api-tokens.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "admin::api-tokens.regenerate",
       "subject": null,
       "properties": {},
       "conditions": []
@@ -914,6 +1577,24 @@
     },
     {
       "action": "plugin::i18n.locale.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::rest-cache.cache.purge",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::rest-cache.cache.read-provider",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::rest-cache.cache.read-strategy",
       "subject": null,
       "properties": {},
       "conditions": []
