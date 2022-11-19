@@ -128,10 +128,6 @@
         "code",
         "description"
       ],
-      "editRelations": [
-        "users",
-        "permissions"
-      ],
       "edit": [
         [
           {
@@ -146,6 +142,16 @@
         [
           {
             "name": "description",
+            "size": 6
+          },
+          {
+            "name": "users",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "permissions",
             "size": 6
           }
         ]

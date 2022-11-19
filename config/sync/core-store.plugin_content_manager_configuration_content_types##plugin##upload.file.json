@@ -245,6 +245,34 @@
           "sortable": true
         }
       },
+      "signature": {
+        "edit": {
+          "label": "signature",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "signature",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -360,11 +388,22 @@
           {
             "name": "folderPath",
             "size": 6
+          },
+          {
+            "name": "signature",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 6
+          },
+          {
+            "name": "folder",
+            "size": 6
           }
         ]
-      ],
-      "editRelations": [
-        "folder"
       ]
     }
   },

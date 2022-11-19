@@ -79,6 +79,36 @@
           "sortable": false
         }
       },
+      "generations": {
+        "edit": {
+          "label": "generations",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "generations",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "wheels": {
+        "edit": {
+          "label": "wheels",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "type"
+        },
+        "list": {
+          "label": "wheels",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -120,13 +150,32 @@
           {
             "name": "name",
             "size": 6
+          },
+          {
+            "name": "brand",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cars",
+            "size": 6
+          },
+          {
+            "name": "spareParts",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "generations",
+            "size": 6
+          },
+          {
+            "name": "wheels",
+            "size": 6
           }
         ]
-      ],
-      "editRelations": [
-        "brand",
-        "cars",
-        "spareParts"
       ]
     }
   },
