@@ -71,6 +71,11 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "snippets": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.snippets"
     }
   }
 }
