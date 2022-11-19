@@ -127,9 +127,6 @@
         "subject",
         "role"
       ],
-      "editRelations": [
-        "role"
-      ],
       "edit": [
         [
           {
@@ -151,6 +148,12 @@
           {
             "name": "conditions",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "role",
+            "size": 6
           }
         ]
       ]

@@ -76,20 +76,6 @@
           "sortable": true
         }
       },
-      "brand": {
-        "edit": {
-          "label": "brand",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "brand",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "price": {
         "edit": {
           "label": "price",
@@ -130,6 +116,119 @@
           "label": "type",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "brand": {
+        "edit": {
+          "label": "brand",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "brand",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "images": {
+        "edit": {
+          "label": "images",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "images",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "count": {
+        "edit": {
+          "label": "count",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "count",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "snippets": {
+        "edit": {
+          "label": "snippets",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "snippets",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -191,26 +290,63 @@
         ],
         [
           {
-            "name": "brand",
-            "size": 6
+            "name": "price",
+            "size": 4
           },
           {
-            "name": "price",
+            "name": "priceUSD",
             "size": 4
           }
         ],
         [
           {
-            "name": "priceUSD",
+            "name": "type",
+            "size": 6
+          },
+          {
+            "name": "name",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "slug",
+            "size": 6
+          },
+          {
+            "name": "images",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "count",
             "size": 4
           },
           {
-            "name": "type",
+            "name": "description",
             "size": 6
           }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "brand",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "snippets",
+            "size": 12
+          }
         ]
-      ],
-      "editRelations": []
+      ]
     }
   },
   "type": "object",
