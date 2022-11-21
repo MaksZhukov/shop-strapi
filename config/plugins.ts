@@ -78,4 +78,7 @@ export default ({ env }) => ({
             testAddress: env("SMTP_USERNAME"),
         },
     },
+    "import-export-entries": {
+        enabled: true,
+    },
 });
