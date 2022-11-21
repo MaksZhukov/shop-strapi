@@ -51,7 +51,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "h1"
     },
     "images": {
       "type": "media",
@@ -76,6 +76,9 @@
       "type": "component",
       "repeatable": false,
       "component": "product.snippets"
+    },
+    "h1": {
+      "type": "string"
     }
   }
 }
