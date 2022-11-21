@@ -38,7 +38,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
+      "targetField": "h1"
     },
     "year": {
       "type": "integer"
@@ -104,6 +104,9 @@
       "type": "component",
       "repeatable": false,
       "component": "product.snippets"
+    },
+    "h1": {
+      "type": "string"
     }
   }
 }
