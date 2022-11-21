@@ -19,6 +19,9 @@
     },
     "textAfterBenefits": {
       "type": "richtext"
+    },
+    "textAfterH1": {
+      "type": "richtext"
     }
   }
 }
