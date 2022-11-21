@@ -29,6 +29,7 @@
         "strapi-plugin-config-sync": "^1.0.4",
         "strapi-plugin-entity-relationship-chart": "^4.1.0",
         "strapi-plugin-generate-data": "1.0.19",
+        "strapi-plugin-import-export-entries": "^1.18.0",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-rest-cache": "^4.2.4",
         "strapi-plugin-transformer": "^2.1.0",
