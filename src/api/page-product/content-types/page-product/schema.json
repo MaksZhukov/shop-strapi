@@ -15,8 +15,7 @@
     "linksWithImages": {
       "type": "component",
       "repeatable": true,
-      "component": "product.link-and-image",
-      "max": 4
+      "component": "general.link-and-image"
     }
   }
 }
