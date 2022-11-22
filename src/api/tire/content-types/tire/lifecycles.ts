@@ -14,5 +14,5 @@ export default {
             data.slug = slugify(data.name, { lower: true }) + "-" + data.id;
         }
     },
-    afterDelete: afterDeleteProduct,
+    // afterDelete: afterDeleteProduct,
 };
