@@ -15,6 +15,7 @@ export default factories.createCoreController(
                 "advertising.image",
                 "discounts.image",
                 "deliveryAuto.image",
+                "serviceStations.image",
             ];
             return super.find(ctx);
         },

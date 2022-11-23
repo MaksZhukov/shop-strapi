@@ -8,12 +8,16 @@ export default (config, { strapi }) => {
         if (body) {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {
-                    let { price } = item.attributes;
+                    let { price, discountPrice } = item.attributes;
                     item.attributes.priceUSD = price * coefficient;
+                    item.attributes.discountPriceUSD =
+                        discountPrice * coefficient;
                 });
             } else {
                 body.data.attributes.priceUSD =
                     body.data.attributes.price * coefficient;
+                body.data.attributes.discountPriceUSD =
+                    body.data.attributes.discountPrice * coefficient;
             }
         }
     };

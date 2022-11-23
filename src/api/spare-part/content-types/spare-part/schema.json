@@ -107,6 +107,12 @@
     },
     "h1": {
       "type": "string"
+    },
+    "discountPrice": {
+      "type": "integer"
+    },
+    "discountPriceUSD": {
+      "type": "integer"
     }
   }
 }
