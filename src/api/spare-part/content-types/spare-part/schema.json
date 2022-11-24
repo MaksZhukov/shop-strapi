@@ -30,7 +30,7 @@
       ]
     },
     "price": {
-      "type": "integer",
+      "type": "decimal",
       "default": 0
     },
     "priceUSD": {
@@ -109,7 +109,7 @@
       "type": "string"
     },
     "discountPrice": {
-      "type": "integer"
+      "type": "decimal"
     },
     "discountPriceUSD": {
       "type": "integer"
