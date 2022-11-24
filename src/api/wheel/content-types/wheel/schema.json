@@ -98,7 +98,7 @@
       "type": "string"
     },
     "discountPrice": {
-      "type": "integer"
+      "type": "decimal"
     },
     "discountPriceUSD": {
       "type": "integer"
