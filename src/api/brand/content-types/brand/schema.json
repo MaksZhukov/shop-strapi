@@ -38,6 +38,13 @@
       "relation": "oneToMany",
       "target": "api::wheel.wheel",
       "mappedBy": "brand"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
