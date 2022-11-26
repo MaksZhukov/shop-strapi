@@ -8,7 +8,7 @@ export default factories.createCoreController(
     "api::page-product.page-product",
     () => ({
         find(ctx) {
-            ctx.query.populate = "linksWithImages.image";
+            ctx.query.populate = ["linksWithImages.image", "benefits"];
             return super.find(ctx);
         },
     })
