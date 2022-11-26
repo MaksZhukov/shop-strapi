@@ -6,9 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "textAfterDescription": {
-      "type": "richtext"
-    },
     "benefits": {
       "type": "media",
       "multiple": true,
@@ -16,9 +13,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "textAfterBenefits": {
-      "type": "richtext"
     },
     "textAfterH1": {
       "type": "richtext"
