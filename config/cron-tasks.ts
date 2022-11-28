@@ -3,7 +3,7 @@ const getProductUrls = async (uid, date, clientUrl, productType, title) => {
         await strapi.db.query(uid).findMany({
             select: ["slug"],
             where: {
-                createdAt: { $gte: date.setDate(date.getDate() - 100) },
+                createdAt: { $gte: date.setDate(date.getDate() - 1) },
             },
         })
     ).map((item) => clientUrl + `/products/${productType}/` + item.slug);
