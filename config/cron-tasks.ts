@@ -34,7 +34,7 @@ export default {
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
             to: "ser8728@yandex.ru",
-            from: "driblingavto@mail.ru",
+            from: strapi.plugins.email.config("providerOptions.username"),
             subject: "Ссылки на новые товары",
             attachments: [
                 {
