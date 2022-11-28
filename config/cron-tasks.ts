@@ -11,7 +11,7 @@ const getProductUrls = async (uid, date, clientUrl, productType, title) => {
 };
 
 export default {
-    "0 21 * * * *": async ({ strapi }) => {
+    "0 9 * * *": async ({ strapi }) => {
         let clientUrl = strapi.config.get("api.clientUrl");
         const date = new Date();
         const results = await Promise.all([
