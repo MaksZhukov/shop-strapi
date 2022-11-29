@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_articles",
+  "info": {
+    "singularName": "page-article",
+    "pluralName": "page-articles",
+    "displayName": "Page articles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
