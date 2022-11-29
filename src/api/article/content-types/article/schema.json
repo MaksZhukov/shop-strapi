@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -34,6 +34,15 @@
         "второй",
         "третий"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
