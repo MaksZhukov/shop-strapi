@@ -7,7 +7,9 @@ export default ({ env }) => ({
         keys: env.array("APP_KEYS"),
     },
     cron: {
-        enabled: process.env.NODE_ENV !== "development",
+        enabled:
+            process.env.NODE_APP_INSTANCE === "0" &&
+            process.env.NODE_ENV !== "development",
         tasks: cronTasks,
     },
 });
