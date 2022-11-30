@@ -1,0 +1,24 @@
+{
+    "kind": "singleType",
+    "collectionName": "internal_data",
+    "info": {
+        "singularName": "data",
+        "pluralName": "datas",
+        "displayName": "Data"
+    },
+    "options": {
+        "draftAndPublish": false,
+        "comment": ""
+    },
+    "attributes": {
+        "dateNewProductSentToEmail": {
+            "type": "datetime"
+        },
+        "currencyDate": {
+            "type": "datetime"
+        },
+        "currencyCoefficient": {
+            "type": "decimal"
+        }
+    }
+}

@@ -79,4 +79,8 @@ export default ({ env }) => ({
             testAddress: env("SMTP_USERNAME"),
         },
     },
+    internal: {
+        enabled: true,
+        resolve: "./src/plugins/internal",
+    },
 });
