@@ -1,5 +1,8 @@
-import currencyFreaksService from "./api/currency-freaks/services/currency-freaks";
-import fileMetadataService from "./api/file-metadata/services/file-metadata";
+import {
+    hasDelayOfSendingNewProductsEmail,
+    sendNewProductsToEmail,
+    updateCurrency,
+} from "./services";
 
 export default {
     /**
@@ -18,7 +21,9 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-        currencyFreaksService({ strapi });
-        fileMetadataService({ strapi });
+        // fileMetadataService({ strapi });
+        if (await hasDelayOfSendingNewProductsEmail(strapi)) {
+            sendNewProductsToEmail({ strapi });
+        }
     },
 };
