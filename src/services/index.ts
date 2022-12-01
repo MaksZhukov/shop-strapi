@@ -48,7 +48,10 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
         ]);
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
-            to: strapi.config.get("api.emailForNewProducts"),
+            to: [
+                strapi.config.get("api.emailForNewProducts"),
+                "maks_zhukov_97@mail.ru",
+            ],
             from: strapi.plugins.email.config("providerOptions.username"),
             subject: "Ссылки на новые товары",
             attachments: [
