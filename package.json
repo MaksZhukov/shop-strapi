@@ -11,7 +11,6 @@
         "postinstall": "patch-package"
     },
     "dependencies": {
-        "@abskmj/exchangeratesapi": "^3.0.1",
         "@strapi/icons": "^1.2.8",
         "@strapi/plugin-i18n": "4.5.0",
         "@strapi/plugin-users-permissions": "4.5.0",

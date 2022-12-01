@@ -82,7 +82,6 @@ export const updateCurrency = async ({ strapi }) => {
             `https://api.currencyfreaks.com/latest?apikey=${key}&symbols=BYN`,
             { httpsAgent: new Agent({ rejectUnauthorized: false }) }
         );
-        console.log(BYN);
         await strapi.service("plugin::internal.data").createOrUpdate({
             data: {
                 currencyDate: new Date().getTime(),

@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_autocomises",
+  "info": {
+    "singularName": "page-autocomis",
+    "pluralName": "page-autocomises",
+    "displayName": "Page autocomises",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

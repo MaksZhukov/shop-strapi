@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "autocomises",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
+    "singularName": "autocomis",
+    "pluralName": "autocomises",
+    "displayName": "Autocomises",
     "description": ""
   },
   "options": {
@@ -25,14 +25,6 @@
     },
     "description": {
       "type": "richtext"
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "первый",
-        "второй",
-        "третий"
-      ]
     },
     "slug": {
       "type": "uid",
