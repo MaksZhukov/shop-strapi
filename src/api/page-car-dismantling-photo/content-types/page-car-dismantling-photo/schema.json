@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_car_dismantling_photos",
+  "info": {
+    "singularName": "page-car-dismantling-photo",
+    "pluralName": "page-car-dismantling-photos",
+    "displayName": "Page car dismantling photos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
