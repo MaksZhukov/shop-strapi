@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "vacancies",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
+    "singularName": "vacancy",
+    "pluralName": "vacancies",
+    "displayName": "Vacancies",
     "description": ""
   },
   "options": {
@@ -20,23 +20,14 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     },
     "description": {
       "type": "richtext"
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "первый",
-        "второй",
-        "третий"
-      ]
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
     },
     "seo": {
       "type": "component",

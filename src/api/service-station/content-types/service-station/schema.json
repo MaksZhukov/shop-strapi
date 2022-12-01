@@ -1,14 +1,14 @@
 {
   "kind": "collectionType",
-  "collectionName": "articles",
+  "collectionName": "service_stations",
   "info": {
-    "singularName": "article",
-    "pluralName": "articles",
-    "displayName": "Article",
+    "singularName": "service-station",
+    "pluralName": "service-stations",
+    "displayName": "Service stations",
     "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -26,22 +26,14 @@
     "description": {
       "type": "richtext"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "первый",
-        "второй",
-        "третий"
-      ]
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_installment_plans",
+  "info": {
+    "singularName": "page-installment-plan",
+    "pluralName": "page-installment-plans",
+    "displayName": "Page installment plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

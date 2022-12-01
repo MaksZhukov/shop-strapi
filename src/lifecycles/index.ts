@@ -37,3 +37,11 @@ export const afterDeleteProduct = async (event) => {
         }),
     ]);
 };
+
+export const revalidateClientPage = async (path: string) => {
+    try {
+        await strapi.service("api::client.client").revalidatePage(path);
+    } catch (err) {
+        console.error(err);
+    }
+};

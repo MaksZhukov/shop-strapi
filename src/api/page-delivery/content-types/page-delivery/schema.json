@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_deliveries",
+  "info": {
+    "singularName": "page-delivery",
+    "pluralName": "page-deliveries",
+    "displayName": "Page delivery",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
