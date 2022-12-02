@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_vacancies",
+  "info": {
+    "singularName": "page-vacancy",
+    "pluralName": "page-vacancies",
+    "displayName": "Page vacancies"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

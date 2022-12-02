@@ -1,6 +1,14 @@
 {
     "kind": "singleType",
     "collectionName": "internal_data",
+    "pluginOptions": {
+        "content-manager": {
+            "visible": true
+        },
+        "content-type-builder": {
+            "visible": true
+        }
+    },
     "info": {
         "singularName": "data",
         "pluralName": "datas",

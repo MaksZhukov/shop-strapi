@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_service_stations",
+  "info": {
+    "singularName": "page-service-station",
+    "pluralName": "page-service-stations",
+    "displayName": "Page service stations"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_cabins",
+  "info": {
+    "singularName": "page-cabin",
+    "pluralName": "page-cabins",
+    "displayName": "Page cabins"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
