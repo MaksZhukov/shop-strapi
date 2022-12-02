@@ -13,7 +13,7 @@ export default factories.createCoreController(
                 .query("api::service-station.service-station")
                 .findOne({
                     where: { $or: [{ slug: id }, { id }] },
-                    populate: ["image"],
+                    populate: ["image", "seo.images"],
                 });
             return this.transformResponse(entity);
         },

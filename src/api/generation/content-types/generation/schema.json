@@ -32,6 +32,12 @@
       "relation": "manyToOne",
       "target": "api::model.model",
       "inversedBy": "generations"
+    },
+    "cabins": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabin.cabin",
+      "mappedBy": "generation"
     }
   }
 }

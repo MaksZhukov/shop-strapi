@@ -16,7 +16,7 @@ export default factories.createCoreController(
                     "model",
                     "brand",
                     "seo.images",
-                    "snippets.benefits",
+                    "snippets",
                 ],
             });
 
