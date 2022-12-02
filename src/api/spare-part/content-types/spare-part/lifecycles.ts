@@ -1,5 +1,5 @@
 import slugify from "slugify";
-import { afterDeleteProduct } from "../../../../lifecycles";
+// import { afterDeleteProduct } from "../../../../lifecycles";
 
 export default {
     beforeCreate(event) {
