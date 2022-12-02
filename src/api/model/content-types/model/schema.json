@@ -44,6 +44,12 @@
       "relation": "oneToMany",
       "target": "api::wheel.wheel",
       "mappedBy": "model"
+    },
+    "cabins": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabin.cabin",
+      "mappedBy": "model"
     }
   }
 }

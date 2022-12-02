@@ -45,6 +45,12 @@
       ],
       "type": "media",
       "multiple": false
+    },
+    "cabins": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabin.cabin",
+      "mappedBy": "brand"
     }
   }
 }
