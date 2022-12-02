@@ -20,6 +20,20 @@
       "relation": "oneToMany",
       "target": "api::spare-part.spare-part",
       "mappedBy": "kindSparePart"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "regular",
+        "cabin"
+      ],
+      "default": "regular"
+    },
+    "cabins": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cabin.cabin",
+      "mappedBy": "kindSparePart"
     }
   }
 }

@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "autocomises": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.link-and-image"
-    },
     "banner": {
       "type": "media",
       "multiple": false,
@@ -46,11 +41,6 @@
     "deliveryAuto": {
       "type": "component",
       "repeatable": false,
-      "component": "general.link-and-image"
-    },
-    "serviceStations": {
-      "type": "component",
-      "repeatable": true,
       "component": "general.link-and-image"
     }
   }

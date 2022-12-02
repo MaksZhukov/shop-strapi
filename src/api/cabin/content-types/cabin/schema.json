@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cabins",
+  "info": {
+    "singularName": "cabin",
+    "pluralName": "cabins",
+    "displayName": "Cabin",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "cabins"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "cabins"
+    },
+    "generation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::generation.generation",
+      "inversedBy": "cabins"
+    },
+    "seatUpholstery": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "h1": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "h1"
+    },
+    "kindSparePart": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kind-spare-part.kind-spare-part",
+      "inversedBy": "cabins"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "discountPriceUSD": {
+      "type": "decimal"
+    },
+    "priceUSD": {
+      "type": "decimal"
+    },
+    "type": {
+      "type": "string",
+      "default": "cabin"
+    },
+    "description": {
+      "type": "text"
+    },
+    "snippets": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.snippets"
+    }
+  }
+}

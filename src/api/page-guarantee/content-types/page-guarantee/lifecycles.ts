@@ -1,11 +1,7 @@
+import { revalidateClientPage } from "../../../../lifecycles";
+
 export default {
     async afterUpdate() {
-        try {
-            await strapi
-                .service("api::client.client")
-                .revalidatePage("/guarantee");
-        } catch (err) {
-            console.error(err);
-        }
+        revalidateClientPage("/guarantee");
     },
 };
