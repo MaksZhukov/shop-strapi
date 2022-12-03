@@ -4,10 +4,28 @@
   "type": "public",
   "permissions": [
     {
+      "action": "api::article.article.find"
+    },
+    {
+      "action": "api::article.article.findOne"
+    },
+    {
+      "action": "api::autocomis.autocomis.find"
+    },
+    {
+      "action": "api::autocomis.autocomis.findOne"
+    },
+    {
       "action": "api::brand.brand.find"
     },
     {
       "action": "api::brand.brand.findOne"
+    },
+    {
+      "action": "api::cabin.cabin.find"
+    },
+    {
+      "action": "api::cabin.cabin.findOne"
     },
     {
       "action": "api::car.car.create"
@@ -34,6 +52,12 @@
       "action": "api::favorite.favorite.update"
     },
     {
+      "action": "api::generation.generation.find"
+    },
+    {
+      "action": "api::generation.generation.findOne"
+    },
+    {
       "action": "api::kind-spare-part.kind-spare-part.find"
     },
     {
@@ -46,22 +70,46 @@
       "action": "api::order.order.create"
     },
     {
+      "action": "api::page-article.page-article.find"
+    },
+    {
+      "action": "api::page-autocomis.page-autocomis.find"
+    },
+    {
       "action": "api::page-awaiting-car.page-awaiting-car.find"
     },
     {
       "action": "api::page-buying-car.page-buying-car.find"
     },
     {
+      "action": "api::page-cabin.page-cabin.find"
+    },
+    {
+      "action": "api::page-car-dismantling-photo.page-car-dismantling-photo.find"
+    },
+    {
       "action": "api::page-contact.page-contact.find"
     },
     {
+      "action": "api::page-delivery.page-delivery.find"
+    },
+    {
       "action": "api::page-guarantee.page-guarantee.find"
+    },
+    {
+      "action": "api::page-installment-plan.page-installment-plan.find"
+    },
+    {
+      "action": "api::page-main.page-main.find"
     },
     {
       "action": "api::page-product.page-product.find"
     },
     {
       "action": "api::page-review.page-review.find"
+    },
+    {
+      "action": "api::page-service-station.page-service-station.find"
     },
     {
       "action": "api::page-shipping-and-payment.page-shipping-and-payment.find"
@@ -71,6 +119,9 @@
     },
     {
       "action": "api::page-tire.page-tire.find"
+    },
+    {
+      "action": "api::page-vacancy.page-vacancy.find"
     },
     {
       "action": "api::page-wheel.page-wheel.find"
@@ -83,6 +134,12 @@
     },
     {
       "action": "api::review.review.find"
+    },
+    {
+      "action": "api::service-station.service-station.find"
+    },
+    {
+      "action": "api::service-station.service-station.findOne"
     },
     {
       "action": "api::shopping-cart.shopping-cart.create"
@@ -104,6 +161,12 @@
     },
     {
       "action": "api::tire.tire.findOne"
+    },
+    {
+      "action": "api::vacancy.vacancy.find"
+    },
+    {
+      "action": "api::vacancy.vacancy.findOne"
     },
     {
       "action": "api::wheel.wheel.find"

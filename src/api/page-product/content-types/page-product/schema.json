@@ -18,7 +18,8 @@
       "component": "general.link-and-image"
     },
     "textAfterDescription": {
-      "type": "richtext"
+      "type": "richtext",
+      "default": "Товар снят с б/у {autoSynonyms}, проверен. На данный момент деталь отвечает техническим и эстетическим требованиям. Если хотите получить более детальную информацию - свяжитесь с нашим менеджером."
     },
     "autoSynonyms": {
       "type": "string",
@@ -36,10 +37,12 @@
       ]
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "default": "{h1} купить с доставкой"
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "default": "{h1} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все."
     }
   }
 }
