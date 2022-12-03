@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::kind-spare-part.kind-spare-part",
+  "key": "plugin_content_manager_configuration_content_types::api::page-car-dismantling-photo.page-car-dismantling-photo",
   "value": {
-    "uid": "api::kind-spare-part.kind-spare-part",
+    "uid": "api::page-car-dismantling-photo.page-car-dismantling-photo",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,60 +20,30 @@
           "sortable": true
         }
       },
-      "name": {
+      "images": {
         "edit": {
-          "label": "name",
+          "label": "images",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "spareParts": {
-        "edit": {
-          "label": "spareParts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "spareParts",
+          "label": "images",
           "searchable": false,
           "sortable": false
         }
       },
-      "type": {
+      "seo": {
         "edit": {
-          "label": "type",
+          "label": "seo",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "type",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "cabins": {
-        "edit": {
-          "label": "cabins",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "cabins",
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
@@ -110,29 +80,21 @@
     "layouts": {
       "list": [
         "id",
-        "name",
-        "spareParts",
+        "images",
+        "seo",
         "createdAt"
       ],
       "edit": [
         [
           {
-            "name": "name",
-            "size": 6
-          },
-          {
-            "name": "spareParts",
+            "name": "images",
             "size": 6
           }
         ],
         [
           {
-            "name": "type",
-            "size": 6
-          },
-          {
-            "name": "cabins",
-            "size": 6
+            "name": "seo",
+            "size": 12
           }
         ]
       ]

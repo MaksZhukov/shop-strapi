@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-product.page-product",
+  "key": "plugin_content_manager_configuration_content_types::api::page-main.page-main",
   "value": {
-    "uid": "api::page-product.page-product",
+    "uid": "api::page-main.page-main",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,88 +20,88 @@
           "sortable": true
         }
       },
-      "linksWithImages": {
+      "banner": {
         "edit": {
-          "label": "linksWithImages",
+          "label": "banner",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "linksWithImages",
+          "label": "banner",
           "searchable": false,
           "sortable": false
         }
       },
-      "textAfterDescription": {
+      "textAfterBrands": {
         "edit": {
-          "label": "textAfterDescription",
+          "label": "textAfterBrands",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "textAfterDescription",
+          "label": "textAfterBrands",
           "searchable": false,
           "sortable": false
         }
       },
-      "autoSynonyms": {
+      "seo": {
         "edit": {
-          "label": "autoSynonyms",
+          "label": "seo",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "autoSynonyms",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "benefits": {
-        "edit": {
-          "label": "benefits",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "benefits",
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
       },
-      "title": {
+      "advertising": {
         "edit": {
-          "label": "title",
+          "label": "advertising",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "title",
-          "searchable": true,
-          "sortable": true
+          "label": "advertising",
+          "searchable": false,
+          "sortable": false
         }
       },
-      "description": {
+      "discounts": {
         "edit": {
-          "label": "description",
+          "label": "discounts",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "description",
-          "searchable": true,
-          "sortable": true
+          "label": "discounts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "deliveryAuto": {
+        "edit": {
+          "label": "deliveryAuto",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "deliveryAuto",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -136,41 +136,44 @@
     "layouts": {
       "list": [
         "id",
-        "createdAt",
-        "updatedAt",
-        "linksWithImages"
+        "banner",
+        "seo"
       ],
       "edit": [
         [
           {
-            "name": "linksWithImages",
+            "name": "banner",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "textAfterBrands",
             "size": 12
           }
         ],
         [
           {
-            "name": "textAfterDescription",
+            "name": "seo",
             "size": 12
           }
         ],
         [
           {
-            "name": "autoSynonyms",
-            "size": 6
-          },
-          {
-            "name": "benefits",
-            "size": 6
+            "name": "advertising",
+            "size": 12
           }
         ],
         [
           {
-            "name": "title",
-            "size": 6
-          },
+            "name": "discounts",
+            "size": 12
+          }
+        ],
+        [
           {
-            "name": "description",
-            "size": 6
+            "name": "deliveryAuto",
+            "size": 12
           }
         ]
       ]

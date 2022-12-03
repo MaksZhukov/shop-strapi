@@ -205,6 +205,20 @@
           "sortable": false
         }
       },
+      "videoLink": {
+        "edit": {
+          "label": "videoLink",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "videoLink",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -309,6 +323,10 @@
         [
           {
             "name": "generation",
+            "size": 6
+          },
+          {
+            "name": "videoLink",
             "size": 6
           }
         ]

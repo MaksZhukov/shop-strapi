@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::kind-spare-part.kind-spare-part",
+  "key": "plugin_content_manager_configuration_content_types::api::page-delivery.page-delivery",
   "value": {
-    "uid": "api::kind-spare-part.kind-spare-part",
+    "uid": "api::page-delivery.page-delivery",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "id",
+      "defaultSortBy": "id",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,60 +20,30 @@
           "sortable": true
         }
       },
-      "name": {
+      "seo": {
         "edit": {
-          "label": "name",
+          "label": "seo",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "spareParts": {
-        "edit": {
-          "label": "spareParts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "spareParts",
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
       },
-      "type": {
+      "description": {
         "edit": {
-          "label": "type",
+          "label": "description",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "type",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "cabins": {
-        "edit": {
-          "label": "cabins",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "cabins",
+          "label": "description",
           "searchable": false,
           "sortable": false
         }
@@ -110,29 +80,21 @@
     "layouts": {
       "list": [
         "id",
-        "name",
-        "spareParts",
-        "createdAt"
+        "seo",
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
           {
-            "name": "name",
-            "size": 6
-          },
-          {
-            "name": "spareParts",
-            "size": 6
+            "name": "seo",
+            "size": 12
           }
         ],
         [
           {
-            "name": "type",
-            "size": 6
-          },
-          {
-            "name": "cabins",
-            "size": 6
+            "name": "description",
+            "size": 12
           }
         ]
       ]
