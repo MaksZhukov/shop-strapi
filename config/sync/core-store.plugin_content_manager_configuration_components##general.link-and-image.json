@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::product.link-and-image",
+  "key": "plugin_content_manager_configuration_components::general.link-and-image",
   "value": {
-    "uid": "product.link-and-image",
+    "uid": "general.link-and-image",
     "settings": {
       "bulkable": true,
       "filterable": true,

@@ -45,6 +45,13 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
                 "wheel",
                 "Диски"
             ),
+            getProductUrls(
+                "api::cabin.cabin",
+                date,
+                clientUrl,
+                "cabin",
+                "Салоны"
+            ),
         ]);
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
