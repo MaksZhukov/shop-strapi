@@ -67,10 +67,6 @@
       "target": "api::brand.brand",
       "inversedBy": "spareParts"
     },
-    "type": {
-      "type": "string",
-      "default": "sparePart"
-    },
     "kindSparePart": {
       "type": "relation",
       "relation": "manyToOne",
@@ -110,6 +106,14 @@
     },
     "discountPriceUSD": {
       "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "sparePart"
+      ],
+      "default": "sparePart",
+      "required": true
     }
   }
 }

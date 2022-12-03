@@ -36,10 +36,6 @@
     "priceUSD": {
       "type": "integer"
     },
-    "type": {
-      "type": "string",
-      "default": "tire"
-    },
     "brand": {
       "type": "relation",
       "relation": "manyToOne",
@@ -85,6 +81,14 @@
     },
     "discountPriceUSD": {
       "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "tire"
+      ],
+      "default": "tire",
+      "required": true
     }
   }
 }
