@@ -1,3 +1,5 @@
+import slugify from "slugify";
+
 export const afterDeleteProduct = async (event) => {
     const { id, type } = event.result;
     const [{ results: resultFavorites }, { results: resultCarts }] =
@@ -43,5 +45,13 @@ export const revalidateClientPage = async (path: string) => {
         await strapi.service("api::client.client").revalidatePage(path);
     } catch (err) {
         console.error(err);
+    }
+};
+
+export const beforeCreateProduct = (event) => {
+    const { data } = event.params;
+    if (data.id && data.name) {
+        data.slug = slugify(data.name, { lower: true }) + "-" + data.id;
+        data.h1 = data.name;
     }
 };
