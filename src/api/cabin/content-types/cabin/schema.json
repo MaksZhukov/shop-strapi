@@ -74,10 +74,6 @@
     "priceUSD": {
       "type": "decimal"
     },
-    "type": {
-      "type": "string",
-      "default": "cabin"
-    },
     "description": {
       "type": "text"
     },
@@ -85,6 +81,14 @@
       "type": "component",
       "repeatable": false,
       "component": "product.snippets"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "cabin"
+      ],
+      "default": "cabin",
+      "required": true
     }
   }
 }

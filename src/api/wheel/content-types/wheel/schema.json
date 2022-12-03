@@ -30,10 +30,6 @@
     "priceUSD": {
       "type": "integer"
     },
-    "type": {
-      "type": "string",
-      "default": "wheel"
-    },
     "name": {
       "type": "string"
     },
@@ -99,6 +95,14 @@
     },
     "discountPriceUSD": {
       "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "wheel"
+      ],
+      "default": "wheel",
+      "required": true
     }
   }
 }
