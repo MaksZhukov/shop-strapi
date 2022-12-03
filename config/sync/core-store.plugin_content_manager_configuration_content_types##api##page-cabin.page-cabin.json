@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_components::product.snippets",
+  "key": "plugin_content_manager_configuration_content_types::api::page-cabin.page-cabin",
   "value": {
-    "uid": "product.snippets",
+    "uid": "api::page-cabin.page-cabin",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -16,60 +16,69 @@
         "edit": {},
         "list": {
           "label": "id",
-          "searchable": false,
-          "sortable": false
+          "searchable": true,
+          "sortable": true
         }
       },
-      "benefits": {
+      "seo": {
         "edit": {
-          "label": "benefits",
+          "label": "seo",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "benefits",
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
       },
-      "textAfterH1": {
+      "createdAt": {
         "edit": {
-          "label": "textAfterH1",
+          "label": "createdAt",
           "description": "",
           "placeholder": "",
-          "visible": true,
+          "visible": false,
           "editable": true
         },
         "list": {
-          "label": "textAfterH1",
-          "searchable": false,
-          "sortable": false
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
         }
       }
     },
     "layouts": {
       "list": [
         "id",
-        "benefits"
+        "seo",
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
           {
-            "name": "textAfterH1",
+            "name": "seo",
             "size": 12
-          }
-        ],
-        [
-          {
-            "name": "benefits",
-            "size": 6
           }
         ]
       ]
-    },
-    "isComponent": true
+    }
   },
   "type": "object",
   "environment": null,

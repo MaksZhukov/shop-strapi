@@ -5,6 +5,135 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::article.article",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "type",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::article.article",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::article.article",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "type",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::article.article",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "type",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::autocomis.autocomis",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::autocomis.autocomis",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::autocomis.autocomis",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::autocomis.autocomis",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "slug",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::brand.brand",
       "properties": {
         "fields": [
@@ -12,7 +141,9 @@
           "models",
           "cars",
           "spareParts",
-          "wheels"
+          "wheels",
+          "image",
+          "cabins"
         ]
       },
       "conditions": []
@@ -32,7 +163,9 @@
           "models",
           "cars",
           "spareParts",
-          "wheels"
+          "wheels",
+          "image",
+          "cabins"
         ]
       },
       "conditions": []
@@ -46,7 +179,111 @@
           "models",
           "cars",
           "spareParts",
-          "wheels"
+          "wheels",
+          "image",
+          "cabins"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::cabin.cabin",
+      "properties": {
+        "fields": [
+          "name",
+          "model",
+          "brand",
+          "generation",
+          "seatUpholstery",
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "h1",
+          "slug",
+          "kindSparePart",
+          "price",
+          "discountPrice",
+          "discountPriceUSD",
+          "priceUSD",
+          "description",
+          "snippets.benefits",
+          "snippets.textAfterH1",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::cabin.cabin",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::cabin.cabin",
+      "properties": {
+        "fields": [
+          "name",
+          "model",
+          "brand",
+          "generation",
+          "seatUpholstery",
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "h1",
+          "slug",
+          "kindSparePart",
+          "price",
+          "discountPrice",
+          "discountPriceUSD",
+          "priceUSD",
+          "description",
+          "snippets.benefits",
+          "snippets.textAfterH1",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::cabin.cabin",
+      "properties": {
+        "fields": [
+          "name",
+          "model",
+          "brand",
+          "generation",
+          "seatUpholstery",
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "h1",
+          "slug",
+          "kindSparePart",
+          "price",
+          "discountPrice",
+          "discountPriceUSD",
+          "priceUSD",
+          "description",
+          "snippets.benefits",
+          "snippets.textAfterH1",
+          "type"
         ]
       },
       "conditions": []
@@ -73,7 +310,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "videoLink"
         ]
       },
       "conditions": []
@@ -106,7 +344,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "videoLink"
         ]
       },
       "conditions": []
@@ -133,7 +372,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "videoLink"
         ]
       },
       "conditions": []
@@ -188,7 +428,8 @@
           "name",
           "spareParts",
           "cars",
-          "model"
+          "model",
+          "cabins"
         ]
       },
       "conditions": []
@@ -207,7 +448,8 @@
           "name",
           "spareParts",
           "cars",
-          "model"
+          "model",
+          "cabins"
         ]
       },
       "conditions": []
@@ -220,7 +462,8 @@
           "name",
           "spareParts",
           "cars",
-          "model"
+          "model",
+          "cabins"
         ]
       },
       "conditions": []
@@ -231,7 +474,9 @@
       "properties": {
         "fields": [
           "name",
-          "spareParts"
+          "spareParts",
+          "type",
+          "cabins"
         ]
       },
       "conditions": []
@@ -248,7 +493,9 @@
       "properties": {
         "fields": [
           "name",
-          "spareParts"
+          "spareParts",
+          "type",
+          "cabins"
         ]
       },
       "conditions": []
@@ -259,7 +506,9 @@
       "properties": {
         "fields": [
           "name",
-          "spareParts"
+          "spareParts",
+          "type",
+          "cabins"
         ]
       },
       "conditions": []
@@ -274,7 +523,8 @@
           "cars",
           "spareParts",
           "generations",
-          "wheels"
+          "wheels",
+          "cabins"
         ]
       },
       "conditions": []
@@ -295,7 +545,8 @@
           "cars",
           "spareParts",
           "generations",
-          "wheels"
+          "wheels",
+          "cabins"
         ]
       },
       "conditions": []
@@ -310,7 +561,8 @@
           "cars",
           "spareParts",
           "generations",
-          "wheels"
+          "wheels",
+          "cabins"
         ]
       },
       "conditions": []
@@ -365,6 +617,108 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-article.page-article",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-article.page-article",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-article.page-article",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-article.page-article",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-autocomis.page-autocomis",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-autocomis.page-autocomis",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-autocomis.page-autocomis",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-autocomis.page-autocomis",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-awaiting-car.page-awaiting-car",
       "properties": {
         "fields": [
@@ -467,6 +821,111 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-cabin.page-cabin",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-cabin.page-cabin",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-cabin.page-cabin",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-cabin.page-cabin",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-car-dismantling-photo.page-car-dismantling-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-car-dismantling-photo.page-car-dismantling-photo",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-car-dismantling-photo.page-car-dismantling-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-car-dismantling-photo.page-car-dismantling-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-contact.page-contact",
       "properties": {
         "fields": [
@@ -518,6 +977,60 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-delivery.page-delivery",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-delivery.page-delivery",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-delivery.page-delivery",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-delivery.page-delivery",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-guarantee.page-guarantee",
       "properties": {
         "fields": [
@@ -563,6 +1076,135 @@
           "seo.h1",
           "seo.images",
           "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-installment-plan.page-installment-plan",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-installment-plan.page-installment-plan",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-installment-plan.page-installment-plan",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-installment-plan.page-installment-plan",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "description"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-main.page-main",
+      "properties": {
+        "fields": [
+          "banner",
+          "textAfterBrands",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "advertising.image",
+          "advertising.link",
+          "discounts.image",
+          "discounts.link",
+          "deliveryAuto.image",
+          "deliveryAuto.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-main.page-main",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-main.page-main",
+      "properties": {
+        "fields": [
+          "banner",
+          "textAfterBrands",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "advertising.image",
+          "advertising.link",
+          "discounts.image",
+          "discounts.link",
+          "deliveryAuto.image",
+          "deliveryAuto.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-main.page-main",
+      "properties": {
+        "fields": [
+          "banner",
+          "textAfterBrands",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "advertising.image",
+          "advertising.link",
+          "discounts.image",
+          "discounts.link",
+          "deliveryAuto.image",
+          "deliveryAuto.link"
         ]
       },
       "conditions": []
@@ -573,7 +1215,12 @@
       "properties": {
         "fields": [
           "linksWithImages.image",
-          "linksWithImages.link"
+          "linksWithImages.link",
+          "textAfterDescription",
+          "autoSynonyms",
+          "benefits",
+          "title",
+          "description"
         ]
       },
       "conditions": []
@@ -590,7 +1237,12 @@
       "properties": {
         "fields": [
           "linksWithImages.image",
-          "linksWithImages.link"
+          "linksWithImages.link",
+          "textAfterDescription",
+          "autoSynonyms",
+          "benefits",
+          "title",
+          "description"
         ]
       },
       "conditions": []
@@ -601,7 +1253,12 @@
       "properties": {
         "fields": [
           "linksWithImages.image",
-          "linksWithImages.link"
+          "linksWithImages.link",
+          "textAfterDescription",
+          "autoSynonyms",
+          "benefits",
+          "title",
+          "description"
         ]
       },
       "conditions": []
@@ -645,6 +1302,57 @@
     {
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-service-station.page-service-station",
       "properties": {
         "fields": [
           "seo.title",
@@ -798,6 +1506,57 @@
     {
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-vacancy.page-vacancy",
       "properties": {
         "fields": [
           "seo.title",
@@ -914,6 +1673,69 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::service-station.service-station",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::service-station.service-station",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::service-station.service-station",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::service-station.service-station",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::shopping-cart.shopping-cart",
       "properties": {
         "fields": [
@@ -971,7 +1793,6 @@
           "transmission",
           "model",
           "brand",
-          "type",
           "kindSparePart",
           "generation",
           "seo.title",
@@ -981,9 +1802,12 @@
           "seo.images",
           "seo.content",
           "fuel",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1011,7 +1835,6 @@
           "transmission",
           "model",
           "brand",
-          "type",
           "kindSparePart",
           "generation",
           "seo.title",
@@ -1021,9 +1844,12 @@
           "seo.images",
           "seo.content",
           "fuel",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1045,7 +1871,6 @@
           "transmission",
           "model",
           "brand",
-          "type",
           "kindSparePart",
           "generation",
           "seo.title",
@@ -1055,9 +1880,12 @@
           "seo.images",
           "seo.content",
           "fuel",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1112,7 +1940,6 @@
           "season",
           "price",
           "priceUSD",
-          "type",
           "brand",
           "name",
           "slug",
@@ -1125,9 +1952,12 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1149,7 +1979,6 @@
           "season",
           "price",
           "priceUSD",
-          "type",
           "brand",
           "name",
           "slug",
@@ -1162,9 +1991,12 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1180,7 +2012,6 @@
           "season",
           "price",
           "priceUSD",
-          "type",
           "brand",
           "name",
           "slug",
@@ -1193,9 +2024,75 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::vacancy.vacancy",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::vacancy.vacancy",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::vacancy.vacancy",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::vacancy.vacancy",
+      "properties": {
+        "fields": [
+          "name",
+          "image",
+          "description",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug"
         ]
       },
       "conditions": []
@@ -1209,7 +2106,6 @@
           "images",
           "price",
           "priceUSD",
-          "type",
           "name",
           "slug",
           "numberHoles",
@@ -1228,9 +2124,12 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1250,7 +2149,6 @@
           "images",
           "price",
           "priceUSD",
-          "type",
           "name",
           "slug",
           "numberHoles",
@@ -1269,9 +2167,12 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1285,7 +2186,6 @@
           "images",
           "price",
           "priceUSD",
-          "type",
           "name",
           "slug",
           "numberHoles",
@@ -1304,9 +2204,12 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "snippets.textAfterDescription",
           "snippets.benefits",
-          "snippets.textAfterBenefits"
+          "snippets.textAfterH1",
+          "h1",
+          "discountPrice",
+          "discountPriceUSD",
+          "type"
         ]
       },
       "conditions": []
@@ -1577,24 +2480,6 @@
     },
     {
       "action": "plugin::i18n.locale.update",
-      "subject": null,
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::rest-cache.cache.purge",
-      "subject": null,
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::rest-cache.cache.read-provider",
-      "subject": null,
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::rest-cache.cache.read-strategy",
       "subject": null,
       "properties": {},
       "conditions": []

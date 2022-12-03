@@ -7,7 +7,7 @@
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "diameter",
+      "mainField": "name",
       "defaultSortBy": "diameter",
       "defaultSortOrder": "ASC"
     },
@@ -231,6 +231,48 @@
           "sortable": false
         }
       },
+      "h1": {
+        "edit": {
+          "label": "h1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "h1",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "discountPrice": {
+        "edit": {
+          "label": "discountPrice",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "discountPrice",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "discountPriceUSD": {
+        "edit": {
+          "label": "discountPriceUSD",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "discountPriceUSD",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -270,9 +312,15 @@
       "edit": [
         [
           {
-            "name": "diameter",
+            "name": "h1",
             "size": 6
           },
+          {
+            "name": "diameter",
+            "size": 6
+          }
+        ],
+        [
           {
             "name": "width",
             "size": 4
@@ -302,7 +350,9 @@
           {
             "name": "type",
             "size": 6
-          },
+          }
+        ],
+        [
           {
             "name": "name",
             "size": 6
@@ -344,6 +394,16 @@
           {
             "name": "snippets",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "discountPrice",
+            "size": 4
+          },
+          {
+            "name": "discountPriceUSD",
+            "size": 4
           }
         ]
       ]

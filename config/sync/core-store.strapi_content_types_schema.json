@@ -879,12 +879,6 @@
           "required": true,
           "private": true
         },
-        "signature": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1019,12 +1013,6 @@
             "min": 1,
             "required": true,
             "private": true
-          },
-          "signature": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
           }
         },
         "kind": "collectionType"
@@ -1189,6 +1177,102 @@
       "uid": "plugin::upload.folder",
       "plugin": "upload",
       "globalId": "UploadFolder"
+    },
+    "plugin::internal.data": {
+      "kind": "singleType",
+      "collectionName": "internal_data",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        },
+        "content-type-builder": {
+          "visible": false
+        }
+      },
+      "info": {
+        "singularName": "data",
+        "pluralName": "datas",
+        "displayName": "Data"
+      },
+      "options": {
+        "draftAndPublish": false,
+        "comment": ""
+      },
+      "attributes": {
+        "dateNewProductSentToEmail": {
+          "type": "datetime"
+        },
+        "currencyDate": {
+          "type": "datetime"
+        },
+        "currencyCoefficient": {
+          "type": "decimal"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "internal_data",
+        "info": {
+          "singularName": "data",
+          "pluralName": "datas",
+          "displayName": "Data"
+        },
+        "options": {
+          "draftAndPublish": false,
+          "comment": ""
+        },
+        "pluginOptions": {
+          "content-manager": {
+            "visible": false
+          },
+          "content-type-builder": {
+            "visible": false
+          }
+        },
+        "attributes": {
+          "dateNewProductSentToEmail": {
+            "type": "datetime"
+          },
+          "currencyDate": {
+            "type": "datetime"
+          },
+          "currencyCoefficient": {
+            "type": "decimal"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "data",
+      "connection": "default",
+      "uid": "plugin::internal.data",
+      "plugin": "internal",
+      "globalId": "InternalData"
     },
     "plugin::i18n.locale": {
       "info": {
@@ -1713,6 +1797,246 @@
       "plugin": "users-permissions",
       "globalId": "UsersPermissionsUser"
     },
+    "api::article.article": {
+      "kind": "collectionType",
+      "collectionName": "articles",
+      "info": {
+        "singularName": "article",
+        "pluralName": "articles",
+        "displayName": "Article",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "первый",
+            "второй",
+            "третий"
+          ]
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "name"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "articles",
+        "info": {
+          "singularName": "article",
+          "pluralName": "articles",
+          "displayName": "Article",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "description": {
+            "type": "richtext"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "первый",
+              "второй",
+              "третий"
+            ]
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "name"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "article",
+      "connection": "default",
+      "uid": "api::article.article",
+      "apiName": "article",
+      "globalId": "Article",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::autocomis.autocomis": {
+      "kind": "collectionType",
+      "collectionName": "autocomises",
+      "info": {
+        "singularName": "autocomis",
+        "pluralName": "autocomises",
+        "displayName": "Autocomises",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "name"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "autocomises",
+        "info": {
+          "singularName": "autocomis",
+          "pluralName": "autocomises",
+          "displayName": "Autocomises",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "description": {
+            "type": "richtext"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "name"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "autocomis",
+      "connection": "default",
+      "uid": "api::autocomis.autocomis",
+      "apiName": "autocomis",
+      "globalId": "Autocomis",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::brand.brand": {
       "kind": "collectionType",
       "collectionName": "brands",
@@ -1752,6 +2076,19 @@
           "type": "relation",
           "relation": "oneToMany",
           "target": "api::wheel.wheel",
+          "mappedBy": "brand"
+        },
+        "image": {
+          "allowedTypes": [
+            "images"
+          ],
+          "type": "media",
+          "multiple": false
+        },
+        "cabins": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::cabin.cabin",
           "mappedBy": "brand"
         },
         "createdAt": {
@@ -1820,6 +2157,19 @@
             "relation": "oneToMany",
             "target": "api::wheel.wheel",
             "mappedBy": "brand"
+          },
+          "image": {
+            "allowedTypes": [
+              "images"
+            ],
+            "type": "media",
+            "multiple": false
+          },
+          "cabins": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::cabin.cabin",
+            "mappedBy": "brand"
           }
         },
         "kind": "collectionType"
@@ -1830,6 +2180,228 @@
       "uid": "api::brand.brand",
       "apiName": "brand",
       "globalId": "Brand",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::cabin.cabin": {
+      "kind": "collectionType",
+      "collectionName": "cabins",
+      "info": {
+        "singularName": "cabin",
+        "pluralName": "cabins",
+        "displayName": "Cabin",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "model": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::model.model",
+          "inversedBy": "cabins"
+        },
+        "brand": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::brand.brand",
+          "inversedBy": "cabins"
+        },
+        "generation": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::generation.generation",
+          "inversedBy": "cabins"
+        },
+        "seatUpholstery": {
+          "type": "string"
+        },
+        "images": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "h1": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "h1"
+        },
+        "kindSparePart": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::kind-spare-part.kind-spare-part",
+          "inversedBy": "cabins"
+        },
+        "price": {
+          "type": "decimal"
+        },
+        "discountPrice": {
+          "type": "decimal"
+        },
+        "discountPriceUSD": {
+          "type": "decimal"
+        },
+        "priceUSD": {
+          "type": "decimal"
+        },
+        "description": {
+          "type": "text"
+        },
+        "snippets": {
+          "type": "component",
+          "repeatable": false,
+          "component": "product.snippets"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "cabin"
+          ],
+          "default": "cabin",
+          "required": true
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "cabins",
+        "info": {
+          "singularName": "cabin",
+          "pluralName": "cabins",
+          "displayName": "Cabin",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "model": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::model.model",
+            "inversedBy": "cabins"
+          },
+          "brand": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::brand.brand",
+            "inversedBy": "cabins"
+          },
+          "generation": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::generation.generation",
+            "inversedBy": "cabins"
+          },
+          "seatUpholstery": {
+            "type": "string"
+          },
+          "images": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "h1": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "h1"
+          },
+          "kindSparePart": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::kind-spare-part.kind-spare-part",
+            "inversedBy": "cabins"
+          },
+          "price": {
+            "type": "decimal"
+          },
+          "discountPrice": {
+            "type": "decimal"
+          },
+          "discountPriceUSD": {
+            "type": "decimal"
+          },
+          "priceUSD": {
+            "type": "decimal"
+          },
+          "description": {
+            "type": "text"
+          },
+          "snippets": {
+            "type": "component",
+            "repeatable": false,
+            "component": "product.snippets"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "cabin"
+            ],
+            "default": "cabin",
+            "required": true
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "cabin",
+      "connection": "default",
+      "uid": "api::cabin.cabin",
+      "apiName": "cabin",
+      "globalId": "Cabin",
       "actions": {},
       "lifecycles": {}
     },
@@ -1908,6 +2480,9 @@
           "type": "component",
           "repeatable": false,
           "component": "seo.seo"
+        },
+        "videoLink": {
+          "type": "string"
         },
         "createdAt": {
           "type": "datetime"
@@ -2010,6 +2585,9 @@
             "type": "component",
             "repeatable": false,
             "component": "seo.seo"
+          },
+          "videoLink": {
+            "type": "string"
           }
         },
         "kind": "collectionType"
@@ -2160,6 +2738,12 @@
           "target": "api::model.model",
           "inversedBy": "generations"
         },
+        "cabins": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::cabin.cabin",
+          "mappedBy": "generation"
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -2220,6 +2804,12 @@
             "relation": "manyToOne",
             "target": "api::model.model",
             "inversedBy": "generations"
+          },
+          "cabins": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::cabin.cabin",
+            "mappedBy": "generation"
           }
         },
         "kind": "collectionType"
@@ -2254,6 +2844,20 @@
           "type": "relation",
           "relation": "oneToMany",
           "target": "api::spare-part.spare-part",
+          "mappedBy": "kindSparePart"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "regular",
+            "cabin"
+          ],
+          "default": "regular"
+        },
+        "cabins": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::cabin.cabin",
           "mappedBy": "kindSparePart"
         },
         "createdAt": {
@@ -2303,6 +2907,20 @@
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::spare-part.spare-part",
+            "mappedBy": "kindSparePart"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "regular",
+              "cabin"
+            ],
+            "default": "regular"
+          },
+          "cabins": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::cabin.cabin",
             "mappedBy": "kindSparePart"
           }
         },
@@ -2362,6 +2980,12 @@
           "type": "relation",
           "relation": "oneToMany",
           "target": "api::wheel.wheel",
+          "mappedBy": "model"
+        },
+        "cabins": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "api::cabin.cabin",
           "mappedBy": "model"
         },
         "createdAt": {
@@ -2435,6 +3059,12 @@
             "type": "relation",
             "relation": "oneToMany",
             "target": "api::wheel.wheel",
+            "mappedBy": "model"
+          },
+          "cabins": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::cabin.cabin",
             "mappedBy": "model"
           }
         },
@@ -2552,6 +3182,158 @@
       "uid": "api::order.order",
       "apiName": "order",
       "globalId": "Order",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-article.page-article": {
+      "kind": "singleType",
+      "collectionName": "page_articles",
+      "info": {
+        "singularName": "page-article",
+        "pluralName": "page-articles",
+        "displayName": "Page articles",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_articles",
+        "info": {
+          "singularName": "page-article",
+          "pluralName": "page-articles",
+          "displayName": "Page articles",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-article",
+      "connection": "default",
+      "uid": "api::page-article.page-article",
+      "apiName": "page-article",
+      "globalId": "PageArticle",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-autocomis.page-autocomis": {
+      "kind": "singleType",
+      "collectionName": "page_autocomises",
+      "info": {
+        "singularName": "page-autocomis",
+        "pluralName": "page-autocomises",
+        "displayName": "Page autocomises",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_autocomises",
+        "info": {
+          "singularName": "page-autocomis",
+          "pluralName": "page-autocomises",
+          "displayName": "Page autocomises",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-autocomis",
+      "connection": "default",
+      "uid": "api::page-autocomis.page-autocomis",
+      "apiName": "page-autocomis",
+      "globalId": "PageAutocomis",
       "actions": {},
       "lifecycles": {}
     },
@@ -2705,6 +3487,172 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::page-cabin.page-cabin": {
+      "kind": "singleType",
+      "collectionName": "page_cabins",
+      "info": {
+        "singularName": "page-cabin",
+        "pluralName": "page-cabins",
+        "displayName": "Page cabins"
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_cabins",
+        "info": {
+          "singularName": "page-cabin",
+          "pluralName": "page-cabins",
+          "displayName": "Page cabins"
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-cabin",
+      "connection": "default",
+      "uid": "api::page-cabin.page-cabin",
+      "apiName": "page-cabin",
+      "globalId": "PageCabin",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-car-dismantling-photo.page-car-dismantling-photo": {
+      "kind": "singleType",
+      "collectionName": "page_car_dismantling_photos",
+      "info": {
+        "singularName": "page-car-dismantling-photo",
+        "pluralName": "page-car-dismantling-photos",
+        "displayName": "Page car dismantling photos",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "images": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_car_dismantling_photos",
+        "info": {
+          "singularName": "page-car-dismantling-photo",
+          "pluralName": "page-car-dismantling-photos",
+          "displayName": "Page car dismantling photos",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "images": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-car-dismantling-photo",
+      "connection": "default",
+      "uid": "api::page-car-dismantling-photo.page-car-dismantling-photo",
+      "apiName": "page-car-dismantling-photo",
+      "globalId": "PageCarDismantlingPhoto",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::page-contact.page-contact": {
       "kind": "singleType",
       "collectionName": "page_contacts",
@@ -2778,6 +3726,88 @@
       "uid": "api::page-contact.page-contact",
       "apiName": "page-contact",
       "globalId": "PageContact",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-delivery.page-delivery": {
+      "kind": "singleType",
+      "collectionName": "page_deliveries",
+      "info": {
+        "singularName": "page-delivery",
+        "pluralName": "page-deliveries",
+        "displayName": "Page delivery",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_deliveries",
+        "info": {
+          "singularName": "page-delivery",
+          "pluralName": "page-deliveries",
+          "displayName": "Page delivery",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "description": {
+            "type": "richtext"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-delivery",
+      "connection": "default",
+      "uid": "api::page-delivery.page-delivery",
+      "apiName": "page-delivery",
+      "globalId": "PageDelivery",
       "actions": {},
       "lifecycles": {}
     },
@@ -2857,6 +3887,216 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::page-installment-plan.page-installment-plan": {
+      "kind": "singleType",
+      "collectionName": "page_installment_plans",
+      "info": {
+        "singularName": "page-installment-plan",
+        "pluralName": "page-installment-plans",
+        "displayName": "Page installment plan",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_installment_plans",
+        "info": {
+          "singularName": "page-installment-plan",
+          "pluralName": "page-installment-plans",
+          "displayName": "Page installment plan",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "description": {
+            "type": "richtext"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-installment-plan",
+      "connection": "default",
+      "uid": "api::page-installment-plan.page-installment-plan",
+      "apiName": "page-installment-plan",
+      "globalId": "PageInstallmentPlan",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-main.page-main": {
+      "kind": "singleType",
+      "collectionName": "page_mains",
+      "info": {
+        "singularName": "page-main",
+        "pluralName": "page-mains",
+        "displayName": "Page main",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "banner": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "textAfterBrands": {
+          "type": "richtext"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "advertising": {
+          "type": "component",
+          "repeatable": true,
+          "component": "general.link-and-image"
+        },
+        "discounts": {
+          "type": "component",
+          "repeatable": true,
+          "component": "general.link-and-image"
+        },
+        "deliveryAuto": {
+          "type": "component",
+          "repeatable": false,
+          "component": "general.link-and-image"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_mains",
+        "info": {
+          "singularName": "page-main",
+          "pluralName": "page-mains",
+          "displayName": "Page main",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "banner": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "textAfterBrands": {
+            "type": "richtext"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "advertising": {
+            "type": "component",
+            "repeatable": true,
+            "component": "general.link-and-image"
+          },
+          "discounts": {
+            "type": "component",
+            "repeatable": true,
+            "component": "general.link-and-image"
+          },
+          "deliveryAuto": {
+            "type": "component",
+            "repeatable": false,
+            "component": "general.link-and-image"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-main",
+      "connection": "default",
+      "uid": "api::page-main.page-main",
+      "apiName": "page-main",
+      "globalId": "PageMain",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::page-product.page-product": {
       "kind": "singleType",
       "collectionName": "page_products",
@@ -2874,8 +4114,34 @@
         "linksWithImages": {
           "type": "component",
           "repeatable": true,
-          "component": "product.link-and-image",
-          "max": 4
+          "component": "general.link-and-image"
+        },
+        "textAfterDescription": {
+          "type": "richtext",
+          "default": "Товар снят с б/у {autoSynonyms}, проверен. На данный момент деталь отвечает техническим и эстетическим требованиям. Если хотите получить более детальную информацию - свяжитесь с нашим менеджером."
+        },
+        "autoSynonyms": {
+          "type": "string",
+          "default": "авто"
+        },
+        "benefits": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images",
+            "files",
+            "videos",
+            "audios"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "default": "{h1} купить с доставкой"
+        },
+        "description": {
+          "type": "string",
+          "default": "{h1} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все."
         },
         "createdAt": {
           "type": "datetime"
@@ -2920,8 +4186,34 @@
           "linksWithImages": {
             "type": "component",
             "repeatable": true,
-            "component": "product.link-and-image",
-            "max": 4
+            "component": "general.link-and-image"
+          },
+          "textAfterDescription": {
+            "type": "richtext",
+            "default": "Товар снят с б/у {autoSynonyms}, проверен. На данный момент деталь отвечает техническим и эстетическим требованиям. Если хотите получить более детальную информацию - свяжитесь с нашим менеджером."
+          },
+          "autoSynonyms": {
+            "type": "string",
+            "default": "авто"
+          },
+          "benefits": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images",
+              "files",
+              "videos",
+              "audios"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "default": "{h1} купить с доставкой"
+          },
+          "description": {
+            "type": "string",
+            "default": "{h1} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все."
           }
         },
         "kind": "singleType"
@@ -3008,6 +4300,80 @@
       "uid": "api::page-review.page-review",
       "apiName": "page-review",
       "globalId": "PageReview",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::page-service-station.page-service-station": {
+      "kind": "singleType",
+      "collectionName": "page_service_stations",
+      "info": {
+        "singularName": "page-service-station",
+        "pluralName": "page-service-stations",
+        "displayName": "Page service stations"
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_service_stations",
+        "info": {
+          "singularName": "page-service-station",
+          "pluralName": "page-service-stations",
+          "displayName": "Page service stations"
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-service-station",
+      "connection": "default",
+      "uid": "api::page-service-station.page-service-station",
+      "apiName": "page-service-station",
+      "globalId": "PageServiceStation",
       "actions": {},
       "lifecycles": {}
     },
@@ -3233,6 +4599,80 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::page-vacancy.page-vacancy": {
+      "kind": "singleType",
+      "collectionName": "page_vacancies",
+      "info": {
+        "singularName": "page-vacancy",
+        "pluralName": "page-vacancies",
+        "displayName": "Page vacancies"
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_vacancies",
+        "info": {
+          "singularName": "page-vacancy",
+          "pluralName": "page-vacancies",
+          "displayName": "Page vacancies"
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-vacancy",
+      "connection": "default",
+      "uid": "api::page-vacancy.page-vacancy",
+      "apiName": "page-vacancy",
+      "globalId": "PageVacancy",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::page-wheel.page-wheel": {
       "kind": "singleType",
       "collectionName": "page_wheels",
@@ -3421,6 +4861,118 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::service-station.service-station": {
+      "kind": "collectionType",
+      "collectionName": "service_stations",
+      "info": {
+        "singularName": "service-station",
+        "pluralName": "service-stations",
+        "displayName": "Service stations",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "name"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "service_stations",
+        "info": {
+          "singularName": "service-station",
+          "pluralName": "service-stations",
+          "displayName": "Service stations",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "description": {
+            "type": "richtext"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "name"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "service-station",
+      "connection": "default",
+      "uid": "api::service-station.service-station",
+      "apiName": "service-station",
+      "globalId": "ServiceStation",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::shopping-cart.shopping-cart": {
       "kind": "collectionType",
       "collectionName": "shopping_carts",
@@ -3548,14 +5100,11 @@
           "multiple": true,
           "required": false,
           "allowedTypes": [
-            "images",
-            "files",
-            "videos",
-            "audios"
+            "images"
           ]
         },
         "price": {
-          "type": "integer",
+          "type": "decimal",
           "default": 0
         },
         "priceUSD": {
@@ -3563,7 +5112,7 @@
         },
         "slug": {
           "type": "uid",
-          "targetField": "name"
+          "targetField": "h1"
         },
         "year": {
           "type": "integer"
@@ -3595,10 +5144,6 @@
           "target": "api::brand.brand",
           "inversedBy": "spareParts"
         },
-        "type": {
-          "type": "string",
-          "default": "sparePart"
-        },
         "kindSparePart": {
           "type": "relation",
           "relation": "manyToOne",
@@ -3629,6 +5174,23 @@
           "type": "component",
           "repeatable": false,
           "component": "product.snippets"
+        },
+        "h1": {
+          "type": "string"
+        },
+        "discountPrice": {
+          "type": "decimal"
+        },
+        "discountPriceUSD": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "sparePart"
+          ],
+          "default": "sparePart",
+          "required": true
         },
         "createdAt": {
           "type": "datetime"
@@ -3681,14 +5243,11 @@
             "multiple": true,
             "required": false,
             "allowedTypes": [
-              "images",
-              "files",
-              "videos",
-              "audios"
+              "images"
             ]
           },
           "price": {
-            "type": "integer",
+            "type": "decimal",
             "default": 0
           },
           "priceUSD": {
@@ -3696,7 +5255,7 @@
           },
           "slug": {
             "type": "uid",
-            "targetField": "name"
+            "targetField": "h1"
           },
           "year": {
             "type": "integer"
@@ -3728,10 +5287,6 @@
             "target": "api::brand.brand",
             "inversedBy": "spareParts"
           },
-          "type": {
-            "type": "string",
-            "default": "sparePart"
-          },
           "kindSparePart": {
             "type": "relation",
             "relation": "manyToOne",
@@ -3762,6 +5317,23 @@
             "type": "component",
             "repeatable": false,
             "component": "product.snippets"
+          },
+          "h1": {
+            "type": "string"
+          },
+          "discountPrice": {
+            "type": "decimal"
+          },
+          "discountPriceUSD": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "sparePart"
+            ],
+            "default": "sparePart",
+            "required": true
           }
         },
         "kind": "collectionType"
@@ -3813,10 +5385,6 @@
         "priceUSD": {
           "type": "integer"
         },
-        "type": {
-          "type": "string",
-          "default": "tire"
-        },
         "brand": {
           "type": "relation",
           "relation": "manyToOne",
@@ -3828,7 +5396,7 @@
         },
         "slug": {
           "type": "uid",
-          "targetField": "name"
+          "targetField": "h1"
         },
         "images": {
           "type": "media",
@@ -3853,6 +5421,23 @@
           "type": "component",
           "repeatable": false,
           "component": "product.snippets"
+        },
+        "h1": {
+          "type": "string"
+        },
+        "discountPrice": {
+          "type": "decimal"
+        },
+        "discountPriceUSD": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "tire"
+          ],
+          "default": "tire",
+          "required": true
         },
         "createdAt": {
           "type": "datetime"
@@ -3918,10 +5503,6 @@
           "priceUSD": {
             "type": "integer"
           },
-          "type": {
-            "type": "string",
-            "default": "tire"
-          },
           "brand": {
             "type": "relation",
             "relation": "manyToOne",
@@ -3933,7 +5514,7 @@
           },
           "slug": {
             "type": "uid",
-            "targetField": "name"
+            "targetField": "h1"
           },
           "images": {
             "type": "media",
@@ -3958,6 +5539,23 @@
             "type": "component",
             "repeatable": false,
             "component": "product.snippets"
+          },
+          "h1": {
+            "type": "string"
+          },
+          "discountPrice": {
+            "type": "decimal"
+          },
+          "discountPriceUSD": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "tire"
+            ],
+            "default": "tire",
+            "required": true
           }
         },
         "kind": "collectionType"
@@ -4055,6 +5653,124 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::vacancy.vacancy": {
+      "kind": "collectionType",
+      "collectionName": "vacancies",
+      "info": {
+        "singularName": "vacancy",
+        "pluralName": "vacancies",
+        "displayName": "Vacancies",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images",
+            "files",
+            "videos",
+            "audios"
+          ]
+        },
+        "description": {
+          "type": "richtext"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "slug": {
+          "type": "uid",
+          "targetField": "name"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "vacancies",
+        "info": {
+          "singularName": "vacancy",
+          "pluralName": "vacancies",
+          "displayName": "Vacancies",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images",
+              "files",
+              "videos",
+              "audios"
+            ]
+          },
+          "description": {
+            "type": "richtext"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          },
+          "slug": {
+            "type": "uid",
+            "targetField": "name"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "vacancy",
+      "connection": "default",
+      "uid": "api::vacancy.vacancy",
+      "apiName": "vacancy",
+      "globalId": "Vacancy",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::wheel.wheel": {
       "kind": "collectionType",
       "collectionName": "wheels",
@@ -4077,10 +5793,7 @@
           "multiple": true,
           "required": false,
           "allowedTypes": [
-            "images",
-            "files",
-            "videos",
-            "audios"
+            "images"
           ]
         },
         "price": {
@@ -4090,16 +5803,12 @@
         "priceUSD": {
           "type": "integer"
         },
-        "type": {
-          "type": "string",
-          "default": "wheel"
-        },
         "name": {
           "type": "string"
         },
         "slug": {
           "type": "uid",
-          "targetField": "name"
+          "targetField": "h1"
         },
         "numberHoles": {
           "type": "integer"
@@ -4151,6 +5860,23 @@
           "repeatable": false,
           "component": "product.snippets"
         },
+        "h1": {
+          "type": "string"
+        },
+        "discountPrice": {
+          "type": "decimal"
+        },
+        "discountPriceUSD": {
+          "type": "integer"
+        },
+        "type": {
+          "type": "enumeration",
+          "enum": [
+            "wheel"
+          ],
+          "default": "wheel",
+          "required": true
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -4199,10 +5925,7 @@
             "multiple": true,
             "required": false,
             "allowedTypes": [
-              "images",
-              "files",
-              "videos",
-              "audios"
+              "images"
             ]
           },
           "price": {
@@ -4212,16 +5935,12 @@
           "priceUSD": {
             "type": "integer"
           },
-          "type": {
-            "type": "string",
-            "default": "wheel"
-          },
           "name": {
             "type": "string"
           },
           "slug": {
             "type": "uid",
-            "targetField": "name"
+            "targetField": "h1"
           },
           "numberHoles": {
             "type": "integer"
@@ -4272,6 +5991,23 @@
             "type": "component",
             "repeatable": false,
             "component": "product.snippets"
+          },
+          "h1": {
+            "type": "string"
+          },
+          "discountPrice": {
+            "type": "decimal"
+          },
+          "discountPriceUSD": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "enumeration",
+            "enum": [
+              "wheel"
+            ],
+            "default": "wheel",
+            "required": true
           }
         },
         "kind": "collectionType"

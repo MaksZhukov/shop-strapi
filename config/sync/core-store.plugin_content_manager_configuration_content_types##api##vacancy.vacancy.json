@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-product.page-product",
+  "key": "plugin_content_manager_configuration_content_types::api::vacancy.vacancy",
   "value": {
-    "uid": "api::page-product.page-product",
+    "uid": "api::vacancy.vacancy",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "name",
+      "defaultSortBy": "name",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,74 +20,32 @@
           "sortable": true
         }
       },
-      "linksWithImages": {
+      "name": {
         "edit": {
-          "label": "linksWithImages",
+          "label": "name",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "linksWithImages",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "textAfterDescription": {
-        "edit": {
-          "label": "textAfterDescription",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "textAfterDescription",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "autoSynonyms": {
-        "edit": {
-          "label": "autoSynonyms",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "autoSynonyms",
+          "label": "name",
           "searchable": true,
           "sortable": true
         }
       },
-      "benefits": {
+      "image": {
         "edit": {
-          "label": "benefits",
+          "label": "image",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "benefits",
+          "label": "image",
           "searchable": false,
           "sortable": false
-        }
-      },
-      "title": {
-        "edit": {
-          "label": "title",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "title",
-          "searchable": true,
-          "sortable": true
         }
       },
       "description": {
@@ -100,6 +58,34 @@
         },
         "list": {
           "label": "description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
@@ -136,40 +122,36 @@
     "layouts": {
       "list": [
         "id",
-        "createdAt",
-        "updatedAt",
-        "linksWithImages"
+        "name",
+        "image",
+        "createdAt"
       ],
       "edit": [
         [
           {
-            "name": "linksWithImages",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "textAfterDescription",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "autoSynonyms",
+            "name": "name",
             "size": 6
           },
           {
-            "name": "benefits",
+            "name": "image",
             "size": 6
           }
         ],
         [
-          {
-            "name": "title",
-            "size": 6
-          },
           {
             "name": "description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "slug",
             "size": 6
           }
         ]

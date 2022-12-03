@@ -109,6 +109,21 @@
           "sortable": false
         }
       },
+      "cabins": {
+        "edit": {
+          "label": "cabins",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "cabins",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -173,6 +188,12 @@
           },
           {
             "name": "wheels",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "cabins",
             "size": 6
           }
         ]

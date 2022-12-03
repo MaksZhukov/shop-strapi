@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::spare-part.spare-part",
+  "key": "plugin_content_manager_configuration_content_types::api::cabin.cabin",
   "value": {
-    "uid": "api::spare-part.spare-part",
+    "uid": "api::cabin.cabin",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -30,132 +30,6 @@
         },
         "list": {
           "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "description": {
-        "edit": {
-          "label": "description",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "description",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "images": {
-        "edit": {
-          "label": "images",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "images",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "price": {
-        "edit": {
-          "label": "price",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "price",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "priceUSD": {
-        "edit": {
-          "label": "priceUSD",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "priceUSD",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "slug": {
-        "edit": {
-          "label": "slug",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "slug",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "year": {
-        "edit": {
-          "label": "year",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "year",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "volume": {
-        "edit": {
-          "label": "volume",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "volume",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "bodyStyle": {
-        "edit": {
-          "label": "bodyStyle",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "bodyStyle",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "transmission": {
-        "edit": {
-          "label": "transmission",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "transmission",
           "searchable": true,
           "sortable": true
         }
@@ -190,16 +64,87 @@
           "sortable": true
         }
       },
-      "type": {
+      "generation": {
         "edit": {
-          "label": "type",
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seatUpholstery": {
+        "edit": {
+          "label": "seatUpholstery",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "type",
+          "label": "seatUpholstery",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "images": {
+        "edit": {
+          "label": "images",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "images",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "h1": {
+        "edit": {
+          "label": "h1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "h1",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
           "searchable": true,
           "sortable": true
         }
@@ -219,73 +164,16 @@
           "sortable": true
         }
       },
-      "generation": {
+      "price": {
         "edit": {
-          "label": "generation",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "generation",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "seo": {
-        "edit": {
-          "label": "seo",
+          "label": "price",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "fuel": {
-        "edit": {
-          "label": "fuel",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "fuel",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "snippets": {
-        "edit": {
-          "label": "snippets",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "snippets",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "h1": {
-        "edit": {
-          "label": "h1",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "h1",
+          "label": "price",
           "searchable": true,
           "sortable": true
         }
@@ -316,6 +204,62 @@
           "label": "discountPriceUSD",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "priceUSD": {
+        "edit": {
+          "label": "priceUSD",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "priceUSD",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "snippets": {
+        "edit": {
+          "label": "snippets",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "snippets",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -351,81 +295,13 @@
       "list": [
         "id",
         "name",
-        "createdAt",
-        "updatedAt"
+        "model",
+        "brand"
       ],
       "edit": [
         [
           {
-            "name": "h1",
-            "size": 6
-          },
-          {
             "name": "name",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "description",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "images",
-            "size": 6
-          },
-          {
-            "name": "price",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "priceUSD",
-            "size": 4
-          },
-          {
-            "name": "slug",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "year",
-            "size": 4
-          },
-          {
-            "name": "volume",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "bodyStyle",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "transmission",
-            "size": 6
-          },
-          {
-            "name": "type",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "seo",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "fuel",
             "size": 6
           },
           {
@@ -439,14 +315,44 @@
             "size": 6
           },
           {
-            "name": "kindSparePart",
+            "name": "generation",
             "size": 6
           }
         ],
         [
           {
-            "name": "snippets",
+            "name": "seatUpholstery",
+            "size": 6
+          },
+          {
+            "name": "images",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "seo",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "h1",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "kindSparePart",
+            "size": 6
+          },
+          {
+            "name": "price",
+            "size": 4
           }
         ],
         [
@@ -457,6 +363,26 @@
           {
             "name": "discountPriceUSD",
             "size": 4
+          },
+          {
+            "name": "priceUSD",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "type",
+            "size": 6
+          },
+          {
+            "name": "description",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "snippets",
+            "size": 12
           }
         ]
       ]
