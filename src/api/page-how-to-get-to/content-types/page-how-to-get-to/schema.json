@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_how_to_get_tos",
+  "info": {
+    "singularName": "page-how-to-get-to",
+    "pluralName": "page-how-to-get-tos",
+    "displayName": "Page how to get to",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "default": "<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3Aa553e2f9544eb2f0c9143e3fc50b1dd10fc059188ae131165b0455a4ff8c645b&amp;source=constructor\" width=\"100%\" height=\"100%\" frameBorder=\"0\"></iframe>"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
