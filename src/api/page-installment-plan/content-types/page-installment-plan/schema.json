@@ -17,7 +17,7 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "description": {
+    "content": {
       "type": "richtext"
     }
   }

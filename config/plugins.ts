@@ -38,6 +38,7 @@ export default ({ env }) => ({
                     "api::wheel.wheel",
                     "api::spare-part.spare-part",
                     "api::tire.tire",
+                    "api::cabin.cabin",
                     "api::car.car",
                     "api::review.review",
                     "api::model.model",
