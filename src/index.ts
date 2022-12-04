@@ -25,10 +25,5 @@ export default {
         if (await hasDelayOfSendingNewProductsEmail(strapi)) {
             sendNewProductsToEmail({ strapi });
         }
-        strapi.db.query("api::kind-spare-part.kind-spare-part").updateMany({
-            data: {
-                type: "regular",
-            },
-        });
     },
 };
