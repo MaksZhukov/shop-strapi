@@ -22,7 +22,10 @@ export default {
      */
     async bootstrap({ strapi }) {
         // fileMetadataService({ strapi });
-        if (await hasDelayOfSendingNewProductsEmail(strapi)) {
+        if (
+            process.env.NODE_ENV !== "development" &&
+            (await hasDelayOfSendingNewProductsEmail(strapi))
+        ) {
             sendNewProductsToEmail({ strapi });
         }
     },

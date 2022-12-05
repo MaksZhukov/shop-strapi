@@ -20,13 +20,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "video": {
-      "allowedTypes": [
-        "videos"
-      ],
-      "type": "media",
-      "multiple": false
     }
   }
 }
