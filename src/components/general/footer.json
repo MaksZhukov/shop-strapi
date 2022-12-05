@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_general_footers",
+  "info": {
+    "displayName": "footer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "firstBlock": {
+      "type": "richtext",
+      "default": "© 2022 - Авторазборка Полотково  ООО \"Дриблинг\", 2009-2017. УНП 590740644 . Дата регистрации 03.11.2008."
+    },
+    "fourthBlock": {
+      "type": "richtext",
+      "default": "ЦЕНТР ОБСЛУЖИВАНИЯ КЛИЕНТОВ:"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.link-and-image"
+    }
+  }
+}
