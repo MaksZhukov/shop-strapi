@@ -20,6 +20,7 @@
         "axios": "0.27.2",
         "connection-string": "^4.3.6",
         "koa2-ratelimit": "^1.1.2",
+        "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",
         "qs": "^6.11.0",
         "sharp": "^0.31.2",
