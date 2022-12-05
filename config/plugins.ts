@@ -80,6 +80,9 @@ export default ({ env }) => ({
             testAddress: env("SMTP_USERNAME"),
         },
     },
+    ckeditor: {
+        enabled: true,
+    },
     internal: {
         enabled: true,
         resolve: "./src/plugins/internal",
