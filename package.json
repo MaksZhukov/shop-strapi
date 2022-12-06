@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "description": "A Strapi application",
     "scripts": {
-        "develop": "strapi develop --watch-admin",
+        "develop": "strapi develop",
         "start": "strapi start dist",
         "build": "strapi build",
         "strapi": "strapi",
@@ -26,7 +26,7 @@
         "sharp": "^0.31.2",
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.4",
-        "strapi-plugin-generate-data": "1.0.20",
+        "strapi-plugin-generate-data": "^1.0.21",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-rest-cache": "^4.2.4",
         "strapi-plugin-transformer": "^2.1.0",
