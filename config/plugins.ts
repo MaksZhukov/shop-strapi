@@ -32,10 +32,10 @@ export default ({ env }) => ({
             },
         },
     },
-    // "generate-data": {
-    // enabled: true,
-    // resolve: "src/plugins/strapi-plugin-generate-data",
-    // },
+    "generate-data": {
+        enabled: true,
+        // resolve: "src/plugins/strapi-plugin-generate-data",
+    },
     email: {
         config: {
             provider: "strapi-provider-email-smtp",
