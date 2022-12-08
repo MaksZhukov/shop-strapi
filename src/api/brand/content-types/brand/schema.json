@@ -40,17 +40,23 @@
       "mappedBy": "brand"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "cabins": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::cabin.cabin",
       "mappedBy": "brand"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
