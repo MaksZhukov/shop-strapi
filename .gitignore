@@ -114,7 +114,7 @@ build
 dist
 .strapi-updater.json
 
-strapi-plugin-generate-data/
+strapi-plugin-generate-data
 package-lock.json
 
 
