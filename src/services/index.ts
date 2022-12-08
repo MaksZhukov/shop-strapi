@@ -3,7 +3,7 @@ import { Agent } from "https";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-const getProductUrls = async (uid, date, clientUrl, productType, title) => {
+const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
     let urls = (
         await strapi.db.query(uid).findMany({
             select: ["slug"],
@@ -11,7 +11,7 @@ const getProductUrls = async (uid, date, clientUrl, productType, title) => {
                 createdAt: { $gte: date.setDate(date.getDate() - 1) },
             },
         })
-    ).map((item) => clientUrl + `/products/${productType}/` + item.slug);
+    ).map((item) => clientUrl + `/${productTypeSlug}/` + item.slug);
     return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
 };
 
@@ -34,22 +34,22 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
                 "api::spare-part.spare-part",
                 date,
                 clientUrl,
-                "sparePart",
+                "spare-parts",
                 "Запчасти"
             ),
-            getProductUrls("api::tire.tire", date, clientUrl, "tire", "Шины"),
+            getProductUrls("api::tire.tire", date, clientUrl, "tires", "Шины"),
             getProductUrls(
                 "api::wheel.wheel",
                 date,
                 clientUrl,
-                "wheel",
+                "wheels",
                 "Диски"
             ),
             getProductUrls(
                 "api::cabin.cabin",
                 date,
                 clientUrl,
-                "cabin",
+                "cabins",
                 "Салоны"
             ),
         ]);
