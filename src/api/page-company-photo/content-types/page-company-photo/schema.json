@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_company_photos",
+  "info": {
+    "singularName": "page-company-photo",
+    "pluralName": "page-company-photos",
+    "displayName": "Page company photos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

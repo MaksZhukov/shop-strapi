@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-contact.page-contact",
+  "key": "plugin_content_manager_configuration_content_types::api::page-how-to-get-to.page-how-to-get-to",
   "value": {
-    "uid": "api::page-contact.page-contact",
+    "uid": "api::page-how-to-get-to.page-how-to-get-to",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,20 +20,6 @@
           "sortable": true
         }
       },
-      "seo": {
-        "edit": {
-          "label": "seo",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "content": {
         "edit": {
           "label": "content",
@@ -44,6 +30,20 @@
         },
         "list": {
           "label": "content",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
@@ -81,19 +81,18 @@
       "list": [
         "id",
         "seo",
-        "createdAt",
-        "updatedAt"
+        "createdAt"
       ],
       "edit": [
         [
           {
-            "name": "seo",
+            "name": "content",
             "size": 12
           }
         ],
         [
           {
-            "name": "content",
+            "name": "seo",
             "size": 12
           }
         ]
