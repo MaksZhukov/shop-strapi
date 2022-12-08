@@ -61,6 +61,9 @@
       "action": "api::kind-spare-part.kind-spare-part.find"
     },
     {
+      "action": "api::layout.layout.find"
+    },
+    {
       "action": "api::model.model.find"
     },
     {
@@ -88,6 +91,9 @@
       "action": "api::page-car-dismantling-photo.page-car-dismantling-photo.find"
     },
     {
+      "action": "api::page-company-photo.page-company-photo.find"
+    },
+    {
       "action": "api::page-contact.page-contact.find"
     },
     {
@@ -95,6 +101,9 @@
     },
     {
       "action": "api::page-guarantee.page-guarantee.find"
+    },
+    {
+      "action": "api::page-how-to-get-to.page-how-to-get-to.find"
     },
     {
       "action": "api::page-installment-plan.page-installment-plan.find"

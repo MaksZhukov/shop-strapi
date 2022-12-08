@@ -34,16 +34,16 @@
           "sortable": false
         }
       },
-      "description": {
+      "content": {
         "edit": {
-          "label": "description",
+          "label": "content",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "description",
+          "label": "content",
           "searchable": false,
           "sortable": false
         }
@@ -93,7 +93,7 @@
         ],
         [
           {
-            "name": "description",
+            "name": "content",
             "size": 12
           }
         ]

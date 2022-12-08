@@ -515,6 +515,51 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::layout.layout",
+      "properties": {
+        "fields": [
+          "footer.firstBlock",
+          "footer.fourthBlock",
+          "footer.socials.image",
+          "footer.socials.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::layout.layout",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::layout.layout",
+      "properties": {
+        "fields": [
+          "footer.firstBlock",
+          "footer.fourthBlock",
+          "footer.socials.image",
+          "footer.socials.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::layout.layout",
+      "properties": {
+        "fields": [
+          "footer.firstBlock",
+          "footer.fourthBlock",
+          "footer.socials.image",
+          "footer.socials.link"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::model.model",
       "properties": {
         "fields": [
@@ -926,6 +971,60 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-company-photo.page-company-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-company-photo.page-company-photo",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-company-photo.page-company-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-company-photo.page-company-photo",
+      "properties": {
+        "fields": [
+          "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-contact.page-contact",
       "properties": {
         "fields": [
@@ -934,7 +1033,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -955,7 +1055,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -970,7 +1071,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -986,7 +1088,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -1008,7 +1110,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -1024,7 +1126,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -1082,6 +1184,60 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-how-to-get-to.page-how-to-get-to",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-how-to-get-to.page-how-to-get-to",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-how-to-get-to.page-how-to-get-to",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-how-to-get-to.page-how-to-get-to",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-installment-plan.page-installment-plan",
       "properties": {
         "fields": [
@@ -1091,7 +1247,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -1113,7 +1269,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -1129,7 +1285,7 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "description"
+          "content"
         ]
       },
       "conditions": []
@@ -2374,6 +2530,48 @@
       "action": "plugin::content-manager.components.configure-layout",
       "subject": null,
       "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "plugin::internal.data",
+      "properties": {
+        "fields": [
+          "dateNewProductSentToEmail",
+          "currencyDate",
+          "currencyCoefficient"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "plugin::internal.data",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "plugin::internal.data",
+      "properties": {
+        "fields": [
+          "dateNewProductSentToEmail",
+          "currencyDate",
+          "currencyCoefficient"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "plugin::internal.data",
+      "properties": {
+        "fields": [
+          "dateNewProductSentToEmail",
+          "currencyDate",
+          "currencyCoefficient"
+        ]
+      },
       "conditions": []
     },
     {

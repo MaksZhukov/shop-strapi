@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-contact.page-contact",
+  "key": "plugin_content_manager_configuration_content_types::api::page-company-photo.page-company-photo",
   "value": {
-    "uid": "api::page-contact.page-contact",
+    "uid": "api::page-company-photo.page-company-photo",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,6 +20,20 @@
           "sortable": true
         }
       },
+      "images": {
+        "edit": {
+          "label": "images",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "images",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "seo": {
         "edit": {
           "label": "seo",
@@ -30,20 +44,6 @@
         },
         "list": {
           "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "content": {
-        "edit": {
-          "label": "content",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "content",
           "searchable": false,
           "sortable": false
         }
@@ -80,20 +80,20 @@
     "layouts": {
       "list": [
         "id",
-        "seo",
+        "images",
         "createdAt",
         "updatedAt"
       ],
       "edit": [
         [
           {
-            "name": "seo",
-            "size": 12
+            "name": "images",
+            "size": 6
           }
         ],
         [
           {
-            "name": "content",
+            "name": "seo",
             "size": 12
           }
         ]
