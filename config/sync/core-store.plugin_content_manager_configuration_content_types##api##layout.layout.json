@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-contact.page-contact",
+  "key": "plugin_content_manager_configuration_content_types::api::layout.layout",
   "value": {
-    "uid": "api::page-contact.page-contact",
+    "uid": "api::layout.layout",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,30 +20,16 @@
           "sortable": true
         }
       },
-      "seo": {
+      "footer": {
         "edit": {
-          "label": "seo",
+          "label": "footer",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "content": {
-        "edit": {
-          "label": "content",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "content",
+          "label": "footer",
           "searchable": false,
           "sortable": false
         }
@@ -80,20 +66,13 @@
     "layouts": {
       "list": [
         "id",
-        "seo",
-        "createdAt",
-        "updatedAt"
+        "footer",
+        "createdAt"
       ],
       "edit": [
         [
           {
-            "name": "seo",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "content",
+            "name": "footer",
             "size": 12
           }
         ]

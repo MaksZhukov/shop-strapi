@@ -879,6 +879,12 @@
           "required": true,
           "private": true
         },
+        "signature": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1013,6 +1019,12 @@
             "min": 1,
             "required": true,
             "private": true
+          },
+          "signature": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
           }
         },
         "kind": "collectionType"
@@ -1183,10 +1195,10 @@
       "collectionName": "internal_data",
       "pluginOptions": {
         "content-manager": {
-          "visible": false
+          "visible": true
         },
         "content-type-builder": {
-          "visible": false
+          "visible": true
         }
       },
       "info": {
@@ -1248,10 +1260,10 @@
         },
         "pluginOptions": {
           "content-manager": {
-            "visible": false
+            "visible": true
           },
           "content-type-builder": {
-            "visible": false
+            "visible": true
           }
         },
         "attributes": {
@@ -2935,6 +2947,82 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::layout.layout": {
+      "kind": "singleType",
+      "collectionName": "layouts",
+      "info": {
+        "singularName": "layout",
+        "pluralName": "layouts",
+        "displayName": "Layout",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "footer": {
+          "type": "component",
+          "repeatable": false,
+          "component": "general.footer"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "layouts",
+        "info": {
+          "singularName": "layout",
+          "pluralName": "layouts",
+          "displayName": "Layout",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "footer": {
+            "type": "component",
+            "repeatable": false,
+            "component": "general.footer"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "layout",
+      "connection": "default",
+      "uid": "api::layout.layout",
+      "apiName": "layout",
+      "globalId": "Layout",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::model.model": {
       "kind": "collectionType",
       "collectionName": "models",
@@ -3653,6 +3741,98 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::page-company-photo.page-company-photo": {
+      "kind": "singleType",
+      "collectionName": "page_company_photos",
+      "info": {
+        "singularName": "page-company-photo",
+        "pluralName": "page-company-photos",
+        "displayName": "Page company photos",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "images": {
+          "type": "media",
+          "multiple": true,
+          "required": false,
+          "allowedTypes": [
+            "images"
+          ]
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_company_photos",
+        "info": {
+          "singularName": "page-company-photo",
+          "pluralName": "page-company-photos",
+          "displayName": "Page company photos",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "images": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": [
+              "images"
+            ]
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-company-photo",
+      "connection": "default",
+      "uid": "api::page-company-photo.page-company-photo",
+      "apiName": "page-company-photo",
+      "globalId": "PageCompanyPhoto",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::page-contact.page-contact": {
       "kind": "singleType",
       "collectionName": "page_contacts",
@@ -3671,6 +3851,9 @@
           "type": "component",
           "repeatable": false,
           "component": "seo.seo"
+        },
+        "content": {
+          "type": "richtext"
         },
         "createdAt": {
           "type": "datetime"
@@ -3716,6 +3899,9 @@
             "type": "component",
             "repeatable": false,
             "component": "seo.seo"
+          },
+          "content": {
+            "type": "richtext"
           }
         },
         "kind": "singleType"
@@ -3748,7 +3934,7 @@
           "repeatable": false,
           "component": "seo.seo"
         },
-        "description": {
+        "content": {
           "type": "richtext"
         },
         "createdAt": {
@@ -3796,7 +3982,7 @@
             "repeatable": false,
             "component": "seo.seo"
           },
-          "description": {
+          "content": {
             "type": "richtext"
           }
         },
@@ -3887,6 +4073,90 @@
       "actions": {},
       "lifecycles": {}
     },
+    "api::page-how-to-get-to.page-how-to-get-to": {
+      "kind": "singleType",
+      "collectionName": "page_how_to_get_tos",
+      "info": {
+        "singularName": "page-how-to-get-to",
+        "pluralName": "page-how-to-get-tos",
+        "displayName": "Page how to get to",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "content": {
+          "type": "richtext",
+          "default": "<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3Aa553e2f9544eb2f0c9143e3fc50b1dd10fc059188ae131165b0455a4ff8c645b&amp;source=constructor\" width=\"100%\" height=\"100%\" frameBorder=\"0\"></iframe>"
+        },
+        "seo": {
+          "type": "component",
+          "repeatable": false,
+          "component": "seo.seo"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "page_how_to_get_tos",
+        "info": {
+          "singularName": "page-how-to-get-to",
+          "pluralName": "page-how-to-get-tos",
+          "displayName": "Page how to get to",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "content": {
+            "type": "richtext",
+            "default": "<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3Aa553e2f9544eb2f0c9143e3fc50b1dd10fc059188ae131165b0455a4ff8c645b&amp;source=constructor\" width=\"100%\" height=\"100%\" frameBorder=\"0\"></iframe>"
+          },
+          "seo": {
+            "type": "component",
+            "repeatable": false,
+            "component": "seo.seo"
+          }
+        },
+        "kind": "singleType"
+      },
+      "modelType": "contentType",
+      "modelName": "page-how-to-get-to",
+      "connection": "default",
+      "uid": "api::page-how-to-get-to.page-how-to-get-to",
+      "apiName": "page-how-to-get-to",
+      "globalId": "PageHowToGetTo",
+      "actions": {},
+      "lifecycles": {}
+    },
     "api::page-installment-plan.page-installment-plan": {
       "kind": "singleType",
       "collectionName": "page_installment_plans",
@@ -3906,7 +4176,7 @@
           "repeatable": false,
           "component": "seo.seo"
         },
-        "description": {
+        "content": {
           "type": "richtext"
         },
         "createdAt": {
@@ -3954,7 +4224,7 @@
             "repeatable": false,
             "component": "seo.seo"
           },
-          "description": {
+          "content": {
             "type": "richtext"
           }
         },
