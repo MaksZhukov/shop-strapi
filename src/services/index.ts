@@ -10,8 +10,21 @@ const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
             where: {
                 createdAt: { $gte: date.setDate(date.getDate() - 200) },
             },
+            ...(uid === "api::spare-part.spare-part"
+                ? //@ts-ignore
+                  { populate: { brand: true } }
+                : {}),
         })
-    ).map((item) => clientUrl + `/${productTypeSlug}/` + item.slug);
+    ).map(
+        (item) =>
+            clientUrl +
+            `/${productTypeSlug}/${
+                uid === "api::spare-part.spare-part" && item.brand
+                    ? `${item.brand.name}/`
+                    : ""
+            }` +
+            item.slug
+    );
     return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
 };
 
