@@ -42,6 +42,16 @@
       "type": "component",
       "repeatable": false,
       "component": "general.link-and-image"
+    },
+    "autocomises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::autocomis.autocomis"
+    },
+    "serviceStations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-station.service-station"
     }
   }
 }
