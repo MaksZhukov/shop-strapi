@@ -26,12 +26,14 @@ export default {
         // fileMetadataService({ strapi });
         if (
             process.env.NODE_ENV !== "development" &&
+            process.env.NODE_APP_INSTANCE === "0" &&
             (await hasDelayOfSendingNewProductsEmail(strapi))
         ) {
             sendNewProductsToEmail({ strapi });
         }
         if (
             process.env.NODE_ENV !== "development" &&
+            process.env.NODE_APP_INSTANCE === "0" &&
             (await hasDelayOfSendingProductsInCsvEmail(strapi))
         ) {
             sendProductsInCSVToEmail({ strapi });
