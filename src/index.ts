@@ -1,6 +1,8 @@
 import {
     hasDelayOfSendingNewProductsEmail,
+    hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
+    sendProductsInCSVToEmail,
     updateCurrency,
 } from "./services";
 
@@ -27,6 +29,9 @@ export default {
             (await hasDelayOfSendingNewProductsEmail(strapi))
         ) {
             sendNewProductsToEmail({ strapi });
+        }
+        if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
+            sendProductsInCSVToEmail({ strapi });
         }
     },
 };
