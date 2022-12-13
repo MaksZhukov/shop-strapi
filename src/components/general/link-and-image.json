@@ -1,19 +1,22 @@
 {
   "collectionName": "components_general_link_and_images",
   "info": {
-    "displayName": "Link&Image"
+    "displayName": "Link&Image",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

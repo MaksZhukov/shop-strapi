@@ -19,6 +19,7 @@
         "@strapi/strapi": "4.5.0",
         "axios": "0.27.2",
         "connection-string": "^4.3.6",
+        "convert-array-to-csv": "^2.0.0",
         "koa2-ratelimit": "^1.1.2",
         "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",

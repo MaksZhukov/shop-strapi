@@ -1,4 +1,5 @@
 import axios from "axios";
+import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -111,4 +112,87 @@ export const updateCurrency = async ({ strapi }) => {
     } catch (err) {
         console.log(err);
     }
+};
+
+const CATEGORY = {
+    cabin: "Салон",
+    tire: "Шина",
+    wheel: "Диск",
+    sparePart: "Запчасть",
+};
+
+export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
+    const { dateProductsInCsvSentToEmail } = await strapi
+        .service("plugin::internal.data")
+        .find();
+    return (
+        new Date(dateProductsInCsvSentToEmail).getTime() <
+        new Date().getTime() - DAY_MS
+    );
+};
+
+const getDataForCsv = (items, serverUrl) =>
+    items.map((item) => [
+        CATEGORY[item.type],
+        item.name,
+        item.id,
+        item.description,
+        item.price,
+        item.images ? serverUrl + item.images[0].url : "",
+    ]);
+
+export const sendProductsInCSVToEmail = async ({ strapi }) => {
+    const serverUrl = strapi.config.get("server.serverUrl");
+    const header = [
+        "Категория",
+        "Название",
+        "Идентификатор",
+        "Описание",
+        "Цена",
+        "Фото",
+    ];
+    const [spareParts, cabins, wheels, tires] = await Promise.all([
+        strapi.db
+            .query("api::spare-part.spare-part")
+            .findMany({ populate: { images: true } }),
+        strapi.db
+            .query("api::cabin.cabin")
+            .findMany({ populate: { images: true } }),
+        strapi.db
+            .query("api::wheel.wheel")
+            .findMany({ populate: { images: true } }),
+        strapi.db
+            .query("api::tire.tire")
+            .findMany({ populate: { images: true } }),
+    ]);
+
+    let data = [
+        ...getDataForCsv(spareParts, serverUrl),
+        ...getDataForCsv(cabins, serverUrl),
+        ...getDataForCsv(wheels, serverUrl),
+        ...getDataForCsv(tires, serverUrl),
+    ];
+
+    const csv: string = convertArrayToCSV(data, { header });
+
+    await strapi.plugins.email.services.email.send({
+        to: [
+            strapi.config.get("api.emailForNewProducts"),
+            "maks_zhukov_97@mail.ru",
+        ],
+        from: strapi.plugins.email.config("providerOptions.username"),
+        subject: "Товары",
+        attachments: [
+            {
+                filename: "products.csv",
+                content: "\ufeff" + csv,
+            },
+        ],
+    });
+
+    await strapi.service("plugin::internal.data").createOrUpdate({
+        data: {
+            dateProductsInCsvSentToEmail: new Date().getTime(),
+        },
+    });
 };
