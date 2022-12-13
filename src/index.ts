@@ -30,7 +30,10 @@ export default {
         ) {
             sendNewProductsToEmail({ strapi });
         }
-        if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
+        if (
+            process.env.NODE_ENV !== "development" &&
+            (await hasDelayOfSendingProductsInCsvEmail(strapi))
+        ) {
             sendProductsInCSVToEmail({ strapi });
         }
     },
