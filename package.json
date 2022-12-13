@@ -6,7 +6,8 @@
     "scripts": {
         "develop": "strapi develop",
         "start": "strapi start dist",
-        "build": "strapi build",
+        "build": "npm run build-plugin-internal && strapi build",
+        "build-plugin-internal": "cd src/plugins/internal && npm run build",
         "strapi": "strapi",
         "postinstall": "patch-package"
     },
