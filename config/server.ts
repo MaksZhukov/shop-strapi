@@ -12,4 +12,5 @@ export default ({ env }) => ({
             process.env.NODE_ENV !== "development",
         tasks: cronTasks,
     },
+    serverUrl: env("SERVER_URL"),
 });
