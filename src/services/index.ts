@@ -114,12 +114,12 @@ export const updateCurrency = async ({ strapi }) => {
     }
 };
 
-const CATEGORY = {
-    cabin: "Салон",
-    tire: "Шина",
-    wheel: "Диск",
-    sparePart: "Запчасть",
-};
+const getCategory = (item) => ({
+    cabin: `салон ${item.brand?.name} ${item.model?.name}`,
+    tire: `шины ${item.brand?.name}`,
+    wheel: `диски ${item.brand?.name}`,
+    sparePart: `запчасть ${item.brand?.name} ${item.model?.name}`,
+});
 
 export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
     const { dateProductsInCsvSentToEmail } = await strapi
@@ -133,7 +133,7 @@ export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
 
 const getDataForCsv = (items, serverUrl) =>
     items.map((item) => [
-        CATEGORY[item.type],
+        getCategory(item)[item.type],
         item.name,
         item.id,
         item.description,
@@ -154,16 +154,16 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
     const [spareParts, cabins, wheels, tires] = await Promise.all([
         strapi.db
             .query("api::spare-part.spare-part")
-            .findMany({ populate: { images: true } }),
+            .findMany({ populate: { images: true, brand: true, model: true } }),
         strapi.db
             .query("api::cabin.cabin")
-            .findMany({ populate: { images: true } }),
+            .findMany({ populate: { images: true, brand: true, model: true } }),
         strapi.db
             .query("api::wheel.wheel")
-            .findMany({ populate: { images: true } }),
+            .findMany({ populate: { images: true, brand: true } }),
         strapi.db
             .query("api::tire.tire")
-            .findMany({ populate: { images: true } }),
+            .findMany({ populate: { images: true, brand: true } }),
     ]);
 
     let data = [
