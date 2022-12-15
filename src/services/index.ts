@@ -205,7 +205,7 @@ export const migrateBrandsSeoToSeoSpareParts = async ({ strapi }) => {
     brands.forEach((item) => {
         strapi.db.query("api::brand.brand").update({
             where: { id: item.id },
-            data: { ...item, seoCabins: item.seo },
+            data: { ...item, seoSpareParts: item.seo, seoCabins: null },
         });
     });
 };
