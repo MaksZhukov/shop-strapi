@@ -196,3 +196,16 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
         },
     });
 };
+
+export const migrateBrandsSeoToSeoSpareParts = async ({ strapi }) => {
+    const brands = await strapi.db
+        .query("api::brand.brand")
+        .findMany({ populate: { seo: true } });
+    console.log(brands);
+    brands.forEach((item) => {
+        strapi.db.query("api::brand.brand").update({
+            where: { id: item.id },
+            data: { ...item, seoCabins: item.seo },
+        });
+    });
+};
