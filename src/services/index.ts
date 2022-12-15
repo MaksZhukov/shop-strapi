@@ -8,9 +8,9 @@ const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
     let urls = (
         await strapi.db.query(uid).findMany({
             select: ["slug"],
-            where: {
-                createdAt: { $gte: date.setDate(date.getDate() - 100) },
-            },
+            // where: {
+            //     createdAt: { $gte: date.setDate(date.getDate() - 130) },
+            // },
             //@ts-expect-error error
             populate: { brand: true },
         })
@@ -62,11 +62,11 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
             to: [
-                // strapi.config.get("api.emailForNewProducts"),
+                strapi.config.get("api.emailForNewProducts"),
                 "maks_zhukov_97@mail.ru",
             ],
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: "Ссылки на новые товары",
+            subject: "Ссылки на все товары",
             attachments: [
                 {
                     filename: "products.txt",
@@ -173,7 +173,7 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
             "maks_zhukov_97@mail.ru",
         ],
         from: strapi.plugins.email.config("providerOptions.username"),
-        subject: "Товары",
+        subject: "Все Товары",
         attachments: [
             {
                 filename: "products.csv",
