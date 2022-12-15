@@ -20,6 +20,11 @@
       "relation": "oneToMany",
       "target": "api::tire.tire",
       "mappedBy": "brand"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
