@@ -9,22 +9,14 @@ const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
         await strapi.db.query(uid).findMany({
             select: ["slug"],
             where: {
-                createdAt: { $gte: date.setDate(date.getDate() - 1) },
+                createdAt: { $gte: date.setDate(date.getDate() - 100) },
             },
-            ...(uid === "api::spare-part.spare-part"
-                ? //@ts-ignore
-                  { populate: { brand: true } }
-                : {}),
+            //@ts-expect-error error
+            populate: { brand: true },
         })
     ).map(
         (item) =>
-            clientUrl +
-            `/${productTypeSlug}/${
-                uid === "api::spare-part.spare-part" && item.brand
-                    ? `${item.brand.name}/`
-                    : ""
-            }` +
-            item.slug
+            clientUrl + `/${productTypeSlug}/${item.brand.name}/` + item.slug
     );
     return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
 };
@@ -194,18 +186,5 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
         data: {
             dateProductsInCsvSentToEmail: new Date().getTime(),
         },
-    });
-};
-
-export const migrateBrandsSeoToSeoSpareParts = async ({ strapi }) => {
-    const brands = await strapi.db
-        .query("api::brand.brand")
-        .findMany({ populate: { seo: true } });
-    console.log(brands);
-    brands.forEach((item) => {
-        strapi.db.query("api::brand.brand").update({
-            where: { id: item.id },
-            data: { ...item, seoSpareParts: item.seo, seoCabins: null },
-        });
     });
 };
