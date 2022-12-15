@@ -4,12 +4,13 @@ import { Agent } from "https";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+
 const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
     let urls = (
         await strapi.db.query(uid).findMany({
             select: ["slug"],
             where: {
-                createdAt: { $gte: date.setDate(date.getDate() - 1) },
+                createdAt: { $gte: date.setDate(date.getDate() - 100) },
             },
             //@ts-expect-error error
             populate: { brand: true },
