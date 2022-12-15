@@ -1,7 +1,6 @@
 import {
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
-    migrateBrandsSeoToSeoSpareParts,
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
     updateCurrency,
@@ -39,6 +38,5 @@ export default {
         ) {
             sendProductsInCSVToEmail({ strapi });
         }
-        migrateBrandsSeoToSeoSpareParts({ strapi });
     },
 };
