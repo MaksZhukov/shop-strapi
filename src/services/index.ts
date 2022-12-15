@@ -4,7 +4,6 @@ import { Agent } from "https";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-
 const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
     let urls = (
         await strapi.db.query(uid).findMany({
@@ -17,7 +16,7 @@ const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
         })
     ).map(
         (item) =>
-            clientUrl + `/${productTypeSlug}/${item.brand.name}/` + item.slug
+            clientUrl + `/${productTypeSlug}/${item.brand?.name}/` + item.slug
     );
     return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
 };
@@ -63,7 +62,7 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
             to: [
-                strapi.config.get("api.emailForNewProducts"),
+                // strapi.config.get("api.emailForNewProducts"),
                 "maks_zhukov_97@mail.ru",
             ],
             from: strapi.plugins.email.config("providerOptions.username"),
