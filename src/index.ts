@@ -1,3 +1,4 @@
+import runScripts from "./scripts";
 import {
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
@@ -38,5 +39,6 @@ export default {
         ) {
             sendProductsInCSVToEmail({ strapi });
         }
+        runScripts(strapi);
     },
 };

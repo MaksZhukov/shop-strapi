@@ -36,13 +36,25 @@
         "audios"
       ]
     },
-    "title": {
-      "type": "string",
-      "default": "{h1} купить с доставкой"
+    "defaultSparePartSeo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
     },
-    "description": {
-      "type": "string",
-      "default": "{h1} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все."
+    "defaultWheelSeo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
+    },
+    "defaultCabinSeo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
+    },
+    "defaultTireSeo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
     }
   }
 }
