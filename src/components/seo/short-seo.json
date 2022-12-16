@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_seo_short_seos",
+  "info": {
+    "displayName": "shortSeo"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "string"
+    }
+  }
+}
