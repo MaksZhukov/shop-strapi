@@ -1,33 +1,25 @@
-export const updateH1ForAllProducts = async (strapi) => {
-    const spareParts = await strapi.db
-        .query("api::spare-part.spare-part")
-        .findMany();
-    spareParts.forEach((data) => {
-        strapi.db.query("api::spare-part.spare-part").update({
-            where: { id: data.id },
-            data: {
-                h1: data.name,
-            },
-        });
-    });
+import { defaultProductSeoConfig } from "./config";
 
-    const wheels = await strapi.db.query("api::wheel.wheel").findMany();
-    wheels.forEach((data) => {
-        strapi.db.query("api::wheel.wheel").update({
-            where: { id: data.id },
-            data: {
-                h1: data.name,
-            },
-        });
+const addDefaultPageProductSeo = async (strapi) => {
+    const data = await strapi.service("api::page-product.page-product").find({
+        populate: Object.keys(defaultProductSeoConfig),
     });
-
-    const tires = await strapi.db.query("api::tire.tire").findMany();
-    tires.forEach((data) => {
-        strapi.db.query("api::tire.tire").update({
-            where: { id: data.id },
-            data: {
-                h1: data.name,
-            },
-        });
+    let hasUpdates = false;
+    Object.keys(defaultProductSeoConfig).forEach((key) => {
+        if (!data[key]) {
+            hasUpdates = true;
+            data[key] = defaultProductSeoConfig[key];
+        }
     });
+    if (hasUpdates) {
+        await strapi
+            .service("api::page-product.page-product")
+            .createOrUpdate({ data });
+    }
 };
+
+const runScripts = (strapi) => {
+    addDefaultPageProductSeo(strapi);
+};
+
+export default runScripts;
