@@ -45,7 +45,7 @@ export default {
         brands.forEach((item) => {
             strapi.db.query("api::brand.brand").update({
                 where: { id: item.id },
-                data: { ...item, slug: slugify(item.name) },
+                data: { ...item, slug: slugify(item.name, { lower: true }) },
             });
         });
 
@@ -56,7 +56,7 @@ export default {
         tireBrands.forEach((item) => {
             strapi.db.query("api::tire-brand.tire-brand").update({
                 where: { id: item.id },
-                data: { ...item, slug: slugify(item.name) },
+                data: { ...item, slug: slugify(item.name, { lower: true }) },
             });
         });
         runScripts(strapi);
