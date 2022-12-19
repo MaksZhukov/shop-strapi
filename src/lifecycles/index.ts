@@ -55,3 +55,16 @@ export const beforeCreateProduct = (event) => {
         data.h1 = data.name;
     }
 };
+
+export const beforeCreateOrUpdateCar = (event) => {
+    const { data } = event.params;
+    if (data.id) {
+        let name =
+            data.brand ??
+            "" + " " + data.model ??
+            "" + " " + data.manufactureDate
+                ? `${new Date(data.manufactureDate).getFullYear()}`
+                : "";
+        data.slug = slugify(name, { lower: true }) + "-" + data.id;
+    }
+};
