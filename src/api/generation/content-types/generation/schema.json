@@ -42,7 +42,7 @@
     "cars_on_parts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::car-on-sparts.car-on-sparts",
+      "target": "api::car-on-parts.car-on-parts",
       "mappedBy": "generation"
     }
   }
