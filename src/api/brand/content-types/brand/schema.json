@@ -53,11 +53,6 @@
       "target": "api::cabin.cabin",
       "mappedBy": "brand"
     },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
-    },
     "seoCabins": {
       "type": "component",
       "repeatable": false,
