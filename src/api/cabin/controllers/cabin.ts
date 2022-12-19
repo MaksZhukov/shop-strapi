@@ -17,6 +17,7 @@ export default factories.createCoreController(
                     "kindSparePart",
                     "model",
                     "brand",
+                    "generation",
                     "seo.images",
                     "snippets",
                 ],
