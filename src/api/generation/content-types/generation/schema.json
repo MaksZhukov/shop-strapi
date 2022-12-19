@@ -39,7 +39,7 @@
       "target": "api::cabin.cabin",
       "mappedBy": "generation"
     },
-    "cars_on_sparts": {
+    "cars_on_parts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::car-on-sparts.car-on-sparts",
