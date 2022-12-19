@@ -11,7 +11,7 @@ export default factories.createCoreController(
             const { id } = ctx.params;
             const { populate } = ctx.query;
             const entity = await strapi.db.query("api::brand.brand").findOne({
-                where: { $or: [{ name: id }, { id }] },
+                where: { $or: [{ slug: id }, { id }] },
                 populate: populate,
             });
             return this.transformResponse(entity);
