@@ -13,7 +13,7 @@ export default factories.createCoreController(
             const entity = await strapi.db
                 .query("api::tire-brand.tire-brand")
                 .findOne({
-                    where: { $or: [{ name: id }, { id }] },
+                    where: { $or: [{ slug: id }, { id }] },
                     populate: populate,
                 });
             return this.transformResponse(entity);
