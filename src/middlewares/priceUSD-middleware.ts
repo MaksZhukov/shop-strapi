@@ -11,14 +11,18 @@ export default (config, { strapi }) => {
                 body.data.forEach((item) => {
                     let { price, discountPrice } = item.attributes;
                     item.attributes.priceUSD = price * coefficient;
-                    item.attributes.discountPriceUSD =
-                        discountPrice * coefficient;
+                    if (discountPrice) {
+                        item.attributes.discountPriceUSD =
+                            discountPrice * coefficient;
+                    }
                 });
             } else {
                 body.data.attributes.priceUSD =
                     body.data.attributes.price * coefficient;
-                body.data.attributes.discountPriceUSD =
-                    body.data.attributes.discountPrice * coefficient;
+                if (body.data.attributes.discountPrice) {
+                    body.data.attributes.discountPriceUSD =
+                        body.data.attributes.discountPrice * coefficient;
+                }
             }
         }
     };

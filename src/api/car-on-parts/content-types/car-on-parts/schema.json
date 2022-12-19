@@ -1,76 +1,87 @@
 {
-    "kind": "collectionType",
-    "collectionName": "cars_on_parts",
-    "info": {
-        "singularName": "car-on-parts",
-        "pluralName": "cars-on-parts",
-        "displayName": "Car on parts"
+  "kind": "collectionType",
+  "collectionName": "cars_on_parts",
+  "info": {
+    "singularName": "car-on-parts",
+    "pluralName": "cars-on-parts",
+    "displayName": "Car on parts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "options": {
-        "draftAndPublish": false
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "cars_on_parts"
     },
-    "pluginOptions": {},
-    "attributes": {
-        "images": {
-            "type": "media",
-            "multiple": true,
-            "required": false,
-            "allowedTypes": ["images"]
-        },
-        "brand": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::brand.brand",
-            "inversedBy": "cars_on_parts"
-        },
-        "model": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::model.model",
-            "inversedBy": "cars_on_parts"
-        },
-        "manufactureDate": {
-            "type": "date"
-        },
-        "deliveryDate": {
-            "type": "date"
-        },
-        "volume": {
-            "type": "decimal"
-        },
-        "fuel": {
-            "type": "enumeration",
-            "enum": ["бензин", "дизель", "электро", "гибрид"]
-        },
-        "bodyStyle": {
-            "type": "string"
-        },
-        "engine": {
-            "type": "string"
-        },
-        "mileage": {
-            "type": "decimal"
-        },
-        "generation": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::generation.generation",
-            "inversedBy": "cars_on_parts"
-        },
-        "slug": {
-            "type": "uid",
-            "targetField": "bodyStyle"
-        },
-        "videoLink": {
-            "type": "string"
-        },
-        "seo": {
-            "type": "component",
-            "repeatable": false,
-            "component": "seo.seo"
-        },
-        "price": {
-            "type": "decimal"
-        }
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "cars_on_parts"
+    },
+    "manufactureDate": {
+      "type": "date"
+    },
+    "deliveryDate": {
+      "type": "date"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "fuel": {
+      "type": "enumeration",
+      "enum": [
+        "бензин",
+        "дизель",
+        "электро",
+        "гибрид"
+      ]
+    },
+    "bodyStyle": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "mileage": {
+      "type": "decimal"
+    },
+    "generation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::generation.generation",
+      "inversedBy": "cars_on_parts"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "bodyStyle"
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "priceUSD": {
+      "type": "decimal"
     }
+  }
 }
