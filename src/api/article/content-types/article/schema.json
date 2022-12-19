@@ -42,9 +42,6 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
-    },
-    "price": {
-      "type": "decimal"
     }
   }
 }

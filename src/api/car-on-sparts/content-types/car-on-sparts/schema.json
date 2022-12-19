@@ -4,7 +4,8 @@
   "info": {
     "singularName": "car-on-sparts",
     "pluralName": "cars-on-sparts",
-    "displayName": "Cars on sparts"
+    "displayName": "Cars on sparts",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,11 +13,12 @@
   "pluginOptions": {},
   "attributes": {
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "brand": {
       "type": "relation",
@@ -74,6 +76,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "price": {
+      "type": "decimal"
     }
   }
 }
