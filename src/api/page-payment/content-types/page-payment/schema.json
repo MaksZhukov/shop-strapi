@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_payments",
+  "info": {
+    "singularName": "page-payment",
+    "pluralName": "page-payments",
+    "displayName": "Page payment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
