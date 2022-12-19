@@ -50,6 +50,12 @@
       "relation": "oneToMany",
       "target": "api::cabin.cabin",
       "mappedBy": "model"
+    },
+    "cars_on_sparts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car-on-sparts.car-on-sparts",
+      "mappedBy": "model"
     }
   }
 }

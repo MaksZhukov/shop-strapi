@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_cars_on_parts",
+  "info": {
+    "singularName": "page-cars-on-part",
+    "pluralName": "page-cars-on-parts",
+    "displayName": "Page cars on parts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
