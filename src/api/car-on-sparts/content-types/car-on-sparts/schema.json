@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cars_on_sparts",
+  "info": {
+    "singularName": "car-on-sparts",
+    "pluralName": "cars-on-sparts",
+    "displayName": "Cars on sparts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "cars_on_sparts"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "cars_on_sparts"
+    },
+    "manufactureDate": {
+      "type": "date"
+    },
+    "deliveryDate": {
+      "type": "date"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "fuel": {
+      "type": "enumeration",
+      "enum": [
+        "бензин",
+        "дизель",
+        "электро",
+        "гибрид"
+      ]
+    },
+    "bodyStyle": {
+      "type": "string"
+    },
+    "engine": {
+      "type": "string"
+    },
+    "mileage": {
+      "type": "decimal"
+    },
+    "generation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::generation.generation",
+      "inversedBy": "cars_on_sparts"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "bodyStyle"
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}
