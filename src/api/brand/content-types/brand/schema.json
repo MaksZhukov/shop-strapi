@@ -68,7 +68,7 @@
       "repeatable": false,
       "component": "seo.seo"
     },
-    "cars_on_parts": {
+    "carsOnParts": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::car-on-parts.car-on-parts",

@@ -20,12 +20,6 @@
         "images"
       ]
     },
-    "brand": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::brand.brand",
-      "inversedBy": "cars_on_parts"
-    },
     "model": {
       "type": "relation",
       "relation": "manyToOne",
@@ -82,6 +76,15 @@
     },
     "priceUSD": {
       "type": "decimal"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "carsOnParts"
+    },
+    "description": {
+      "type": "string"
     }
   }
 }
