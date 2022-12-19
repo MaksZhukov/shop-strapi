@@ -1,3 +1,4 @@
+import slugify from "slugify";
 import runScripts from "./scripts";
 import {
     hasDelayOfSendingNewProductsEmail,
@@ -39,6 +40,25 @@ export default {
         ) {
             sendProductsInCSVToEmail({ strapi });
         }
+        const brands = await strapi.db.query("api::brand.brand").findMany();
+
+        brands.forEach((item) => {
+            strapi.db.query("api::brand.brand").update({
+                where: { id: item.id },
+                data: { ...item, slug: slugify(item.name) },
+            });
+        });
+
+        const tireBrands = await strapi.db
+            .query("api::tire-brand.tire-brand")
+            .findMany();
+
+        tireBrands.forEach((item) => {
+            strapi.db.query("api::tire-brand.tire-brand").update({
+                where: { id: item.id },
+                data: { ...item, slug: slugify(item.name) },
+            });
+        });
         runScripts(strapi);
     },
 };
