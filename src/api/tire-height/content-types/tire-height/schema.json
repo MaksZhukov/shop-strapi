@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tire_heights",
+  "info": {
+    "singularName": "tire-height",
+    "pluralName": "tire-heights",
+    "displayName": "Tire height"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    }
+  }
+}

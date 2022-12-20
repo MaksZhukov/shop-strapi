@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tire_diameters",
+  "info": {
+    "singularName": "tire-diameter",
+    "pluralName": "tire-diameters",
+    "displayName": "Tire diameter"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "tires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tire.tire",
+      "mappedBy": "diameter"
+    }
+  }
+}
