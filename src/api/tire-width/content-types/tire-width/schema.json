@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tire_widths",
+  "info": {
+    "singularName": "tire-width",
+    "pluralName": "tire-widths",
+    "displayName": "Tire width"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "tires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tire.tire",
+      "mappedBy": "width"
+    }
+  }
+}
