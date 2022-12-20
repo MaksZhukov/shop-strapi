@@ -10,5 +10,7 @@ export default [
     "strapi::favicon",
     "strapi::public",
     "global::rate-limit",
-    "global::catching-errors",
+    ...(process.env.NODE_ENV === "proruction"
+        ? ["global::catching-errors"]
+        : []),
 ];
