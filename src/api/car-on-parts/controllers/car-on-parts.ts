@@ -18,6 +18,7 @@ export default factories.createCoreController(
                         "model",
                         "brand",
                         "generation",
+                        "volume",
                         "seo.images",
                     ],
                 });
