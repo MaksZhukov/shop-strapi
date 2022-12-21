@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheel_widths",
+  "info": {
+    "singularName": "wheel-width",
+    "pluralName": "wheel-widths",
+    "displayName": "Wheel width"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
