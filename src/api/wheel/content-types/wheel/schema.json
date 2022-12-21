@@ -1,101 +1,126 @@
 {
-    "kind": "collectionType",
-    "collectionName": "wheels",
-    "info": {
-        "singularName": "wheel",
-        "pluralName": "wheels",
-        "displayName": "Wheel",
-        "description": ""
+  "kind": "collectionType",
+  "collectionName": "wheels",
+  "info": {
+    "singularName": "wheel",
+    "pluralName": "wheels",
+    "displayName": "Wheel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
-    "options": {
-        "draftAndPublish": false
+    "price": {
+      "type": "decimal",
+      "default": 0
     },
-    "pluginOptions": {},
-    "attributes": {
-        "width": {
-            "type": "decimal"
-        },
-        "images": {
-            "type": "media",
-            "multiple": true,
-            "required": false,
-            "allowedTypes": ["images"]
-        },
-        "price": {
-            "type": "decimal",
-            "default": 0
-        },
-        "priceUSD": {
-            "type": "integer"
-        },
-        "name": {
-            "type": "string"
-        },
-        "slug": {
-            "type": "uid",
-            "targetField": "h1"
-        },
-        "numberHoles": {
-            "type": "integer"
-        },
-        "diameterCenterHole": {
-            "type": "decimal"
-        },
-        "diameter": {
-            "type": "string"
-        },
-        "diskOffset": {
-            "type": "decimal"
-        },
-        "distanceBetweenCenters": {
-            "type": "decimal"
-        },
-        "brand": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::brand.brand",
-            "inversedBy": "wheels"
-        },
-        "model": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::model.model",
-            "inversedBy": "wheels"
-        },
-        "kind": {
-            "type": "enumeration",
-            "enum": ["штампованный", "литой"]
-        },
-        "count": {
-            "type": "integer"
-        },
-        "description": {
-            "type": "text"
-        },
-        "seo": {
-            "type": "component",
-            "repeatable": false,
-            "component": "seo.seo"
-        },
-        "snippets": {
-            "type": "component",
-            "repeatable": false,
-            "component": "product.snippets"
-        },
-        "h1": {
-            "type": "string"
-        },
-        "discountPrice": {
-            "type": "decimal"
-        },
-        "discountPriceUSD": {
-            "type": "integer"
-        },
-        "type": {
-            "type": "enumeration",
-            "enum": ["wheel"],
-            "default": "wheel",
-            "required": true
-        }
+    "priceUSD": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "h1"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "wheels"
+    },
+    "model": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::model.model",
+      "inversedBy": "wheels"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "штампованный",
+        "литой"
+      ]
+    },
+    "count": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "snippets": {
+      "type": "component",
+      "repeatable": false,
+      "component": "product.snippets"
+    },
+    "h1": {
+      "type": "string"
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "discountPriceUSD": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "wheel"
+      ],
+      "default": "wheel",
+      "required": true
+    },
+    "diskOffset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-disk-offset.wheel-disk-offset",
+      "inversedBy": "wheels"
+    },
+    "width": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-width.wheel-width",
+      "inversedBy": "wheels"
+    },
+    "numberHoles": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-number-hole.wheel-number-hole",
+      "inversedBy": "wheels"
+    },
+    "distanceBetweenCenters": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-distance-between-center.wheel-distance-between-center",
+      "inversedBy": "wheels"
+    },
+    "diameterCenterHole": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "inversedBy": "wheels"
+    },
+    "diameter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-diameter.wheel-diameter",
+      "inversedBy": "wheels"
     }
+  }
 }
