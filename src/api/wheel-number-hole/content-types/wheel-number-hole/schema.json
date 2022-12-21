@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheel_number_holes",
+  "info": {
+    "singularName": "wheel-number-hole",
+    "pluralName": "wheel-number-holes",
+    "displayName": "Wheel number holes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

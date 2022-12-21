@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheel_disk_offsets",
+  "info": {
+    "singularName": "wheel-disk-offset",
+    "pluralName": "wheel-disk-offsets",
+    "displayName": "Wheel disk offset"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "wheels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel",
+      "mappedBy": "diskOffset"
+    }
+  }
+}

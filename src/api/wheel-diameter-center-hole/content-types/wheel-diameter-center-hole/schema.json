@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheel_diameter_center_holes",
+  "info": {
+    "singularName": "wheel-diameter-center-hole",
+    "pluralName": "wheel-diameter-center-holes",
+    "displayName": "Wheel diameter center hole"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
