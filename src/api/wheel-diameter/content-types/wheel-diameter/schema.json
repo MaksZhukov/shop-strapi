@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wheel-diameter",
     "pluralName": "wheel-diameters",
-    "displayName": "Wheel diameter"
+    "displayName": "Wheel diameter",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     }
   }
 }

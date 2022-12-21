@@ -89,8 +89,9 @@
     },
     "height": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tire-height.tire-height"
+      "relation": "manyToOne",
+      "target": "api::tire-height.tire-height",
+      "inversedBy": "tires"
     },
     "width": {
       "type": "relation",

@@ -40,9 +40,6 @@
     "year": {
       "type": "integer"
     },
-    "volume": {
-      "type": "decimal"
-    },
     "bodyStyle": {
       "type": "string"
     },
@@ -117,6 +114,12 @@
     },
     "engine": {
       "type": "string"
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::engine-volume.engine-volume",
+      "inversedBy": "spareParts"
     }
   }
 }

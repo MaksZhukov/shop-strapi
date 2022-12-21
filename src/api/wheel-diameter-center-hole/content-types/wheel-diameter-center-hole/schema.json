@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wheel-diameter-center-hole",
     "pluralName": "wheel-diameter-center-holes",
-    "displayName": "Wheel diameter center hole"
+    "displayName": "Wheel diameter center hole",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     }
   }
 }
