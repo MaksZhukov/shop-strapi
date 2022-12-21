@@ -115,7 +115,7 @@
       "default": "sparePart",
       "required": true
     },
-    "typeEngine": {
+    "engine": {
       "type": "string"
     }
   }
