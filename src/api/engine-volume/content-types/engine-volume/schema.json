@@ -1,10 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "tire_heights",
+  "collectionName": "engine_volumes",
   "info": {
-    "singularName": "tire-height",
-    "pluralName": "tire-heights",
-    "displayName": "Tire height"
+    "singularName": "engine-volume",
+    "pluralName": "engine-volumes",
+    "displayName": "Engine volume",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -13,14 +14,13 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": false,
       "unique": true
     },
-    "tires": {
+    "spareParts": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::tire.tire",
-      "mappedBy": "height"
+      "target": "api::spare-part.spare-part",
+      "mappedBy": "volume"
     }
   }
 }

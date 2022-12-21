@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wheel-distance-between-center",
     "pluralName": "wheel-distance-between-centers",
-    "displayName": "Wheel distance between center"
+    "displayName": "Wheel distance between center",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     }
   }
 }
