@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wheel-width",
     "pluralName": "wheel-widths",
-    "displayName": "Wheel width"
+    "displayName": "Wheel width",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": true
     }
   }
 }
