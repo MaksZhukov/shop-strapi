@@ -21,6 +21,18 @@
       "relation": "oneToMany",
       "target": "api::spare-part.spare-part",
       "mappedBy": "volume"
+    },
+    "cars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car.car",
+      "mappedBy": "volume"
+    },
+    "carsOnParts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car-on-parts.car-on-parts",
+      "mappedBy": "volume"
     }
   }
 }
