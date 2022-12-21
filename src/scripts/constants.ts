@@ -1,8 +1,8 @@
 export const DEFAULT_PRODUCT_SPARE_PART_SEO = {
-    title: "{h1} купить с доставкой",
+    title: "{h1} {brand} {model} купить с доставкой",
     description:
-        "{h1} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все.",
-    keywords: `{h1} купить`,
+        "{h1} {brand} {model} купить с доставкой. Огромный выбор запчастей и марок авто. У нас есть практически все.",
+    keywords: `{h1} {brand} {model} купить`,
 };
 
 export const DEFAULT_PRODUCT_WHEEL_SEO = {
