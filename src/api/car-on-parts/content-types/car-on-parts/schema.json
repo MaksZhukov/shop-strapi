@@ -32,9 +32,6 @@
     "deliveryDate": {
       "type": "date"
     },
-    "volume": {
-      "type": "decimal"
-    },
     "fuel": {
       "type": "enumeration",
       "enum": [
@@ -85,6 +82,21 @@
     },
     "description": {
       "type": "string"
+    },
+    "volume": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::engine-volume.engine-volume",
+      "inversedBy": "carsOnParts"
+    },
+    "transmission": {
+      "type": "enumeration",
+      "enum": [
+        "акпп",
+        "мкпп",
+        "робот",
+        "вариатор"
+      ]
     }
   }
 }
