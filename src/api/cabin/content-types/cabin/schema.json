@@ -89,6 +89,9 @@
       ],
       "default": "cabin",
       "required": true
+    },
+    "year": {
+      "type": "integer"
     }
   }
 }
