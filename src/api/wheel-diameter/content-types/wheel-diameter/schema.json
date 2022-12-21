@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wheel_diameters",
+  "info": {
+    "singularName": "wheel-diameter",
+    "pluralName": "wheel-diameters",
+    "displayName": "Wheel diameter"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}
