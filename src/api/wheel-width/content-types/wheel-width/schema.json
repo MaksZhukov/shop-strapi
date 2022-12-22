@@ -13,7 +13,14 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "decimal"
+      "type": "decimal",
+      "unique": true
+    },
+    "wheels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel",
+      "mappedBy": "width"
     }
   }
 }
