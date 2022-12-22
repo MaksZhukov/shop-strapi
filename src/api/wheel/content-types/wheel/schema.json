@@ -104,12 +104,6 @@
       "target": "api::wheel-number-hole.wheel-number-hole",
       "inversedBy": "wheels"
     },
-    "distanceBetweenCenters": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::wheel-distance-between-center.wheel-distance-between-center",
-      "inversedBy": "wheels"
-    },
     "diameterCenterHole": {
       "type": "relation",
       "relation": "manyToOne",
@@ -121,6 +115,9 @@
       "relation": "manyToOne",
       "target": "api::wheel-diameter.wheel-diameter",
       "inversedBy": "wheels"
+    },
+    "distanceBetweenCenters": {
+      "type": "decimal"
     }
   }
 }
