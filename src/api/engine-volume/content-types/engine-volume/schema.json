@@ -16,12 +16,6 @@
       "type": "string",
       "unique": true
     },
-    "spareParts": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::spare-part.spare-part",
-      "mappedBy": "volume"
-    },
     "cars": {
       "type": "relation",
       "relation": "oneToMany",
