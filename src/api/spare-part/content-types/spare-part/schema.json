@@ -40,9 +40,6 @@
     "year": {
       "type": "integer"
     },
-    "volume": {
-      "type": "decimal"
-    },
     "bodyStyle": {
       "type": "string"
     },
@@ -117,6 +114,9 @@
     },
     "engine": {
       "type": "string"
+    },
+    "volume": {
+      "type": "decimal"
     }
   }
 }

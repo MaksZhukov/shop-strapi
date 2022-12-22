@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wheel-disk-offset",
     "pluralName": "wheel-disk-offsets",
-    "displayName": "Wheel disk offset"
+    "displayName": "Wheel disk offset",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -12,13 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
-    },
-    "wheels": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::wheel.wheel",
-      "mappedBy": "diskOffset"
+      "type": "decimal"
     }
   }
 }
