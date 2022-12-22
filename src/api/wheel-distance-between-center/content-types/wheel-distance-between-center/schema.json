@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "decimal"
+      "type": "decimal",
+      "unique": true
     },
     "wheels": {
       "type": "relation",
