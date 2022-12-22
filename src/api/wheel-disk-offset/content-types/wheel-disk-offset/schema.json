@@ -17,10 +17,10 @@
       "unique": true
     },
     "wheels": {
-        "type": "relation",
-        "relation": "oneToMany",
-        "target": "api::wheel.wheel",
-        "mappedBy": "diskOffset"
-      }
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel",
+      "mappedBy": "diskOffset"
+    }
   }
 }
