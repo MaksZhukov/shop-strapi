@@ -4,23 +4,22 @@
   "info": {
     "singularName": "tire-height",
     "pluralName": "tire-heights",
-    "displayName": "Tire height"
+    "displayName": "Tire height",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
-      "type": "string",
-      "required": false,
-      "unique": true
-    },
     "tires": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tire.tire",
       "mappedBy": "height"
+    },
+    "name": {
+      "type": "decimal"
     }
   }
 }
