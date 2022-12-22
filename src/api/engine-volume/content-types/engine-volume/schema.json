@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "engine_volumes",
+  "info": {
+    "singularName": "engine-volume",
+    "pluralName": "engine-volumes",
+    "displayName": "Engine volume",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "cars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car.car",
+      "mappedBy": "volume"
+    },
+    "carsOnParts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::car-on-parts.car-on-parts",
+      "mappedBy": "volume"
+    }
+  }
+}
