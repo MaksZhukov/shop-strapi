@@ -15,6 +15,12 @@
     "name": {
       "type": "string",
       "unique": true
+    },
+    "wheels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::wheel.wheel",
+      "mappedBy": "diameter"
     }
   }
 }

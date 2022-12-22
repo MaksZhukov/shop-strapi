@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "width": {
-      "type": "decimal"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -36,18 +33,6 @@
     "slug": {
       "type": "uid",
       "targetField": "h1"
-    },
-    "numberHoles": {
-      "type": "integer"
-    },
-    "diameterCenterHole": {
-      "type": "decimal"
-    },
-    "diameter": {
-      "type": "string"
-    },
-    "distanceBetweenCenters": {
-      "type": "decimal"
     },
     "brand": {
       "type": "relation",
@@ -100,6 +85,42 @@
       ],
       "default": "wheel",
       "required": true
+    },
+    "diskOffset": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-disk-offset.wheel-disk-offset",
+      "inversedBy": "wheels"
+    },
+    "width": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-width.wheel-width",
+      "inversedBy": "wheels"
+    },
+    "numberHoles": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-number-hole.wheel-number-hole",
+      "inversedBy": "wheels"
+    },
+    "distanceBetweenCenters": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-distance-between-center.wheel-distance-between-center",
+      "inversedBy": "wheels"
+    },
+    "diameterCenterHole": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "inversedBy": "wheels"
+    },
+    "diameter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wheel-diameter.wheel-diameter",
+      "inversedBy": "wheels"
     }
   }
 }
