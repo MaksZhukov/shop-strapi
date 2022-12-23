@@ -40,18 +40,7 @@ export default {
         ) {
             sendProductsInCSVToEmail({ strapi });
         }
-        if (process.env.NODE_APP_INSTANCE === "0") {
-            const cabins = await strapi.db
-                .query("api::cabin.cabin")
-                .findMany({ populate: { images: true } });
-            cabins.forEach((item) => {
-                if (item.images) {
-                    item.images.forEach(async (image) => {
-                        strapi.plugins["upload"].services.upload.remove(image);
-                    });
-                }
-            });
-        }
+
         if (
             (process.env.NODE_ENV === "production" &&
                 process.env.NODE_APP_INSTANCE === "0") ||
