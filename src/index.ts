@@ -27,20 +27,37 @@ export default {
     async bootstrap({ strapi }) {
         // fileMetadataService({ strapi });
         if (
-            process.env.NODE_ENV !== "development" &&
+            process.env.NODE_ENV === "production" &&
             process.env.NODE_APP_INSTANCE === "0" &&
             (await hasDelayOfSendingNewProductsEmail(strapi))
         ) {
             sendNewProductsToEmail({ strapi });
         }
         if (
-            process.env.NODE_ENV !== "development" &&
+            process.env.NODE_ENV === "production" &&
             process.env.NODE_APP_INSTANCE === "0" &&
             (await hasDelayOfSendingProductsInCsvEmail(strapi))
         ) {
             sendProductsInCSVToEmail({ strapi });
         }
-
-        runScripts(strapi);
+        if (process.env.NODE_APP_INSTANCE === "0") {
+            const cabins = await strapi.db
+                .query("api::cabin.cabin")
+                .findMany({ populate: { images: true } });
+            cabins.forEach((item) => {
+                if (item.images) {
+                    item.images.forEach(async (image) => {
+                        strapi.plugins["upload"].services.upload.remove(image);
+                    });
+                }
+            });
+        }
+        if (
+            (process.env.NODE_ENV === "production" &&
+                process.env.NODE_APP_INSTANCE === "0") ||
+            process.env.NODE_ENV === "development"
+        ) {
+            runScripts(strapi);
+        }
     },
 };
