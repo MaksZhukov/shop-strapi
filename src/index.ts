@@ -1,6 +1,7 @@
 import slugify from "slugify";
 import runScripts from "./scripts";
 import {
+    getCountUnrelatedMedia,
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
@@ -28,25 +29,25 @@ export default {
         // fileMetadataService({ strapi });
         if (
             process.env.NODE_ENV === "production" &&
-            process.env.NODE_APP_INSTANCE === "0" &&
-            (await hasDelayOfSendingNewProductsEmail(strapi))
+            process.env.NODE_APP_INSTANCE === "0"
         ) {
-            sendNewProductsToEmail({ strapi });
-        }
-        if (
-            process.env.NODE_ENV === "production" &&
-            process.env.NODE_APP_INSTANCE === "0" &&
-            (await hasDelayOfSendingProductsInCsvEmail(strapi))
-        ) {
-            sendProductsInCSVToEmail({ strapi });
-        }
-
-        if (
-            (process.env.NODE_ENV === "production" &&
-                process.env.NODE_APP_INSTANCE === "0") ||
-            process.env.NODE_ENV === "development"
-        ) {
+            if (await hasDelayOfSendingNewProductsEmail(strapi)) {
+                sendNewProductsToEmail({ strapi });
+            }
+            if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
+                sendProductsInCSVToEmail({ strapi });
+            }
+            runScripts(strapi);
+        } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
+
+        const counter = await getCountUnrelatedMedia();
+
+        await strapi.plugins.email.services.email.send({
+            to: ["maks_zhukov_97@mail.ru"],
+            from: strapi.plugins.email.config("providerOptions.username"),
+            subject: `Количество товаров: ${counter}`,
+        });
     },
 };
