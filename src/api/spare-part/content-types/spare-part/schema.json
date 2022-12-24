@@ -116,7 +116,10 @@
       "type": "string"
     },
     "volume": {
-      "type": "decimal"
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::engine-volume.engine-volume",
+      "inversedBy": "spareParts"
     }
   }
 }
