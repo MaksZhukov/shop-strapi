@@ -41,13 +41,5 @@ export default {
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
-
-        const counter = await getCountUnrelatedMedia();
-
-        await strapi.plugins.email.services.email.send({
-            to: ["maks_zhukov_97@mail.ru"],
-            from: strapi.plugins.email.config("providerOptions.username"),
-            subject: `Количество товаров: ${counter}`,
-        });
     },
 };
