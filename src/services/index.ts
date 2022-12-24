@@ -188,3 +188,16 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
         },
     });
 };
+
+export const getCountUnrelatedMedia = async () => {
+    let count = 0;
+    const medias = await strapi.plugins["upload"].services.upload.findMany({
+        populate: "*",
+    });
+    medias.forEach((media) => {
+        if (!media.related.length) {
+            count++;
+        }
+    });
+    return count;
+};
