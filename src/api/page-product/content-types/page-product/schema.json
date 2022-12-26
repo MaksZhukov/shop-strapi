@@ -55,6 +55,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.short-seo"
+    },
+    "textAfterBenefits": {
+      "type": "richtext"
     }
   }
 }
