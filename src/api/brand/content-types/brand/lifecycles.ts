@@ -1,4 +1,5 @@
 import slugify from "slugify";
+import { lifecycleSitemap } from "../../../../lifecycles";
 
 export default {
     beforeCreate(event) {
@@ -7,4 +8,7 @@ export default {
             data.slug = slugify(data.name, { lower: true });
         }
     },
+    afterCreate: lifecycleSitemap,
+    afterUpdate: lifecycleSitemap,
+    afterDelete: lifecycleSitemap,
 };

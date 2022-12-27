@@ -1,4 +1,5 @@
 import slugify from "slugify";
+import scheduleGenerateSitemap from "../services/sitemap/sitemap";
 
 export const afterDeleteProduct = async (event) => {
     const { id, type } = event.result;
@@ -67,4 +68,8 @@ export const beforeCreateOrUpdateCar = (event) => {
                 : "";
         data.slug = slugify(name, { lower: true }) + "-" + data.id;
     }
+};
+
+export const lifecycleSitemap = () => {
+    scheduleGenerateSitemap();
 };
