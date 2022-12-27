@@ -26,6 +26,7 @@
         "mysql": "2.18.1",
         "qs": "^6.11.0",
         "sharp": "^0.31.2",
+        "sitemap": "^7.1.1",
         "slugify": "^1.6.5",
         "strapi-plugin-config-sync": "^1.0.4",
         "strapi-plugin-generate-data": "^1.0.21",
