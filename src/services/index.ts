@@ -33,7 +33,7 @@ export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
 
 export const sendNewProductsToEmail = async ({ strapi }) => {
     try {
-        let clientUrl = strapi.config.get("api.clientUrl");
+        let clientUrl = strapi.config.get("server.clientUrl");
         const date = new Date();
         const results = await Promise.all([
             getProductUrls(
