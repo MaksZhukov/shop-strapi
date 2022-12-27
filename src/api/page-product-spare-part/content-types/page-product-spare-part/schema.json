@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_product_spare_parts",
+  "info": {
+    "singularName": "page-product-spare-part",
+    "pluralName": "page-product-spare-parts",
+    "displayName": "Page product spare part",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "textAfterDescription": {
+      "type": "richtext"
+    },
+    "textAfterBenefits": {
+      "type": "richtext"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
+    },
+    "autoSynonyms": {
+      "type": "string",
+      "default": "авто,автомобиля"
+    }
+  }
+}

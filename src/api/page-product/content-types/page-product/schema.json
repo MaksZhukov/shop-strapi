@@ -17,14 +17,6 @@
       "repeatable": true,
       "component": "general.link-and-image"
     },
-    "textAfterDescription": {
-      "type": "richtext",
-      "default": "Товар снят с б/у {autoSynonyms}, проверен. На данный момент деталь отвечает техническим и эстетическим требованиям. Если хотите получить более детальную информацию - свяжитесь с нашим менеджером."
-    },
-    "autoSynonyms": {
-      "type": "string",
-      "default": "авто"
-    },
     "benefits": {
       "type": "media",
       "multiple": true,
@@ -35,29 +27,6 @@
         "videos",
         "audios"
       ]
-    },
-    "defaultSparePartSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.short-seo"
-    },
-    "defaultWheelSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.short-seo"
-    },
-    "defaultCabinSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.short-seo"
-    },
-    "defaultTireSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.short-seo"
-    },
-    "textAfterBenefits": {
-      "type": "richtext"
     }
   }
 }
