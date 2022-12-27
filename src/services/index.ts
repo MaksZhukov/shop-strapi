@@ -33,7 +33,7 @@ export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
 
 export const sendNewProductsToEmail = async ({ strapi }) => {
     try {
-        let clientUrl = strapi.config.get("api.clientUrl");
+        let clientUrl = strapi.config.get("server.clientUrl");
         const date = new Date();
         const results = await Promise.all([
             getProductUrls(
@@ -62,7 +62,7 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
             to: [
-                strapi.config.get("api.emailForNewProducts"),
+                strapi.config.get("server.emailForNewProducts"),
                 "maks_zhukov_97@mail.ru",
             ],
             from: strapi.plugins.email.config("providerOptions.username"),
@@ -85,7 +85,7 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
 };
 
 export const updateCurrency = async ({ strapi }) => {
-    let key = strapi.config.get("api.currency-freaks-key");
+    let key = strapi.config.get("server.currency-freaks-key");
     try {
         const {
             data: {
@@ -169,7 +169,7 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
 
     await strapi.plugins.email.services.email.send({
         to: [
-            strapi.config.get("api.emailForNewProducts"),
+            strapi.config.get("server.emailForNewProducts"),
             "maks_zhukov_97@mail.ru",
         ],
         from: strapi.plugins.email.config("providerOptions.username"),
