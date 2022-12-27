@@ -1,13 +1,12 @@
 import slugify from "slugify";
 import runScripts from "./scripts";
 import {
-    getCountUnrelatedMedia,
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
-    updateCurrency,
 } from "./services";
+import scheduleGenerateSitemap from "./services/sitemap";
 
 export default {
     /**
@@ -41,5 +40,6 @@ export default {
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
+        scheduleGenerateSitemap();
     },
 };

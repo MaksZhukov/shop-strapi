@@ -2,7 +2,7 @@ import { RateLimit } from "koa2-ratelimit";
 
 export default (config, { strapi }) =>
     async (context, next) => {
-        const apiToken = strapi.config.get("api.apiToken");
+        const apiToken = strapi.config.get("server.apiToken");
         const token =
             context.request.header.authorization?.split(" ")[1] || null;
 
