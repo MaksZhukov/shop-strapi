@@ -6,29 +6,29 @@ async function up(knex) {
     let clientUrl = strapi.config.get("server.clientUrl");
 
     brands.forEach(async (item) => {
-        await strapi.entityService.update("api::brand.brand", item.id, {
+        strapi.entityService.update("api::brand.brand", item.id, {
             data: {
                 ...item,
-                productBrandProductTexts: {
+                productBrandTexts: {
                     sparePartBrandText: {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/spare-parts/${
-                        item.slug
-                    }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Запчасти для ${item.name.toLowerCase()}</span></a>
+                            item.slug
+                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Запчасти для ${item.name.toLowerCase()}</span></a>
                 </p>`,
                     },
                     cabinTextBrand: {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/cabins/${
-                        item.slug
-                    }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Салоны для ${item.name.toLowerCase()}</span></a>
+                            item.slug
+                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Салоны для ${item.name.toLowerCase()}</span></a>
                 </p>`,
                     },
                     wheelTextBrand: {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/wheels/${
-                        item.slug
-                    }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
+                            item.slug
+                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
                 </p>`,
                     },
                 },
@@ -37,22 +37,18 @@ async function up(knex) {
     });
 
     tireBrands.forEach(async (item) => {
-        await strapi.entityService.update(
-            "api::tire-brand.tire-brand",
-            item.id,
-            {
-                data: {
-                    ...item,
-                    productBrandText: {
-                        content: `<p>
+        strapi.entityService.update("api::tire-brand.tire-brand", item.id, {
+            data: {
+                ...item,
+                productBrandText: {
+                    content: `<p>
                         Еще больше качественных товаров в категории сайта <a href="${clientUrl}/tires/${
-                            item.slug
-                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
+                        item.slug
+                    }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
                     </p>`,
-                    },
                 },
-            }
-        );
+            },
+        });
     });
 }
 
