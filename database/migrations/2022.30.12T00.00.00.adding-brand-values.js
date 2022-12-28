@@ -14,21 +14,21 @@ async function up(knex) {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/spare-parts/${
                             item.slug
-                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Запчасти для ${item.name}</span></a>
+                        }"><span>Запчасти для ${item.name}</span></a>
                 </p>`,
                     },
                     cabinTextBrand: {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/cabins/${
                             item.slug
-                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Салоны для ${item.name}</span></a>
+                        }"><span>Салоны для ${item.name}</span></a>
                 </p>`,
                     },
                     wheelTextBrand: {
                         content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/wheels/${
                             item.slug
-                        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name}</span></a>
+                        }"><span>Диски для ${item.name}</span></a>
                 </p>`,
                     },
                 },
@@ -44,7 +44,7 @@ async function up(knex) {
                     content: `<p>
                         Еще больше качественных товаров в категории сайта <a href="${clientUrl}/tires/${
                         item.slug
-                    }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name}</span></a>
+                    }"><span>Диски для ${item.name}</span></a>
                     </p>`,
                 },
             },
