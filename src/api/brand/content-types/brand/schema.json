@@ -78,6 +78,11 @@
       "type": "uid",
       "targetField": "name",
       "required": false
+    },
+    "productBrandTexts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.brand-type-product-texts"
     }
   }
 }

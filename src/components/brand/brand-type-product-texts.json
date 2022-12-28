@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_brand_brand_type_product_texts",
+  "info": {
+    "displayName": "Brand type product texts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sparePartBrandText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.brand-text"
+    },
+    "cabinTextBrand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.brand-text"
+    },
+    "wheelTextBrand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.brand-text"
+    }
+  }
+}
