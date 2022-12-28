@@ -37,7 +37,7 @@ export default {
             let clientUrl = strapi.config.get("server.clientUrl");
 
             brands.forEach(async (item) => {
-                await strapi.entityService.update("api::brand.brand", item.id, {
+                strapi.entityService.update("api::brand.brand", item.id, {
                     data: {
                         ...item,
                         productBrandProductTexts: {
@@ -68,7 +68,7 @@ export default {
             });
 
             tireBrands.forEach(async (item) => {
-                await strapi.entityService.update(
+                strapi.entityService.update(
                     "api::tire-brand.tire-brand",
                     item.id,
                     {
