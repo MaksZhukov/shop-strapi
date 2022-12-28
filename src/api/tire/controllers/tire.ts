@@ -9,9 +9,10 @@ export default factories.createCoreController(
     ({ strapi }) => ({
         async findOne(ctx) {
             const { id } = ctx.params;
+            const { populate } = ctx.query;
             const entity = await strapi.db.query("api::tire.tire").findOne({
                 where: { $or: [{ slug: id }, { id }] },
-                populate: ["images", "brand", "seo.images", "snippets"],
+                populate,
             });
             return this.transformResponse(entity);
         },

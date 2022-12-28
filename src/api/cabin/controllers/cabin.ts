@@ -9,18 +9,10 @@ export default factories.createCoreController(
     ({ strapi }) => ({
         async findOne(ctx) {
             const { id } = ctx.params;
-            console.log(id);
+            const { populate } = ctx.query;
             const entity = await strapi.db.query("api::cabin.cabin").findOne({
                 where: { $or: [{ slug: id }, { id }] },
-                populate: [
-                    "images",
-                    "kindSparePart",
-                    "model",
-                    "brand",
-                    "generation",
-                    "seo.images",
-                    "snippets",
-                ],
+                populate,
             });
             return this.transformResponse(entity);
         },
