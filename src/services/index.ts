@@ -208,7 +208,7 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
         content: `<p>
     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${
             item.slug
-        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">${type} для ${item.name.toLowerCase()}</span></a>
+        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">${type} для ${item.name}</span></a>
 </p>`,
     };
 };
