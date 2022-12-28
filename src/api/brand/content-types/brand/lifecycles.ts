@@ -15,14 +15,17 @@ export default {
                 productBrandTexts: {
                     sparePartBrandText: generateDefaultBrandTextComponent(
                         event.result,
+                        "Запчасти",
                         "spare-parts"
                     ),
                     cabinTextBrand: generateDefaultBrandTextComponent(
                         event.result,
+                        "Салоны",
                         "cabins"
                     ),
                     wheelTextBrand: generateDefaultBrandTextComponent(
                         event.result,
+                        "Диски",
                         "wheels"
                     ),
                 },
