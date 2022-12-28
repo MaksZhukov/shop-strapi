@@ -202,13 +202,13 @@ export const getCountUnrelatedMedia = async () => {
     return count;
 };
 
-export const generateDefaultBrandTextComponent = (item, type) => {
+export const generateDefaultBrandTextComponent = (item, type, slug) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return {
         content: `<p>
-    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${type}/${
+    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${
             item.slug
-        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
+        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">${type} для ${item.name.toLowerCase()}</span></a>
 </p>`,
     };
 };
