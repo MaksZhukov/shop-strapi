@@ -40,7 +40,7 @@ export default {
                 strapi.entityService.update("api::brand.brand", item.id, {
                     data: {
                         ...item,
-                        productBrandProductTexts: {
+                        productBrandTexts: {
                             sparePartBrandText: {
                                 content: `<p>
                     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/spare-parts/${
