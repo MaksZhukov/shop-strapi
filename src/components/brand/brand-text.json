@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_brand_brand_texts",
+  "info": {
+    "displayName": "Brand text"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

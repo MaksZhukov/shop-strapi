@@ -201,3 +201,14 @@ export const getCountUnrelatedMedia = async () => {
     });
     return count;
 };
+
+export const generateDefaultBrandText = (item, type) => {
+    let clientUrl = strapi.config.get("server.clientUrl");
+    return {
+        content: `<p>
+    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${type}/${
+            item.slug
+        }"><span style="font-family:&quot;Calibri&quot;,sans-serif;">Диски для ${item.name.toLowerCase()}</span></a>
+</p>`,
+    };
+};
