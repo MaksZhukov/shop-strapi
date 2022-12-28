@@ -17,6 +17,7 @@ export default {
                 data: {
                     productBrandText: generateDefaultBrandTextComponent(
                         event.result,
+                        "Шины",
                         "tires"
                     ),
                 },
