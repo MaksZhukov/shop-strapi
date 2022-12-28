@@ -1,5 +1,6 @@
 import slugify from "slugify";
 import { lifecycleSitemap } from "../../../../lifecycles";
+import { generateDefaultBrandTextComponent } from "../../../../services";
 
 export default {
     beforeCreate(event) {
@@ -8,7 +9,21 @@ export default {
             data.slug = slugify(data.name, { lower: true });
         }
     },
-    afterCreate: lifecycleSitemap,
+    afterCreate: (event) => {
+        strapi.entityService.update(
+            "api::tire-brand.tire-brand",
+            event.result.id,
+            {
+                data: {
+                    productBrandText: generateDefaultBrandTextComponent(
+                        event.result,
+                        "tires"
+                    ),
+                },
+            }
+        );
+        lifecycleSitemap();
+    },
     afterUpdate: lifecycleSitemap,
     afterDelete: lifecycleSitemap,
     // afterDelete: afterDeleteProduct,
