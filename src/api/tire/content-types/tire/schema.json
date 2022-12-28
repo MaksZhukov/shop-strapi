@@ -81,10 +81,10 @@
       "default": "tire",
       "required": true
     },
-    "diameter": {
+    "width": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::tire-diameter.tire-diameter",
+      "target": "api::tire-width.tire-width",
       "inversedBy": "tires"
     },
     "height": {
@@ -93,10 +93,10 @@
       "target": "api::tire-height.tire-height",
       "inversedBy": "tires"
     },
-    "width": {
+    "diameter": {
       "type": "relation",
       "relation": "manyToOne",
-      "target": "api::tire-width.tire-width",
+      "target": "api::tire-diameter.tire-diameter",
       "inversedBy": "tires"
     }
   }
