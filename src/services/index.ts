@@ -202,7 +202,7 @@ export const getCountUnrelatedMedia = async () => {
     return count;
 };
 
-export const generateDefaultBrandText = (item, type) => {
+export const generateDefaultBrandTextComponent = (item, type) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return {
         content: `<p>

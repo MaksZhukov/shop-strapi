@@ -79,7 +79,7 @@
       "targetField": "name",
       "required": false
     },
-    "productBrandProductTexts": {
+    "productBrandTexts": {
       "type": "component",
       "repeatable": false,
       "component": "brand.brand-type-product-texts"

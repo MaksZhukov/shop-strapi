@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import { lifecycleSitemap } from "../../../../lifecycles";
-import { generateDefaultBrandText } from "../../../../services";
+import { generateDefaultBrandTextComponent } from "../../../../services";
 
 export default {
     beforeCreate(event) {
@@ -8,19 +8,28 @@ export default {
         if (data.name) {
             data.slug = slugify(data.name, { lower: true });
         }
-        data.productBrandProductTexts = {
-            sparePartBrandText: {
-                content: generateDefaultBrandText(data, "spare-parts"),
-            },
-            cabinTextBrand: {
-                content: generateDefaultBrandText(data, "cabins"),
-            },
-            wheelTextBrand: {
-                content: generateDefaultBrandText(data, "wheels"),
-            },
-        };
     },
-    afterCreate: lifecycleSitemap,
+    afterCreate: (event) => {
+        strapi.entityService.update("api::brand.brand", event.result.id, {
+            data: {
+                productBrandTexts: {
+                    sparePartBrandText: generateDefaultBrandTextComponent(
+                        event.result,
+                        "spare-parts"
+                    ),
+                    cabinTextBrand: generateDefaultBrandTextComponent(
+                        event.result,
+                        "cabins"
+                    ),
+                    wheelTextBrand: generateDefaultBrandTextComponent(
+                        event.result,
+                        "wheels"
+                    ),
+                },
+            },
+        });
+        lifecycleSitemap();
+    },
     afterUpdate: lifecycleSitemap,
     afterDelete: lifecycleSitemap,
 };
