@@ -12,14 +12,14 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "name": {
+      "type": "decimal"
+    },
     "tires": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tire.tire",
       "mappedBy": "width"
-    },
-    "name": {
-      "type": "decimal"
     }
   }
 }
