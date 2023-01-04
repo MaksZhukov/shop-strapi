@@ -80,7 +80,7 @@ export const STATIC_LINKS = [
         priority: 1,
     },
     {
-        url: "/cars-on-parts",
+        url: "/buyback-car",
         changefreq: "daily",
         priority: 1,
     },
