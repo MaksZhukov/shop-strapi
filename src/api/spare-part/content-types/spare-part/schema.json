@@ -120,6 +120,9 @@
       "relation": "manyToOne",
       "target": "api::engine-volume.engine-volume",
       "inversedBy": "spareParts"
+    },
+    "engineNumber": {
+      "type": "string"
     }
   }
 }
