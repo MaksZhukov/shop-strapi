@@ -1,12 +1,12 @@
 import {
     beforeCreateOrUpdateCar,
-    lifecycleSitemap,
+    revalidateClientPage,
 } from "../../../../lifecycles";
 
 export default {
     beforeCreate: beforeCreateOrUpdateCar,
     beforeUpdate: beforeCreateOrUpdateCar,
-    afterUpdate: lifecycleSitemap,
-    afterCreate: lifecycleSitemap,
-    afterDelete: lifecycleSitemap,
+    async afterUpdate() {
+        revalidateClientPage("/buyback-cars");
+    },
 };
