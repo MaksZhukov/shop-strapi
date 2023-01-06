@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_buyback_cars",
+  "info": {
+    "singularName": "page-buyback-car",
+    "pluralName": "page-buyback-cars",
+    "displayName": "Page buyback cars",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
