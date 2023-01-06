@@ -34,7 +34,6 @@ const generateSitemap = async () => {
         vacancies,
         articles,
         cars,
-        carsOnParts,
         brands,
         tireBrands,
     ] = await Promise.all([
@@ -45,7 +44,6 @@ const generateSitemap = async () => {
         getItems("api::vacancy.vacancy"),
         getItems("api::article.article"),
         getItems("api::car.car"),
-        getItems("api::car-on-parts.car-on-parts"),
         getItems("api::brand.brand"),
         getItems("api::tire-brand.tire-brand"),
     ]);
@@ -57,9 +55,6 @@ const generateSitemap = async () => {
         ...vacancies.map((item) => generateLink(`/vacansies/${item.slug}`)),
         ...articles.map((item) => generateLink(`/articles/${item.slug}`)),
         ...cars.map((item) => generateLink(`/awaiting-cars/${item.slug}`)),
-        ...carsOnParts.map((item) =>
-            generateLink(`/buyback-cars/${item.slug}`)
-        ),
         ...brands
             .map((item) => [
                 generateLink(`/spare-parts/${item.slug}`),
