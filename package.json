@@ -19,6 +19,7 @@
         "@strapi/provider-email-nodemailer": "^4.5.0",
         "@strapi/strapi": "4.5.0",
         "axios": "0.27.2",
+        "axios-retry": "^3.3.1",
         "connection-string": "^4.3.6",
         "convert-array-to-csv": "^2.0.0",
         "koa2-ratelimit": "^1.1.2",
