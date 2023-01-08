@@ -1,7 +1,12 @@
 import axios from "axios";
-import axiosRetry from 'axios-retry';
+import axiosRetry from "axios-retry";
 
-axiosRetry(axios, { retries: 3 });
+axiosRetry(axios, {
+    retries: 3,
+    retryDelay: (retryCount) => {
+        return retryCount * 1000;
+    },
+});
 
 export default ({ strapi }) => ({
     async revalidatePage(pagePath) {
