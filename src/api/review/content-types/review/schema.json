@@ -8,15 +8,10 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "richtext",
-      "required": false,
-      "maxLength": 500
-    },
     "authorName": {
       "type": "string",
       "required": true,
@@ -28,10 +23,8 @@
       "min": 1,
       "required": true
     },
-    "email": {
-      "type": "email",
-      "unique": true,
-      "required": true
+    "description": {
+      "type": "text"
     }
   }
 }
