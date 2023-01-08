@@ -27,10 +27,6 @@
         "videos",
         "audios"
       ]
-    },
-    "brandTexts": {
-      "type": "dynamiczone",
-      "components": []
     }
   }
 }
