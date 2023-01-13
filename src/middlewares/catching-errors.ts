@@ -7,7 +7,9 @@ export default (config, { strapi }) => {
                 to: "maks_zhukov_97@mail.ru",
                 from: strapi.plugins.email.config("providerOptions.username"),
                 subject: "Razbor Auto Error",
-                text: err.toString(),
+                text: `URL: ${context.req.url}\nMETHOD: ${
+                    context.req.method
+                }\nHOST: ${context.req.header.host}\n${err.toString()}`,
             });
         }
     };
