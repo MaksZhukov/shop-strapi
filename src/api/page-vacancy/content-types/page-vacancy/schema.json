@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-vacancy",
     "pluralName": "page-vacancies",
-    "displayName": "Page vacancies"
+    "displayName": "Page vacancies",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }
