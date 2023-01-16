@@ -1,3 +1,7 @@
+import utils from "@strapi/utils";
+
+const { ApplicationError } = utils.errors;
+
 export default (config, { strapi }) => {
     return async (context, next) => {
         try {
@@ -7,10 +11,12 @@ export default (config, { strapi }) => {
                 to: "maks_zhukov_97@mail.ru",
                 from: strapi.plugins.email.config("providerOptions.username"),
                 subject: "Razbor Auto Error",
-                text: `URL: ${context.req.url}\nMETHOD: ${
-                    context.req.method
-                }\nHOST: ${context.req.header.host}\n${err.toString()}`,
+                html: `<b>URL</b>: ${context.req.url}<br>
+					   <b>METHOD</b>: ${context.req.method}<br> 
+					   <b>HOST</b>: ${context.req.headers.host}<br> 
+					   <b>DESCRIPTION</b>: ${err.toString()}`,
             });
+            throw new ApplicationError(err.toString());
         }
     };
 };
