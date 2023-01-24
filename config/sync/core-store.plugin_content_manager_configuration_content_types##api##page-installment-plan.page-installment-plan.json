@@ -78,25 +78,25 @@
       }
     },
     "layouts": {
-      "list": [
-        "id",
-        "seo",
-        "createdAt",
-        "updatedAt"
-      ],
       "edit": [
-        [
-          {
-            "name": "seo",
-            "size": 12
-          }
-        ],
         [
           {
             "name": "content",
             "size": 12
           }
+        ],
+        [
+          {
+            "name": "seo",
+            "size": 12
+          }
         ]
+      ],
+      "list": [
+        "id",
+        "seo",
+        "createdAt",
+        "updatedAt"
       ]
     }
   },

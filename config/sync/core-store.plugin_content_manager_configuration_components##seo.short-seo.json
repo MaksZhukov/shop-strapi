@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-guarantee.page-guarantee",
+  "key": "plugin_content_manager_configuration_components::seo.short-seo",
   "value": {
-    "uid": "api::page-guarantee.page-guarantee",
+    "uid": "seo.short-seo",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "title",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -16,89 +16,80 @@
         "edit": {},
         "list": {
           "label": "id",
-          "searchable": true,
-          "sortable": true
+          "searchable": false,
+          "sortable": false
         }
       },
-      "seo": {
+      "title": {
         "edit": {
-          "label": "seo",
+          "label": "title",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
+          "label": "title",
+          "searchable": true,
+          "sortable": true
         }
       },
-      "content": {
+      "description": {
         "edit": {
-          "label": "content",
+          "label": "description",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "content",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "createdAt": {
-        "edit": {
-          "label": "createdAt",
-          "description": "",
-          "placeholder": "",
-          "visible": false,
-          "editable": true
-        },
-        "list": {
-          "label": "createdAt",
+          "label": "description",
           "searchable": true,
           "sortable": true
         }
       },
-      "updatedAt": {
+      "keywords": {
         "edit": {
-          "label": "updatedAt",
+          "label": "keywords",
           "description": "",
           "placeholder": "",
-          "visible": false,
+          "visible": true,
           "editable": true
         },
         "list": {
-          "label": "updatedAt",
+          "label": "keywords",
           "searchable": true,
           "sortable": true
         }
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "title",
+        "description",
+        "keywords"
+      ],
       "edit": [
         [
           {
-            "name": "content",
-            "size": 12
+            "name": "title",
+            "size": 6
+          },
+          {
+            "name": "description",
+            "size": 6
           }
         ],
         [
           {
-            "name": "seo",
-            "size": 12
+            "name": "keywords",
+            "size": 6
           }
         ]
-      ],
-      "list": [
-        "id",
-        "seo",
-        "createdAt",
-        "updatedAt"
       ]
-    }
+    },
+    "isComponent": true
   },
   "type": "object",
   "environment": null,

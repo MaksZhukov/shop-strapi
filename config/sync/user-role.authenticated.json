@@ -34,9 +34,6 @@
       "action": "api::page-awaiting-car.page-awaiting-car.find"
     },
     {
-      "action": "api::page-buying-car.page-buying-car.find"
-    },
-    {
       "action": "api::page-contact.page-contact.find"
     },
     {
@@ -44,9 +41,6 @@
     },
     {
       "action": "api::page-review.page-review.find"
-    },
-    {
-      "action": "api::page-shipping-and-payment.page-shipping-and-payment.find"
     },
     {
       "action": "api::page-spare-part.page-spare-part.find"

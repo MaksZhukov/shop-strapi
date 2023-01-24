@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::generation.generation",
+  "key": "plugin_content_manager_configuration_content_types::api::page-product-spare-part.page-product-spare-part",
   "value": {
-    "uid": "api::generation.generation",
+    "uid": "api::page-product-spare-part.page-product-spare-part",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "autoSynonyms",
+      "defaultSortBy": "autoSynonyms",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,93 +20,60 @@
           "sortable": true
         }
       },
-      "name": {
+      "textAfterDescription": {
         "edit": {
-          "label": "name",
+          "label": "textAfterDescription",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
+          "label": "textAfterDescription",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "textAfterBenefits": {
+        "edit": {
+          "label": "textAfterBenefits",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "textAfterBenefits",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "autoSynonyms": {
+        "edit": {
+          "label": "autoSynonyms",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "autoSynonyms",
           "searchable": true,
           "sortable": true
-        }
-      },
-      "spareParts": {
-        "edit": {
-          "label": "spareParts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "spareParts",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "cars": {
-        "edit": {
-          "label": "cars",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "engine"
-        },
-        "list": {
-          "label": "cars",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "model": {
-        "edit": {
-          "label": "model",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "model",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "cabins": {
-        "edit": {
-          "label": "cabins",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "cabins",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "cars_on_parts": {
-        "edit": {
-          "label": "cars_on_parts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "bodyStyle"
-        },
-        "list": {
-          "label": "cars_on_parts",
-          "searchable": false,
-          "sortable": false
         }
       },
       "createdAt": {
@@ -141,38 +108,32 @@
     "layouts": {
       "list": [
         "id",
-        "name",
-        "spareParts",
-        "cars"
+        "seo",
+        "autoSynonyms",
+        "createdAt"
       ],
       "edit": [
         [
           {
-            "name": "name",
-            "size": 6
-          },
-          {
-            "name": "spareParts",
-            "size": 6
+            "name": "textAfterDescription",
+            "size": 12
           }
         ],
         [
           {
-            "name": "model",
-            "size": 6
-          },
-          {
-            "name": "cars",
-            "size": 6
+            "name": "textAfterBenefits",
+            "size": 12
           }
         ],
         [
           {
-            "name": "cabins",
-            "size": 6
-          },
+            "name": "seo",
+            "size": 12
+          }
+        ],
+        [
           {
-            "name": "cars_on_parts",
+            "name": "autoSynonyms",
             "size": 6
           }
         ]
