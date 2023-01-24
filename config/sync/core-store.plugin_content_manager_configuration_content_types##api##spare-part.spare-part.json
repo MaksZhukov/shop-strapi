@@ -118,20 +118,6 @@
           "sortable": true
         }
       },
-      "volume": {
-        "edit": {
-          "label": "volume",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "volume",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "bodyStyle": {
         "edit": {
           "label": "bodyStyle",
@@ -186,20 +172,6 @@
         },
         "list": {
           "label": "brand",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "type": {
-        "edit": {
-          "label": "type",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "type",
           "searchable": true,
           "sortable": true
         }
@@ -314,6 +286,63 @@
         },
         "list": {
           "label": "discountPriceUSD",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "engine": {
+        "edit": {
+          "label": "engine",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "engine",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "volume": {
+        "edit": {
+          "label": "volume",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "volume",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "engineNumber": {
+        "edit": {
+          "label": "engineNumber",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "engineNumber",
           "searchable": true,
           "sortable": true
         }
@@ -457,6 +486,16 @@
           {
             "name": "discountPriceUSD",
             "size": 4
+          }
+        ],
+        [
+          {
+            "name": "engine",
+            "size": 6
+          },
+          {
+            "name": "engineNumber",
+            "size": 6
           }
         ]
       ]

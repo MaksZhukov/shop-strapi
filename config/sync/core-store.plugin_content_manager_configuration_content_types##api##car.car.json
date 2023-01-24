@@ -92,20 +92,6 @@
           "sortable": true
         }
       },
-      "volume": {
-        "edit": {
-          "label": "volume",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "volume",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "fuel": {
         "edit": {
           "label": "fuel",
@@ -219,6 +205,35 @@
           "sortable": true
         }
       },
+      "volume": {
+        "edit": {
+          "label": "volume",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "volume",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "transmission": {
+        "edit": {
+          "label": "transmission",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "transmission",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -327,6 +342,12 @@
           },
           {
             "name": "videoLink",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "transmission",
             "size": 6
           }
         ]

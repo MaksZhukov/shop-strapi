@@ -123,6 +123,91 @@
           "sortable": false
         }
       },
+      "seoCabins": {
+        "edit": {
+          "label": "seoCabins",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seoCabins",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seoSpareParts": {
+        "edit": {
+          "label": "seoSpareParts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seoSpareParts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seoWheels": {
+        "edit": {
+          "label": "seoWheels",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seoWheels",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "carsOnParts": {
+        "edit": {
+          "label": "carsOnParts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "bodyStyle"
+        },
+        "list": {
+          "label": "carsOnParts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "productBrandTexts": {
+        "edit": {
+          "label": "productBrandTexts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productBrandTexts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -194,6 +279,40 @@
           {
             "name": "cabins",
             "size": 6
+          }
+        ],
+        [
+          {
+            "name": "seoCabins",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "seoSpareParts",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "seoWheels",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "carsOnParts",
+            "size": 6
+          },
+          {
+            "name": "slug",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "productBrandTexts",
+            "size": 12
           }
         ]
       ]

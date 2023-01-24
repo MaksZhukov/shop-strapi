@@ -104,6 +104,36 @@
           "sortable": false
         }
       },
+      "autocomises": {
+        "edit": {
+          "label": "autocomises",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "autocomises",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "serviceStations": {
+        "edit": {
+          "label": "serviceStations",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "serviceStations",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -137,7 +167,8 @@
       "list": [
         "id",
         "banner",
-        "seo"
+        "seo",
+        "autocomises"
       ],
       "edit": [
         [
@@ -174,6 +205,16 @@
           {
             "name": "deliveryAuto",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "autocomises",
+            "size": 6
+          },
+          {
+            "name": "serviceStations",
+            "size": 6
           }
         ]
       ]

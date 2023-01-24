@@ -28,6 +28,12 @@
       "action": "api::cabin.cabin.findOne"
     },
     {
+      "action": "api::car-on-parts.car-on-parts.find"
+    },
+    {
+      "action": "api::car-on-parts.car-on-parts.findOne"
+    },
+    {
       "action": "api::car.car.create"
     },
     {
@@ -38,6 +44,12 @@
     },
     {
       "action": "api::car.car.update"
+    },
+    {
+      "action": "api::engine-volume.engine-volume.find"
+    },
+    {
+      "action": "api::engine-volume.engine-volume.findOne"
     },
     {
       "action": "api::favorite.favorite.create"
@@ -82,13 +94,16 @@
       "action": "api::page-awaiting-car.page-awaiting-car.find"
     },
     {
-      "action": "api::page-buying-car.page-buying-car.find"
+      "action": "api::page-buyback-car.page-buyback-car.find"
     },
     {
       "action": "api::page-cabin.page-cabin.find"
     },
     {
       "action": "api::page-car-dismantling-photo.page-car-dismantling-photo.find"
+    },
+    {
+      "action": "api::page-cars-on-part.page-cars-on-part.find"
     },
     {
       "action": "api::page-company-photo.page-company-photo.find"
@@ -119,9 +134,6 @@
     },
     {
       "action": "api::page-service-station.page-service-station.find"
-    },
-    {
-      "action": "api::page-shipping-and-payment.page-shipping-and-payment.find"
     },
     {
       "action": "api::page-spare-part.page-spare-part.find"
@@ -176,6 +188,36 @@
     },
     {
       "action": "api::vacancy.vacancy.findOne"
+    },
+    {
+      "action": "api::wheel-diameter-center-hole.wheel-diameter-center-hole.find"
+    },
+    {
+      "action": "api::wheel-diameter-center-hole.wheel-diameter-center-hole.findOne"
+    },
+    {
+      "action": "api::wheel-diameter.wheel-diameter.find"
+    },
+    {
+      "action": "api::wheel-diameter.wheel-diameter.findOne"
+    },
+    {
+      "action": "api::wheel-disk-offset.wheel-disk-offset.find"
+    },
+    {
+      "action": "api::wheel-disk-offset.wheel-disk-offset.findOne"
+    },
+    {
+      "action": "api::wheel-number-hole.wheel-number-hole.find"
+    },
+    {
+      "action": "api::wheel-number-hole.wheel-number-hole.findOne"
+    },
+    {
+      "action": "api::wheel-width.wheel-width.find"
+    },
+    {
+      "action": "api::wheel-width.wheel-width.findOne"
     },
     {
       "action": "api::wheel.wheel.find"

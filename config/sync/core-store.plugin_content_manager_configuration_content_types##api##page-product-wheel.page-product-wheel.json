@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-guarantee.page-guarantee",
+  "key": "plugin_content_manager_configuration_content_types::api::page-product-wheel.page-product-wheel",
   "value": {
-    "uid": "api::page-guarantee.page-guarantee",
+    "uid": "api::page-product-wheel.page-product-wheel",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -20,6 +20,34 @@
           "sortable": true
         }
       },
+      "textAfterDescription": {
+        "edit": {
+          "label": "textAfterDescription",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "textAfterDescription",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "textAfterBenefits": {
+        "edit": {
+          "label": "textAfterBenefits",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "textAfterBenefits",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "seo": {
         "edit": {
           "label": "seo",
@@ -30,20 +58,6 @@
         },
         "list": {
           "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "content": {
-        "edit": {
-          "label": "content",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "content",
           "searchable": false,
           "sortable": false
         }
@@ -78,10 +92,22 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "seo",
+        "createdAt",
+        "updatedAt"
+      ],
       "edit": [
         [
           {
-            "name": "content",
+            "name": "textAfterDescription",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "textAfterBenefits",
             "size": 12
           }
         ],
@@ -91,12 +117,6 @@
             "size": 12
           }
         ]
-      ],
-      "list": [
-        "id",
-        "seo",
-        "createdAt",
-        "updatedAt"
       ]
     }
   },
