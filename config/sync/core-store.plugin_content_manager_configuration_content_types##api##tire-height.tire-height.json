@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-guarantee.page-guarantee",
+  "key": "plugin_content_manager_configuration_content_types::api::tire-height.tire-height",
   "value": {
-    "uid": "api::page-guarantee.page-guarantee",
+    "uid": "api::tire-height.tire-height",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "id",
-      "defaultSortBy": "id",
+      "mainField": "name",
+      "defaultSortBy": "name",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,30 +20,31 @@
           "sortable": true
         }
       },
-      "seo": {
+      "name": {
         "edit": {
-          "label": "seo",
+          "label": "name",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
+          "label": "name",
+          "searchable": true,
+          "sortable": true
         }
       },
-      "content": {
+      "tires": {
         "edit": {
-          "label": "content",
+          "label": "tires",
           "description": "",
           "placeholder": "",
           "visible": true,
-          "editable": true
+          "editable": true,
+          "mainField": "name"
         },
         "list": {
-          "label": "content",
+          "label": "tires",
           "searchable": false,
           "sortable": false
         }
@@ -78,25 +79,23 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "name",
+        "createdAt",
+        "updatedAt"
+      ],
       "edit": [
         [
           {
-            "name": "content",
-            "size": 12
-          }
-        ],
-        [
+            "name": "name",
+            "size": 6
+          },
           {
-            "name": "seo",
-            "size": 12
+            "name": "tires",
+            "size": 6
           }
         ]
-      ],
-      "list": [
-        "id",
-        "seo",
-        "createdAt",
-        "updatedAt"
       ]
     }
   },

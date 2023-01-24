@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::generation.generation",
+  "key": "plugin_content_manager_configuration_content_types::api::engine-volume.engine-volume",
   "value": {
-    "uid": "api::generation.generation",
+    "uid": "api::engine-volume.engine-volume",
     "settings": {
       "bulkable": true,
       "filterable": true,
@@ -34,21 +34,6 @@
           "sortable": true
         }
       },
-      "spareParts": {
-        "edit": {
-          "label": "spareParts",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "spareParts",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "cars": {
         "edit": {
           "label": "cars",
@@ -64,39 +49,9 @@
           "sortable": false
         }
       },
-      "model": {
+      "carsOnParts": {
         "edit": {
-          "label": "model",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "model",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "cabins": {
-        "edit": {
-          "label": "cabins",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "cabins",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "cars_on_parts": {
-        "edit": {
-          "label": "cars_on_parts",
+          "label": "carsOnParts",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -104,7 +59,22 @@
           "mainField": "bodyStyle"
         },
         "list": {
-          "label": "cars_on_parts",
+          "label": "carsOnParts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "spareParts": {
+        "edit": {
+          "label": "spareParts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "spareParts",
           "searchable": false,
           "sortable": false
         }
@@ -142,37 +112,29 @@
       "list": [
         "id",
         "name",
-        "spareParts",
-        "cars"
+        "createdAt",
+        "updatedAt"
       ],
       "edit": [
         [
           {
             "name": "name",
             "size": 6
-          },
-          {
-            "name": "spareParts",
-            "size": 6
           }
         ],
         [
-          {
-            "name": "model",
-            "size": 6
-          },
           {
             "name": "cars",
             "size": 6
+          },
+          {
+            "name": "carsOnParts",
+            "size": 6
           }
         ],
         [
           {
-            "name": "cabins",
-            "size": 6
-          },
-          {
-            "name": "cars_on_parts",
+            "name": "spareParts",
             "size": 6
           }
         ]

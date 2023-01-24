@@ -20,48 +20,6 @@
           "sortable": true
         }
       },
-      "diameter": {
-        "edit": {
-          "label": "diameter",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "diameter",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "width": {
-        "edit": {
-          "label": "width",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "width",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "height": {
-        "edit": {
-          "label": "height",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "height",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "season": {
         "edit": {
           "label": "season",
@@ -100,20 +58,6 @@
         },
         "list": {
           "label": "priceUSD",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "type": {
-        "edit": {
-          "label": "type",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "type",
           "searchable": true,
           "sortable": true
         }
@@ -269,6 +213,65 @@
         },
         "list": {
           "label": "discountPriceUSD",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "diameter": {
+        "edit": {
+          "label": "diameter",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "diameter",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "height": {
+        "edit": {
+          "label": "height",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "height",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "width": {
+        "edit": {
+          "label": "width",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "width",
           "searchable": true,
           "sortable": true
         }

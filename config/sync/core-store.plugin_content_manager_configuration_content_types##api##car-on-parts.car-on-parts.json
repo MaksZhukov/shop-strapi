@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::wheel.wheel",
+  "key": "plugin_content_manager_configuration_content_types::api::car-on-parts.car-on-parts",
   "value": {
-    "uid": "api::wheel.wheel",
+    "uid": "api::car-on-parts.car-on-parts",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "type",
+      "mainField": "bodyStyle",
+      "defaultSortBy": "bodyStyle",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -30,6 +30,162 @@
         },
         "list": {
           "label": "images",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "model": {
+        "edit": {
+          "label": "model",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "model",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "manufactureDate": {
+        "edit": {
+          "label": "manufactureDate",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "manufactureDate",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "deliveryDate": {
+        "edit": {
+          "label": "deliveryDate",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "deliveryDate",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "fuel": {
+        "edit": {
+          "label": "fuel",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "fuel",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "bodyStyle": {
+        "edit": {
+          "label": "bodyStyle",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "bodyStyle",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "engine": {
+        "edit": {
+          "label": "engine",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "engine",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "mileage": {
+        "edit": {
+          "label": "mileage",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "mileage",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "generation": {
+        "edit": {
+          "label": "generation",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "generation",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "videoLink": {
+        "edit": {
+          "label": "videoLink",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "videoLink",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "seo": {
+        "edit": {
+          "label": "seo",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "seo",
           "searchable": false,
           "sortable": false
         }
@@ -62,34 +218,6 @@
           "sortable": true
         }
       },
-      "name": {
-        "edit": {
-          "label": "name",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "name",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "slug": {
-        "edit": {
-          "label": "slug",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "slug",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "brand": {
         "edit": {
           "label": "brand",
@@ -101,49 +229,6 @@
         },
         "list": {
           "label": "brand",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "model": {
-        "edit": {
-          "label": "model",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "model",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "kind": {
-        "edit": {
-          "label": "kind",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "kind",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "count": {
-        "edit": {
-          "label": "count",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "count",
           "searchable": true,
           "sortable": true
         }
@@ -162,153 +247,9 @@
           "sortable": true
         }
       },
-      "seo": {
+      "volume": {
         "edit": {
-          "label": "seo",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "seo",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "snippets": {
-        "edit": {
-          "label": "snippets",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "snippets",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "h1": {
-        "edit": {
-          "label": "h1",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "h1",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "discountPrice": {
-        "edit": {
-          "label": "discountPrice",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "discountPrice",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "discountPriceUSD": {
-        "edit": {
-          "label": "discountPriceUSD",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "discountPriceUSD",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "type": {
-        "edit": {
-          "label": "type",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "type",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "diskOffset": {
-        "edit": {
-          "label": "diskOffset",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "id"
-        },
-        "list": {
-          "label": "diskOffset",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "width": {
-        "edit": {
-          "label": "width",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "id"
-        },
-        "list": {
-          "label": "width",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "numberHoles": {
-        "edit": {
-          "label": "numberHoles",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "id"
-        },
-        "list": {
-          "label": "numberHoles",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "diameterCenterHole": {
-        "edit": {
-          "label": "diameterCenterHole",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "id"
-        },
-        "list": {
-          "label": "diameterCenterHole",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "diameter": {
-        "edit": {
-          "label": "diameter",
+          "label": "volume",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -316,21 +257,21 @@
           "mainField": "name"
         },
         "list": {
-          "label": "diameter",
+          "label": "volume",
           "searchable": true,
           "sortable": true
         }
       },
-      "distanceBetweenCenters": {
+      "transmission": {
         "edit": {
-          "label": "distanceBetweenCenters",
+          "label": "transmission",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "distanceBetweenCenters",
+          "label": "transmission",
           "searchable": true,
           "sortable": true
         }
@@ -367,84 +308,68 @@
     "layouts": {
       "list": [
         "id",
-        "width",
         "images",
-        "brand"
+        "model",
+        "manufactureDate"
       ],
       "edit": [
-        [
-          {
-            "name": "h1",
-            "size": 6
-          },
-          {
-            "name": "width",
-            "size": 4
-          }
-        ],
         [
           {
             "name": "images",
             "size": 6
           },
           {
-            "name": "price",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "priceUSD",
-            "size": 4
-          },
-          {
-            "name": "type",
+            "name": "model",
             "size": 6
           }
         ],
         [
           {
-            "name": "diameter",
+            "name": "manufactureDate",
             "size": 4
           },
           {
-            "name": "name",
+            "name": "deliveryDate",
+            "size": 4
+          },
+          {
+            "name": "volume",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "fuel",
+            "size": 6
+          },
+          {
+            "name": "bodyStyle",
             "size": 6
           }
         ],
         [
+          {
+            "name": "engine",
+            "size": 6
+          },
+          {
+            "name": "mileage",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "generation",
+            "size": 6
+          },
           {
             "name": "slug",
             "size": 6
-          },
-          {
-            "name": "numberHoles",
-            "size": 4
           }
         ],
         [
           {
-            "name": "diameterCenterHole",
-            "size": 4
-          },
-          {
-            "name": "distanceBetweenCenters",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "kind",
-            "size": 6
-          },
-          {
-            "name": "count",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "description",
+            "name": "videoLink",
             "size": 6
           }
         ],
@@ -456,33 +381,27 @@
         ],
         [
           {
+            "name": "price",
+            "size": 4
+          },
+          {
+            "name": "priceUSD",
+            "size": 4
+          }
+        ],
+        [
+          {
             "name": "brand",
             "size": 6
           },
           {
-            "name": "model",
+            "name": "description",
             "size": 6
           }
         ],
         [
           {
-            "name": "snippets",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "discountPrice",
-            "size": 4
-          },
-          {
-            "name": "discountPriceUSD",
-            "size": 4
-          }
-        ],
-        [
-          {
-            "name": "diskOffset",
+            "name": "transmission",
             "size": 6
           }
         ]

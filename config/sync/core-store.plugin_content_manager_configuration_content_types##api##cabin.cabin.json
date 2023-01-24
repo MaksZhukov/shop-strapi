@@ -220,20 +220,6 @@
           "sortable": true
         }
       },
-      "type": {
-        "edit": {
-          "label": "type",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "type",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "description": {
         "edit": {
           "label": "description",
@@ -260,6 +246,34 @@
           "label": "snippets",
           "searchable": false,
           "sortable": false
+        }
+      },
+      "type": {
+        "edit": {
+          "label": "type",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "type",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "year": {
+        "edit": {
+          "label": "year",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "year",
+          "searchable": true,
+          "sortable": true
         }
       },
       "createdAt": {
@@ -383,6 +397,12 @@
           {
             "name": "snippets",
             "size": 12
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "size": 4
           }
         ]
       ]
