@@ -20,20 +20,6 @@
           "sortable": true
         }
       },
-      "description": {
-        "edit": {
-          "label": "description",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "description",
-          "searchable": false,
-          "sortable": false
-        }
-      },
       "authorName": {
         "edit": {
           "label": "authorName",
@@ -62,18 +48,18 @@
           "sortable": true
         }
       },
-      "email": {
+      "description": {
         "edit": {
-          "label": "email",
+          "label": "description",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "email",
-          "searchable": true,
-          "sortable": true
+          "label": "description",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -128,10 +114,6 @@
           {
             "name": "rating",
             "size": 4
-          },
-          {
-            "name": "email",
-            "size": 6
           }
         ]
       ]

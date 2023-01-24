@@ -1,7 +1,7 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::page-shipping-and-payment.page-shipping-and-payment",
+  "key": "plugin_content_manager_configuration_content_types::api::page-cars-on-part.page-cars-on-part",
   "value": {
-    "uid": "api::page-shipping-and-payment.page-shipping-and-payment",
+    "uid": "api::page-cars-on-part.page-cars-on-part",
     "settings": {
       "bulkable": true,
       "filterable": true,

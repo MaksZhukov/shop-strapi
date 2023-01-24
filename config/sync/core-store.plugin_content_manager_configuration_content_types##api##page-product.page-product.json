@@ -34,34 +34,6 @@
           "sortable": false
         }
       },
-      "textAfterDescription": {
-        "edit": {
-          "label": "textAfterDescription",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "textAfterDescription",
-          "searchable": false,
-          "sortable": false
-        }
-      },
-      "autoSynonyms": {
-        "edit": {
-          "label": "autoSynonyms",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "autoSynonyms",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "benefits": {
         "edit": {
           "label": "benefits",
@@ -74,34 +46,6 @@
           "label": "benefits",
           "searchable": false,
           "sortable": false
-        }
-      },
-      "title": {
-        "edit": {
-          "label": "title",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "title",
-          "searchable": true,
-          "sortable": true
-        }
-      },
-      "description": {
-        "edit": {
-          "label": "description",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true
-        },
-        "list": {
-          "label": "description",
-          "searchable": true,
-          "sortable": true
         }
       },
       "createdAt": {
@@ -149,27 +93,7 @@
         ],
         [
           {
-            "name": "textAfterDescription",
-            "size": 12
-          }
-        ],
-        [
-          {
-            "name": "autoSynonyms",
-            "size": 6
-          },
-          {
             "name": "benefits",
-            "size": 6
-          }
-        ],
-        [
-          {
-            "name": "title",
-            "size": 6
-          },
-          {
-            "name": "description",
             "size": 6
           }
         ]

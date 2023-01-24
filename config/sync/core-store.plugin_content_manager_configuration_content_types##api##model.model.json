@@ -124,6 +124,21 @@
           "sortable": false
         }
       },
+      "cars_on_parts": {
+        "edit": {
+          "label": "cars_on_parts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "bodyStyle"
+        },
+        "list": {
+          "label": "cars_on_parts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -194,6 +209,10 @@
         [
           {
             "name": "cabins",
+            "size": 6
+          },
+          {
+            "name": "cars_on_parts",
             "size": 6
           }
         ]

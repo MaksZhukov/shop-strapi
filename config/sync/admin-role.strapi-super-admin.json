@@ -143,7 +143,30 @@
           "spareParts",
           "wheels",
           "image",
-          "cabins"
+          "cabins",
+          "seoCabins.title",
+          "seoCabins.description",
+          "seoCabins.keywords",
+          "seoCabins.h1",
+          "seoCabins.images",
+          "seoCabins.content",
+          "seoSpareParts.title",
+          "seoSpareParts.description",
+          "seoSpareParts.keywords",
+          "seoSpareParts.h1",
+          "seoSpareParts.images",
+          "seoSpareParts.content",
+          "seoWheels.title",
+          "seoWheels.description",
+          "seoWheels.keywords",
+          "seoWheels.h1",
+          "seoWheels.images",
+          "seoWheels.content",
+          "carsOnParts",
+          "slug",
+          "productBrandTexts.sparePartBrandText.content",
+          "productBrandTexts.cabinTextBrand.content",
+          "productBrandTexts.wheelTextBrand.content"
         ]
       },
       "conditions": []
@@ -165,7 +188,30 @@
           "spareParts",
           "wheels",
           "image",
-          "cabins"
+          "cabins",
+          "seoCabins.title",
+          "seoCabins.description",
+          "seoCabins.keywords",
+          "seoCabins.h1",
+          "seoCabins.images",
+          "seoCabins.content",
+          "seoSpareParts.title",
+          "seoSpareParts.description",
+          "seoSpareParts.keywords",
+          "seoSpareParts.h1",
+          "seoSpareParts.images",
+          "seoSpareParts.content",
+          "seoWheels.title",
+          "seoWheels.description",
+          "seoWheels.keywords",
+          "seoWheels.h1",
+          "seoWheels.images",
+          "seoWheels.content",
+          "carsOnParts",
+          "slug",
+          "productBrandTexts.sparePartBrandText.content",
+          "productBrandTexts.cabinTextBrand.content",
+          "productBrandTexts.wheelTextBrand.content"
         ]
       },
       "conditions": []
@@ -181,7 +227,30 @@
           "spareParts",
           "wheels",
           "image",
-          "cabins"
+          "cabins",
+          "seoCabins.title",
+          "seoCabins.description",
+          "seoCabins.keywords",
+          "seoCabins.h1",
+          "seoCabins.images",
+          "seoCabins.content",
+          "seoSpareParts.title",
+          "seoSpareParts.description",
+          "seoSpareParts.keywords",
+          "seoSpareParts.h1",
+          "seoSpareParts.images",
+          "seoSpareParts.content",
+          "seoWheels.title",
+          "seoWheels.description",
+          "seoWheels.keywords",
+          "seoWheels.h1",
+          "seoWheels.images",
+          "seoWheels.content",
+          "carsOnParts",
+          "slug",
+          "productBrandTexts.sparePartBrandText.content",
+          "productBrandTexts.cabinTextBrand.content",
+          "productBrandTexts.wheelTextBrand.content"
         ]
       },
       "conditions": []
@@ -213,7 +282,8 @@
           "description",
           "snippets.benefits",
           "snippets.textAfterH1",
-          "type"
+          "type",
+          "year"
         ]
       },
       "conditions": []
@@ -251,7 +321,8 @@
           "description",
           "snippets.benefits",
           "snippets.textAfterH1",
-          "type"
+          "type",
+          "year"
         ]
       },
       "conditions": []
@@ -283,7 +354,110 @@
           "description",
           "snippets.benefits",
           "snippets.textAfterH1",
-          "type"
+          "type",
+          "year"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::car-on-parts.car-on-parts",
+      "properties": {
+        "fields": [
+          "images",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "fuel",
+          "bodyStyle",
+          "engine",
+          "mileage",
+          "generation",
+          "slug",
+          "videoLink",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "price",
+          "priceUSD",
+          "brand",
+          "description",
+          "volume",
+          "transmission"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::car-on-parts.car-on-parts",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::car-on-parts.car-on-parts",
+      "properties": {
+        "fields": [
+          "images",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "fuel",
+          "bodyStyle",
+          "engine",
+          "mileage",
+          "generation",
+          "slug",
+          "videoLink",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "price",
+          "priceUSD",
+          "brand",
+          "description",
+          "volume",
+          "transmission"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::car-on-parts.car-on-parts",
+      "properties": {
+        "fields": [
+          "images",
+          "model",
+          "manufactureDate",
+          "deliveryDate",
+          "fuel",
+          "bodyStyle",
+          "engine",
+          "mileage",
+          "generation",
+          "slug",
+          "videoLink",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "price",
+          "priceUSD",
+          "brand",
+          "description",
+          "volume",
+          "transmission"
         ]
       },
       "conditions": []
@@ -298,7 +472,6 @@
           "model",
           "manufactureDate",
           "deliveryDate",
-          "volume",
           "fuel",
           "slug",
           "engine",
@@ -311,7 +484,9 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "videoLink"
+          "videoLink",
+          "volume",
+          "transmission"
         ]
       },
       "conditions": []
@@ -332,7 +507,6 @@
           "model",
           "manufactureDate",
           "deliveryDate",
-          "volume",
           "fuel",
           "slug",
           "engine",
@@ -345,7 +519,9 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "videoLink"
+          "videoLink",
+          "volume",
+          "transmission"
         ]
       },
       "conditions": []
@@ -360,7 +536,6 @@
           "model",
           "manufactureDate",
           "deliveryDate",
-          "volume",
           "fuel",
           "slug",
           "engine",
@@ -373,7 +548,54 @@
           "seo.h1",
           "seo.images",
           "seo.content",
-          "videoLink"
+          "videoLink",
+          "volume",
+          "transmission"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::engine-volume.engine-volume",
+      "properties": {
+        "fields": [
+          "name",
+          "cars",
+          "carsOnParts",
+          "spareParts"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::engine-volume.engine-volume",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::engine-volume.engine-volume",
+      "properties": {
+        "fields": [
+          "name",
+          "cars",
+          "carsOnParts",
+          "spareParts"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::engine-volume.engine-volume",
+      "properties": {
+        "fields": [
+          "name",
+          "cars",
+          "carsOnParts",
+          "spareParts"
         ]
       },
       "conditions": []
@@ -429,7 +651,8 @@
           "spareParts",
           "cars",
           "model",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -449,7 +672,8 @@
           "spareParts",
           "cars",
           "model",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -463,7 +687,8 @@
           "spareParts",
           "cars",
           "model",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -569,7 +794,8 @@
           "spareParts",
           "generations",
           "wheels",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -591,7 +817,8 @@
           "spareParts",
           "generations",
           "wheels",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -607,7 +834,8 @@
           "spareParts",
           "generations",
           "wheels",
-          "cabins"
+          "cabins",
+          "cars_on_parts"
         ]
       },
       "conditions": []
@@ -662,6 +890,60 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-about.page-about",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-about.page-about",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-about.page-about",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-about.page-about",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::page-article.page-article",
       "properties": {
         "fields": [
@@ -815,9 +1097,10 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-buying-car.page-buying-car",
+      "subject": "api::page-buyback-car.page-buyback-car",
       "properties": {
         "fields": [
+          "content",
           "seo.title",
           "seo.description",
           "seo.keywords",
@@ -830,15 +1113,16 @@
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-buying-car.page-buying-car",
+      "subject": "api::page-buyback-car.page-buyback-car",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-buying-car.page-buying-car",
+      "subject": "api::page-buyback-car.page-buyback-car",
       "properties": {
         "fields": [
+          "content",
           "seo.title",
           "seo.description",
           "seo.keywords",
@@ -851,9 +1135,10 @@
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-buying-car.page-buying-car",
+      "subject": "api::page-buyback-car.page-buyback-car",
       "properties": {
         "fields": [
+          "content",
           "seo.title",
           "seo.description",
           "seo.keywords",
@@ -959,6 +1244,57 @@
       "properties": {
         "fields": [
           "images",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-cars-on-part.page-cars-on-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-cars-on-part.page-cars-on-part",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-cars-on-part.page-cars-on-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-cars-on-part.page-cars-on-part",
+      "properties": {
+        "fields": [
           "seo.title",
           "seo.description",
           "seo.keywords",
@@ -1141,7 +1477,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -1162,7 +1499,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -1177,7 +1515,8 @@
           "seo.keywords",
           "seo.h1",
           "seo.images",
-          "seo.content"
+          "seo.content",
+          "content"
         ]
       },
       "conditions": []
@@ -1308,7 +1647,9 @@
           "discounts.image",
           "discounts.link",
           "deliveryAuto.image",
-          "deliveryAuto.link"
+          "deliveryAuto.link",
+          "autocomises",
+          "serviceStations"
         ]
       },
       "conditions": []
@@ -1337,7 +1678,9 @@
           "discounts.image",
           "discounts.link",
           "deliveryAuto.image",
-          "deliveryAuto.link"
+          "deliveryAuto.link",
+          "autocomises",
+          "serviceStations"
         ]
       },
       "conditions": []
@@ -1360,7 +1703,258 @@
           "discounts.image",
           "discounts.link",
           "deliveryAuto.image",
-          "deliveryAuto.link"
+          "deliveryAuto.link",
+          "autocomises",
+          "serviceStations"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-payment.page-payment",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-payment.page-payment",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-payment.page-payment",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-payment.page-payment",
+      "properties": {
+        "fields": [
+          "content",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-product-cabin.page-product-cabin",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-product-cabin.page-product-cabin",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-product-cabin.page-product-cabin",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-product-cabin.page-product-cabin",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-product-spare-part.page-product-spare-part",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "autoSynonyms"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-product-spare-part.page-product-spare-part",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-product-spare-part.page-product-spare-part",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "autoSynonyms"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-product-spare-part.page-product-spare-part",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "autoSynonyms"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-product-tire.page-product-tire",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-product-tire.page-product-tire",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-product-tire.page-product-tire",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-product-tire.page-product-tire",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-product-wheel.page-product-wheel",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-product-wheel.page-product-wheel",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-product-wheel.page-product-wheel",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-product-wheel.page-product-wheel",
+      "properties": {
+        "fields": [
+          "textAfterDescription",
+          "textAfterBenefits",
+          "seo.title",
+          "seo.description",
+          "seo.keywords"
         ]
       },
       "conditions": []
@@ -1372,11 +1966,7 @@
         "fields": [
           "linksWithImages.image",
           "linksWithImages.link",
-          "textAfterDescription",
-          "autoSynonyms",
-          "benefits",
-          "title",
-          "description"
+          "benefits"
         ]
       },
       "conditions": []
@@ -1394,11 +1984,7 @@
         "fields": [
           "linksWithImages.image",
           "linksWithImages.link",
-          "textAfterDescription",
-          "autoSynonyms",
-          "benefits",
-          "title",
-          "description"
+          "benefits"
         ]
       },
       "conditions": []
@@ -1410,406 +1996,343 @@
         "fields": [
           "linksWithImages.image",
           "linksWithImages.link",
-          "textAfterDescription",
-          "autoSynonyms",
-          "benefits",
-          "title",
+          "benefits"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-review.page-review",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-review.page-review",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-service-station.page-service-station",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-spare-part.page-spare-part",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-tire.page-tire",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-tire.page-tire",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-vacancy.page-vacancy",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::page-wheel.page-wheel",
+      "properties": {
+        "fields": [
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::review.review",
+      "properties": {
+        "fields": [
+          "authorName",
+          "rating",
           "description"
         ]
       },
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-review.page-review",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-review.page-review",
+      "subject": "api::review.review",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-review.page-review",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-review.page-review",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-service-station.page-service-station",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-service-station.page-service-station",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-service-station.page-service-station",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-service-station.page-service-station",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-shipping-and-payment.page-shipping-and-payment",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-spare-part.page-spare-part",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-spare-part.page-spare-part",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-spare-part.page-spare-part",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-spare-part.page-spare-part",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-tire.page-tire",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-tire.page-tire",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-tire.page-tire",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-tire.page-tire",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-vacancy.page-vacancy",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-vacancy.page-vacancy",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-vacancy.page-vacancy",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-vacancy.page-vacancy",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::page-wheel.page-wheel",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::page-wheel.page-wheel",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::page-wheel.page-wheel",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::page-wheel.page-wheel",
-      "properties": {
-        "fields": [
-          "seo.title",
-          "seo.description",
-          "seo.keywords",
-          "seo.h1",
-          "seo.images",
-          "seo.content"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
       "subject": "api::review.review",
       "properties": {
         "fields": [
-          "description",
           "authorName",
           "rating",
-          "email"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::review.review",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::review.review",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::review.review",
-      "properties": {
-        "fields": [
-          "description",
-          "authorName",
-          "rating",
-          "email"
+          "description"
         ]
       },
       "conditions": []
@@ -1819,10 +2342,9 @@
       "subject": "api::review.review",
       "properties": {
         "fields": [
-          "description",
           "authorName",
           "rating",
-          "email"
+          "description"
         ]
       },
       "conditions": []
@@ -1944,7 +2466,6 @@
           "priceUSD",
           "slug",
           "year",
-          "volume",
           "bodyStyle",
           "transmission",
           "model",
@@ -1963,7 +2484,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "engine",
+          "volume",
+          "engineNumber"
         ]
       },
       "conditions": []
@@ -1986,7 +2510,6 @@
           "priceUSD",
           "slug",
           "year",
-          "volume",
           "bodyStyle",
           "transmission",
           "model",
@@ -2005,7 +2528,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "engine",
+          "volume",
+          "engineNumber"
         ]
       },
       "conditions": []
@@ -2022,7 +2548,6 @@
           "priceUSD",
           "slug",
           "year",
-          "volume",
           "bodyStyle",
           "transmission",
           "model",
@@ -2041,7 +2566,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "engine",
+          "volume",
+          "engineNumber"
         ]
       },
       "conditions": []
@@ -2052,7 +2580,15 @@
       "properties": {
         "fields": [
           "name",
-          "tires"
+          "tires",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug",
+          "productBrandText.content"
         ]
       },
       "conditions": []
@@ -2069,7 +2605,15 @@
       "properties": {
         "fields": [
           "name",
-          "tires"
+          "tires",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug",
+          "productBrandText.content"
         ]
       },
       "conditions": []
@@ -2077,6 +2621,131 @@
     {
       "action": "plugin::content-manager.explorer.update",
       "subject": "api::tire-brand.tire-brand",
+      "properties": {
+        "fields": [
+          "name",
+          "tires",
+          "seo.title",
+          "seo.description",
+          "seo.keywords",
+          "seo.h1",
+          "seo.images",
+          "seo.content",
+          "slug",
+          "productBrandText.content"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::tire-diameter.tire-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::tire-diameter.tire-diameter",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::tire-diameter.tire-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::tire-diameter.tire-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::tire-height.tire-height",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::tire-height.tire-height",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::tire-height.tire-height",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::tire-height.tire-height",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::tire-width.tire-width",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::tire-width.tire-width",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::tire-width.tire-width",
+      "properties": {
+        "fields": [
+          "name",
+          "tires"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::tire-width.tire-width",
       "properties": {
         "fields": [
           "name",
@@ -2090,9 +2759,6 @@
       "subject": "api::tire.tire",
       "properties": {
         "fields": [
-          "diameter",
-          "width",
-          "height",
           "season",
           "price",
           "priceUSD",
@@ -2113,7 +2779,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "width",
+          "height",
+          "diameter"
         ]
       },
       "conditions": []
@@ -2129,9 +2798,6 @@
       "subject": "api::tire.tire",
       "properties": {
         "fields": [
-          "diameter",
-          "width",
-          "height",
           "season",
           "price",
           "priceUSD",
@@ -2152,7 +2818,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "width",
+          "height",
+          "diameter"
         ]
       },
       "conditions": []
@@ -2162,9 +2831,6 @@
       "subject": "api::tire.tire",
       "properties": {
         "fields": [
-          "diameter",
-          "width",
-          "height",
           "season",
           "price",
           "priceUSD",
@@ -2185,7 +2851,10 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "width",
+          "height",
+          "diameter"
         ]
       },
       "conditions": []
@@ -2255,20 +2924,209 @@
     },
     {
       "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-diameter-center-hole.wheel-diameter-center-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-diameter.wheel-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-diameter.wheel-diameter",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-diameter.wheel-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-diameter.wheel-diameter",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-disk-offset.wheel-disk-offset",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-disk-offset.wheel-disk-offset",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-disk-offset.wheel-disk-offset",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-disk-offset.wheel-disk-offset",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-number-hole.wheel-number-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-number-hole.wheel-number-hole",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-number-hole.wheel-number-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-number-hole.wheel-number-hole",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::wheel-width.wheel-width",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::wheel-width.wheel-width",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::wheel-width.wheel-width",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::wheel-width.wheel-width",
+      "properties": {
+        "fields": [
+          "name",
+          "wheels"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "width",
           "images",
           "price",
           "priceUSD",
           "name",
           "slug",
-          "numberHoles",
-          "diameterCenterHole",
-          "diameter",
-          "diskOffset",
-          "distanceBetweenCenters",
           "brand",
           "model",
           "kind",
@@ -2285,7 +3143,13 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "diskOffset",
+          "width",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "distanceBetweenCenters"
         ]
       },
       "conditions": []
@@ -2301,17 +3165,11 @@
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "width",
           "images",
           "price",
           "priceUSD",
           "name",
           "slug",
-          "numberHoles",
-          "diameterCenterHole",
-          "diameter",
-          "diskOffset",
-          "distanceBetweenCenters",
           "brand",
           "model",
           "kind",
@@ -2328,7 +3186,13 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "diskOffset",
+          "width",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "distanceBetweenCenters"
         ]
       },
       "conditions": []
@@ -2338,17 +3202,11 @@
       "subject": "api::wheel.wheel",
       "properties": {
         "fields": [
-          "width",
           "images",
           "price",
           "priceUSD",
           "name",
           "slug",
-          "numberHoles",
-          "diameterCenterHole",
-          "diameter",
-          "diskOffset",
-          "distanceBetweenCenters",
           "brand",
           "model",
           "kind",
@@ -2365,7 +3223,13 @@
           "h1",
           "discountPrice",
           "discountPriceUSD",
-          "type"
+          "type",
+          "diskOffset",
+          "width",
+          "numberHoles",
+          "diameterCenterHole",
+          "diameter",
+          "distanceBetweenCenters"
         ]
       },
       "conditions": []
@@ -2538,6 +3402,7 @@
       "properties": {
         "fields": [
           "dateNewProductSentToEmail",
+          "dateProductsInCsvSentToEmail",
           "currencyDate",
           "currencyCoefficient"
         ]
@@ -2556,6 +3421,7 @@
       "properties": {
         "fields": [
           "dateNewProductSentToEmail",
+          "dateProductsInCsvSentToEmail",
           "currencyDate",
           "currencyCoefficient"
         ]
@@ -2568,6 +3434,7 @@
       "properties": {
         "fields": [
           "dateNewProductSentToEmail",
+          "dateProductsInCsvSentToEmail",
           "currencyDate",
           "currencyCoefficient"
         ]
