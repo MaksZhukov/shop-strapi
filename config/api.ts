@@ -1,7 +1,6 @@
 export default ({ env }) => ({
     rest: {
-        defaultLimit: 30,
-        maxLimit: 100,
-        withCount: true,
+        defaultLimit: 5,
+        maxLimit: env("DEFAULT_REST_MAX_LIMIT", 100),
     },
 });
