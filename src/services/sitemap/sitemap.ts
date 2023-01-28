@@ -25,6 +25,13 @@ const generateProductLink = (data) =>
 const generateProductLinks = (items) =>
     items.map((item) => generateProductLink(item));
 
+const generateBrandWithModelLinks = (brand, productTypeSlug) => [
+    generateLink(`/${productTypeSlug}/${brand.slug}`),
+    ...brand.models.map((model) =>
+        generateLink(`/${productTypeSlug}/${brand.slug}/model-${model.slug}`)
+    ),
+];
+
 const generateSitemap = async () => {
     const [
         spareParts,
@@ -44,9 +51,10 @@ const generateSitemap = async () => {
         getItems("api::vacancy.vacancy"),
         getItems("api::article.article"),
         getItems("api::car.car"),
-        getItems("api::brand.brand"),
+        getItems("api::brand.brand", { populate: ["models"] }),
         getItems("api::tire-brand.tire-brand"),
     ]);
+
     let links = [
         ...generateProductLinks(spareParts),
         ...generateProductLinks(wheels),
@@ -57,9 +65,9 @@ const generateSitemap = async () => {
         ...cars.map((item) => generateLink(`/awaiting-cars/${item.slug}`)),
         ...brands
             .map((item) => [
-                generateLink(`/spare-parts/${item.slug}`),
-                generateLink(`/wheels/${item.slug}`),
-                generateLink(`/cabins/${item.slug}`),
+                ...generateBrandWithModelLinks(item, "spare-parts"),
+                ...generateBrandWithModelLinks(item, "wheels"),
+                ...generateBrandWithModelLinks(item, "cabins"),
             ])
             .flat(),
         ...tireBrands.map((item) => generateLink(`/tires/${item.slug}`)),
