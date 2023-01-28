@@ -56,6 +56,21 @@
       "relation": "oneToMany",
       "target": "api::car-on-parts.car-on-parts",
       "mappedBy": "model"
+    },
+    "seoSpareParts": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "seoCabins": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "seoWheels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
