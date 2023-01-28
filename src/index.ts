@@ -26,6 +26,17 @@ export default {
      */
     async bootstrap({ strapi }) {
         // fileMetadataService({ strapi });
+        if (process.env.NODE_APP_INSTANCE === "0") {
+            const models = await strapi.db.query("api::model.model").findMany();
+            models.forEach((item) => {
+                strapi.db.query("api::model.model").update({
+                    where: { id: item.id },
+                    data: {
+                        slug: slugify(item.name, { lower: true }),
+                    },
+                });
+            });
+        }
         if (
             process.env.NODE_ENV === "production" &&
             process.env.NODE_APP_INSTANCE === "0"
