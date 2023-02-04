@@ -202,13 +202,21 @@ export const getCountUnrelatedMedia = async () => {
     return count;
 };
 
+export const removeImagesByApiUID = async (apiUID) => {
+    const spareParts = await strapi.db.query(apiUID).findMany({
+        populate: ["images"],
+    });
+    const images = spareParts.map((item) => item.images).flat();
+    images.forEach((item) => {
+        strapi.plugins["upload"].services.upload.remove(item);
+    });
+};
+
 export const generateDefaultBrandTextComponent = (item, type, slug) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return {
         content: `<p>
-    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${
-            item.slug
-        }"><span>${type} для ${item.name}</span></a>
+    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${item.slug}"><span>${type} для ${item.name}</span></a>
 </p>`,
     };
 };
