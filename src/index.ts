@@ -2,6 +2,7 @@ import runScripts from "./scripts";
 import {
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
+    removeImagesByApiUID,
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
 } from "./services";
@@ -35,6 +36,7 @@ export default {
             if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
                 sendProductsInCSVToEmail({ strapi });
             }
+            removeImagesByApiUID("api::spare-part.spare-part");
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
