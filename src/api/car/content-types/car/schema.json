@@ -49,7 +49,7 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "bodyStyle"
+      "targetField": "name"
     },
     "engine": {
       "type": "string"
@@ -88,6 +88,9 @@
         "робот",
         "вариатор"
       ]
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
