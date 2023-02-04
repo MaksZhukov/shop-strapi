@@ -36,7 +36,11 @@ export default {
             if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
                 sendProductsInCSVToEmail({ strapi });
             }
-            removeImagesByApiUID("api::spare-part.spare-part");
+            removeImagesByApiUID("api::wheel.wheel");
+            removeImagesByApiUID("api::cabin.cabin");
+            removeImagesByApiUID("api::tire.tire");
+            removeImagesByApiUID("api::car.car");
+            removeImagesByApiUID("api::car-on-parts.car-on-parts");
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
