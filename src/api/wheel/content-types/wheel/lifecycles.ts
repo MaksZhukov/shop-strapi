@@ -1,9 +1,15 @@
-import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
+import { afterCreateProduct, beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
 
 export default {
     beforeCreate: beforeCreateProduct,
-    afterCreate: lifecycleSitemap,
-    afterUpdate: lifecycleSitemap,
+    afterCreate: (data) => {
+        afterCreateProduct(data);
+        lifecycleSitemap();
+    },
+    afterUpdate: (data) => {
+        afterCreateProduct(data);
+        lifecycleSitemap();
+    },
     afterDelete: lifecycleSitemap,
     // afterDelete: afterDeleteProduct,
 };
