@@ -25,7 +25,8 @@ module.exports = {
             exec_mode: "cluster",
             max_memory_restart: "800M",
             restart_delay: 5000,
-            max_restarts: 2,
+            min_uptime: 300,
+            max_restarts: 3,
         },
     ],
 };
