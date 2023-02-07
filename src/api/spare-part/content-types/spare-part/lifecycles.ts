@@ -2,6 +2,8 @@ import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
 import { updateAltTextForProductImages } from "../../../../services";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
+// test
+
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
