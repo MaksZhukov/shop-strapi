@@ -1,18 +1,15 @@
-import {
-    afterCreateProduct,
-    beforeCreateProduct,
-    lifecycleSitemap,
-} from "../../../../lifecycles";
+import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
+import { updateAltTextForProductImages } from "../../../../services";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
-        afterCreateProduct(data);
+        updateAltTextForProductImages(data.result);
         lifecycleSitemap();
     },
     afterUpdate: (data) => {
-        afterCreateProduct(data);
+        updateAltTextForProductImages(data.result);
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
+import { ALTS_ARR } from "./constants";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -219,4 +220,19 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
     Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${item.slug}"><span>${type} для ${item.name}</span></a>
 </p>`,
     };
+};
+
+export const updateAltTextForProductImages = (data) => {
+    data.images?.forEach((image, index) => {
+        let values = {
+            h1: data.h1,
+            title: data.seo?.title,
+            description: data.seo?.description,
+        };
+        let alternativeText =
+            values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
+        strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
+            alternativeText: alternativeText,
+        });
+    });
 };

@@ -1,6 +1,5 @@
 import slugify from "slugify";
 import scheduleGenerateSitemap from "../services/sitemap/sitemap";
-import { ALTS_ARR } from "./constants";
 
 export const afterDeleteProduct = async (event) => {
     const { id, type } = event.result;
@@ -79,21 +78,6 @@ export const beforeCreateOrUpdateCar = (event) => {
                 : "";
         data.slug = slugify(name, { lower: true }) + "-" + data.id;
     }
-};
-
-export const afterCreateProduct = (data) => {
-    data.result.images.forEach((image, index) => {
-        let values = {
-            h1: data.result.h1,
-            title: data.result.seo?.title,
-            description: data.result.seo?.description,
-        };
-        let alternativeText =
-            values[ALTS_ARR[index]] || data.result.h1 + " " + ALTS_ARR[index];
-        strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
-            alternativeText: alternativeText,
-        });
-    });
 };
 
 export const lifecycleSitemap = () => {
