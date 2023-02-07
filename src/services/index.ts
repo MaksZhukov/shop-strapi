@@ -223,16 +223,16 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
 };
 
 export const updateAltTextForProductImages = (data) => {
-    // data.images?.forEach((image, index) => {
-    //     let values = {
-    //         h1: data.h1,
-    //         title: data.seo?.title,
-    //         description: data.seo?.description,
-    //     };
-    //     let alternativeText =
-    //         values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
-    //     strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
-    //         alternativeText: alternativeText,
-    //     });
-    // });
+    data.images?.forEach((image, index) => {
+        let values = {
+            h1: data.h1,
+            title: data.seo?.title,
+            description: data.seo?.description,
+        };
+        let alternativeText =
+            values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
+        strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
+            alternativeText: alternativeText,
+        });
+    });
 };
