@@ -12,37 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "textAfterBrands": {
-      "type": "richtext"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
-    },
-    "advertising": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.link-and-image"
-    },
-    "discounts": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.link-and-image"
-    },
-    "deliveryAuto": {
-      "type": "component",
-      "repeatable": false,
-      "component": "general.link-and-image"
-    },
     "autocomises": {
       "type": "relation",
       "relation": "oneToMany",
@@ -52,6 +21,81 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service-station.service-station"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.short-seo"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "h1": {
+      "type": "string"
+    },
+    "subH1": {
+      "type": "string"
+    },
+    "titleCategories": {
+      "type": "string"
+    },
+    "categoryImages": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "benefits": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "popularBrandsText": {
+      "type": "string"
+    },
+    "leftSideText": {
+      "type": "richtext"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "reviewsTitle": {
+      "type": "string"
+    },
+    "benefitsTitle": {
+      "type": "string"
+    },
+    "benefitsLeftText": {
+      "type": "richtext"
+    },
+    "benefitsRightImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "blogTitle": {
+      "type": "string"
+    },
+    "blogLeftText": {
+      "type": "richtext"
+    },
+    "blogRightText": {
+      "type": "richtext"
+    },
+    "deliveryTitle": {
+      "type": "string"
+    },
+    "deliveryText": {
+      "type": "richtext"
     }
   }
 }
