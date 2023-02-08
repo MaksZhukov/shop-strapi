@@ -36,6 +36,7 @@ export default {
             if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
                 sendProductsInCSVToEmail({ strapi });
             }
+
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
