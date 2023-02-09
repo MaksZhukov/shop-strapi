@@ -28,11 +28,12 @@
       "component": "seo.short-seo"
     },
     "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "h1": {
       "type": "string"
@@ -44,20 +45,22 @@
       "type": "string"
     },
     "categoryImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "benefits": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "popularBrandsText": {
+    "popularBrandsTitle": {
       "type": "string"
     },
     "leftSideText": {
@@ -76,11 +79,12 @@
       "type": "richtext"
     },
     "benefitsRightImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "blogTitle": {
       "type": "string"
