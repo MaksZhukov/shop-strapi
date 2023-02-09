@@ -4,20 +4,4 @@
 
 import { factories } from "@strapi/strapi";
 
-export default factories.createCoreController(
-    "api::page-main.page-main",
-    () => ({
-        find(ctx) {
-            ctx.query.populate = [
-                "autocomises.image",
-                "banner",
-                "seo.images",
-                "advertising.image",
-                "discounts.image",
-                "deliveryAuto.image",
-                "serviceStations.image",
-            ];
-            return super.find(ctx);
-        },
-    })
-);
+export default factories.createCoreController("api::page-main.page-main");
