@@ -12,13 +12,101 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
+    "mainBackgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mainBackgroundLeftImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "h1": {
+      "type": "string"
+    },
+    "weProvideTitle": {
+      "type": "string"
+    },
+    "weProvide": {
+      "displayName": "weProvide",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.card",
+      "max": 3,
+      "min": 3
+    },
+    "purchasedCarsTitle": {
+      "type": "string"
+    },
+    "advantagesTitle": {
+      "type": "string"
+    },
+    "advantagesRightImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "advantages": {
+      "type": "text"
+    },
+    "buyAnyCarsTitle": {
+      "type": "string"
+    },
+    "anyCarsAfter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.card",
+      "max": 6,
+      "min": 6
+    },
+    "sellCarTitle": {
+      "type": "string"
+    },
+    "sellSteps": {
+      "displayName": "CardWithoutImage",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.card-without-image"
+    },
+    "sellImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "applicationLeftText": {
       "type": "richtext"
+    },
+    "whyWeTitle": {
+      "type": "string"
+    },
+    "whyWe": {
+      "type": "text"
+    },
+    "whyWeLeftImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
     }
   }
 }

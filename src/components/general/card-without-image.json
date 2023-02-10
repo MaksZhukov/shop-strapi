@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_general_card_without_images",
+  "info": {
+    "displayName": "CardWithoutImage"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
