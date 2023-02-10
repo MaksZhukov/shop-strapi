@@ -38,7 +38,7 @@
       "displayName": "weProvide",
       "type": "component",
       "repeatable": true,
-      "component": "general.we-provide",
+      "component": "general.card",
       "max": 3,
       "min": 3
     },
@@ -65,7 +65,7 @@
     "anyCarsAfter": {
       "type": "component",
       "repeatable": true,
-      "component": "general.we-provide",
+      "component": "general.card",
       "max": 6,
       "min": 6
     },
