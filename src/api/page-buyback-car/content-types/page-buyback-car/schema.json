@@ -75,7 +75,7 @@
     "sellSteps": {
       "displayName": "CardWithoutImage",
       "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "general.card-without-image"
     },
     "sellImage": {
