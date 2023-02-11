@@ -15,7 +15,22 @@
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
+    },
+    "phone1": {
+      "type": "string"
+    },
+    "phone2": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "askTitle": {
+      "type": "string"
+    },
+    "askText": {
+      "type": "richtext"
     },
     "content": {
       "type": "richtext"
