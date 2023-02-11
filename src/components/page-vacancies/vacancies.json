@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_page_vacancies_vacancies",
+  "info": {
+    "displayName": "vacancies"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "vacancy": {
+      "type": "string"
+    },
+    "description": {
+      "displayName": "Label&Value",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.label-and-value"
+    },
+    "fullTitle": {
+      "type": "string"
+    },
+    "responsibilities": {
+      "type": "text"
+    },
+    "requirenments": {
+      "type": "text"
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
