@@ -34,6 +34,17 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "h1": {
+      "type": "string"
     }
   }
 }
