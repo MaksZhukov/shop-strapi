@@ -15,7 +15,13 @@
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
+    },
+    "vacancies": {
+      "displayName": "vacancies",
+      "type": "component",
+      "repeatable": true,
+      "component": "page-vacancies.vacancies"
     }
   }
 }
