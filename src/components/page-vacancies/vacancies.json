@@ -1,7 +1,8 @@
 {
   "collectionName": "components_page_vacancies_vacancies",
   "info": {
-    "displayName": "vacancies"
+    "displayName": "vacancies",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,11 +10,12 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "vacancy": {
       "type": "string"
@@ -30,15 +32,16 @@
     "responsibilities": {
       "type": "text"
     },
-    "requirenments": {
+    "requirements": {
       "type": "text"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
