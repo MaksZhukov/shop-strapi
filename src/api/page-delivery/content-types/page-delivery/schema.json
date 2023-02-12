@@ -47,10 +47,10 @@
       "repeatable": true,
       "component": "general.label-and-value"
     },
-    "curierTitle": {
+    "courierTitle": {
       "type": "string"
     },
-    "curierDescription": {
+    "courierDescription": {
       "type": "component",
       "repeatable": true,
       "component": "general.label-and-value"
