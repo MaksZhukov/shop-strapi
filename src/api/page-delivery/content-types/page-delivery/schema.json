@@ -15,10 +15,63 @@
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
     },
-    "content": {
+    "h1": {
+      "type": "string"
+    },
+    "mainImageLeft": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mainTextRight": {
       "type": "richtext"
+    },
+    "images1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "deliveryCitiesTitle": {
+      "type": "string"
+    },
+    "deliveryCitiesDescription": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.label-and-value"
+    },
+    "curierTitle": {
+      "type": "string"
+    },
+    "curierDescription": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.label-and-value"
+    },
+    "shipmentTitle": {
+      "type": "string"
+    },
+    "shipmentText": {
+      "type": "richtext"
+    },
+    "shipmentImageRight": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "images2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
