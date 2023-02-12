@@ -15,7 +15,53 @@
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
+    },
+    "h1": {
+      "type": "string"
+    },
+    "mainLeftImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mainRightText": {
+      "type": "richtext"
+    },
+    "images1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "guaranteeNotApplyTitle": {
+      "type": "string"
+    },
+    "guaranteeNotApplyText": {
+      "type": "richtext"
+    },
+    "images2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "warningTitle": {
+      "type": "string"
+    },
+    "warningLeftImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "warningRightText": {
+      "type": "text"
     },
     "content": {
       "type": "richtext"
