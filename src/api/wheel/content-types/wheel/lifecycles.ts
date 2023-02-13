@@ -1,14 +1,14 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import { updateAltTextForProductImages } from "../../../../services";
+import { scheduleUpdateAltTextForProductImages } from "../../../../services";
 
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
-        updateAltTextForProductImages(data.result);
+        scheduleUpdateAltTextForProductImages(data.result, "api::wheel.wheel");
         lifecycleSitemap();
     },
     afterUpdate: (data) => {
-        updateAltTextForProductImages(data.result);
+        scheduleUpdateAltTextForProductImages(data.result, "api::wheel.wheel");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,
