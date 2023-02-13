@@ -1,14 +1,14 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import { updateAltTextForProductImages } from "../../../../services";
+import { scheduleUpdateAltTextForProductImages } from "../../../../services";
 
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
-        updateAltTextForProductImages(data.result);
+        scheduleUpdateAltTextForProductImages(data.result, "api:tire.tire");
         lifecycleSitemap();
     },
     afterUpdate: (data) => {
-        updateAltTextForProductImages(data.result);
+        scheduleUpdateAltTextForProductImages(data.result, "api::tire.tire");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,
