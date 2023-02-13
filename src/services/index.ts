@@ -240,7 +240,7 @@ export const updateAltTextForProductImages = (data, images) => {
 export const scheduleUpdateAltTextForProductImages = (data, apiUID) => {
     setTimeout(async () => {
         const images = (
-            await strapi.service(apiUID).findOne(data.result.id, {
+            await strapi.service(apiUID).findOne(data.id, {
                 populate: { images: true },
             })
         ).images;
