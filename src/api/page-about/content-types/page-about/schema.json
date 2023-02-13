@@ -12,13 +12,98 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "content": {
-      "type": "richtext"
-    },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
+    },
+    "h1": {
+      "type": "string"
+    },
+    "mainImageLeft": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "mainTextRight": {
+      "type": "richtext"
+    },
+    "images1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "whyNeedServicesTitle": {
+      "type": "string"
+    },
+    "whyNeedServicesText": {
+      "type": "richtext"
+    },
+    "images2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "whyNeedServicesTextAfterImages2": {
+      "type": "richtext"
+    },
+    "mainPrinciplesTitle": {
+      "type": "string"
+    },
+    "mainPrinciplesTextLeft": {
+      "type": "richtext"
+    },
+    "mainPrinciplesImageRight": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "images3": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "mainPrinciplesTextAfterImages3": {
+      "type": "richtext"
+    },
+    "nuancesTitle": {
+      "type": "string"
+    },
+    "nuancesText": {
+      "type": "richtext"
+    },
+    "images4": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "pricesTitle": {
+      "type": "string"
+    },
+    "pricesLeftImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "pricesRightText": {
+      "type": "richtext"
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }
