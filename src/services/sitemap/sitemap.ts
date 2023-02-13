@@ -58,7 +58,6 @@ const generateSitemap = async () => {
         ...generateProductLinks(wheels),
         ...generateProductLinks(tires),
         ...generateProductLinks(cabins),
-        ...vacancies.map((item) => generateLink(`/vacansies/${item.slug}`)),
         ...articles.map((item) => generateLink(`/articles/${item.slug}`)),
         ...cars.map((item) => generateLink(`/awaiting-cars/${item.slug}`)),
         ...brands
