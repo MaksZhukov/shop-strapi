@@ -222,8 +222,8 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
     };
 };
 
-export const updateAltTextForProductImages = (data) => {
-    data.images?.forEach((image, index) => {
+export const updateAltTextForProductImages = (data, images) => {
+    images?.forEach((image, index) => {
         let values = {
             h1: data.h1,
             title: data.seo?.title,
@@ -235,4 +235,15 @@ export const updateAltTextForProductImages = (data) => {
             alternativeText: alternativeText,
         });
     });
+};
+
+export const scheduleUpdateAltTextForProductImages = (data, apiUID) => {
+    setTimeout(async () => {
+        const images = (
+            await strapi.service(apiUID).findOne(data.result.id, {
+                populate: { images: true },
+            })
+        ).images;
+        updateAltTextForProductImages(data, images);
+    }, 1000);
 };

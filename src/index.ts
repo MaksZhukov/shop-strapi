@@ -25,6 +25,12 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
+        const test = await strapi
+            .service("api::spare-part.spare-part")
+            .findOne(234, {
+                populate: ["images"],
+            });
+        console.log(test);
         // fileMetadataService({ strapi });
         if (
             process.env.NODE_ENV === "production" &&
