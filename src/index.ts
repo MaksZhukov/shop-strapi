@@ -25,6 +25,7 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
+        console.log(strapi.plugins["upload"].services.upload);
         // fileMetadataService({ strapi });
         if (
             process.env.NODE_ENV === "production" &&
