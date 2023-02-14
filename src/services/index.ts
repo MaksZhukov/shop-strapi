@@ -229,10 +229,11 @@ export const updateAltTextForProductImages = (data, images) => {
             title: data.seo?.title,
             description: data.seo?.description,
         };
-        let alternativeText =
+        let alt =
             values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
         strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
-            alternativeText: alternativeText,
+            alternativeText: alt,
+            caption: alt,
         });
     });
 };
