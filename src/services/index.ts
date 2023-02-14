@@ -203,6 +203,18 @@ export const getCountUnrelatedMedia = async () => {
     return count;
 };
 
+export const deleteUnrelatedMediaForApiUploadFolder = async () => {
+    const medias = await strapi.plugins["upload"].services.upload.findMany({
+        populate: "*",
+    });
+
+    medias
+        .filter((item) => !item.related.length && item.folder?.id === 1)
+        .forEach((item) => {
+            strapi.plugins["upload"].services.upload.remove(item);
+        });
+};
+
 export const removeImagesByApiUID = async (apiUID) => {
     const spareParts = await strapi.db.query(apiUID).findMany({
         populate: ["images"],
@@ -229,8 +241,7 @@ export const updateAltTextForProductImages = (data, images) => {
             title: data.seo?.title,
             description: data.seo?.description,
         };
-        let alt =
-            values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
+        let alt = values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
         strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
             alternativeText: alt,
             caption: alt,
