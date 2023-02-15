@@ -213,6 +213,7 @@ export const deleteUnrelatedMediaForApiUploadFolder = async () => {
         .forEach((item) => {
             strapi.plugins["upload"].services.upload.remove(item);
         });
+        
 };
 
 export const removeImagesByApiUID = async (apiUID) => {
