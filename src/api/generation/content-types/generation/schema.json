@@ -44,6 +44,12 @@
       "relation": "oneToMany",
       "target": "api::car-on-parts.car-on-parts",
       "mappedBy": "generation"
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "generations"
     }
   }
 }
