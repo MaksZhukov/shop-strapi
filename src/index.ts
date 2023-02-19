@@ -2,7 +2,6 @@ import runScripts from "./scripts";
 import {
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
-    removeImagesByApiUID,
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
 } from "./services";
