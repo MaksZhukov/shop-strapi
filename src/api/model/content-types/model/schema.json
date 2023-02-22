@@ -73,8 +73,8 @@
       "component": "seo.seo"
     },
     "slug": {
-      "type": "uid",
-      "targetField": "name"
+      "type": "string",
+      "required": true
     }
   }
 }
