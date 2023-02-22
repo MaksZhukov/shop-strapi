@@ -9,9 +9,9 @@ export default factories.createCoreController(
     ({ strapi }) => ({
         async findOne(ctx) {
             const { id } = ctx.params;
-            const { populate, field = "id" } = ctx.query;
+            const { filters = {}, populate, field = "id" } = ctx.query;
             const entity = await strapi.db.query("api::model.model").findOne({
-                where: { [field]: id },
+                where: { [field]: id, ...filters },
                 populate: populate,
             });
             return this.transformResponse(entity);
