@@ -20,4 +20,6 @@ export default ({ env }) => ({
     clientLocalUrl: env("CLIENT_LOCAL_URL"),
     revalidateToken: env("REVALIDATE_TOKEN"),
     frontendNearFolderPath: env("FRONTEND_NEAR_FOLDER_PATH"),
+    bepaidShopId: env("BEPAID_SHOP_ID"),
+    bepaidShopKey: env("BEPAID_SHOP_KEY"),
 });
