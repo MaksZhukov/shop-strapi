@@ -30,6 +30,9 @@
     },
     "email": {
       "type": "string"
+    },
+    "transactionId": {
+      "type": "string"
     }
   }
 }
