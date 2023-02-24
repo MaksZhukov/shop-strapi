@@ -89,4 +89,14 @@ export const STATIC_LINKS = [
         changefreq: "daily",
         priority: 1,
     },
+    {
+        url: "/privacy",
+        changefreq: "daily",
+        priority: 1,
+    },
+    {
+        url: "/sitemap",
+        changefreq: "daily",
+        priority: 1,
+    },
 ];
