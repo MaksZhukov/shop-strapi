@@ -27,7 +27,7 @@ const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
     wheel: "api::wheel.wheel",
     tire: "api::tire.tire",
-    "spare-part": "api::spare-part.spare-part",
+    sparePart: "api::spare-part.spare-part",
 };
 
 const COMPONENT_PRODUCT_TYPE = {
