@@ -36,5 +36,5 @@ export const checkout = async (product: any) => {
             },
         }
     );
-    return { ...data.checkout, trackingId };
+    return data.checkout;
 };
