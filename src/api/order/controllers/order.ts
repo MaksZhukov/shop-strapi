@@ -3,25 +3,8 @@
  */
 
 import { factories } from "@strapi/strapi";
-import crypto from "crypto";
-import axios from "axios";
-
-const algorithm = strapi.config.get("server.cryptoAlgorithm");
-const key = strapi.config.get("server.cryptoKey");
-const iv = strapi.config.get("server.cryptoIV");
-
-const encrypt = (text: string) => {
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-    const encrypted = cipher.update(text, "utf8", "hex") + cipher.final("hex");
-    return encrypted;
-};
-
-const decrypt = (val: string) => {
-    const decipher = crypto.createDecipheriv(algorithm, key, iv);
-    const decrypted =
-        decipher.update(val, "hex", "utf8") + decipher.final("utf8");
-    return JSON.parse(decrypted);
-};
+import { checkout } from "../../../services/bepaid";
+import { decrypt } from "../../../services/crypto";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -45,43 +28,8 @@ export default factories.createCoreController(
                 const product = await strapi.db
                     .query(PRODUCT_API_UID_BY_TYPE[type])
                     .findOne(id);
-                const bepaidShopId = strapi.config.get("server.bepaidShopId");
-                const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
-                const trackingId = encrypt(
-                    JSON.stringify({ id: product.id, type: product.type })
-                );
-                const serverUrl = strapi.config.get("server.serverUrl");
-                const res = await axios.post(
-                    "https://checkout.bepaid.by/ctp/api/checkouts",
-                    {
-                        checkout: {
-                            transaction_type: "payment",
-                            test: true,
-                            order: {
-                                amount:
-                                    (product.discountPrice || product.price) *
-                                    100,
-                                currency: "BYN",
-                                description: product.h1,
-                                tracking_id: trackingId,
-                            },
-                            settings: {
-                                language: "ru",
-                                customer_fields: {
-                                    visible: ["first_name", "phone", "email"],
-                                },
-                                notification_url: `${serverUrl}/api/orders/notification`,
-                            },
-                        },
-                    },
-                    {
-                        auth: {
-                            username: bepaidShopId,
-                            password: bepaidShopKey,
-                        },
-                    }
-                );
-                return { data: { ...res.data.checkout, trackingId } };
+                const data = await checkout(product);
+                return { data };
             }
         },
         async notification(ctx) {
