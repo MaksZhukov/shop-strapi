@@ -22,4 +22,7 @@ export default ({ env }) => ({
     frontendNearFolderPath: env("FRONTEND_NEAR_FOLDER_PATH"),
     bepaidShopId: env("BEPAID_SHOP_ID"),
     bepaidShopKey: env("BEPAID_SHOP_KEY"),
+    cryptoAlgorithm: env("CRYPTO_ALGORITHM"),
+    cryptoKey: env("CRYPTO_KEY"),
+    cryptoIV: env("CRYPTO_IV"),
 });
