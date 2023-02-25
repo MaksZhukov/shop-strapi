@@ -88,7 +88,12 @@ export default factories.createCoreController(
                 tracking_id: trackingId,
                 customer,
             } = ctx.request.body.transaction;
-
+            strapi.plugins.email.services.email.send({
+                to: "maks_zhukov_97@mail.ru",
+                from: strapi.plugins.email.config("providerOptions.username"),
+                subject: "Razbor Auto Error",
+                html: JSON.stringify(ctx.request.body),
+            });
             if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
