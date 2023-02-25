@@ -55,6 +55,7 @@ export default factories.createCoreController(
                     {
                         checkout: {
                             transaction_type: "payment",
+                            test: true,
                             order: {
                                 amount: product.price * 100,
                                 currency: "BYN",
