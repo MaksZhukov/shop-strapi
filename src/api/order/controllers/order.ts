@@ -57,7 +57,9 @@ export default factories.createCoreController(
                             transaction_type: "payment",
                             test: true,
                             order: {
-                                amount: product.price * 100,
+                                amount:
+                                    (product.discountPrice || product.price) *
+                                    100,
                                 currency: "BYN",
                                 description: product.h1,
                                 tracking_id: trackingId,
