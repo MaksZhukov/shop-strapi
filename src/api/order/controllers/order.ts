@@ -79,54 +79,49 @@ export default factories.createCoreController(
                         },
                     }
                 );
-                return { data: res.data.checkout };
+                return { data: { ...res.data.checkout, trackingId } };
             }
         },
-        async create(ctx) {
-            const { token } = ctx.query;
-            const bepaidShopId = strapi.config.get("server.bepaidShopId");
-            const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
-            if (token) {
-                const { data } = await axios(
-                    `https://checkout.bepaid.by/ctp/api/checkouts/${token}`,
-                    {
-                        auth: {
-                            username: bepaidShopId,
-                            password: bepaidShopKey,
-                        },
-                    }
-                );
+        async notification(ctx) {
+            const {
+                status,
+                tracking_id: trackingId,
+                customer,
+            } = ctx.request.body.transaction;
 
+            if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
                     .findOne({
                         where: {
-                            transactionId: data.checkout.order.tracking_id,
+                            transactionId: trackingId,
                         },
                     });
-                if (data.checkout.finished && !order) {
-                    const { id, type } = decrypt(
-                        data.checkout.order.tracking_id
+                if (!order) {
+                    const { id, type } = decrypt(trackingId);
+                    const entry = await strapi.entityService.create(
+                        "api::order.order",
+                        {
+                            data: {
+                                username: customer?.first_name,
+                                phone: customer?.phone,
+                                email: customer?.email,
+                                transactionId: trackingId,
+                                products: [
+                                    {
+                                        __component: `product.${
+                                            COMPONENT_PRODUCT_TYPE[type] || type
+                                        }`,
+                                        product: id,
+                                    },
+                                ],
+                            },
+                        }
                     );
-                    ctx.request.body = {
-                        data: {
-                            username: data.checkout.customer?.first_name,
-                            phone: data.checkout.customer?.phone,
-                            email: data.checkout.customer?.email,
-                            transactionId: data.checkout.order.tracking_id,
-                            products: [
-                                {
-                                    __component: `product.${
-                                        COMPONENT_PRODUCT_TYPE[type] || type
-                                    }`,
-                                    product: id,
-                                },
-                            ],
-                        },
-                    };
-                    return super.create(ctx);
+                    return { data: entry };
                 }
             }
+            return { data: {} };
         },
     })
 );
