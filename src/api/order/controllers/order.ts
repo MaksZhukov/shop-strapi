@@ -50,6 +50,7 @@ export default factories.createCoreController(
                 const trackingId = encrypt(
                     JSON.stringify({ id: product.id, type: product.type })
                 );
+                const serverUrl = strapi.config.get("server.serverUrl");
                 const res = await axios.post(
                     "https://checkout.bepaid.by/ctp/api/checkouts",
                     {
@@ -69,6 +70,7 @@ export default factories.createCoreController(
                                 customer_fields: {
                                     visible: ["first_name", "phone", "email"],
                                 },
+                                notification_url: `${serverUrl}/api/orders/notification`
                             },
                         },
                     },
