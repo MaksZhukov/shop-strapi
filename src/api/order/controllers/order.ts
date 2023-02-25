@@ -70,7 +70,7 @@ export default factories.createCoreController(
                                 customer_fields: {
                                     visible: ["first_name", "phone", "email"],
                                 },
-                                notification_url: `${serverUrl}/api/orders/notification`
+                                notification_url: `${serverUrl}/api/orders/notification`,
                             },
                         },
                     },
@@ -89,13 +89,8 @@ export default factories.createCoreController(
                 status,
                 tracking_id: trackingId,
                 customer,
+                billing_address,
             } = ctx.request.body.transaction;
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Razbor Auto Error",
-                html: JSON.stringify(ctx.request.body),
-            });
             if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
@@ -106,12 +101,20 @@ export default factories.createCoreController(
                     });
                 if (!order) {
                     const { id, type } = decrypt(trackingId);
+                    strapi.plugins.email.services.email.send({
+                        to: "maks_zhukov_97@mail.ru",
+                        from: strapi.plugins.email.config(
+                            "providerOptions.username"
+                        ),
+                        subject: "Razbor Auto Error",
+                        html: JSON.stringify(customer),
+                    });
                     const entry = await strapi.entityService.create(
                         "api::order.order",
                         {
                             data: {
-                                username: customer?.first_name,
-                                phone: customer?.phone,
+                                username: billing_address?.first_name,
+                                phone: billing_address?.phone,
                                 email: customer?.email,
                                 transactionId: trackingId,
                                 products: [
