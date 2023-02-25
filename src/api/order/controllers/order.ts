@@ -27,7 +27,7 @@ export default factories.createCoreController(
             if (uid) {
                 const product = await strapi.db
                     .query(PRODUCT_API_UID_BY_TYPE[type])
-                    .findOne(id);
+                    .findOne({ where: { id } });
                 strapi.plugins.email.services.email.send({
                     to: "maks_zhukov_97@mail.ru",
                     from: strapi.plugins.email.config(
