@@ -91,6 +91,12 @@ export default factories.createCoreController(
                 customer,
                 billing_address,
             } = ctx.request.body.transaction;
+            strapi.plugins.email.services.email.send({
+                to: "maks_zhukov_97@mail.ru",
+                from: strapi.plugins.email.config("providerOptions.username"),
+                subject: "Order Notification",
+                html: JSON.stringify(ctx.request.body.transaction),
+            });
             if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
@@ -101,14 +107,6 @@ export default factories.createCoreController(
                     });
                 if (!order) {
                     const { id, type } = decrypt(trackingId);
-                    strapi.plugins.email.services.email.send({
-                        to: "maks_zhukov_97@mail.ru",
-                        from: strapi.plugins.email.config(
-                            "providerOptions.username"
-                        ),
-                        subject: "Razbor Auto Error",
-                        html: JSON.stringify(customer),
-                    });
                     const entry = await strapi.entityService.create(
                         "api::order.order",
                         {
