@@ -6,9 +6,9 @@ import { factories } from "@strapi/strapi";
 import crypto from "crypto";
 import axios from "axios";
 
-var algorithm = "aes-256-cbc";
-const key = "Yq3t6v9y$B&E)H@McQfTjWnZr4u7x!z%";
-const iv = "D*G-KaPdSgVkYp3s";
+const algorithm = strapi.config.get("server.cryptoAlgorithm");
+const key = strapi.config.get("server.cryptoKey");
+const iv = strapi.config.get("server.cryptoIV");
 
 const encrypt = (text: string) => {
     const cipher = crypto.createCipheriv(algorithm, key, iv);
