@@ -79,7 +79,7 @@ export default factories.createCoreController(
                         },
                     }
                 );
-                return { data: { ...res.data.checkout, trackingId } };
+                return { data: res.data.checkout };
             }
         },
         async create(ctx) {
