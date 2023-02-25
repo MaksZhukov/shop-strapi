@@ -1,7 +1,5 @@
-import {
-    beforeCreateOrUpdateCar,
-    revalidateClientPage,
-} from "../../../../lifecycles";
+import { beforeCreateOrUpdateCar } from "../../../../lifecycles";
+import { revalidateClientPage } from "../../../../services/client";
 
 export default {
     beforeCreate: beforeCreateOrUpdateCar,
