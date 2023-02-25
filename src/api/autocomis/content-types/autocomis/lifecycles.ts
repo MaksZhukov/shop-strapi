@@ -1,4 +1,5 @@
-import { lifecycleSitemap, revalidateClientPage } from "../../../../lifecycles";
+import { lifecycleSitemap } from "../../../../lifecycles";
+import { revalidateClientPage } from "../../../../services/client";
 
 export default {
     afterUpdate() {

@@ -41,24 +41,6 @@ export const afterDeleteProduct = async (event) => {
     ]);
 };
 
-export const revalidateClientPage = async (path: string) => {
-    try {
-        await strapi.service("api::client.client").revalidatePage(path);
-        strapi.plugins.email.services.email.send({
-            to: "maks_zhukov_97@mail.ru",
-            from: strapi.plugins.email.config("providerOptions.username"),
-            subject: `Successfully Revalidate ${path}`,
-        });
-    } catch (err) {
-        strapi.plugins.email.services.email.send({
-            to: "maks_zhukov_97@mail.ru",
-            from: strapi.plugins.email.config("providerOptions.username"),
-            subject: `Razbor Auto Error Revalidation ${path}`,
-            text: err.toString(),
-        });
-    }
-};
-
 export const beforeCreateProduct = (event) => {
     const { data } = event.params;
     if (data.id && data.name) {

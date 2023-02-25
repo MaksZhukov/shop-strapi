@@ -1,4 +1,4 @@
-import { revalidateClientPage } from "../../../../lifecycles";
+import { revalidateClientPage } from "../../../../services/client";
 
 export default {
     async afterUpdate() {
