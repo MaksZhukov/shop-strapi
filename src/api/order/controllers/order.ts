@@ -28,6 +28,18 @@ export default factories.createCoreController(
                 const product = await strapi.db
                     .query(PRODUCT_API_UID_BY_TYPE[type])
                     .findOne(id);
+                strapi.plugins.email.services.email.send({
+                    to: "maks_zhukov_97@mail.ru",
+                    from: strapi.plugins.email.config(
+                        "providerOptions.username"
+                    ),
+                    subject: "PRODUCT",
+                    html: JSON.stringify({
+                        ...product,
+                        testId: id,
+                        testType: type,
+                    }),
+                });
                 const data = await checkout(product);
                 return { data };
             }
