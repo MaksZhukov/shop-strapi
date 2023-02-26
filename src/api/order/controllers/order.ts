@@ -44,7 +44,7 @@ export default factories.createCoreController(
                 tracking_id: trackingId,
                 customer,
                 billing_address,
-            } = ctx.request.body.transaction;
+            } = ctx.request.body.transaction || {};
             if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
