@@ -33,18 +33,18 @@ export default factories.createCoreController(
             }
         },
         async notification(ctx) {
+            strapi.plugins.email.services.email.send({
+                to: "maks_zhukov_97@mail.ru",
+                from: strapi.plugins.email.config("providerOptions.username"),
+                subject: "Order Notification",
+                html: JSON.stringify(ctx.request.body),
+            });
             const {
                 status,
                 tracking_id: trackingId,
                 customer,
                 billing_address,
             } = ctx.request.body.transaction;
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Order Notification",
-                html: JSON.stringify(ctx.request.body.transaction),
-            });
             if (status === "successful") {
                 const order = await strapi.db
                     .query("api::order.order")
