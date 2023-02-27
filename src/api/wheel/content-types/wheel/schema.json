@@ -118,6 +118,10 @@
     },
     "distanceBetweenCenters": {
       "type": "decimal"
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
