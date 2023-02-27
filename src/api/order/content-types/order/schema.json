@@ -33,6 +33,9 @@
     },
     "transactionId": {
       "type": "string"
+    },
+    "address": {
+      "type": "string"
     }
   }
 }
