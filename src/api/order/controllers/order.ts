@@ -31,7 +31,7 @@ export default factories.createCoreController(
                         .query(PRODUCT_API_UID_BY_TYPE[type])
                         .findOne({ where: { id } }),
                     strapi.db
-                        .query("api:order.order")
+                        .query("api::order.order")
                         .findOne({ where: { transactionId: trackingId } }),
                 ]);
                 if (order) {
