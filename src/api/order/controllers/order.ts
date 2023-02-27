@@ -66,12 +66,14 @@ export default factories.createCoreController(
                     });
                 if (!order) {
                     const { id, type } = decrypt(trackingId);
-                    const [entry] = await Promise.all([
-                        strapi.entityService.create("api::order.order", {
+                    const entry = await strapi.entityService.create(
+                        "api::order.order",
+                        {
                             data: {
                                 username: billing_address?.first_name,
                                 phone: billing_address?.phone,
                                 email: customer?.email,
+                                address: billing_address?.address,
                                 transactionId: trackingId,
                                 products: [
                                     {
@@ -82,11 +84,11 @@ export default factories.createCoreController(
                                     },
                                 ],
                             },
-                        }),
-                        strapi.db
-                            .query(PRODUCT_API_UID_BY_TYPE[type])
-                            .update({ where: { id }, data: { sold: true } }),
-                    ]);
+                        }
+                    );
+                    strapi.db
+                        .query(PRODUCT_API_UID_BY_TYPE[type])
+                        .update({ where: { id }, data: { order: entry.id } });
                     strapi.plugins.email.services.email.send({
                         to: customer?.email,
                         from: strapi.plugins.email.config(
