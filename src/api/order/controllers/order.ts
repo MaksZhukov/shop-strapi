@@ -73,6 +73,7 @@ export default factories.createCoreController(
                                 username: billing_address?.first_name,
                                 phone: billing_address?.phone,
                                 email: customer?.email,
+                                address: billing_address?.address,
                                 transactionId: trackingId,
                                 products: [
                                     {
