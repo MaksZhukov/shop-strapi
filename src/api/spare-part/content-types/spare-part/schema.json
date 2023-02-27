@@ -123,6 +123,10 @@
     },
     "engineNumber": {
       "type": "string"
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

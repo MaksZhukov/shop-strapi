@@ -92,6 +92,10 @@
     },
     "year": {
       "type": "integer"
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
