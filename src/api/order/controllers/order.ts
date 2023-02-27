@@ -4,7 +4,7 @@
 
 import { factories } from "@strapi/strapi";
 import { checkout } from "../../../services/bepaid";
-import { decrypt } from "../../../services/crypto";
+import { decrypt, encrypt } from "../../../services/crypto";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -25,10 +25,19 @@ export default factories.createCoreController(
             const { type } = ctx.query;
             const uid = PRODUCT_API_UID_BY_TYPE[type];
             if (uid) {
-                const product = await strapi.db
-                    .query(PRODUCT_API_UID_BY_TYPE[type])
-                    .findOne({ where: { id } });
-                const data = await checkout(product);
+                const trackingId = encrypt(JSON.stringify({ id, type }));
+                const [product, order] = await Promise.all([
+                    strapi.db
+                        .query(PRODUCT_API_UID_BY_TYPE[type])
+                        .findOne({ where: { id } }),
+                    strapi.db
+                        .query("api:order.order")
+                        .findOne({ where: { transactionId: trackingId } }),
+                ]);
+                if (order) {
+                    return ctx.badRequest("product is ordered");
+                }
+                const data = await checkout(product, trackingId);
                 return { data };
             }
         },
@@ -41,6 +50,8 @@ export default factories.createCoreController(
             });
             const {
                 status,
+                amount,
+                description,
                 tracking_id: trackingId,
                 customer,
                 billing_address,
@@ -55,9 +66,8 @@ export default factories.createCoreController(
                     });
                 if (!order) {
                     const { id, type } = decrypt(trackingId);
-                    const entry = await strapi.entityService.create(
-                        "api::order.order",
-                        {
+                    const [entry] = await Promise.all([
+                        strapi.entityService.create("api::order.order", {
                             data: {
                                 username: billing_address?.first_name,
                                 phone: billing_address?.phone,
@@ -72,8 +82,22 @@ export default factories.createCoreController(
                                     },
                                 ],
                             },
-                        }
-                    );
+                        }),
+                        strapi.db
+                            .query(PRODUCT_API_UID_BY_TYPE[type])
+                            .update({ where: { id }, data: { sold: true } }),
+                    ]);
+                    strapi.plugins.email.services.email.send({
+                        to: customer?.email,
+                        from: strapi.plugins.email.config(
+                            "providerOptions.username"
+                        ),
+                        subject: "Заказ на razbor-auto.by",
+                        html: `<b>Товар</b>: ${description}<br>
+					   <b>Стоимость</b>: ${(amount / 100).toFixed(2)} BYN<br> 
+					   <b>Адрес доставки</b>: ${billing_address?.address}<br> 
+					   `,
+                    });
                     return { data: entry };
                 }
             }

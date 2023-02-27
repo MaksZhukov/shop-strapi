@@ -98,6 +98,10 @@
       "relation": "manyToOne",
       "target": "api::tire-diameter.tire-diameter",
       "inversedBy": "tires"
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
