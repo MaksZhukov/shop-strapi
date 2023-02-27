@@ -45,6 +45,16 @@
     },
     "h1": {
       "type": "string"
+    },
+    "requisitesTitle": {
+      "type": "string"
+    },
+    "requisites": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
