@@ -93,9 +93,10 @@
     "year": {
       "type": "integer"
     },
-    "sold": {
-      "type": "boolean",
-      "default": false
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order"
     }
   }
 }
