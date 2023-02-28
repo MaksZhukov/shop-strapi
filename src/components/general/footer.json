@@ -18,6 +18,9 @@
       "type": "component",
       "repeatable": true,
       "component": "general.link-and-image"
+    },
+    "textAfterPayments": {
+      "type": "richtext"
     }
   }
 }
