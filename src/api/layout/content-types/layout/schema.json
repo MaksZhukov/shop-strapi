@@ -16,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "general.footer"
+    },
+    "textAfterPayments": {
+      "type": "richtext"
     }
   }
 }
