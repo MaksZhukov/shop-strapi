@@ -99,10 +99,9 @@
       "target": "api::tire-diameter.tire-diameter",
       "inversedBy": "tires"
     },
-    "order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order.order"
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
