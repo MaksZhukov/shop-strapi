@@ -37,6 +37,7 @@ export default factories.createCoreController(
                 // if (order) {
                 //     return ctx.badRequest("product is ordered");
                 // }
+                
                 const data = await checkout(product, trackingId);
                 return { data };
             }
