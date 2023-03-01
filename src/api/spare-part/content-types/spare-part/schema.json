@@ -124,10 +124,9 @@
     "engineNumber": {
       "type": "string"
     },
-    "order": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order.order"
+    "sold": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
