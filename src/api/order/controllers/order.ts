@@ -88,7 +88,7 @@ export default factories.createCoreController(
                     );
                     strapi.db
                         .query(PRODUCT_API_UID_BY_TYPE[type])
-                        .update({ where: { id }, data: { order: entry.id } });
+                        .update({ where: { id }, data: { sold: true } });
                     strapi.plugins.email.services.email.send({
                         to: customer?.email,
                         from: strapi.plugins.email.config(
