@@ -11,6 +11,7 @@ export const checkout = async (product: any, trackingId: string) => {
         {
             checkout: {
                 transaction_type: "payment",
+                test: true,
                 order: {
                     amount: (product.discountPrice || product.price) * 100,
                     currency: "BYN",
