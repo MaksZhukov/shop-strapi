@@ -1,5 +1,4 @@
 import axios from "axios";
-import { encrypt } from "./crypto";
 
 const TEN_MINUTES = 600000;
 
@@ -23,7 +22,7 @@ export const checkout = async (product: any, trackingId: string) => {
                 settings: {
                     language: "ru",
                     customer_fields: {
-                        visible: ["first_name", "phone", "email", 'address'],
+                        visible: ["first_name", "phone", "email", "address"],
                     },
                     notification_url: `${serverUrl}/api/orders/notification`,
                 },
