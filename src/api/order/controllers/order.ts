@@ -26,18 +26,13 @@ export default factories.createCoreController(
             const uid = PRODUCT_API_UID_BY_TYPE[type];
             if (uid) {
                 const trackingId = encrypt(JSON.stringify({ id, type }));
-                const [product, order] = await Promise.all([
-                    strapi.db
-                        .query(PRODUCT_API_UID_BY_TYPE[type])
-                        .findOne({ where: { id } }),
-                    strapi.db
-                        .query("api::order.order")
-                        .findOne({ where: { transactionId: trackingId } }),
-                ]);
-                // if (order) {
-                //     return ctx.badRequest("product is ordered");
-                // }
-                
+                const product = await strapi.db
+                    .query(PRODUCT_API_UID_BY_TYPE[type])
+                    .findOne({ where: { id } });
+                if (product.sold) {
+                    return ctx.badRequest("product is sold");
+                }
+
                 const data = await checkout(product, trackingId);
                 return { data };
             }
