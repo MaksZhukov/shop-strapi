@@ -1,5 +1,4 @@
 import axios from "axios";
-import { encrypt } from "./crypto";
 
 const TEN_MINUTES = 600000;
 
