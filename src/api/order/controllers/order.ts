@@ -34,10 +34,10 @@ export default factories.createCoreController(
                         .query("api::order.order")
                         .findOne({ where: { transactionId: trackingId } }),
                 ]);
-                // if (order) {
-                //     return ctx.badRequest("product is ordered");
-                // }
-                
+                if (order) {
+                    return ctx.badRequest("product is ordered");
+                }
+
                 const data = await checkout(product, trackingId);
                 return { data };
             }
