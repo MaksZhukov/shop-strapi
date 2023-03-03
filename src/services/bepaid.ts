@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const TEN_MINUTES = 600000;
+const TWENTY_MINUTES = 600000 * 3;
 
 export const checkout = async (product: any, trackingId: string) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
@@ -16,7 +16,7 @@ export const checkout = async (product: any, trackingId: string) => {
                     currency: "BYN",
                     description: product.h1,
                     tracking_id: trackingId,
-                    expired_at: new Date(new Date().getTime() + TEN_MINUTES),
+                    expired_at: new Date(new Date().getTime() + TWENTY_MINUTES),
                 },
                 settings: {
                     language: "ru",
