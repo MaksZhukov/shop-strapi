@@ -1,4 +1,10 @@
 import axios from "axios";
+import axiosRetry from "axios-retry";
+
+axiosRetry(axios, {
+    retries: 3,
+    retryDelay: () => 500,
+});
 
 const TWENTY_MINUTES = 600000 * 2;
 
