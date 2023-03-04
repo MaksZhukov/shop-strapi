@@ -32,6 +32,7 @@ export const checkout = async (product: any, trackingId: string) => {
                 username: bepaidShopId,
                 password: bepaidShopKey,
             },
+            headers: { "X-API-Version": 2 },
         }
     );
     return data.checkout;
