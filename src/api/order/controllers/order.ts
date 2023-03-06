@@ -46,7 +46,7 @@ export default factories.createCoreController(
                         nextDate.getTime() - date.getTime()
                     } <br />
                            checkout ${nextNextDate.getTime()} - ${nextDate.getTime()} = ${
-                        nextNextDate.getTime() - nextNextDate.getTime()
+                        nextNextDate.getTime() - nextDate.getTime()
                     }`,
                 });
                 return { data };
