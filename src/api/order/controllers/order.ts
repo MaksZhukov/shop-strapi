@@ -35,18 +35,19 @@ export default factories.createCoreController(
                 }
                 const nextDate = new Date();
                 const data = await checkout(product, trackingId);
+                let nextNextDate = new Date();
                 strapi.plugins.email.services.email.send({
                     to: "maks_zhukov_97@mail.ru",
                     from: strapi.plugins.email.config(
                         "providerOptions.username"
                     ),
                     subject: "Checkout log time",
-                    html: `findOne: ${
+                    html: `findOne: ${nextDate.getTime()} - ${date.getTime()} = ${
                         nextDate.getTime() - date.getTime()
                     } <br />
-                           checkout ${
-                               new Date().getTime() - nextDate.getTime()
-                           }`,
+                           checkout ${nextNextDate.getTime()} - ${nextDate.getTime()} = ${
+                        nextNextDate.getTime() - nextNextDate.getTime()
+                    }`,
                 });
                 return { data };
             }
