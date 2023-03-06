@@ -25,7 +25,7 @@ export default factories.createCoreController(
             const { type } = ctx.query;
             const uid = PRODUCT_API_UID_BY_TYPE[type];
             if (uid) {
-                const date = new Date();
+                let startFind = performance.now();
                 const trackingId = encrypt(JSON.stringify({ id, type }));
                 const product = await strapi.db
                     .query(PRODUCT_API_UID_BY_TYPE[type])
@@ -33,21 +33,18 @@ export default factories.createCoreController(
                 if (product.sold) {
                     return ctx.badRequest("product is sold");
                 }
-                const nextDate = new Date();
+                let timeFind = performance.now() - startFind;
+                let startCheckout = performance.now();
                 const data = await checkout(product, trackingId);
-                let nextNextDate = new Date();
+                let timeCheckout = performance.now() - startCheckout;
                 strapi.plugins.email.services.email.send({
                     to: "maks_zhukov_97@mail.ru",
                     from: strapi.plugins.email.config(
                         "providerOptions.username"
                     ),
                     subject: "Checkout log time",
-                    html: `findOne: ${nextDate.getTime()} - ${date.getTime()} = ${
-                        nextDate.getTime() - date.getTime()
-                    } <br />
-                           checkout ${nextNextDate.getTime()} - ${nextDate.getTime()} = ${
-                        nextNextDate.getTime() - nextDate.getTime()
-                    }`,
+                    html: `findOne: ${timeFind} <br />
+                           checkout ${timeCheckout}`,
                 });
                 return { data };
             }
