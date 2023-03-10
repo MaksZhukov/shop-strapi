@@ -30,6 +30,10 @@
         },
         "currencyCoefficient": {
             "type": "decimal"
+        },
+        "startFakeCheckouts": {
+            "type": "boolean",
+            "default": false
         }
     }
 }
