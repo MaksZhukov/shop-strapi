@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { Agent } from "https";
 
 axiosRetry(axios, {
     retries: 3,
@@ -12,6 +13,7 @@ export const checkout = async (product: any, trackingId: string) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
     const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
     const serverUrl = strapi.config.get("server.serverUrl");
+    let timeCheckoutStart = performance.now();
     const { data } = await axios.post(
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
@@ -39,7 +41,15 @@ export const checkout = async (product: any, trackingId: string) => {
                 password: bepaidShopKey,
             },
             headers: { "X-API-Version": 2 },
+            httpsAgent: new Agent(),
         }
     );
+    let timeCheckoutEnd = performance.now() - timeCheckoutStart;
+    strapi.plugins.email.services.email.send({
+        to: "maks_zhukov_97@mail.ru",
+        from: strapi.plugins.email.config("providerOptions.username"),
+        subject: "Checkout log time",
+        html: `checkout ${timeCheckoutEnd}`,
+    });
     return data.checkout;
 };
