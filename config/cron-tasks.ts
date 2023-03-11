@@ -9,7 +9,7 @@ export default {
     "0 9 * * *": sendNewProductsToEmail,
     "1 9 * * *": sendProductsInCSVToEmail,
     "0 */12 * * *": updateCurrency,
-    "*/15 * * * *": async () => {
+    "*/5 * * * *": async () => {
         const { startFakeCheckouts }: any = await strapi
             .service("plugin::internal.data")
             .find({});

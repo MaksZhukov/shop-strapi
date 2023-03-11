@@ -1,6 +1,5 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
-import { Agent } from "https";
 
 axiosRetry(axios, {
     retries: 3,
@@ -40,8 +39,6 @@ export const checkout = async (product: any, trackingId: string) => {
                 username: bepaidShopId,
                 password: bepaidShopKey,
             },
-            headers: { "X-API-Version": 2 },
-            httpsAgent: new Agent(),
         }
     );
     let timeCheckoutEnd = performance.now() - timeCheckoutStart;
