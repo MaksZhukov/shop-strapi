@@ -15,7 +15,7 @@ export default {
             .find({});
         if (startFakeCheckouts) {
             const mockProduct = { price: 1, h1: "mock" };
-            checkout(mockProduct, "123456789");
+            checkout(mockProduct, "123456789", false);
         }
     },
 };
