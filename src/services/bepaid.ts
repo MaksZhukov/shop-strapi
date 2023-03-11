@@ -8,7 +8,11 @@ axiosRetry(axios, {
 
 const TWENTY_MINUTES = 600000 * 2;
 
-export const checkout = async (product: any, trackingId: string) => {
+export const checkout = async (
+    product: any,
+    trackingId: string,
+    withNotification = true
+) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
     const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
     const serverUrl = strapi.config.get("server.serverUrl");
@@ -41,12 +45,14 @@ export const checkout = async (product: any, trackingId: string) => {
             },
         }
     );
-    let timeCheckoutEnd = performance.now() - timeCheckoutStart;
-    strapi.plugins.email.services.email.send({
-        to: "maks_zhukov_97@mail.ru",
-        from: strapi.plugins.email.config("providerOptions.username"),
-        subject: "Checkout log time",
-        html: `checkout ${timeCheckoutEnd}`,
-    });
+    if (withNotification) {
+        let timeCheckoutEnd = performance.now() - timeCheckoutStart;
+        strapi.plugins.email.services.email.send({
+            to: "maks_zhukov_97@mail.ru",
+            from: strapi.plugins.email.config("providerOptions.username"),
+            subject: "Checkout log time",
+            html: `checkout ${timeCheckoutEnd}`,
+        });
+    }
     return data.checkout;
 };
