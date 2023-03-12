@@ -37,12 +37,6 @@ export default factories.createCoreController(
             }
         },
         async notification(ctx) {
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Order Notification",
-                html: JSON.stringify(ctx.request.body),
-            });
             const {
                 status,
                 amount,
