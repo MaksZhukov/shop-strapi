@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import https from "https";
 
 axiosRetry(axios, {
     retries: 3,
@@ -43,6 +44,7 @@ export const checkout = async (
                 username: bepaidShopId,
                 password: bepaidShopKey,
             },
+            httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         }
     );
     if (withNotification) {
