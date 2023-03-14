@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "articles_feed_sources",
+  "info": {
+    "singularName": "articles-feed-source",
+    "pluralName": "articles-feed-sources",
+    "displayName": "Articles feed sources"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sources": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.label-and-value"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import {
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
 } from "./services";
+import { getArticleFeed } from "./services/articleFeed";
 import scheduleGenerateSitemap from "./services/sitemap";
 
 export default {
@@ -24,6 +25,7 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
+        getArticleFeed();
         // fileMetadataService({ strapi });
         if (
             process.env.NODE_ENV === "production" &&
