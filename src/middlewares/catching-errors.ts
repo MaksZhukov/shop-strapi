@@ -13,7 +13,8 @@ export default (config, { strapi }) => {
                 subject: "Razbor Auto Error",
                 html: `<b>URL</b>: ${context.req.url}<br>
 					   <b>METHOD</b>: ${context.req.method}<br> 
-					   <b>HOST</b>: ${context.req.headers.host}<br> 
+					   <b>HOST</b>: ${context.req.headers.host}<br>
+                       <b>BODY</b>: ${context.req.body?.toString()}<br>
 					   <b>DESCRIPTION</b>: ${err.toString()}`,
             });
             throw new ApplicationError(err.toString());
