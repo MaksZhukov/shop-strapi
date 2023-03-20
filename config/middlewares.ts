@@ -11,7 +11,7 @@ export default [
     "strapi::public",
     "global::rate-limit",
     "global::rest-limit",
-    ...(process.env.NODE_ENV !== "production"
+    ...(process.env.NODE_ENV === "production"
         ? ["global::catching-errors"]
         : []),
 ];
