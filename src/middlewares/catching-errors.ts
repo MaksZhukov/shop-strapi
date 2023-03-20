@@ -14,7 +14,7 @@ export default (config, { strapi }) => {
                 html: `<b>URL</b>: ${context.req.url}<br>
 					   <b>METHOD</b>: ${context.req.method}<br> 
 					   <b>HOST</b>: ${context.req.headers.host}<br>
-                       <b>BODY</b>: ${JSON.stringify(context.request.body?.toString())}<br>
+                       <b>BODY</b>: ${JSON.stringify(context.request.body)}<br>
 					   <b>DESCRIPTION</b>: ${err.toString()}`,
             });
             throw new ApplicationError(err.toString());
