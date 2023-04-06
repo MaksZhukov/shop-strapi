@@ -4,7 +4,6 @@ export default {
     afterDelete: lifecycleSitemap,
     afterCreate: lifecycleSitemap,
     afterUpdate() {
-        revalidateClientPage("/articles");
         lifecycleSitemap();
     },
 };
