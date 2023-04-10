@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-tire",
     "pluralName": "page-tires",
-    "displayName": "Page tires"
+    "displayName": "Page tires",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "textCategory": {
+      "type": "richtext"
     }
   }
 }

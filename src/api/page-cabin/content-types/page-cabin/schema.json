@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-cabin",
     "pluralName": "page-cabins",
-    "displayName": "Page cabins"
+    "displayName": "Page cabins",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "textCategory": {
+      "type": "richtext"
     }
   }
 }
