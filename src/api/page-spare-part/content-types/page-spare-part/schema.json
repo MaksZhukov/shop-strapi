@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-spare-part",
     "pluralName": "page-spare-parts",
-    "displayName": "Page spare parts"
+    "displayName": "Page spare parts",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "textCategory": {
+      "type": "richtext"
     }
   }
 }
