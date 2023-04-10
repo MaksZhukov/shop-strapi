@@ -4,7 +4,8 @@
   "info": {
     "singularName": "page-wheel",
     "pluralName": "page-wheels",
-    "displayName": "Page wheels"
+    "displayName": "Page wheels",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,6 +16,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "textCategory": {
+      "type": "richtext"
     }
   }
 }
