@@ -213,7 +213,6 @@ export const deleteUnrelatedMediaForApiUploadFolder = async () => {
         .forEach((item) => {
             strapi.plugins["upload"].services.upload.remove(item);
         });
-        
 };
 
 export const removeImagesByApiUID = async (apiUID) => {
@@ -230,7 +229,7 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return {
         content: `<p>
-    Еще больше качественных товаров в категории сайта <a href="${clientUrl}/${slug}/${item.slug}"><span>${type} для ${item.name}</span></a>
+        Если у вас не получилось найти именно то, что бы вы хотели, позвоните нам и мы поможем вам выбрать, <a href="${clientUrl}/${slug}/${item.slug}">купить <span> ${type} для ${item.name}</span></a>, те именно то, что необходимо вам 
 </p>`,
     };
 };
