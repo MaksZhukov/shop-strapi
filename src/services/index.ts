@@ -257,3 +257,23 @@ export const scheduleUpdateAltTextForProductImages = (data, apiUID) => {
         updateAltTextForProductImages(entity, entity.images);
     }, 1000);
 };
+
+export const getProductH1 = async (data) => {
+    let h1 = data.name;
+    if (data.brand) {
+        const brand = await strapi.entityService.findOne(
+            "api::brand.brand",
+            data.brand
+        );
+        h1 += " " + brand?.name || "";
+        if (data.model) {
+            const model = await strapi.entityService.findOne(
+                "api::model.model",
+                data.model
+            );
+            h1 += " " + model?.name || "";
+            data.h1 = h1;
+        }
+    }
+    return h1;
+};
