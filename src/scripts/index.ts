@@ -1,11 +1,11 @@
 const runScripts = async (strapi) => {
-    const cabins = await strapi.db
-        .query("api::cabin.cabin")
+    const spareParts = await strapi.db
+        .query("api::spare-part.spare-part")
         .findMany({ populate: ["brand", "model"] });
-    cabins
+    spareParts
         .filter((item) => item.brand && item.model)
         .forEach((item) => {
-            strapi.entityService.update("api::cabin.cabin", item.id, {
+            strapi.entityService.update("api::spare-part.spare-part", item.id, {
                 data: {
                     h1:
                         item.name +
