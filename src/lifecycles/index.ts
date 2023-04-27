@@ -1,7 +1,8 @@
-import slugify from "slugify";
 import utils from "@strapi/utils";
-import scheduleGenerateSitemap from "../services/sitemap/sitemap";
+import slugify from "slugify";
 import { getProductH1 } from "../services";
+import scheduleGenerateSitemap from "../services/sitemap/sitemap";
+import { defaultProductDescription } from "./config";
 const { ApplicationError } = utils.errors;
 
 export const afterDeleteProduct = async (event) => {
@@ -52,6 +53,9 @@ export const beforeCreateProduct = async (event) => {
     if (data.id && data.name) {
         data.slug = slugify(data.name, { lower: true }) + "-" + data.id;
         data.h1 = await getProductH1(data);
+    }
+    if (!data.description) {
+        data.description = defaultProductDescription[data.type];
     }
 };
 
