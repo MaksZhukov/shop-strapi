@@ -3,7 +3,7 @@ const header = ["Ссылка", "H1"];
 
 const runScripts = async (strapi) => {
     let clientUrl = strapi.config.get("server.clientUrl");
-    const results = [[], []];
+    const results = [];
     const brands = await strapi.db.query("api::brand.brand").findMany({
         populate: { models: true, seoSpareParts: true },
         where: {
@@ -18,53 +18,47 @@ const runScripts = async (strapi) => {
         .query("api::kind-spare-part.kind-spare-part")
         .findMany();
     brands.forEach((brand) => {
-        results[0].push(clientUrl + "/spare-parts/" + brand.slug);
-        results[1].push(
-            `${brand.seoSpareParts?.h1 || `Запчасти для ${brand.name}`}`
-        );
+        results.push([
+            clientUrl + "/spare-parts/" + brand.slug,
+            `${brand.seoSpareParts?.h1 || `Запчасти для ${brand.name}`}`,
+        ]);
         brand.models.map((model) => {
-            results[0].push(
+            results.push([
                 clientUrl +
                     "/spare-parts/" +
                     brand.slug +
-                    `/model-${model.slug}`
-            );
-            results[1].push(
+                    `/model-${model.slug}`,
                 `${
                     model.seoSpareParts?.h1 ||
                     `Запчасти для ${brand.name} ${model.name}`
-                }`
-            );
+                }`,
+            ]);
             kindSpareParts.forEach((kindSparePart) => {
-                results[0].push(
+                results.push([
                     clientUrl +
                         "/spare-parts/" +
                         brand.slug +
-                        `/model-${model.slug}?kindSparePart=${kindSparePart.name}`
-                );
-                results[1].push(
-                    `${`Запчасти ${kindSparePart.name} для ${brand.name} ${model.name}`}`
-                );
+                        `/model-${model.slug}?kindSparePart=${kindSparePart.name}`,
+                    `${`Запчасти ${kindSparePart.name} для ${brand.name} ${model.name}`}`,
+                ]);
             });
         });
         kindSpareParts.forEach((kindSparePart) => {
-            results[0].push(
+            results.push([
                 clientUrl +
                     "/spare-parts/" +
                     brand.slug +
-                    `?kindSparePart=${kindSparePart.name}`
-            );
-            results[1].push(
-                `${`Запчасти ${kindSparePart.name} для ${brand.name}`}`
-            );
+                    `?kindSparePart=${kindSparePart.name}`,
+                `${`Запчасти ${kindSparePart.name} для ${brand.name}`}`,
+            ]);
         });
     });
 
     kindSpareParts.forEach((kindSparePart) => {
-        results[0].push(
-            clientUrl + "/spare-parts" + `?kindSparePart=${kindSparePart.name}`
-        );
-        results[1].push(`Запчасти ${kindSparePart.name}`);
+        results.push([
+            clientUrl + "/spare-parts" + `?kindSparePart=${kindSparePart.name}`,
+            `Запчасти ${kindSparePart.name}`,
+        ]);
     });
     const csv: string = convertArrayToCSV(results, { header });
 
