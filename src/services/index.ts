@@ -241,6 +241,23 @@ export const generateDefaultBrandSnippets = (type: string, name: string) => ({
     h1: `${type.charAt(0).toUpperCase() + type.slice(1)} для ${name}`,
 });
 
+export const generateDefaultModelSnippets = (
+    type: string,
+    brandName: string,
+    modelName: string
+) => ({
+    title: `${
+        type.charAt(0).toUpperCase() + type.slice(1)
+    } для ${brandName} ${modelName} б/у купить с доставкой по Беларуси`,
+    description: `Ищете как можно ${type} для ${brandName} ${modelName} б/у купить выгодно? У нас топ цены, доставка, покупка онлайн на сайте. Огромный выбор`,
+    keywords: `${
+        type.charAt(0).toUpperCase() + type.slice(1)
+    } для ${brandName} ${modelName}`,
+    h1: `${
+        type.charAt(0).toUpperCase() + type.slice(1)
+    } для ${brandName} ${modelName}`,
+});
+
 export const updateAltTextForProductImages = (data, images) => {
     images?.forEach((image, index) => {
         let values = {
