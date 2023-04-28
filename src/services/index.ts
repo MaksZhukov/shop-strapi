@@ -234,6 +234,13 @@ export const generateDefaultBrandTextComponent = (item, type, slug) => {
     };
 };
 
+export const generateDefaultBrandSnippets = (type: string, name: string) => ({
+    title: `Купить ${type} для ${name}. Доставка. Цены не кусаются`,
+    description: `Предлагаем купить ${type} для ${name} в нашем магазине. Диски, салоны, запчасти. На нашей разборке найдется все для вашего авто`,
+    keywords: `${type.charAt(0).toUpperCase() + type.slice(1)} для ${name}`,
+    h1: `${type.charAt(0).toUpperCase() + type.slice(1)} для ${name}`,
+});
+
 export const updateAltTextForProductImages = (data, images) => {
     images?.forEach((image, index) => {
         let values = {
