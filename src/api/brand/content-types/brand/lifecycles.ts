@@ -1,6 +1,9 @@
 import slugify from "slugify";
 import { lifecycleSitemap } from "../../../../lifecycles";
-import { generateDefaultBrandTextComponent } from "../../../../services";
+import {
+    generateDefaultBrandSnippets,
+    generateDefaultBrandTextComponent,
+} from "../../../../services";
 
 export default {
     beforeCreate(event) {
@@ -12,6 +15,18 @@ export default {
     afterCreate: (event) => {
         strapi.entityService.update("api::brand.brand", event.result.id, {
             data: {
+                seoSpareParts: generateDefaultBrandSnippets(
+                    "запчасти",
+                    event.result.name
+                ),
+                seoCabins: generateDefaultBrandSnippets(
+                    "салоны",
+                    event.result.name
+                ),
+                seoWheels: generateDefaultBrandSnippets(
+                    "диски",
+                    event.result.name
+                ),
                 productBrandTexts: {
                     sparePartBrandText: generateDefaultBrandTextComponent(
                         event.result,
