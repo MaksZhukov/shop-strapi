@@ -75,45 +75,61 @@ const header = ["Ссылка", "H1"];
 // };
 
 const runScripts = async (strapi) => {
-    const brands = await strapi.db.query("api::brand.brand").findMany({
-        populate: { seoSpareParts: true, seoCabins: true, seoWheels: true },
+    const models = await strapi.db.query("api::model.model").findMany({
+        populate: {
+            seoSpareParts: true,
+            seoCabins: true,
+            seoWheels: true,
+            brand: true,
+        },
     });
-    brands.forEach(async (item) => {
+    models.forEach(async (item) => {
         let data: any = {};
         data.seoSpareParts = {
             title:
                 item.seoSpareParts?.title ||
-                `Купить запчасти для ${item.name}. Доставка. Цены не кусаются`,
+                `Запчасти для ${item.brand.name} ${item.name} б/у купить с доставкой по Беларуси`,
             description:
                 item.seoSpareParts?.description ||
-                `Предлагаем купить запчасти для ${item.name} в нашем магазине. Диски, салоны, запчасти. На нашей разборке найдется все для вашего авто`,
+                `Ищете как можно запчасти для ${item.brand.name} ${item.name} б/у купить выгодно? У нас топ цены, доставка, покупка онлайн на сайте. Огромный выбор`,
             keywords:
-                item.seoSpareParts?.keywords || `Запчасти для ${item.name}`,
-            h1: item.seoSpareParts?.h1 || `Запчасти для ${item.name}`,
+                item.seoSpareParts?.keywords ||
+                `Запчасти для ${item.brand.name} ${item.name}`,
+            h1:
+                item.seoSpareParts?.h1 ||
+                `Запчасти для ${item.brand.name} ${item.name}`,
         };
 
         data.seoWheels = {
             title:
                 item.seoWheels?.title ||
-                `Купить диски для ${item.name}. Доставка. Цены не кусаются`,
+                `Диски для ${item.brand.name} ${item.name} б/у купить с доставкой по Беларуси`,
             description:
                 item.seoWheels?.description ||
-                `Предлагаем купить диски для ${item.name} в нашем магазине. Диски, салоны, запчасти. На нашей разборке найдется все для вашего авто`,
-            keywords: item.seoWheels?.keywords || `Диски для ${item.name}`,
-            h1: item.seoWheels?.h1 || `Диски для ${item.name}`,
+                `Ищете как можно диски для ${item.brand.name} ${item.name} б/у купить выгодно? У нас топ цены, доставка, покупка онлайн на сайте. Огромный выбор`,
+            keywords:
+                item.seoWheels?.keywords ||
+                `Диски для ${item.brand.name} ${item.name}`,
+            h1:
+                item.seoWheels?.h1 ||
+                `Диски для ${item.brand.name} ${item.name}`,
         };
 
         data.seoCabins = {
             title:
                 item.seoCabins?.title ||
-                `Купить салоны для ${item.name}. Доставка. Цены не кусаются`,
+                `Салоны для ${item.brand.name} ${item.name} б/у купить с доставкой по Беларуси`,
             description:
                 item.seoCabins?.description ||
-                `Предлагаем купить салоны для ${item.name} в нашем магазине. Диски, салоны, запчасти. На нашей разборке найдется все для вашего авто`,
-            keywords: item.seoCabins?.keywords || `Салоны для ${item.name}`,
-            h1: item.seoCabins?.h1 || `Салоны для ${item.name}`,
+                `Ищете как можно салоны для ${item.brand.name} ${item.name} б/у купить выгодно? У нас топ цены, доставка, покупка онлайн на сайте. Огромный выбор`,
+            keywords:
+                item.seoCabins?.keywords ||
+                `Салоны для ${item.brand.name} ${item.name}`,
+            h1:
+                item.seoCabins?.h1 ||
+                `Салоны для ${item.brand.name} ${item.name}`,
         };
-        strapi.entityService.update("api::brand.brand", item.id, {
+        strapi.entityService.update("api::model.model", item.id, {
             data,
         });
     });
