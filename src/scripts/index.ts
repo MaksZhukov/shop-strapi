@@ -10,9 +10,6 @@ const runScripts = async (strapi) => {
             .query("api::model.model")
             .findMany({ populate: { seoSpareParts: true } })
     ).filter((item) => !item.seoSpareParts);
-
-
-
     await strapi.plugins.email.services.email.send({
         to: "maks_zhukov_97@mail.ru",
         from: strapi.plugins.email.config("providerOptions.username"),
