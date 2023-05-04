@@ -241,6 +241,13 @@ export const generateDefaultBrandSnippets = (type: string, name: string) => ({
     h1: `${type.charAt(0).toUpperCase() + type.slice(1)} для ${name}`,
 });
 
+export const generateDefaultTireBrandSnippets = (name: string) => ({
+    title: `Купить шины ${name}. Доставка. Цены не кусаются`,
+    description: `Предлагаем купить шины ${name} в нашем магазине. На нашей разборке найдется все для вашего авто`,
+    keywords: "Шины " + name,
+    h1: "Шины " + name,
+});
+
 export const generateDefaultModelSnippets = (
     type: string,
     brandName: string,

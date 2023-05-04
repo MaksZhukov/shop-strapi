@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import { lifecycleSitemap } from "../../../../lifecycles";
-import { generateDefaultBrandTextComponent } from "../../../../services";
+import { generateDefaultBrandTextComponent, generateDefaultTireBrandSnippets } from "../../../../services";
 
 export default {
     beforeCreate(event) {
@@ -15,6 +15,7 @@ export default {
             event.result.id,
             {
                 data: {
+                    seo: generateDefaultTireBrandSnippets(event.result.name),
                     productBrandText: generateDefaultBrandTextComponent(
                         event.result,
                         "Шины",
