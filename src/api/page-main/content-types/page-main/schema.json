@@ -52,14 +52,6 @@
         "images"
       ]
     },
-    "benefits": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "popularBrandsTitle": {
       "type": "string"
     },
@@ -102,11 +94,17 @@
       "type": "richtext"
     },
     "bannerMobile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.link-and-image"
     }
   }
 }
