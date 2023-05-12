@@ -12,14 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "whyWeBestImages": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "whyWeBest": {
       "type": "component",
       "repeatable": true,
