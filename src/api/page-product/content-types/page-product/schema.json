@@ -13,11 +13,17 @@
   "pluginOptions": {},
   "attributes": {
     "whyWeBestImages": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "whyWeBest": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.link-and-image"
     }
   }
 }
