@@ -129,7 +129,7 @@
       "type": "boolean",
       "default": false
     },
-    "videoUrl": {
+    "videoLink": {
       "type": "string"
     }
   }
