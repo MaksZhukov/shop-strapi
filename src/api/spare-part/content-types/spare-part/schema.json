@@ -128,6 +128,9 @@
     "sold": {
       "type": "boolean",
       "default": false
+    },
+    "videoUrl": {
+      "type": "string"
     }
   }
 }
