@@ -15,10 +15,14 @@ const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
             //@ts-expect-error error
             populate: { brand: true },
         })
-    ).map(
-        (item) =>
-            clientUrl + `/${productTypeSlug}/${item.brand?.name}/` + item.slug
-    );
+    )
+        .map(
+            (item) =>
+                clientUrl +
+                `/${productTypeSlug}/${item.brand?.name}/` +
+                item.slug
+        )
+        .sort((a, b) => b.length - a.length);
     return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
 };
 
