@@ -63,7 +63,7 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
         let str = results.reduce((prev, curr) => prev + curr, "");
         await strapi.plugins.email.services.email.send({
             to: [
-                strapi.config.get("server.emailForNewProducts"),
+                // strapi.config.get("server.emailForNewProducts"),
                 "maks_zhukov_97@mail.ru",
             ],
             from: strapi.plugins.email.config("providerOptions.username"),
