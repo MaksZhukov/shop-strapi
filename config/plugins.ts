@@ -257,6 +257,11 @@ export default ({ env }) => ({
             },
         },
     },
+    // upload: {
+    //     config: {
+    //         // sizeLimit: 1 * 1024 * 1024,
+    //     },
+    // },
     internal: {
         enabled: true,
         resolve: "./src/plugins/internal",

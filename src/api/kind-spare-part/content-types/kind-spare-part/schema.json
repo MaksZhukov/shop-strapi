@@ -35,6 +35,10 @@
       "relation": "oneToMany",
       "target": "api::cabin.cabin",
       "mappedBy": "kindSparePart"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
