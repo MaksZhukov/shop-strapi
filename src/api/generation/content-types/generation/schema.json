@@ -50,6 +50,9 @@
       "relation": "manyToOne",
       "target": "api::brand.brand",
       "inversedBy": "generations"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
