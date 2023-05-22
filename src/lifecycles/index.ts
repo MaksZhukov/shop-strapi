@@ -50,7 +50,7 @@ export const beforeCreateProduct = async (event) => {
         throw new ApplicationError("Brand is required");
     }
     if (data.id && data.name) {
-        data.slug = slugify(data.name, { lower: true }) + "-" + data.id;
+        data.slug = slugify(data.name, { lower: true, strict: true }) + "-" + data.id;
         data.h1 = await getProductH1(data);
     }
 };
@@ -64,7 +64,7 @@ export const beforeCreateOrUpdateCar = (event) => {
             "" + " " + data.manufactureDate
                 ? `${new Date(data.manufactureDate).getFullYear()}`
                 : "";
-        data.slug = slugify(name, { lower: true }) + "-" + data.id;
+        data.slug = slugify(name, { lower: true, strict: true }) + "-" + data.id;
     }
 };
 
