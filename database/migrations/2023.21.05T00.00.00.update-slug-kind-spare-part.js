@@ -7,7 +7,9 @@ async function up(knex) {
         queries.push(
             knex("kind_spare_parts")
                 .where({ id: item.id })
-                .update({ slug: slugify(item.name, { lower: true }) })
+                .update({
+                    slug: slugify(item.name, { lower: true, strict: true }),
+                })
         );
     });
     await Promise.all(queries);
