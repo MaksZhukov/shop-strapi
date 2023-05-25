@@ -18,25 +18,23 @@
         "@strapi/plugin-users-permissions": "4.6.0",
         "@strapi/provider-email-nodemailer": "^4.6.0",
         "@strapi/strapi": "4.6.0",
-        "axios": "0.27.2",
-        "axios-retry": "^3.4.0",
+        "axios": "1.4.0",
+        "axios-retry": "^3.5.0",
         "connection-string": "^4.3.6",
         "convert-array-to-csv": "^2.0.0",
-        "koa2-ratelimit": "^1.1.2",
+        "koa2-ratelimit": "^1.1.3",
         "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",
-        "qs": "^6.11.0",
-        "react-select": "^5.7.0",
-        "sharp": "^0.31.3",
+        "qs": "^6.11.2",
+        "react-select": "^5.7.3",
         "sitemap": "^7.1.1",
-        "slugify": "^1.6.5",
+        "slugify": "^1.6.6",
         "strapi-plugin-config-sync": "^1.1.0",
-        "strapi-plugin-generate-data": "^1.0.21",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-rest-cache": "^4.2.6",
         "strapi-plugin-transformer": "^2.2.0",
         "strapi-provider-email-smtp": "^1.0.3",
-        "strapi-provider-rest-cache-memory": "^4.2.6",
+        "strapi-provider-rest-cache-memory": "^4.2.7",
         "strapi-utils": "^3.6.11"
     },
     "author": {
@@ -51,9 +49,8 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@faker-js/faker": "^7.6.0",
         "@types/lodash.uniqby": "^4.7.7",
-        "patch-package": "^6.5.1",
-        "typescript": "^4.9.5"
+        "patch-package": "^7.0.0",
+        "typescript": "^5.0.4"
     }
 }
