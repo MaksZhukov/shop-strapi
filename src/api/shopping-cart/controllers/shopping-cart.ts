@@ -22,8 +22,8 @@ export default factories.createCoreController(
                     return {
                         ...item,
                         attributes: {
-                            ...item.attributes,
-                            product: item.attributes.product[0].product.data,
+                            ...item,
+                            product: item.product[0].product.data,
                         },
                     };
                 }),
