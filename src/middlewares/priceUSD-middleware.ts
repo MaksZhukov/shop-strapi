@@ -9,19 +9,19 @@ export default (config, { strapi }) => {
         if (body) {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {
-                    let { price, discountPrice } = item.attributes;
-                    item.attributes.priceUSD = price * coefficient;
+                    let { price, discountPrice } = item;
+                    item.priceUSD = price * coefficient;
                     if (discountPrice) {
-                        item.attributes.discountPriceUSD =
+                        item.discountPriceUSD =
                             discountPrice * coefficient;
                     }
                 });
             } else {
-                body.data.attributes.priceUSD =
-                    body.data.attributes.price * coefficient;
-                if (body.data.attributes.discountPrice) {
-                    body.data.attributes.discountPriceUSD =
-                        body.data.attributes.discountPrice * coefficient;
+                body.data.priceUSD =
+                    body.data.price * coefficient;
+                if (body.data.discountPrice) {
+                    body.data.discountPriceUSD =
+                        body.data.discountPrice * coefficient;
                 }
             }
         }
