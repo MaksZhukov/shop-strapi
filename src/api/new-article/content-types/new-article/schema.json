@@ -8,16 +8,16 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "name": {
-        "type": "string"
+      "type": "string"
     },
     "slug": {
-        "type": "uid",
-        "targetField": "name"
+      "type": "uid",
+      "targetField": "name"
     },
     "mainImage": {
       "type": "media",
