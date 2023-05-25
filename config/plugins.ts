@@ -15,10 +15,9 @@ export default ({ env }) => ({
                     "api::spare-part.spare-part",
                     "api::tire.tire",
                     "api::cabin.cabin",
-                    "api::car.car",
-                    "api::review.review",
                     "api::model.model",
                     "api::brand.brand",
+                    "api::kind-spare-part.kind-spare-part"
                 ],
             },
         },
