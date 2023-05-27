@@ -20,13 +20,13 @@ export const revalidateClientPage = async (path: string) => {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: `Strapi BE successfully revalidate ${path}`,
+            subject: `Strapi BE Successfully Revalidate ${path}`,
         });
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: `Strapi BE error revalidation ${path}`,
+            subject: `Strapi BE Error Revalidation ${path}`,
             text: err.toString(),
         });
     }
