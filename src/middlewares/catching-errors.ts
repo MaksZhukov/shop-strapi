@@ -10,7 +10,7 @@ export default (config, { strapi }) => {
             strapi.plugins.email.services.email.send({
                 to: "maks_zhukov_97@mail.ru",
                 from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Razbor Auto Error",
+                subject: "Strapi BE Error",
                 html: `<b>URL</b>: ${context.req.url}<br>
 					   <b>METHOD</b>: ${context.req.method}<br> 
 					   <b>HOST</b>: ${context.req.headers.host}<br>
