@@ -15,7 +15,11 @@
     "name": {
       "type": "string"
     },
-    "image": {
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "mainImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -23,25 +27,35 @@
         "images"
       ]
     },
-    "description": {
+    "rightText": {
       "type": "richtext"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "первый",
-        "второй",
-        "третий"
+    "images1": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
       ]
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "name"
+    "content1": {
+      "type": "richtext"
+    },
+    "images2": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "content2": {
+      "type": "richtext"
     },
     "seo": {
       "type": "component",
       "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.short-seo"
     }
   }
 }
