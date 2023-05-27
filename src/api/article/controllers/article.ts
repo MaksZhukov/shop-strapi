@@ -13,7 +13,7 @@ export default factories.createCoreController(
                 .query("api::article.article")
                 .findOne({
                     where: { $or: [{ slug: id }, { id }] },
-                    populate: ["image", "seo.images"],
+                    populate: ctx.query.populate,
                 });
             return this.transformResponse(entity);
         },
