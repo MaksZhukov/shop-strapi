@@ -52,7 +52,7 @@ export const checkout = async (
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: "Checkout log time",
+            subject: "Strapi BE checkout log time",
             html: `checkout ${timeCheckoutEnd}`,
         });
     }
