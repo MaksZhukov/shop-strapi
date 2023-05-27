@@ -312,3 +312,10 @@ export const getProductH1 = async (data) => {
     }
     return h1;
 };
+
+export const sendNotificationOnStart = async () =>
+    strapi.plugins.email.services.email.send({
+        to: "maks_zhukov_97@mail.ru",
+        from: strapi.plugins.email.config("providerOptions.username"),
+        subject: "Start Strapi Shop Successful",
+    });
