@@ -3,6 +3,7 @@ import {
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
+    sendNotificationOnStart,
     sendProductsInCSVToEmail,
 } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
@@ -35,7 +36,7 @@ export default {
             if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
                 sendProductsInCSVToEmail({ strapi });
             }
-
+            sendNotificationOnStart();
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
