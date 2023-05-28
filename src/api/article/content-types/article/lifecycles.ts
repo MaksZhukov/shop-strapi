@@ -6,6 +6,5 @@ export default {
     afterCreate: lifecycleSitemap,
     afterUpdate() {
         lifecycleSitemap();
-        revalidateClientPage("/");
     },
 };
