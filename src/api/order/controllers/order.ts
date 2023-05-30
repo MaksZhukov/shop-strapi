@@ -21,20 +21,28 @@ export default factories.createCoreController(
     "api::order.order",
     ({ strapi }) => ({
         async checkout(ctx) {
-            const { id } = ctx.params;
-            const { type } = ctx.query;
-            const uid = PRODUCT_API_UID_BY_TYPE[type];
-            if (uid) {
-                const trackingId = encrypt(JSON.stringify({ id, type }));
-                const product = await strapi.db
-                    .query(PRODUCT_API_UID_BY_TYPE[type])
-                    .findOne({ where: { id } });
-                if (product.sold) {
-                    return ctx.badRequest("product is sold");
-                }
-                const data = await checkout(product, trackingId);
-                return { data };
+            const { products = [] } = ctx.query;
+
+            const productsEntities = await Promise.all(
+                products.map((item) =>
+                    strapi.db
+                        .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                        .findOne({ where: { id: item.id } })
+                )
+            );
+            if (productsEntities.some((item) => item.sold)) {
+                return ctx.badRequest("product is sold");
             }
+            const trackingId = encrypt(JSON.stringify(products));
+            const data = await checkout(
+                productsEntities.map((item) => item.h1).join(", "),
+                productsEntities.reduce(
+                    (prev, curr) => prev + (curr.discountPrice || curr.price),
+                    0
+                ),
+                trackingId
+            );
+            return { data };
         },
         async notification(ctx) {
             const {
@@ -54,7 +62,7 @@ export default factories.createCoreController(
                         },
                     });
                 if (!order) {
-                    const { id, type } = decrypt(trackingId);
+                    const products = decrypt(trackingId);
                     const entry = await strapi.entityService.create(
                         "api::order.order",
                         {
@@ -64,20 +72,24 @@ export default factories.createCoreController(
                                 email: customer?.email,
                                 address: billing_address?.address,
                                 transactionId: trackingId,
-                                products: [
-                                    {
-                                        __component: `product.${
-                                            COMPONENT_PRODUCT_TYPE[type] || type
-                                        }`,
-                                        product: id,
-                                    },
-                                ],
+                                products: products.map((item) => ({
+                                    __component: `product.${
+                                        COMPONENT_PRODUCT_TYPE[item.type] ||
+                                        item.type
+                                    }`,
+                                    product: item.id,
+                                })),
                             },
                         }
                     );
-                    strapi.db
-                        .query(PRODUCT_API_UID_BY_TYPE[type])
-                        .update({ where: { id }, data: { sold: true } });
+                    products.forEach((item) => {
+                        strapi.db
+                            .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                            .update({
+                                where: { id: item.id },
+                                data: { sold: true },
+                            });
+                    });
                     strapi.plugins.email.services.email.send({
                         to: customer?.email,
                         from: strapi.plugins.email.config(
