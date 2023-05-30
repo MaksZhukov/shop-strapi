@@ -10,7 +10,8 @@ axiosRetry(axios, {
 const TWENTY_MINUTES = 600000 * 2;
 
 export const checkout = async (
-    product: any,
+    description: string,
+    amount: number,
     trackingId: string,
     withNotification = true
 ) => {
@@ -22,11 +23,12 @@ export const checkout = async (
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
             checkout: {
+                test: true,
                 transaction_type: "payment",
                 order: {
-                    amount: (product.discountPrice || product.price) * 100,
+                    amount: amount * 100,
                     currency: "BYN",
-                    description: product.h1,
+                    description,
                     tracking_id: trackingId,
                     expired_at: new Date(new Date().getTime() + TWENTY_MINUTES),
                 },
