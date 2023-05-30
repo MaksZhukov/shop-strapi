@@ -23,7 +23,7 @@ export const checkout = async (
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
             checkout: {
-                test: true,
+                // test: true,
                 transaction_type: "payment",
                 order: {
                     amount: amount * 100,
