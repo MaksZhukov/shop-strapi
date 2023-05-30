@@ -2,7 +2,7 @@ export default {
     routes: [
         {
             method: "GET",
-            path: "/orders/checkout/:id",
+            path: "/orders/checkout",
             handler: "order.checkout",
         },
         {
