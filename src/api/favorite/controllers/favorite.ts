@@ -18,17 +18,23 @@ export default factories.createCoreController(
                 },
             };
             const result = await super.find(ctx);
-
             return {
-                data: result.data.map((item) => {
-                    return {
-                        ...item,
-                        attributes: {
-                            ...item.attributes,
-                            product: item.attributes.product[0].product.data,
-                        },
-                    };
-                }),
+                data: result.data
+                    .filter(
+                        (item) =>
+                            !item.attributes.product[0].product.data.attributes
+                                .sold
+                    )
+                    .map((item) => {
+                        return {
+                            ...item,
+                            attributes: {
+                                ...item.attributes,
+                                product:
+                                    item.attributes.product[0].product.data,
+                            },
+                        };
+                    }),
             };
         },
         async create(ctx) {
@@ -60,6 +66,29 @@ export default factories.createCoreController(
                 })
             ) {
                 return super.delete(ctx);
+            }
+        },
+        async deleteAll(ctx) {
+            const { ids } = ctx.query;
+            const userId = ctx.state.user.id;
+            const favorites = await strapi.db
+                .query("api::favorite.favorite")
+                .findMany({
+                    where: {
+                        id: ids,
+                        usersPermissionsUser: userId,
+                    },
+                });
+            if (
+                favorites
+                    .map((item) => item.id)
+                    .every((id) => ids.includes(`${id}`))
+            ) {
+                return strapi.db.query("api::favorite.favorite").deleteMany({
+                    where: {
+                        id: ids,
+                    },
+                });
             }
         },
     })
