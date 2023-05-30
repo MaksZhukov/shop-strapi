@@ -25,8 +25,7 @@
         "product.tire",
         "product.wheel",
         "product.cabin"
-      ],
-      "max": 1
+      ]
     },
     "email": {
       "type": "string"
