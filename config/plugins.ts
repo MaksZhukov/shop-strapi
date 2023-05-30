@@ -1,6 +1,6 @@
 export default ({ env }) => ({
     "rest-cache": {
-        enabled: true,
+        enabled: false,
         config: {
             provider: {
                 name: "memory",
