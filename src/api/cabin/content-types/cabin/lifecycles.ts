@@ -1,7 +1,7 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
 import {
+    removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
-    updateAltTextForProductImages,
 } from "../../../../services";
 
 // import { afterDeleteProduct } from "../../../../lifecycles";
@@ -14,6 +14,7 @@ export default {
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(data.result, "api::cabin.cabin");
+        removeFavoritesOnSold(data, "product.cabin");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

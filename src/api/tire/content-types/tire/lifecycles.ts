@@ -1,5 +1,5 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import { scheduleUpdateAltTextForProductImages } from "../../../../services";
+import { removeFavoritesOnSold, scheduleUpdateAltTextForProductImages } from "../../../../services";
 
 export default {
     beforeCreate: beforeCreateProduct,
@@ -9,6 +9,7 @@ export default {
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(data.result, "api::tire.tire");
+        removeFavoritesOnSold(data, "product.tire");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,
