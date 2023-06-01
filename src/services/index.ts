@@ -319,3 +319,20 @@ export const sendNotificationOnStart = async () =>
         from: strapi.plugins.email.config("providerOptions.username"),
         subject: "Start Strapi BE Successful",
     });
+
+export const removeFavoritesOnSold = async (data, component) => {
+    if (data.result.sold) {
+        const favorites = await strapi.db
+            .query("api::favorite.favorite")
+            .findMany({
+                where: {
+                    uid: { $endsWith: `-${data.result.id}-${component}` },
+                },
+            });
+        await strapi.db.query("api::favorite.favorite").deleteMany({
+            where: {
+                id: favorites.map((item) => item.id),
+            },
+        });
+    }
+};
