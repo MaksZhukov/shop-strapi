@@ -2,15 +2,7 @@ import axios from "axios";
 import axiosRetry from "axios-retry";
 import https from "https";
 import qs from "qs";
-console.log(
-    qs.stringify(
-        { products: [{ id: 1121 }, { id: 1121 }] },
-        {
-            arrayFormat: "brackets",
-            encode: false,
-        }
-    )
-);
+
 axiosRetry(axios, {
     retries: 3,
     retryDelay: () => 500,
