@@ -38,7 +38,7 @@ export default factories.createCoreController(
                     (prev, curr) => prev + (curr.discountPrice || curr.price),
                     0
                 ),
-                { products }
+                products
             );
             return { data };
         },
@@ -51,8 +51,9 @@ export default factories.createCoreController(
                 customer,
                 billing_address,
             } = ctx.request.body.transaction || {};
-            const { products } = ctx.query;
             if (status === "successful") {
+                const { products: rawProducts } = ctx.query;
+                const products = JSON.parse(rawProducts);
                 const productsEntities = await Promise.all(
                     products.map((item) =>
                         strapi.db
