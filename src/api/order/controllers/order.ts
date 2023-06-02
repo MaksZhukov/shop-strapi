@@ -4,7 +4,6 @@
 
 import { factories } from "@strapi/strapi";
 import { checkout } from "../../../services/bepaid";
-import { decrypt, encrypt } from "../../../services/crypto";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -31,16 +30,15 @@ export default factories.createCoreController(
                 )
             );
             if (productsEntities.some((item) => item.sold)) {
-                return ctx.badRequest("product is sold");
+                return ctx.badRequest("one of the product is sold");
             }
-            const trackingId = encrypt(JSON.stringify(products));
             const data = await checkout(
                 productsEntities.map((item) => item.h1).join(", "),
                 productsEntities.reduce(
                     (prev, curr) => prev + (curr.discountPrice || curr.price),
                     0
                 ),
-                trackingId
+                { products }
             );
             return { data };
         },
@@ -53,16 +51,18 @@ export default factories.createCoreController(
                 customer,
                 billing_address,
             } = ctx.request.body.transaction || {};
+            const { products } = ctx.query;
             if (status === "successful") {
-                const order = await strapi.db
-                    .query("api::order.order")
-                    .findOne({
-                        where: {
-                            transactionId: trackingId,
-                        },
-                    });
-                if (!order) {
-                    const products = decrypt(trackingId);
+                const productsEntities = await Promise.all(
+                    products.map((item) =>
+                        strapi.db
+                            .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                            .findOne({ where: { id: item.id } })
+                    )
+                );
+                if (productsEntities.some((item) => item.sold)) {
+                    return ctx.badRequest("one of the product is sold");
+                } else {
                     const entry = await strapi.entityService.create(
                         "api::order.order",
                         {
