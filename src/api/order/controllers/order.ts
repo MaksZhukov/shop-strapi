@@ -30,7 +30,7 @@ export default factories.createCoreController(
                 )
             );
             if (productsEntities.some((item) => item.sold)) {
-                return ctx.badRequest("product is sold");
+                return ctx.badRequest("one of the product is sold");
             }
             const data = await checkout(
                 productsEntities.map((item) => item.h1).join(", "),
@@ -53,14 +53,16 @@ export default factories.createCoreController(
             } = ctx.request.body.transaction || {};
             const { products } = ctx.query;
             if (status === "successful") {
-                const order = await strapi.db
-                    .query("api::order.order")
-                    .findOne({
-                        where: {
-                            transactionId: trackingId,
-                        },
-                    });
-                if (!order) {
+                const productsEntities = await Promise.all(
+                    products.map((item) =>
+                        strapi.db
+                            .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                            .findOne({ where: { id: item.id } })
+                    )
+                );
+                if (productsEntities.some((item) => item.sold)) {
+                    return ctx.badRequest("one of the product is sold");
+                } else {
                     const entry = await strapi.entityService.create(
                         "api::order.order",
                         {
