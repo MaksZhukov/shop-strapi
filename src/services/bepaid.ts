@@ -20,11 +20,14 @@ export const checkout = async (
     const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
     const serverUrl = strapi.config.get("server.serverUrl");
     let timeCheckoutStart = performance.now();
+    const test = await strapi
+        .service("plugin::internal.data")
+        .getBePaidTestMode();
     const { data } = await axios.post(
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
             checkout: {
-                // test: true,
+                test,
                 transaction_type: "payment",
                 order: {
                     amount: amount * 100,
@@ -37,7 +40,9 @@ export const checkout = async (
                     customer_fields: {
                         visible: ["first_name", "phone", "email", "address"],
                     },
-                    notification_url: `${serverUrl}/api/orders/notification?products=${JSON.stringify(products)}`,
+                    notification_url: `${serverUrl}/api/orders/notification?products=${JSON.stringify(
+                        products
+                    )}`,
                 },
             },
         },
