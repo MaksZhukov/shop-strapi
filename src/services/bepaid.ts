@@ -1,7 +1,16 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import https from "https";
-
+import qs from "qs";
+console.log(
+    qs.stringify(
+        { products: [{ id: 1121 }, { id: 1121 }] },
+        {
+            arrayFormat: "brackets",
+            encode: false,
+        }
+    )
+);
 axiosRetry(axios, {
     retries: 3,
     retryDelay: () => 500,
@@ -12,7 +21,7 @@ const TWENTY_MINUTES = 600000 * 2;
 export const checkout = async (
     description: string,
     amount: number,
-    trackingId: string,
+    payload: any,
     withNotification = true
 ) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
@@ -23,13 +32,12 @@ export const checkout = async (
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
             checkout: {
-                // test: true,
+                test: true,
                 transaction_type: "payment",
                 order: {
                     amount: amount * 100,
                     currency: "BYN",
                     description,
-                    tracking_id: trackingId,
                     expired_at: new Date(new Date().getTime() + TWENTY_MINUTES),
                 },
                 settings: {
@@ -37,7 +45,9 @@ export const checkout = async (
                     customer_fields: {
                         visible: ["first_name", "phone", "email", "address"],
                     },
-                    notification_url: `${serverUrl}/api/orders/notification`,
+                    notification_url: `${serverUrl}/api/orders/notification?${qs.stringify(
+                        payload
+                    )}`,
                 },
             },
         },
