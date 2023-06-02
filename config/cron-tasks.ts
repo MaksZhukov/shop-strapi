@@ -18,7 +18,7 @@ export default {
             checkout(
                 mockProducts.map((item) => item.h1).join(", "),
                 mockProducts.reduce((prev, curr) => prev + curr.price, 0),
-                "123456789",
+                { products: [{ id: 1, type: "wheel" }] },
                 false
             );
         }
