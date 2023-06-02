@@ -13,7 +13,7 @@ const TWENTY_MINUTES = 600000 * 2;
 export const checkout = async (
     description: string,
     amount: number,
-    payload: any,
+    products: any[],
     withNotification = true
 ) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
@@ -37,9 +37,7 @@ export const checkout = async (
                     customer_fields: {
                         visible: ["first_name", "phone", "email", "address"],
                     },
-                    notification_url: `${serverUrl}/api/orders/notification?${qs.stringify(
-                        payload
-                    )}`,
+                    notification_url: `${serverUrl}/api/orders/notification?products=${JSON.stringify(products)}`,
                 },
             },
         },
