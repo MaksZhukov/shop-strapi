@@ -17,9 +17,9 @@ export default factories.createCoreController(
                     usersPermissionsUser: userId,
                 },
             };
-            const result = await super.find(ctx);
+            const { data, meta } = await super.find(ctx);
             return {
-                data: result.data
+                data: data
                     .filter(
                         (item) =>
                             !item.attributes.product[0].product.data.attributes
@@ -35,6 +35,7 @@ export default factories.createCoreController(
                             },
                         };
                     }),
+                meta,
             };
         },
         async create(ctx) {
@@ -43,7 +44,8 @@ export default factories.createCoreController(
             ctx.request.body.data.usersPermissionsUser = userId;
             const productId = ctx.request.body.data.product[0].product;
             const component = ctx.request.body.data.product[0].__component;
-            ctx.request.body.data.uid = userId + "-" + productId + '-' + component;
+            ctx.request.body.data.uid =
+                userId + "-" + productId + "-" + component;
             const result = await super.create(ctx);
             return {
                 data: {
