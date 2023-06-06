@@ -13,12 +13,12 @@ export const revalidateClientPage = async (path: string) => {
     try {
         let clientLocalUrl = strapi.config.get("server.clientLocalUrl");
         let revalidateToken = strapi.config.get("server.revalidateToken");
-        shell.exec("sh clear-iis-arr-cache.sh");
         await axios.get(
             clientLocalUrl +
                 `/api/revalidate?revalidateToken=${revalidateToken}&pagePath=${path}`,
             { timeout: 30000 }
         );
+        shell.exec("sh clear-iis-arr-cache.sh");
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
