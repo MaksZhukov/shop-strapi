@@ -128,6 +128,7 @@ export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
     );
 };
 
+
 const getDataForCsv = (items, serverUrl) =>
     items.map((item) => [
         getCategory(item)[item.type],
