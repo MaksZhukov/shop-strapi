@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import shell from "shelljs";
 
 axiosRetry(axios, {
     retries: 3,
@@ -22,6 +23,7 @@ export const revalidateClientPage = async (path: string) => {
             from: strapi.plugins.email.config("providerOptions.username"),
             subject: `Strapi BE Successfully Revalidate ${path}`,
         });
+        shell.exec("sh clear-iis-arr-cache.sh");
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
