@@ -13,6 +13,7 @@ export const revalidateClientPage = async (path: string) => {
     try {
         let clientLocalUrl = strapi.config.get("server.clientLocalUrl");
         let revalidateToken = strapi.config.get("server.revalidateToken");
+        shell.exec("sh clear-iis-arr-cache.sh");
         await axios.get(
             clientLocalUrl +
                 `/api/revalidate?revalidateToken=${revalidateToken}&pagePath=${path}`,
@@ -23,7 +24,6 @@ export const revalidateClientPage = async (path: string) => {
             from: strapi.plugins.email.config("providerOptions.username"),
             subject: `Strapi BE Successfully Revalidate ${path}`,
         });
-        shell.exec("sh clear-iis-arr-cache.sh");
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
