@@ -25,6 +25,9 @@
         "dateProductsInCsvSentToEmail": {
             "type": "datetime"
         },
+        "dateYMLSentToEmail": {
+            "type": "datetime"
+        },
         "currencyDate": {
             "type": "datetime"
         },
