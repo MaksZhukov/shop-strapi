@@ -38,7 +38,7 @@ export default {
                 sendProductsInCSVToEmail({ strapi });
             }
             if (await hasDelayOfSendingYMLEmail(strapi)) {
-                sendYMLToEmail({ strapi });
+                // sendYMLToEmail({ strapi });
             }
             sendNotificationOnStart();
             runScripts(strapi);
