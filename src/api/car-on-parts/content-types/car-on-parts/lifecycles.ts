@@ -10,4 +10,7 @@ export default {
     async afterCreate() {
         revalidateClientPage("/buyback-cars");
     },
+    async afterDelete() {
+        revalidateClientPage("/buyback-cars");
+    },
 };
