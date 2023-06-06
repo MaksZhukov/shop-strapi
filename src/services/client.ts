@@ -1,5 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import shell from "shelljs";
 
 axiosRetry(axios, {
     retries: 3,
@@ -12,6 +13,7 @@ export const revalidateClientPage = async (path: string) => {
     try {
         let clientLocalUrl = strapi.config.get("server.clientLocalUrl");
         let revalidateToken = strapi.config.get("server.revalidateToken");
+        shell.exec("sh clear-iis-arr-cache.sh");
         await axios.get(
             clientLocalUrl +
                 `/api/revalidate?revalidateToken=${revalidateToken}&pagePath=${path}`,
