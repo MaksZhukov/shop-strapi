@@ -120,3 +120,4 @@ package-lock.json
 
 # bash
 check_git_updates.sh
+clear-iis-arr-cache.sh
