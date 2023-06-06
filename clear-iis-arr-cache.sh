@@ -1,0 +1,1 @@
+rm -rf C:/inetpub/arrcache/*
