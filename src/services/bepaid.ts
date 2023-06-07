@@ -23,6 +23,10 @@ export const checkout = async (
     const test = await strapi
         .service("plugin::internal.data")
         .getBePaidTestMode();
+    const finalAmount = amount <= 500 ? amount * 0.9 : amount * 0.95;
+    const finalDescription = `${description}\nСкидка ${
+        amount <= 500 ? "10" : "5"
+    }%`;
     const { data } = await axios.post(
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
@@ -30,9 +34,9 @@ export const checkout = async (
                 test,
                 transaction_type: "payment",
                 order: {
-                    amount: amount * 100,
+                    amount: finalAmount,
                     currency: "BYN",
-                    description,
+                    description: finalDescription,
                     expired_at: new Date(new Date().getTime() + TWENTY_MINUTES),
                 },
                 settings: {
