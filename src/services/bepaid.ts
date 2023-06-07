@@ -34,7 +34,7 @@ export const checkout = async (
                 test,
                 transaction_type: "payment",
                 order: {
-                    amount: finalAmount,
+                    amount: finalAmount * 100,
                     currency: "BYN",
                     description: finalDescription,
                     expired_at: new Date(new Date().getTime() + TWENTY_MINUTES),
