@@ -1,35 +1,47 @@
+import { CATEGORIES, CATEGORIES_TEXTS } from "./constants";
+
 export const template = (
-    categories: any[],
     products: any[],
-    serverUrl: string
+    serverUrl: string,
+    clientUrl: string
 ) => `<?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="${new Date().toString()}">
+<yml_catalog date="${new Date().toISOString()}">
     <shop>
-        <name>Разбор авто</name>
-        <company>Разбор авто</company>
+        <name>Razbor auto</name>
+        <company>Razbor auto</company>
         <url>https://razbor-auto.by/</url>
-        <version>1.0</version>
-        <email>driblingavto@mail.ru</email>
+        <currencies>
+            <currency id="BYN" rate="1"/>
+        </currencies>
         <categories>
-            ${categories.map(
-                (item) => `<category id="1">${item.name}</category>\n\t\t\t`
-            )}
+${CATEGORIES_TEXTS.map(
+    (item, i) => `\t<category id="${i}">${item}</category>\n`
+).join("")}
         </categories>
         <offers>
         ${products
             .map(
-                (item) => `<offer id="${item.id + "-" + item.type}">
-        <name>${item.h1}</name>
-        <vendor>${item.brand.name}</vendor>              
-        <picture>${
-            item.images ? serverUrl + item.images[0].url : ""
-        }</picture>               
-        <description>
-           ${item.description}
-        </description>                                       
-        </offer>\n\t\t\t`
+                (item) => `\t<offer available="true" id="${
+                    item.id +
+                    "-" +
+                    CATEGORIES.findIndex((cat) => cat === item.type)
+                }">
+                \t<name>${item.h1}</name>
+                \t<price>${item.price}</price>
+                \t<categoryId>${CATEGORIES.findIndex(
+                    (cat) => cat === item.type
+                )}</categoryId>          
+                \t<picture>${
+                    item.images
+                        ? serverUrl + item.images[0].url
+                        : clientUrl + "/logo.jpg"
+                }</picture>               
+                \t<description>${
+                    item.description
+                }</description>                           
+            \t</offer>\n\t`
             )
-            .toString()}
+            .join("")}
         </offers>
     </shop>
 </yml_catalog>`;

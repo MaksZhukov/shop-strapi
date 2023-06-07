@@ -1,4 +1,7 @@
+import { runProductsQueriesWithLimit } from "..";
 import { template } from "./config";
+
+const LIMIT = 10000;
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -13,7 +16,23 @@ export const hasDelayOfSendingYMLEmail = async (strapi) => {
 
 export const sendYMLToEmail = async ({ strapi }) => {
     const serverUrl = strapi.config.get("server.serverUrl");
-    let data = template([], [], serverUrl);
+    const clientUrl = strapi.config.get("server.clientUrl");
+    let queries = [
+        strapi.db.query("api::spare-part.spare-part"),
+        strapi.db.query("api::cabin.cabin"),
+        strapi.db.query("api::wheel.wheel"),
+        strapi.db.query("api::tire.tire"),
+    ];
+
+    const attachments = [];
+
+    await runProductsQueriesWithLimit(queries, LIMIT, (products: any[]) => {
+        let data = template(products, serverUrl, clientUrl);
+        attachments.push({
+            filename: `yml-${attachments.length + 1}.xml`,
+            content: "\ufeff" + data,
+        });
+    });
     await strapi.plugins.email.services.email.send({
         to: [
             strapi.config.get("server.emailForNewProducts"),
@@ -21,12 +40,7 @@ export const sendYMLToEmail = async ({ strapi }) => {
         ],
         from: strapi.plugins.email.config("providerOptions.username"),
         subject: "YML Файл",
-        attachments: [
-            {
-                filename: "yml.xml",
-                content: "\ufeff" + data,
-            },
-        ],
+        attachments: attachments,
     });
 
     await strapi.service("plugin::internal.data").createOrUpdate({
