@@ -24,7 +24,7 @@ export const checkout = async (
         .service("plugin::internal.data")
         .getBePaidTestMode();
     const finalAmount = amount <= 500 ? amount * 0.9 : amount * 0.95;
-    const finalDescription = `${description}\nСкидка ${
+    const finalDescription = `${description}. Скидка ${
         amount <= 500 ? "10" : "5"
     }%`;
     const { data } = await axios.post(
