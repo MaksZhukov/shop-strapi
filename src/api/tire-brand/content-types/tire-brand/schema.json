@@ -36,6 +36,13 @@
       "type": "component",
       "repeatable": false,
       "component": "brand.brand-text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
