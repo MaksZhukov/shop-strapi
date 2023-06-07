@@ -38,14 +38,13 @@ export default {
                 sendProductsInCSVToEmail({ strapi });
             }
             if (await hasDelayOfSendingYMLEmail(strapi)) {
-                // sendYMLToEmail({ strapi });
+                sendYMLToEmail({ strapi });
             }
             sendNotificationOnStart();
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
-        sendYMLToEmail({ strapi });
         scheduleGenerateSitemap();
     },
 };
