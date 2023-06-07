@@ -128,7 +128,6 @@ export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
     );
 };
 
-
 const getDataForCsv = (items, serverUrl) =>
     items.map((item) => [
         getCategory(item)[item.type],
@@ -335,5 +334,29 @@ export const removeFavoritesOnSold = async (data, component) => {
                 id: favorites.map((item) => item.id),
             },
         });
+    }
+};
+
+export const runProductsQueriesWithLimit = async (queries, limit, callback) => {
+    let index = 0;
+    let page = 0;
+    let products = [];
+    while (index < queries.length) {
+        let query = queries[index];
+        const results = await query.findMany({
+            populate: ["brand", "images"],
+            limit: limit - products.length,
+            offset: page * limit,
+        });
+        products.push(...results);
+        if (products.length === limit || index === queries.length - 1) {
+            callback(products);
+            page++;
+            products = [];
+        }
+        if (results.length < limit) {
+            index++;
+            page = 0;
+        }
     }
 };
