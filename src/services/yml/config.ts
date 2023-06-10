@@ -10,14 +10,6 @@ export const template = (
         <name>Razbor auto</name>
         <company>Razbor auto</company>
         <url>https://razbor-auto.by/</url>
-        <currencies>
-            <currency id="BYN" rate="1"/>
-        </currencies>
-        <categories>
-${CATEGORIES_TEXTS.map(
-    (item, i) => `\t<category id="${i}">${item}</category>\n`
-).join("")}
-        </categories>
         <offers>
         ${products
             .map(
@@ -27,10 +19,7 @@ ${CATEGORIES_TEXTS.map(
                     CATEGORIES.findIndex((cat) => cat === item.type)
                 }">
                 \t<name>${item.h1}</name>
-                \t<price>${item.price}</price>
-                \t<categoryId>${CATEGORIES.findIndex(
-                    (cat) => cat === item.type
-                )}</categoryId>          
+                \t<price>${item.price}</price>     
                 \t<picture>${
                     item.images
                         ? serverUrl + item.images[0].url
