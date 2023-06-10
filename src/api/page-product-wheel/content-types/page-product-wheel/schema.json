@@ -22,6 +22,9 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.short-seo"
+    },
+    "additionalDescription": {
+      "type": "richtext"
     }
   }
 }
