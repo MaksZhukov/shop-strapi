@@ -17,7 +17,7 @@ export default ({ env }) => ({
                     "api::cabin.cabin",
                     "api::model.model",
                     "api::brand.brand",
-                    "api::kind-spare-part.kind-spare-part"
+                    "api::kind-spare-part.kind-spare-part",
                 ],
             },
         },
@@ -264,5 +264,9 @@ export default ({ env }) => ({
     internal: {
         enabled: true,
         resolve: "./src/plugins/internal",
+    },
+    telegram: {
+        enabled: true,
+        resolve: "./src/plugins/telegram",
     },
 });
