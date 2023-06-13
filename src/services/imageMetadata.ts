@@ -16,10 +16,10 @@ export const updateImageMetadata = async (url, imageDescription) => {
             .withMetadata({
                 exif: {
                     IFD0: {
-                        // Artist: "ARTIST", // WORKS
+                        Artist: imageDescription, // WORKS
                         ImageDescription: imageDescription, // WORKS
-                        // XPSubject: "SUBJECT", // WORKS
-                        // XPTitle: "TITLE", // WORKS,
+                        XPSubject: imageDescription, // WORKS
+                        XPTitle: imageDescription, // WORKS,
                     },
                 },
             })
