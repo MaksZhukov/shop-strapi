@@ -352,7 +352,9 @@ export const runProductsQueriesWithLimit = async (queries, limit, callback) => {
         });
         products.push(...results);
         if (products.length === limit || index === queries.length - 1) {
-            callback(products);
+            setTimeout(() => {
+                callback(products);
+            }, 1000);
             page++;
             products = [];
         }
