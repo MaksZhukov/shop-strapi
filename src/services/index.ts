@@ -2,31 +2,9 @@ import axios from "axios";
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
 import { ALTS_ARR } from "./constants";
-import { updateImageMetadata } from "./imageMetadata";
 import { productTypeUrlSlug } from "../config";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
-
-const getProductUrls = async (uid, date, clientUrl, productTypeSlug, title) => {
-    let urls = (
-        await strapi.db.query(uid).findMany({
-            select: ["slug"],
-            // where: {
-            //     createdAt: { $gte: date.setDate(date.getDate() - 130) },
-            // },
-            //@ts-expect-error error
-            populate: { brand: true },
-        })
-    )
-        .map(
-            (item) =>
-                clientUrl +
-                `/${productTypeSlug}/${item.brand?.name}/` +
-                item.slug
-        )
-        .sort((a, b) => b.length - a.length);
-    return urls.reduce((prev, curr) => prev + curr + "\n", `${title}\n`);
-};
 
 export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
     const { dateNewProductSentToEmail } = await strapi
@@ -41,32 +19,30 @@ export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
 export const sendNewProductsToEmail = async ({ strapi }) => {
     try {
         let clientUrl = strapi.config.get("server.clientUrl");
-        const date = new Date();
-        const results = await Promise.all([
-            getProductUrls(
-                "api::spare-part.spare-part",
-                date,
-                clientUrl,
-                "spare-parts",
-                "Запчасти"
-            ),
-            getProductUrls("api::tire.tire", date, clientUrl, "tires", "Шины"),
-            getProductUrls(
-                "api::wheel.wheel",
-                date,
-                clientUrl,
-                "wheels",
-                "Диски"
-            ),
-            getProductUrls(
-                "api::cabin.cabin",
-                date,
-                clientUrl,
-                "cabins",
-                "Салоны"
-            ),
-        ]);
-        let str = results.reduce((prev, curr) => prev + curr, "");
+
+        let queries = [
+            strapi.db.query("api::spare-part.spare-part"),
+            strapi.db.query("api::cabin.cabin"),
+            strapi.db.query("api::wheel.wheel"),
+            strapi.db.query("api::tire.tire"),
+        ];
+
+        const urls = [];
+
+        await runProductsQueriesWithLimit(queries, 10000, (products: any[]) => {
+            urls.push(
+                ...products.map(
+                    (item) =>
+                        clientUrl +
+                        `/${productTypeUrlSlug[item.type]}/${
+                            item.brand?.name
+                        }/` +
+                        item.slug
+                )
+            );
+        });
+
+        let str = urls.reduce((prev, curr) => prev + curr + "\n", "");
         await strapi.plugins.email.services.email.send({
             to: [
                 strapi.config.get("server.emailForNewProducts"),
@@ -81,6 +57,7 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
                 },
             ],
         });
+
         await strapi.service("plugin::internal.data").createOrUpdate({
             data: {
                 dateNewProductSentToEmail: new Date().getTime(),
@@ -339,7 +316,12 @@ export const removeFavoritesOnSold = async (data, component) => {
     }
 };
 
-export const runProductsQueriesWithLimit = async (queries, limit, callback) => {
+export const runProductsQueriesWithLimit = async (
+    queries,
+    limit,
+    callback,
+    timeout = 100
+) => {
     let index = 0;
     let page = 0;
     let products = [];
@@ -352,9 +334,11 @@ export const runProductsQueriesWithLimit = async (queries, limit, callback) => {
         });
         products.push(...results);
         if (products.length === limit || index === queries.length - 1) {
-            setTimeout(() => {
-                callback(products);
-            }, 1000);
+            await new Promise((res) => {
+                setTimeout(() => {
+                    res(callback(products));
+                }, timeout);
+            });
             page++;
             products = [];
         }
