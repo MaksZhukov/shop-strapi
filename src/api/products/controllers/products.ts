@@ -11,11 +11,14 @@ export default {
                 strapi.service("api::wheel.wheel").find(ctx.query),
                 strapi.service("api::tire.tire").find(ctx.query),
             ])
-        ).reduce((prev, curr) => ({
-            //@ts-expect-error error
-            data: [...prev.data, ...curr.results],
-            pagination: {},
-        }));
+        ).reduce(
+            (prev, curr) => ({
+                //@ts-expect-error error
+                data: [...prev.data, ...curr.results],
+                pagination: {},
+            }),
+            { data: [] }
+        );
         return products;
     },
 };
