@@ -3,6 +3,7 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
+import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
 export default {
@@ -12,6 +13,7 @@ export default {
             data.result,
             "api::spare-part.spare-part"
         );
+        scheduleUpdateImageMetadata(data.result, "api::spare-part.spare-part");
         lifecycleSitemap();
     },
     afterUpdate: async (data) => {
@@ -20,6 +22,7 @@ export default {
             "api::spare-part.spare-part"
         );
         removeFavoritesOnSold(data, "product.spare-part");
+        scheduleUpdateImageMetadata(data.result, "api::spare-part.spare-part");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

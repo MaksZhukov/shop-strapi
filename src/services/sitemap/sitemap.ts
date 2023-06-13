@@ -1,15 +1,9 @@
 import { SitemapStream } from "sitemap";
 import fs from "fs";
 import { STATIC_LINKS } from "./constants";
+import { productTypeUrlSlug } from "../../config";
 
 const getItems = (uid, params = {}) => strapi.db.query(uid).findMany(params);
-
-const productTypeUrlSlug = {
-    tire: "tires",
-    cabin: "cabins",
-    sparePart: "spare-parts",
-    wheel: "wheels",
-};
 
 const generateLink = (url) => ({
     url,
