@@ -3,7 +3,7 @@ import { promises } from "fs";
 import path from "path";
 import { productTypeUrlSlug } from "../config";
 
-export const updateImageMetadata = async (url, imageDescription) => {
+export const updateImageMetadata = async (url, productUrl: string) => {
     try {
         const pathToImage = path.join(process.cwd(), "public", url);
         const pathToTmpImage = path.join(
@@ -16,10 +16,10 @@ export const updateImageMetadata = async (url, imageDescription) => {
             .withMetadata({
                 exif: {
                     IFD0: {
-                        Artist: imageDescription, // WORKS
-                        ImageDescription: imageDescription, // WORKS
-                        XPSubject: imageDescription, // WORKS
-                        XPTitle: imageDescription, // WORKS,
+                        Artist: productUrl, // WORKS
+                        ImageDescription: productUrl, // WORKS
+                        XPSubject: productUrl, // WORKS
+                        XPTitle: productUrl, // WORKS,
                     },
                 },
             })
