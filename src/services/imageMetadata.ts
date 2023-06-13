@@ -1,27 +1,46 @@
 import sharp from "sharp";
 import { promises } from "fs";
 import path from "path";
-const pathToUploads = path.join(process.cwd(), "public", "uploads");
+import { productTypeUrlSlug } from "../config";
 
-export const updateImageMetadata = async (name) => {
+export const updateImageMetadata = async (url, imageDescription) => {
     try {
-        await sharp(`${pathToUploads}/${name}`).toFile(
-            `${pathToUploads}/tmp_${name}`
+        const pathToImage = path.join(process.cwd(), "public", url);
+        const pathToTmpImage = path.join(
+            process.cwd(),
+            "public",
+            url.replace("uploads/", "uploads/tmp")
         );
-        await sharp(`${pathToUploads}/tmp_${name}`)
+        await sharp(pathToImage).toFile(pathToTmpImage);
+        await sharp(pathToTmpImage)
             .withMetadata({
                 exif: {
                     IFD0: {
-                        Artist: "ARTIST", // WORKS
-                        ImageDescription: "LINK", // WORKS
-                        XPSubject: "SUBJECT", // WORKS
-                        XPTitle: "TITLE", // WORKS,
+                        // Artist: "ARTIST", // WORKS
+                        ImageDescription: imageDescription, // WORKS
+                        // XPSubject: "SUBJECT", // WORKS
+                        // XPTitle: "TITLE", // WORKS,
                     },
                 },
             })
-            .toFile(`${pathToUploads}/${name}`);
-        await promises.unlink(`${pathToUploads}/tmp_${name}`);
+            .toFile(pathToImage);
+        await promises.unlink(pathToTmpImage);
     } catch (err) {
         console.log(err);
     }
+};
+
+export const scheduleUpdateImageMetadata = (data, apiUID) => {
+    let clientUrl = strapi.config.get("server.clientUrl");
+    setTimeout(async () => {
+        const entity = await strapi.service(apiUID).findOne(data.id, {
+            populate: { images: true },
+        });
+        entity.images?.forEach((item) => {
+            updateImageMetadata(
+                item.url,
+                `${clientUrl}/${productTypeUrlSlug[entity.type]}/${entity.slug}`
+            );
+        });
+    }, 1000);
 };

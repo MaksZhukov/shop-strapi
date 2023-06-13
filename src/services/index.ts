@@ -2,6 +2,8 @@ import axios from "axios";
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
 import { ALTS_ARR } from "./constants";
+import { updateImageMetadata } from "./imageMetadata";
+import { productTypeUrlSlug } from "../config";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
