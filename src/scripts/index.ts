@@ -1,5 +1,3 @@
-const runScripts = async (strapi) => {
-
-};
+const runScripts = async (strapi) => {};
 
 export default runScripts;

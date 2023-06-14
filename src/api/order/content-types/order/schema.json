@@ -35,6 +35,9 @@
     },
     "address": {
       "type": "string"
+    },
+    "surname": {
+      "type": "string"
     }
   }
 }
