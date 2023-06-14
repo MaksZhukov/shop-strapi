@@ -44,19 +44,13 @@ export default factories.createCoreController(
         },
         async notification(ctx) {
             const {
+                uid,
                 status,
                 amount,
                 description,
-                tracking_id: trackingId,
                 customer,
                 billing_address,
             } = ctx.request.body.transaction || {};
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Заказ на razbor-auto.by",
-                html: JSON.stringify(ctx.request.body.transaction),
-            });
             if (status === "successful") {
                 const { products: rawProducts } = ctx.query;
                 const products = JSON.parse(rawProducts);
@@ -75,10 +69,11 @@ export default factories.createCoreController(
                         {
                             data: {
                                 username: billing_address?.first_name,
+                                surname: billing_address?.last_name,
                                 phone: billing_address?.phone,
                                 email: customer?.email,
                                 address: billing_address?.address,
-                                transactionId: trackingId,
+                                transactionId: uid,
                                 products: products.map((item) => ({
                                     __component: `product.${
                                         COMPONENT_PRODUCT_TYPE[item.type] ||
