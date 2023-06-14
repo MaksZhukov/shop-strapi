@@ -1,7 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import https from "https";
-import qs from "qs";
 
 axiosRetry(axios, {
     retries: 3,
@@ -42,7 +41,13 @@ export const checkout = async (
                 settings: {
                     language: "ru",
                     customer_fields: {
-                        visible: ["first_name", "phone", "email", "address"],
+                        visible: [
+                            "first_name",
+                            "last_name",
+                            "phone",
+                            "email",
+                            "address",
+                        ],
                     },
                     notification_url: `${serverUrl}/api/orders/notification?products=${JSON.stringify(
                         products
