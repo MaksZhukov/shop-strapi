@@ -26,6 +26,9 @@
     "autoSynonyms": {
       "type": "string",
       "default": "авто,автомобиля"
+    },
+    "additionalDescription": {
+      "type": "richtext"
     }
   }
 }
