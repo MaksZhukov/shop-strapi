@@ -25,4 +25,6 @@ export default ({ env }) => ({
     cryptoAlgorithm: env("CRYPTO_ALGORITHM"),
     cryptoKey: env("CRYPTO_KEY"),
     cryptoIV: env("CRYPTO_IV"),
+    telegramBotToken: env("TELEGRAM_BOT_TOKEN"),
+    telegramChatId: env("TELEGRAM_CHAT_ID"),
 });
