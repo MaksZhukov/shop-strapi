@@ -75,6 +75,7 @@ export default factories.createCoreController(
                         {
                             data: {
                                 username: billing_address?.first_name,
+                                surname: billing_address?.last_name,
                                 phone: billing_address?.phone,
                                 email: customer?.email,
                                 address: billing_address?.address,
