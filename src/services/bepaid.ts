@@ -44,7 +44,7 @@ export const checkout = async (
                         visible: [
                             "first_name",
                             "last_name",
-                            // "patronymic_name",
+                            "patronymic_name",
                             "phone",
                             "email",
                             "address",
