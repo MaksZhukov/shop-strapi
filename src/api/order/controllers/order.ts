@@ -55,7 +55,7 @@ export default factories.createCoreController(
                 to: "maks_zhukov_97@mail.ru",
                 from: strapi.plugins.email.config("providerOptions.username"),
                 subject: "TEST",
-                html: JSON.stringify({ customer, billing_address }),
+                html: JSON.stringify(ctx.request.body.transaction),
             });
             if (status === "successful") {
                 const { products: rawProducts } = ctx.query;
