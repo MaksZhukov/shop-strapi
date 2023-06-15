@@ -44,6 +44,11 @@ export const checkout = async (
                         visible: [
                             "first_name",
                             "last_name",
+                            {
+                                name: "patronymic_name",
+                                label: "Отчество",
+                                required: true,
+                            },
                             "phone",
                             "email",
                             "address",
