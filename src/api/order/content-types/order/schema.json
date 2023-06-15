@@ -15,6 +15,12 @@
     "username": {
       "type": "string"
     },
+    "surname": {
+      "type": "string"
+    },
+    "patronymic": {
+      "type": "string"
+    },
     "phone": {
       "type": "string"
     },
@@ -34,9 +40,6 @@
       "type": "string"
     },
     "address": {
-      "type": "string"
-    },
-    "surname": {
       "type": "string"
     }
   }
