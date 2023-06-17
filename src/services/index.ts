@@ -20,7 +20,7 @@ const getProductUrl = (item) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return (
         clientUrl +
-        `/${productTypeUrlSlug[item.type]}/${item.brand?.name}/` +
+        `/${productTypeUrlSlug[item.type]}/${item.brand?.slug}/` +
         item.slug
     );
 };
