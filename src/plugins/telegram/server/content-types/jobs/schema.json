@@ -25,10 +25,14 @@
         "endDate": {
             "type": "datetime"
         },
+        "allProducts": {
+            "type": "boolean"
+        },
         "urls": {
             "type": "relation",
             "relation": "oneToMany",
-            "target": "plugin::telegram.urls"
+            "target": "plugin::telegram.urls",
+            "mappedBy": "job"
         }
     }
 }

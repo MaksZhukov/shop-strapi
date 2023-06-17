@@ -4,10 +4,10 @@
     "version": "0.1.0",
     "description": "A Strapi application",
     "scripts": {
-        "develop": "strapi develop --watch-admin --no-build",
+        "develop": "strapi develop",
         "start": "strapi start dist",
-        "build": "npm run build-plugin-internal && strapi build",
-        "build-plugin-internal": "cd src/plugins/internal && npm run build",
+        "build": "npm run build-plugins && strapi build",
+        "build-plugins": "cd src/plugins/internal && npm run build && cd ../telegram && npm run build",
         "strapi": "strapi",
         "postinstall": "patch-package"
     },

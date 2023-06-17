@@ -25,7 +25,8 @@
         "job": {
             "type": "relation",
             "relation": "manyToOne",
-            "target": "plugin::telegram.jobs"
+            "target": "plugin::telegram.jobs",
+            "inversedBy": "urls"
         }
     }
 }

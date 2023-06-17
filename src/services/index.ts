@@ -1,8 +1,8 @@
 import axios from "axios";
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
-import { ALTS_ARR } from "./constants";
 import { productTypeUrlSlug } from "../config";
+import { ALTS_ARR } from "./constants";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -16,31 +16,34 @@ export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
     );
 };
 
+const getProductUrl = (item) => {
+    let clientUrl = strapi.config.get("server.clientUrl");
+    return (
+        clientUrl +
+        `/${productTypeUrlSlug[item.type]}/${item.brand?.name}/` +
+        item.slug
+    );
+};
+
+export const getProductsUrls = async (strapi) => {
+    let queries = [
+        strapi.db.query("api::spare-part.spare-part"),
+        strapi.db.query("api::cabin.cabin"),
+        strapi.db.query("api::wheel.wheel"),
+        strapi.db.query("api::tire.tire"),
+    ];
+
+    const urls = [];
+
+    await runProductsQueriesWithLimit(queries, 10000, (products: any[]) => {
+        urls.push(...products.map((item) => getProductUrl(item)));
+    });
+    return urls;
+};
+
 export const sendNewProductsToEmail = async ({ strapi }) => {
     try {
-        let clientUrl = strapi.config.get("server.clientUrl");
-
-        let queries = [
-            strapi.db.query("api::spare-part.spare-part"),
-            strapi.db.query("api::cabin.cabin"),
-            strapi.db.query("api::wheel.wheel"),
-            strapi.db.query("api::tire.tire"),
-        ];
-
-        const urls = [];
-
-        await runProductsQueriesWithLimit(queries, 10000, (products: any[]) => {
-            urls.push(
-                ...products.map(
-                    (item) =>
-                        clientUrl +
-                        `/${productTypeUrlSlug[item.type]}/${
-                            item.brand?.name
-                        }/` +
-                        item.slug
-                )
-            );
-        });
+        const urls = await getProductsUrls(strapi);
 
         let str = urls.reduce((prev, curr) => prev + curr + "\n", "");
         await strapi.plugins.email.services.email.send({
@@ -346,5 +349,23 @@ export const runProductsQueriesWithLimit = async (
             index++;
             page = 0;
         }
+    }
+};
+
+export const addProductUrlToTelegramAllProductsJobUrls = async (
+    id: string,
+    uid: string
+) => {
+    const product = await strapi.db
+        .query(uid)
+        .findOne({ where: { id }, populate: ["brand"] });
+    const productUrl = getProductUrl(product);
+    const job = await strapi.db
+        .query("plugin::telegram.jobs")
+        .findOne({ where: { allProducts: true } });
+    if (job) {
+        await strapi.db
+            .query("plugin::telegram.urls")
+            .create({ data: { url: productUrl, job: job.id } });
     }
 };

@@ -34,10 +34,6 @@
         "currencyCoefficient": {
             "type": "decimal"
         },
-        "startFakeCheckouts": {
-            "type": "boolean",
-            "default": false
-        },
         "bePaidTestMode": {
             "type": "boolean",
             "default": false
