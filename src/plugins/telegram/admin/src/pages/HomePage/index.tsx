@@ -5,50 +5,105 @@ import {
     Button,
     DatePicker,
     Flex,
+    Radio,
+    RadioGroup,
     Typography,
 } from "@strapi/design-system";
-import { request } from "@strapi/helper-plugin";
+import { useFetchClient } from "@strapi/helper-plugin";
+import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
+
+const date = new Date();
+const nextDate = new Date(date);
+nextDate.setDate(nextDate.getDate() + 1);
+
 const HomePage = () => {
+    const client = useFetchClient();
     const [jobs, setJobs] = useState<
-        { id: number; startDate: string; endDate: string }[]
+        {
+            id: number;
+            startDate: string;
+            endDate: string;
+            allProducts: boolean;
+        }[]
     >([]);
-    const [startDate, setStartDate] = useState<Date>(new Date());
-    const [endDate, setEndDate] = useState<Date>(new Date());
+    const [loading, setLoading] = useState<boolean>(false);
+    const [startDate, setStartDate] = useState<Date>(date);
+    const [endDate, setEndDate] = useState<Date>(nextDate);
+    const [selectedRadio, setSelectedRadio] = useState<"all" | "specific">(
+        "specific"
+    );
     const inputRef = useRef<HTMLInputElement>(null);
     useEffect(() => {
         const fetchJobs = async () => {
-            const { data } = await request("/telegram/jobs");
+            const {
+                data: { data },
+            } = await client.get("/telegram/jobs");
             setJobs(data);
         };
         fetchJobs();
     }, []);
     const handleClickAdd = async () => {
-        const formData = new FormData();
-        formData.append(
-            "data",
-            JSON.stringify({
-                startDate: startDate.toString(),
-                endDate: endDate?.toString(),
-            })
-        );
-        if (inputRef.current?.files?.length) {
-            formData.append("files", inputRef.current.files[0]);
+        if (selectedRadio === "specific" && !inputRef.current?.files?.length) {
+            alert("Выберите файл");
+            return;
         }
-        const { data } = await request(`/telegram/jobs`, {
-            method: "POST",
-            body: formData,
-            headers: {
-                "Content-Type": `multipart/form-data;`,
-            },
-        });
+        setLoading(true);
+        const body = {
+            startDate: startDate.toISOString(),
+            endDate: endDate?.toISOString(),
+            allProducts: selectedRadio === "all",
+        };
+        if (selectedRadio === "specific" && inputRef.current?.files) {
+            const formData = new FormData();
+            formData.append("files", inputRef.current?.files[0]);
+            const { data } = await axios.post(
+                //@ts-expect-error error
+                strapi.backendURL + "/api/upload",
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
+            const [file] = data;
+            //@ts-expect-error error
+            body.filePath = file.url;
+        }
+        const {
+            data: { data },
+        } = await client.post(`/telegram/jobs`, body, { timeout: 300000 });
+        setLoading(false);
         setJobs([...jobs, data]);
     };
 
     const handleClickDelete = (id: number) => async () => {
-        await request(`/telegram/jobs/${id}`, { method: "DELETE" });
+        await client.del(`/telegram/jobs/${id}`);
         setJobs(jobs.filter((item) => item.id !== id));
     };
+
+    const renderInputFile = (
+        <label
+            style={{
+                cursor: "pointer",
+                alignSelf: "end",
+            }}
+        >
+            Выбрать файл...
+            <input
+                ref={inputRef}
+                accept=".txt"
+                style={{
+                    opacity: 0,
+                    position: "absolute",
+                    zIndex: -1,
+                }}
+                type="file"
+            />
+        </label>
+    );
+
     return (
         <Layout>
             <HeaderLayout
@@ -58,8 +113,11 @@ const HomePage = () => {
             />
             <ContentLayout>
                 {jobs.map((job) => (
-                    <Flex marginBottom="15px" gap={"10px"} key={job}>
-                        <Typography>Отправка ссылок № {job.id}</Typography>
+                    <Flex marginBottom="15px" gap={"10px"} key={job.id}>
+                        <Typography>
+                            Отправка ссылок № {job.id}{" "}
+                            {job.allProducts ? "ВСЕ" : ""}
+                        </Typography>
                         <Typography>
                             Дата начала{" "}
                             {new Date(job.startDate).toLocaleDateString()}
@@ -88,21 +146,32 @@ const HomePage = () => {
                             selectedDate={endDate}
                             label="Дата окончания"
                         />
-                        <label style={{ cursor: "pointer" }}>
-                            Выбрать файл...
-                            <input
-                                ref={inputRef}
-                                accept=".txt"
-                                style={{
-                                    opacity: 0,
-                                    position: "absolute",
-                                    zIndex: -1,
-                                }}
-                                type="file"
-                            />
-                        </label>
+                        {jobs.find((item) => item.allProducts) ? (
+                            renderInputFile
+                        ) : (
+                            <>
+                                <Box style={{ alignSelf: "end" }}>
+                                    <RadioGroup
+                                        onChange={(e: any) =>
+                                            setSelectedRadio(e.target.value)
+                                        }
+                                        value={selectedRadio}
+                                    >
+                                        <Radio value="all">Все товары</Radio>
+                                        <Radio value="specific">Выбрать</Radio>
+                                    </RadioGroup>
+                                </Box>
+                                {selectedRadio === "specific" &&
+                                    renderInputFile}
+                            </>
+                        )}
                     </Flex>
-                    <Button marginTop="10px" onClick={handleClickAdd}>
+                    <Button
+                        marginTop="10px"
+                        disabled={loading}
+                        loading={loading}
+                        onClick={handleClickAdd}
+                    >
                         Добавить
                     </Button>
                 </Box>
