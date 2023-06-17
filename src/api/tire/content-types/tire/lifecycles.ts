@@ -1,5 +1,6 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
 import {
+    addProductUrlToTelegramAllProductsJobUrls,
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
@@ -10,6 +11,10 @@ export default {
     afterCreate: (data) => {
         scheduleUpdateAltTextForProductImages(data.result, "api:tire.tire");
         scheduleUpdateImageMetadata(data.result, "api::tire.tire");
+        addProductUrlToTelegramAllProductsJobUrls(
+            data.result.id,
+            "api::tire.tire"
+        );
         lifecycleSitemap();
     },
     afterUpdate: (data) => {

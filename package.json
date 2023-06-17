@@ -6,8 +6,8 @@
     "scripts": {
         "develop": "strapi develop",
         "start": "strapi start dist",
-        "build": "npm run build-plugin-internal && strapi build",
-        "build-plugin-internal": "cd src/plugins/internal && npm run build",
+        "build": "npm run build-plugins && strapi build",
+        "build-plugins": "cd src/plugins/internal && npm run build && cd ../telegram && npm run build",
         "strapi": "strapi",
         "postinstall": "patch-package"
     },
@@ -25,6 +25,7 @@
         "koa2-ratelimit": "^1.1.3",
         "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",
+        "node-telegram-bot-api": "^0.61.0",
         "qs": "^6.11.2",
         "react-select": "^5.7.3",
         "sharp": "^0.32.1",
