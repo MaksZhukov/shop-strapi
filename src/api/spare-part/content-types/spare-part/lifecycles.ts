@@ -1,5 +1,6 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
 import {
+    addProductUrlToTelegramAllProductsJobUrls,
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
@@ -14,6 +15,10 @@ export default {
             "api::spare-part.spare-part"
         );
         scheduleUpdateImageMetadata(data.result, "api::spare-part.spare-part");
+        addProductUrlToTelegramAllProductsJobUrls(
+            data.result.id,
+            "api::spare-part.spare-part"
+        );
         lifecycleSitemap();
     },
     afterUpdate: async (data) => {

@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "telegram_jobs",
+    "pluginOptions": {
+        "content-manager": {
+            "visible": true
+        },
+        "content-type-builder": {
+            "visible": true
+        }
+    },
+    "info": {
+        "singularName": "jobs",
+        "pluralName": "jobs",
+        "displayName": "JOBs"
+    },
+    "options": {
+        "draftAndPublish": false,
+        "comment": ""
+    },
+    "attributes": {
+        "startDate": {
+            "type": "datetime"
+        },
+        "endDate": {
+            "type": "datetime"
+        },
+        "allProducts": {
+            "type": "boolean"
+        },
+        "urls": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "plugin::telegram.urls",
+            "mappedBy": "job"
+        }
+    }
+}
