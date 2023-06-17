@@ -39,7 +39,7 @@ export const runProductsUrlsQueriesWithLimit = async (strapi, callback) => {
             products.map(
                 (item) =>
                     clientUrl +
-                    `/${productTypeUrlSlug[item.type]}/${item.brand?.name}/` +
+                    `/${productTypeUrlSlug[item.type]}/${item.brand?.slug}/` +
                     item.slug
             )
         );
