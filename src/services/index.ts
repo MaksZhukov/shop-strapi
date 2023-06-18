@@ -266,11 +266,50 @@ export const updateAltTextForProductImages = (data, images) => {
     });
 };
 
-export const scheduleUpdateAltTextForProductImages = (data, apiUID) => {
+export const getStringByTemplateStr = (value: string, data: any) => {
+    if (!value) {
+        return "";
+    }
+    let newValue = value;
+    for (let result of value.matchAll(/{(\w+)}/g)) {
+        let field = result[1];
+        newValue = newValue.replace(
+            result[0],
+            typeof data[field] === "string" ? data[field] : data[field]?.name
+        );
+    }
+    return newValue;
+};
+
+export const getProductPageSeo = (pageSeo: any, product: any) => {
+    return {
+        title:
+            product.seo?.title ||
+            getStringByTemplateStr(pageSeo.title, product),
+        description:
+            product.seo?.description ||
+            getStringByTemplateStr(pageSeo.description, product),
+        keywords:
+            product.seo?.keywords ||
+            getStringByTemplateStr(pageSeo.keywords, product),
+    };
+};
+
+export const scheduleUpdateAltTextForProductImages = (
+    data,
+    apiUID,
+    pageProductApiUID
+) => {
+    console.log(pageProductApiUID);
     setTimeout(async () => {
-        const entity = await strapi.service(apiUID).findOne(data.id, {
-            populate: { images: true, seo: true },
-        });
+        const [entity, pageProduct] = await Promise.all([
+            strapi.service(apiUID).findOne(data.id, {
+                populate: { images: true, seo: true },
+            }),
+            strapi.service(pageProductApiUID).find({ populate: { seo: true } }),
+        ]);
+        //@ts-expect-error error
+        entity.seo = getProductPageSeo(pageProduct.seo, entity);
         updateAltTextForProductImages(entity, entity.images);
     }, 1000);
 };
