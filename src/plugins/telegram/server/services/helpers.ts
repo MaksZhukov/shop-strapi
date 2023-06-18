@@ -68,7 +68,7 @@ export const createJobUrls = async (jobID, urls) => {
     );
 };
 
-export const addTelegramInterval = (bot, chatId, jobId, ms, jobsIntervalIds) =>
+export const addTelegramInterval = (bot, jobId, ms, jobsIntervalIds) =>
     setInterval(async () => {
         let chatId = strapi.config.get("server.telegramChatId");
         const urlEntity = await strapi.db

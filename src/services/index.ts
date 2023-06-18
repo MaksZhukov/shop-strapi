@@ -16,7 +16,7 @@ export const hasDelayOfSendingNewProductsEmail = async (strapi) => {
     );
 };
 
-const getProductUrl = (item) => {
+export const getProductUrl = (item) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     return (
         clientUrl +
