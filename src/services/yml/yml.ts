@@ -1,5 +1,5 @@
 import { runProductsQueriesWithLimit } from "..";
-import { template } from "./config";
+import { template, templateOffers } from "./config";
 
 const LIMIT = 10000;
 
@@ -14,9 +14,7 @@ export const hasDelayOfSendingYMLEmail = async (strapi) => {
     );
 };
 
-export const sendYMLToEmail = async ({ strapi }) => {
-    const serverUrl = strapi.config.get("server.serverUrl");
-    const clientUrl = strapi.config.get("server.clientUrl");
+export const sendYMLsToEmail = async ({ strapi }) => {
     let queries = [
         strapi.db.query("api::spare-part.spare-part"),
         strapi.db.query("api::cabin.cabin"),
@@ -25,18 +23,20 @@ export const sendYMLToEmail = async ({ strapi }) => {
     ];
 
     const attachments = [];
-    const allProducts = [];
+    let ymlAllOffers = "";
 
     await runProductsQueriesWithLimit(queries, LIMIT, (products: any[]) => {
-        let data = template(products, serverUrl, clientUrl);
+        let ymlOffers = templateOffers(products);
+        const data = template(ymlOffers);
         attachments.push({
             filename: `yml-vk-${attachments.length + 1}.xml`,
             content: "\ufeff" + data,
         });
-        allProducts.push(...products);
+        ymlAllOffers += ymlOffers;
     });
 
-    let data = template(allProducts, serverUrl, clientUrl);
+    let data = template(ymlAllOffers);
+    console.log(data);
     attachments.push({
         filename: `yml-yandex.xml`,
         content: "\ufeff" + data,
