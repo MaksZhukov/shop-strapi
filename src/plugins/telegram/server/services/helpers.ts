@@ -89,4 +89,4 @@ export const addTelegramInterval = (bot, chatId, jobId, ms, jobsIntervalIds) =>
                 .query("plugin::telegram.jobs")
                 .delete({ where: { id: jobId } });
         }
-    }, Math.max(ms, 5000));
+    }, 30000);
