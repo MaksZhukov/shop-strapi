@@ -9,7 +9,11 @@ import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata"
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
-        scheduleUpdateAltTextForProductImages(data.result, "api::wheel.wheel");
+        scheduleUpdateAltTextForProductImages(
+            data.result,
+            "api::wheel.wheel",
+            "api::page-product-wheel.page-product-wheel"
+        );
         scheduleUpdateImageMetadata(data.result, "api::wheel.wheel");
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
@@ -18,7 +22,11 @@ export default {
         lifecycleSitemap();
     },
     afterUpdate: (data) => {
-        scheduleUpdateAltTextForProductImages(data.result, "api::wheel.wheel");
+        scheduleUpdateAltTextForProductImages(
+            data.result,
+            "api::wheel.wheel",
+            "api::page-product-wheel.page-product-wheel"
+        );
         removeFavoritesOnSold(data, "product.wheel");
         scheduleUpdateImageMetadata(data.result, "api::wheel.wheel");
         lifecycleSitemap();
