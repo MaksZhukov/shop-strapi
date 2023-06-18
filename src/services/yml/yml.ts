@@ -25,13 +25,21 @@ export const sendYMLToEmail = async ({ strapi }) => {
     ];
 
     const attachments = [];
+    const allProducts = [];
 
     await runProductsQueriesWithLimit(queries, LIMIT, (products: any[]) => {
         let data = template(products, serverUrl, clientUrl);
         attachments.push({
-            filename: `yml-${attachments.length + 1}.xml`,
+            filename: `yml-vk-${attachments.length + 1}.xml`,
             content: "\ufeff" + data,
         });
+        allProducts.push(...products);
+    });
+
+    let data = template(allProducts, serverUrl, clientUrl);
+    attachments.push({
+        filename: `yml-yandex.xml`,
+        content: "\ufeff" + data,
     });
     await strapi.plugins.email.services.email.send({
         to: [
@@ -39,7 +47,7 @@ export const sendYMLToEmail = async ({ strapi }) => {
             "maks_zhukov_97@mail.ru",
         ],
         from: strapi.plugins.email.config("providerOptions.username"),
-        subject: "YML Файл",
+        subject: "YML Файлы VK + Yandex",
         attachments: attachments,
     });
 
