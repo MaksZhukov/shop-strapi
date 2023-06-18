@@ -1,7 +1,7 @@
-import slugify from "slugify";
 import utils from "@strapi/utils";
-import scheduleGenerateSitemap from "../services/sitemap/sitemap";
+import slugify from "slugify";
 import { getProductH1 } from "../services";
+import scheduleGenerateSitemap from "../services/sitemap/sitemap";
 const { ApplicationError } = utils.errors;
 
 export const afterDeleteProduct = async (event) => {
@@ -50,8 +50,9 @@ export const beforeCreateProduct = async (event) => {
         throw new ApplicationError("Brand is required");
     }
     if (data.id && data.name) {
-        data.slug = slugify(data.name, { lower: true, strict: true }) + "-" + data.id;
-        data.h1 = await getProductH1(data);
+        data.slug =
+            slugify(data.name, { lower: true, strict: true }) + "-" + data.id;
+        data.h1 = await getProductH1(data, event.model.singularName === "tire");
     }
 };
 
@@ -64,7 +65,8 @@ export const beforeCreateOrUpdateCar = (event) => {
             "" + " " + data.manufactureDate
                 ? `${new Date(data.manufactureDate).getFullYear()}`
                 : "";
-        data.slug = slugify(name, { lower: true, strict: true }) + "-" + data.id;
+        data.slug =
+            slugify(name, { lower: true, strict: true }) + "-" + data.id;
     }
 };
 
