@@ -12,7 +12,8 @@ export default {
     afterCreate: async (data) => {
         scheduleUpdateAltTextForProductImages(
             data.result,
-            "api::spare-part.spare-part"
+            "api::spare-part.spare-part",
+            "api::page-product-spare-part.page-product-spare-part"
         );
         scheduleUpdateImageMetadata(data.result, "api::spare-part.spare-part");
         addProductUrlToTelegramAllProductsJobUrls(
@@ -24,7 +25,8 @@ export default {
     afterUpdate: async (data) => {
         scheduleUpdateAltTextForProductImages(
             data.result,
-            "api::spare-part.spare-part"
+            "api::spare-part.spare-part",
+            "api::page-product-spare-part.page-product-spare-part"
         );
         removeFavoritesOnSold(data, "product.spare-part");
         scheduleUpdateImageMetadata(data.result, "api::spare-part.spare-part");
