@@ -7,7 +7,7 @@ import {
     sendProductsInCSVToEmail,
 } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
-import { hasDelayOfSendingYMLEmail, sendYMLToEmail } from "./services/yml/yml";
+import { hasDelayOfSendingYMLEmail, sendYMLsToEmail } from "./services/yml/yml";
 
 export default {
     /**
@@ -38,7 +38,7 @@ export default {
                 sendProductsInCSVToEmail({ strapi });
             }
             if (await hasDelayOfSendingYMLEmail(strapi)) {
-                sendYMLToEmail({ strapi });
+                sendYMLsToEmail({ strapi });
             }
             sendNotificationOnStart();
             runScripts(strapi);
