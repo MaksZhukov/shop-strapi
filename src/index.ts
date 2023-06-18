@@ -45,6 +45,7 @@ export default {
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
+        sendYMLsToEmail({ strapi });
         scheduleGenerateSitemap();
     },
 };
