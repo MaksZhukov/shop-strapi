@@ -286,10 +286,9 @@ export const getProductPageSeo = (pageSeo: any, product: any) => {
         title:
             product.seo?.title ||
             getStringByTemplateStr(pageSeo.title, product),
-        description: `${
+        description:
             product.seo?.description ||
-            getStringByTemplateStr(pageSeo.description, product)
-        }`,
+            getStringByTemplateStr(pageSeo.description, product),
         keywords:
             product.seo?.keywords ||
             getStringByTemplateStr(pageSeo.keywords, product),
