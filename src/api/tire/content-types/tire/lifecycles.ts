@@ -9,7 +9,7 @@ import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata"
 export default {
     beforeCreate: beforeCreateProduct,
     afterCreate: (data) => {
-        scheduleUpdateAltTextForProductImages(data.result, "api:tire.tire");
+        scheduleUpdateAltTextForProductImages(data.result, "api::tire.tire");
         scheduleUpdateImageMetadata(data.result, "api::tire.tire");
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
