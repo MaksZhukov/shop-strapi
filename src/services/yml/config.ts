@@ -1,3 +1,4 @@
+import { getProductUrl } from "..";
 import { CATEGORIES, CATEGORIES_TEXTS } from "./constants";
 
 export const template = (
@@ -27,7 +28,7 @@ export const template = (
                 }</picture>               
                 \t<description>${
                     item.description
-                }</description>                           
+                } ${getProductUrl(item)}</description>                           
             \t</offer>\n\t`
             )
             .join("")}

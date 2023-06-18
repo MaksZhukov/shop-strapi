@@ -70,7 +70,6 @@ export default ({ strapi }: { strapi: Strapi }) => {
                         (endDate.getTime() - currentDate.getTime()) / count;
                     jobsIntervalIds[item.id] = addTelegramInterval(
                         bot,
-                        chatId,
                         item.id,
                         ms,
                         jobsIntervalIds
@@ -81,7 +80,6 @@ export default ({ strapi }: { strapi: Strapi }) => {
                             (endDate.getTime() - new Date().getTime()) / count;
                         jobsIntervalIds[item.id] = addTelegramInterval(
                             bot,
-                            chatId,
                             item.id,
                             ms,
                             jobsIntervalIds
