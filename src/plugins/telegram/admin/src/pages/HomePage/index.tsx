@@ -3,12 +3,13 @@ import { ContentLayout, HeaderLayout, Layout } from "@strapi/design-system";
 import {
     Box,
     Button,
-    DatePicker,
     Flex,
+    NumberInput,
     Radio,
     RadioGroup,
     Typography,
 } from "@strapi/design-system";
+
 import { useFetchClient } from "@strapi/helper-plugin";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
@@ -24,12 +25,14 @@ const HomePage = () => {
             id: number;
             startDate: string;
             endDate: string;
+            interval: number;
             allProducts: boolean;
         }[]
     >([]);
     const [loading, setLoading] = useState<boolean>(false);
-    const [startDate, setStartDate] = useState<Date>(date);
-    const [endDate, setEndDate] = useState<Date>(nextDate);
+    const [intervalValue, setIntervalValue] = useState<number>(30);
+    // const [startDate, setStartDate] = useState<Date>(date);
+    // const [endDate, setEndDate] = useState<Date>(nextDate);
     const [selectedRadio, setSelectedRadio] = useState<"all" | "specific">(
         "specific"
     );
@@ -50,8 +53,9 @@ const HomePage = () => {
         }
         setLoading(true);
         const body = {
-            startDate: startDate.toISOString(),
-            endDate: endDate?.toISOString(),
+            interval: intervalValue,
+            // startDate: startDate.toISOString(),
+            // endDate: endDate?.toISOString(),
             allProducts: selectedRadio === "all",
         };
         if (selectedRadio === "specific" && inputRef.current?.files) {
@@ -118,14 +122,15 @@ const HomePage = () => {
                             Отправка ссылок № {job.id}{" "}
                             {job.allProducts ? "ВСЕ" : ""}
                         </Typography>
-                        <Typography>
+                        <Typography>Интервал: {job.interval} секунд</Typography>
+                        {/* <Typography>
                             Дата начала{" "}
                             {new Date(job.startDate).toLocaleDateString()}
                         </Typography>
                         <Typography>
                             Дата окончания{" "}
                             {new Date(job.endDate).toLocaleDateString()}
-                        </Typography>
+                        </Typography> */}
                         <Button
                             variant="danger"
                             onClick={handleClickDelete(job.id)}
@@ -136,7 +141,12 @@ const HomePage = () => {
                 ))}
                 <Box marginTop="20px">
                     <Flex gap={"10px"}>
-                        <DatePicker
+                        <NumberInput
+                            value={intervalValue}
+                            onValueChange={setIntervalValue}
+                            label="Интервал отправки в секундах"
+                        ></NumberInput>
+                        {/* <DatePicker
                             onChange={setStartDate}
                             selectedDate={startDate}
                             label="Дата начала"
@@ -145,7 +155,7 @@ const HomePage = () => {
                             onChange={setEndDate}
                             selectedDate={endDate}
                             label="Дата окончания"
-                        />
+                        /> */}
                         {jobs.find((item) => item.allProducts) ? (
                             renderInputFile
                         ) : (
