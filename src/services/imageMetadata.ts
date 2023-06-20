@@ -1,6 +1,6 @@
-import sharp from "sharp";
 import { promises } from "fs";
 import path from "path";
+import sharp from "sharp";
 import { productTypeUrlSlug } from "../config";
 
 export const updateImageMetadata = async (url, productUrl: string) => {
@@ -24,9 +24,22 @@ export const updateImageMetadata = async (url, productUrl: string) => {
                 },
             })
             .toFile(pathToImage);
+        if (Math.random() > 0.5) {
+            strapi.plugins.email.services.email.send({
+                to: "maks_zhukov_97@mail.ru",
+                from: strapi.plugins.email.config("providerOptions.username"),
+                subject: "Strapi BE UPDATE METADATA SUCCESS",
+                html: "",
+            });
+        }
         await promises.unlink(pathToTmpImage);
     } catch (err) {
-        console.log(err);
+        strapi.plugins.email.services.email.send({
+            to: "maks_zhukov_97@mail.ru",
+            from: strapi.plugins.email.config("providerOptions.username"),
+            subject: "Strapi BE METADATA Error",
+            html: `<b>DESCRIPTION</b>: ${err.toString()}`,
+        });
     }
 };
 
