@@ -25,6 +25,9 @@
         "endDate": {
             "type": "datetime"
         },
+        "interval": {
+            "type": "integer"
+        },
         "allProducts": {
             "type": "boolean"
         },
