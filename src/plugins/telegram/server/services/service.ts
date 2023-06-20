@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { Strapi } from "@strapi/strapi";
 import fs from "fs";
+import TelegramBot from 'node-telegram-bot-api';
 import path from "path";
 import {
     addTelegramInterval,
