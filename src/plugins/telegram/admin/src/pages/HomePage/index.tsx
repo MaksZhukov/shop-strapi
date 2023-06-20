@@ -75,11 +75,14 @@ const HomePage = () => {
             //@ts-expect-error error
             body.filePath = file.url;
         }
-        const {
-            data: { data },
-        } = await client.post(`/telegram/jobs`, body, { timeout: 300000 });
-        setLoading(false);
-        setJobs([...jobs, data]);
+        try {
+            const {
+                data: { data },
+            } = await client.post(`/telegram/jobs`, body, { timeout: 600000 });
+            setJobs([...jobs, data]);
+        } catch (err) {
+            setLoading(false);
+        }
     };
 
     const handleClickDelete = (id: number) => async () => {
