@@ -1,17 +1,16 @@
 //@ts-nocheck
 import { Strapi } from "@strapi/strapi";
 import fs from "fs";
-import TelegramBot from "node-telegram-bot-api";
 import path from "path";
 import {
     addTelegramInterval,
     createJobUrls,
+    runArrayIterationPartly,
     runProductsUrlsQueriesWithLimit,
 } from "./helpers";
 
 export default ({ strapi }: { strapi: Strapi }) => {
     const token = strapi.config.get("server.telegramBotToken");
-    const chatId = strapi.config.get("server.telegramChatId");
     const bot = new TelegramBot(token, { polling: true });
     const jobsIntervalIds = {};
     return {
@@ -30,10 +29,16 @@ export default ({ strapi }: { strapi: Strapi }) => {
             });
             if (filePath) {
                 const pathToTxt = path.join(process.cwd(), "public", filePath);
-                const text = fs.readFileSync(pathToTxt, "utf-8");
-                fs.unlinkSync(pathToTxt);
+                const text = await fs.promises.readFile(pathToTxt, "utf-8");
+                fs.promises.unlink(pathToTxt);
                 const productUrls = text.split("\n");
-                await createJobUrls(job.id, productUrls);
+                await runArrayIterationPartly(
+                    productUrls,
+                    1000,
+                    async (urls) => {
+                        await createJobUrls(job.id, urls);
+                    }
+                );
             } else {
                 await runProductsUrlsQueriesWithLimit(strapi, async (urls) => {
                     await createJobUrls(job.id, urls);
@@ -59,33 +64,14 @@ export default ({ strapi }: { strapi: Strapi }) => {
             });
             const data = await strapi.db
                 .query("plugin::telegram.jobs")
-                .findMany({ populate: { urls: true } });
-            let currentDate = new Date();
+                .findMany();
             data.forEach((item) => {
-                const count = item.urls.length;
-                const startDate = new Date(item.startDate);
-                const endDate = new Date(item.endDate);
-                if (startDate.getTime() < currentDate.getTime()) {
-                    const ms =
-                        (endDate.getTime() - currentDate.getTime()) / count;
-                    jobsIntervalIds[item.id] = addTelegramInterval(
-                        bot,
-                        item.id,
-                        ms,
-                        jobsIntervalIds
-                    );
-                } else {
-                    setTimeout(() => {
-                        const ms =
-                            (endDate.getTime() - new Date().getTime()) / count;
-                        jobsIntervalIds[item.id] = addTelegramInterval(
-                            bot,
-                            item.id,
-                            ms,
-                            jobsIntervalIds
-                        );
-                    }, startDate.getTime() - currentDate.getTime());
-                }
+                jobsIntervalIds[item.id] = addTelegramInterval(
+                    bot,
+                    item.id,
+                    item.interval,
+                    jobsIntervalIds
+                );
             });
         },
     };

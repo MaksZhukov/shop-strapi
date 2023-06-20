@@ -24,6 +24,20 @@ const runProductsQueriesWithLimit = async (queries, limit, callback) => {
     }
 };
 
+export const runArrayIterationPartly = async (
+    items: any[],
+    limit,
+    callback
+) => {
+    const total = Math.ceil(items.length / limit);
+    let page = 0;
+    while (page < total) {
+        const data = items.slice(page * limit, (page + 1) * limit);
+        await callback(data);
+        page += 1;
+    }
+};
+
 export const runProductsUrlsQueriesWithLimit = async (strapi, callback) => {
     let clientUrl = strapi.config.get("server.clientUrl");
 
@@ -68,7 +82,7 @@ export const createJobUrls = async (jobID, urls) => {
     );
 };
 
-export const addTelegramInterval = (bot, jobId, ms, jobsIntervalIds) =>
+export const addTelegramInterval = (bot, jobId, interval, jobsIntervalIds) =>
     setInterval(async () => {
         let chatId = strapi.config.get("server.telegramChatId");
         const urlEntity = await strapi.db
@@ -79,7 +93,6 @@ export const addTelegramInterval = (bot, jobId, ms, jobsIntervalIds) =>
             });
         if (urlEntity) {
             bot.sendMessage(chatId, urlEntity.url);
-            console.log(ms, urlEntity);
             strapi.db
                 .query("plugin::telegram.urls")
                 .delete({ where: { id: urlEntity.id } });
@@ -89,4 +102,4 @@ export const addTelegramInterval = (bot, jobId, ms, jobsIntervalIds) =>
                 .query("plugin::telegram.jobs")
                 .delete({ where: { id: jobId } });
         }
-    }, 30000);
+    }, Math.max(interval * 1000, 10000));
