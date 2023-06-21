@@ -4,7 +4,10 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata";
+import {
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
+} from "../../../../services/imageMetadata";
 
 export default {
     beforeCreate: beforeCreateProduct,
@@ -14,12 +17,21 @@ export default {
             "api::wheel.wheel",
             "api::page-product-wheel.page-product-wheel"
         );
-        scheduleUpdateImageMetadata(data.result, "api::wheel.wheel");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::wheel.wheel"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::wheel.wheel"
         );
         lifecycleSitemap();
+    },
+    beforeUpdate: async (data) => {
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::wheel.wheel"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
@@ -28,7 +40,6 @@ export default {
             "api::page-product-wheel.page-product-wheel"
         );
         removeFavoritesOnSold(data, "product.wheel");
-        scheduleUpdateImageMetadata(data.result, "api::wheel.wheel");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

@@ -25,14 +25,13 @@ export const getProductUrl = (item) => {
     );
 };
 
-export const getProductsUrls = async (strapi) => {
+export const getProductsUrls = async () => {
     let queries = [
-        strapi.db.query("api::spare-part.spare-part"),
-        strapi.db.query("api::cabin.cabin"),
-        strapi.db.query("api::wheel.wheel"),
-        strapi.db.query("api::tire.tire"),
+        { queryUID: "api::spare-part.spare-part", populate: ["brand"] },
+        { queryUID: "api::cabin.cabin", populate: ["brand"] },
+        { queryUID: "api::wheel.wheel", populate: ["brand"] },
+        { queryUID: "api::tire.tire", populate: ["brand"] },
     ];
-
     const urls = [];
 
     await runProductsQueriesWithLimit(queries, 10000, (products: any[]) => {
@@ -43,7 +42,7 @@ export const getProductsUrls = async (strapi) => {
 
 export const sendNewProductsToEmail = async ({ strapi }) => {
     try {
-        const urls = await getProductsUrls(strapi);
+        const urls = await getProductsUrls();
 
         let str = urls.reduce((prev, curr) => prev + curr + "\n", "");
         await strapi.plugins.email.services.email.send({
@@ -130,27 +129,31 @@ export const sendProductsInCSVToEmail = async ({ strapi }) => {
         "Цена",
         "Фото",
     ];
-    const [spareParts, cabins, wheels, tires] = await Promise.all([
-        strapi.db
-            .query("api::spare-part.spare-part")
-            .findMany({ populate: { images: true, brand: true, model: true } }),
-        strapi.db
-            .query("api::cabin.cabin")
-            .findMany({ populate: { images: true, brand: true, model: true } }),
-        strapi.db
-            .query("api::wheel.wheel")
-            .findMany({ populate: { images: true, brand: true } }),
-        strapi.db
-            .query("api::tire.tire")
-            .findMany({ populate: { images: true, brand: true } }),
-    ]);
 
-    let data = [
-        ...getDataForCsv(spareParts, serverUrl),
-        ...getDataForCsv(cabins, serverUrl),
-        ...getDataForCsv(wheels, serverUrl),
-        ...getDataForCsv(tires, serverUrl),
+    const queries = [
+        {
+            queryUID: "api::spare-part.spare-part",
+            populate: ["images", "brand", "model"],
+        },
+        {
+            queryUID: "api::cabin.cabin",
+            populate: ["images", "brand", "model"],
+        },
+        {
+            queryUID: "api::wheel.wheel",
+            populate: ["images", "brand"],
+        },
+        {
+            queryUID: "api::tire.tire",
+            populate: ["images", "brand"],
+        },
     ];
+
+    const data = [];
+
+    await runProductsQueriesWithLimit(queries, 5000, async (products) => {
+        data.push(...getDataForCsv(products, serverUrl));
+    });
 
     const csv: string = convertArrayToCSV(data, { header });
 
@@ -300,7 +303,6 @@ export const scheduleUpdateAltTextForProductImages = (
     apiUID,
     pageProductApiUID
 ) => {
-    console.log(pageProductApiUID);
     setTimeout(async () => {
         const [entity, pageProduct] = await Promise.all([
             strapi.service(apiUID).findOne(data.id, {
@@ -359,7 +361,7 @@ export const removeFavoritesOnSold = async (data, component) => {
 };
 
 export const runProductsQueriesWithLimit = async (
-    queries,
+    queries: { queryUID: string; populate: string[]; select?: string[] }[],
     limit,
     callback,
     timeout = 100
@@ -368,9 +370,10 @@ export const runProductsQueriesWithLimit = async (
     let page = 0;
     let products = [];
     while (index < queries.length) {
-        let query = queries[index];
-        const results = await query.findMany({
-            populate: ["brand", "images"],
+        let { queryUID, select, populate } = queries[index];
+        const results = await strapi.db.query(queryUID).findMany({
+            populate,
+            select,
             limit: limit - products.length,
             offset: page * limit,
         });
