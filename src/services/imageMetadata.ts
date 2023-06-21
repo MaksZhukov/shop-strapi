@@ -60,19 +60,18 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
         .findOne(data.params.where.id, {
             populate: { images: true },
         });
-    setTimeout(async () => {
-        let imageIDs = entityBeforeUpdate.images
-            ? data.params.data.images?.filter((id) =>
-                  entityBeforeUpdate.images.some((item) => item.id !== id)
-              )
-            : data.params.data.images;
-        imageIDs?.forEach((item) => {
-            updateImageMetadata(
-                item.url,
-                `${clientUrl}/${productTypeUrlSlug[entityBeforeUpdate.type]}/${
-                    entityBeforeUpdate.slug
-                }`
-            );
-        });
-    }, 100);
+    let imageIDs = entityBeforeUpdate.images
+        ? data.params.data.images?.filter((id) =>
+              entityBeforeUpdate.images.some((item) => item.id !== id)
+          )
+        : data.params.data.images;
+
+    imageIDs?.forEach((item) => {
+        updateImageMetadata(
+            item.url,
+            `${clientUrl}/${productTypeUrlSlug[entityBeforeUpdate.type]}/${
+                entityBeforeUpdate.slug
+            }`
+        );
+    });
 };
