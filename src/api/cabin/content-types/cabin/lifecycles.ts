@@ -5,8 +5,8 @@ import {
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
 import {
-    scheduleUpdateImageMetadataAfterCreate,
-    scheduleUpdateImageMetadataBeforeUpdate,
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
 } from "../../../../services/imageMetadata";
 
 // import { afterDeleteProduct } from "../../../../lifecycles";
@@ -19,7 +19,10 @@ export default {
             "api::cabin.cabin",
             "api::page-product-cabin.page-product-cabin"
         );
-        scheduleUpdateImageMetadataAfterCreate(data.result, "api::cabin.cabin");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::cabin.cabin"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::cabin.cabin"
@@ -27,7 +30,10 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdate(data, "api::cabin.cabin");
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::cabin.cabin"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
