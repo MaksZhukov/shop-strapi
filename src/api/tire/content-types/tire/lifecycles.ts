@@ -4,7 +4,10 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata";
+import {
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
+} from "../../../../services/imageMetadata";
 
 export default {
     beforeCreate: beforeCreateProduct,
@@ -14,12 +17,21 @@ export default {
             "api::tire.tire",
             "api::page-product-tire.page-product-tire"
         );
-        scheduleUpdateImageMetadata(data.result, "api::tire.tire");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::tire.tire"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::tire.tire"
         );
         lifecycleSitemap();
+    },
+    beforeUpdate: async (data) => {
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::tire.tire"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
@@ -28,7 +40,6 @@ export default {
             "api::page-product-tire.page-product-tire"
         );
         removeFavoritesOnSold(data, "product.tire");
-        scheduleUpdateImageMetadata(data.result, "api::tire.tire");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

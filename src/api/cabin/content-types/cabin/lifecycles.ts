@@ -4,7 +4,10 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import { scheduleUpdateImageMetadata } from "../../../../services/imageMetadata";
+import {
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
+} from "../../../../services/imageMetadata";
 
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
@@ -16,12 +19,21 @@ export default {
             "api::cabin.cabin",
             "api::page-product-cabin.page-product-cabin"
         );
-        scheduleUpdateImageMetadata(data.result, "api::cabin.cabin");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::cabin.cabin"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::cabin.cabin"
         );
         lifecycleSitemap();
+    },
+    beforeUpdate: async (data) => {
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::cabin.cabin"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
@@ -30,7 +42,6 @@ export default {
             "api::page-product-cabin.page-product-cabin"
         );
         removeFavoritesOnSold(data, "product.cabin");
-        scheduleUpdateImageMetadata(data.result, "api::cabin.cabin");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

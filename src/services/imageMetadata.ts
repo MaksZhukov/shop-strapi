@@ -24,26 +24,18 @@ export const updateImageMetadata = async (url, productUrl: string) => {
                 },
             })
             .toFile(pathToImage);
-        if (Math.random() > 0.5) {
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Strapi BE UPDATE METADATA SUCCESS",
-                html: "",
-            });
-        }
         await promises.unlink(pathToTmpImage);
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: "Strapi BE METADATA Error",
+            subject: "Strapi BE Error",
             html: `<b>DESCRIPTION</b>: ${err.toString()}`,
         });
     }
 };
 
-export const scheduleUpdateImageMetadata = (data, apiUID) => {
+export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     setTimeout(async () => {
         const entity = await strapi.service(apiUID).findOne(data.id, {
@@ -55,5 +47,31 @@ export const scheduleUpdateImageMetadata = (data, apiUID) => {
                 `${clientUrl}/${productTypeUrlSlug[entity.type]}/${entity.slug}`
             );
         });
-    }, 1000);
+    }, 100);
+};
+
+export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
+    data,
+    apiUID
+) => {
+    let clientUrl = strapi.config.get("server.clientUrl");
+    const entityBeforeUpdate = await strapi
+        .service(apiUID)
+        .findOne(data.params.where.id, {
+            populate: { images: true },
+        });
+    let imageIDs = entityBeforeUpdate.images
+        ? data.params.data.images?.filter((id) =>
+              entityBeforeUpdate.images.some((item) => item.id !== id)
+          )
+        : data.params.data.images;
+
+    imageIDs?.forEach((item) => {
+        updateImageMetadata(
+            item.url,
+            `${clientUrl}/${productTypeUrlSlug[entityBeforeUpdate.type]}/${
+                entityBeforeUpdate.slug
+            }`
+        );
+    });
 };
