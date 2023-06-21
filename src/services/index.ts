@@ -300,7 +300,6 @@ export const scheduleUpdateAltTextForProductImages = (
     apiUID,
     pageProductApiUID
 ) => {
-    console.log(pageProductApiUID);
     setTimeout(async () => {
         const [entity, pageProduct] = await Promise.all([
             strapi.service(apiUID).findOne(data.id, {
