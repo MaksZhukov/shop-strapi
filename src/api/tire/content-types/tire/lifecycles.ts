@@ -5,8 +5,8 @@ import {
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
 import {
-    scheduleUpdateImageMetadataAfterCreate,
-    scheduleUpdateImageMetadataBeforeUpdate,
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
 } from "../../../../services/imageMetadata";
 
 export default {
@@ -17,7 +17,10 @@ export default {
             "api::tire.tire",
             "api::page-product-tire.page-product-tire"
         );
-        scheduleUpdateImageMetadataAfterCreate(data.result, "api::tire.tire");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::tire.tire"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::tire.tire"
@@ -25,7 +28,10 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdate(data, "api::tire.tire");
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::tire.tire"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(

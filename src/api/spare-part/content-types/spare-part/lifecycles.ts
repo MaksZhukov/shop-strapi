@@ -5,8 +5,8 @@ import {
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
 import {
-    scheduleUpdateImageMetadataAfterCreate,
-    scheduleUpdateImageMetadataBeforeUpdate,
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
 } from "../../../../services/imageMetadata";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
@@ -18,7 +18,7 @@ export default {
             "api::spare-part.spare-part",
             "api::page-product-spare-part.page-product-spare-part"
         );
-        scheduleUpdateImageMetadataAfterCreate(
+        scheduleUpdateImageMetadataAfterCreateProduct(
             data.result,
             "api::spare-part.spare-part"
         );
@@ -29,7 +29,7 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdate(
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
             data,
             "api::spare-part.spare-part"
         );

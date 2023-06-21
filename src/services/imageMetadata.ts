@@ -24,26 +24,18 @@ export const updateImageMetadata = async (url, productUrl: string) => {
                 },
             })
             .toFile(pathToImage);
-        if (Math.random() > 0.5) {
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Strapi BE UPDATE METADATA SUCCESS",
-                html: "",
-            });
-        }
         await promises.unlink(pathToTmpImage);
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
-            subject: "Strapi BE METADATA Error",
+            subject: "Strapi BE Error",
             html: `<b>DESCRIPTION</b>: ${err.toString()}`,
         });
     }
 };
 
-export const scheduleUpdateImageMetadataAfterCreate = (data, apiUID) => {
+export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     setTimeout(async () => {
         const entity = await strapi.service(apiUID).findOne(data.id, {
@@ -58,7 +50,10 @@ export const scheduleUpdateImageMetadataAfterCreate = (data, apiUID) => {
     }, 100);
 };
 
-export const scheduleUpdateImageMetadataBeforeUpdate = async (data, apiUID) => {
+export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
+    data,
+    apiUID
+) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     const entityBeforeUpdate = await strapi
         .service(apiUID)

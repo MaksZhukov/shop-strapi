@@ -5,8 +5,8 @@ import {
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
 import {
-    scheduleUpdateImageMetadataAfterCreate,
-    scheduleUpdateImageMetadataBeforeUpdate,
+    scheduleUpdateImageMetadataAfterCreateProduct,
+    scheduleUpdateImageMetadataBeforeUpdateProduct,
 } from "../../../../services/imageMetadata";
 
 export default {
@@ -17,7 +17,10 @@ export default {
             "api::wheel.wheel",
             "api::page-product-wheel.page-product-wheel"
         );
-        scheduleUpdateImageMetadataAfterCreate(data.result, "api::wheel.wheel");
+        scheduleUpdateImageMetadataAfterCreateProduct(
+            data.result,
+            "api::wheel.wheel"
+        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::wheel.wheel"
@@ -25,7 +28,10 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdate(data, "api::wheel.wheel");
+        await scheduleUpdateImageMetadataBeforeUpdateProduct(
+            data,
+            "api::wheel.wheel"
+        );
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
