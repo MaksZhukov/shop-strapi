@@ -1,3 +1,4 @@
+import fs from "fs";
 import { runProductsQueriesWithLimit } from "..";
 import { template, templateOffers } from "./config";
 
@@ -16,10 +17,13 @@ export const hasDelayOfSendingYMLEmail = async (strapi) => {
 
 export const sendYMLsToEmail = async ({ strapi }) => {
     let queries = [
-        strapi.db.query("api::spare-part.spare-part"),
-        strapi.db.query("api::cabin.cabin"),
-        strapi.db.query("api::wheel.wheel"),
-        strapi.db.query("api::tire.tire"),
+        {
+            queryUID: "api::spare-part.spare-part",
+            populate: ["brand", "images"],
+        },
+        { queryUID: "api::cabin.cabin", populate: ["brand", "images"] },
+        { queryUID: "api::wheel.wheel", populate: ["brand", "images"] },
+        { queryUID: "api::tire.tire", populate: ["brand", "images"] },
     ];
 
     const attachments = [];
@@ -36,17 +40,25 @@ export const sendYMLsToEmail = async ({ strapi }) => {
     });
 
     let data = template(ymlAllOffers);
-    attachments.push({
-        filename: `yml-yandex.xml`,
-        content: "\ufeff" + data,
-    });
+    const frontendNearFolderPath = strapi.config.get(
+        "server.frontendNearFolderPath"
+    );
+    const writeableStream = fs.createWriteStream(
+        frontendNearFolderPath + "/yml.xml"
+    );
+    for (let i = 0; i < data.length; i += 10000) {
+        const chunk = data.slice(i, i + 10000);
+        writeableStream.write(chunk);
+    }
+    writeableStream.end();
+
     await strapi.plugins.email.services.email.send({
         to: [
             strapi.config.get("server.emailForNewProducts"),
             "maks_zhukov_97@mail.ru",
         ],
         from: strapi.plugins.email.config("providerOptions.username"),
-        subject: "YML Файлы VK + Yandex",
+        subject: "YML Файлы VK",
         attachments: attachments,
     });
 
