@@ -36,7 +36,6 @@ export const sendYMLsToEmail = async ({ strapi }) => {
     });
 
     let data = template(ymlAllOffers);
-    console.log(data);
     attachments.push({
         filename: `yml-yandex.xml`,
         content: "\ufeff" + data,
