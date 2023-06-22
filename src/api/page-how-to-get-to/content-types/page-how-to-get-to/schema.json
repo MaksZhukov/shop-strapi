@@ -20,6 +20,19 @@
       "type": "component",
       "repeatable": false,
       "component": "seo.seo"
+    },
+    "map": {
+      "type": "text"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "video": {
+      "allowedTypes": [
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
