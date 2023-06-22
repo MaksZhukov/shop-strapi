@@ -30,7 +30,9 @@ export const updateImageMetadata = async (url, productUrl: string) => {
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
             subject: "Strapi BE Error",
-            html: `<b>DESCRIPTION</b>: ${err.toString()}`,
+            html: `<b>DESCRIPTION</b>: ${err.toString()}<br>
+                   <b>URL</b>: ${url}<br>
+                   <b>PRODUCT URL</b>: ${productUrl}<br>`,
         });
     }
 };
