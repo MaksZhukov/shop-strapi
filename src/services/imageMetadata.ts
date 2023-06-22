@@ -62,18 +62,22 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
         .findOne(data.params.where.id, {
             populate: { images: true },
         });
+    const paramsImagesIDs = data.params.data.images || [];
     let imageIDs = entityBeforeUpdate.images
-        ? data.params.data.images?.filter((id) =>
-              entityBeforeUpdate.images.some((item) => item.id !== id)
+        ? paramsImagesIDs.filter(
+              (id) => !entityBeforeUpdate.images.some((item) => item.id === id)
           )
-        : data.params.data.images;
-
-    imageIDs?.forEach((item) => {
-        updateImageMetadata(
-            item.url,
-            `${clientUrl}/${productTypeUrlSlug[entityBeforeUpdate.type]}/${
-                entityBeforeUpdate.slug
-            }`
-        );
-    });
+        : paramsImagesIDs;
+    strapi.plugins.upload.services.upload
+        .findMany({ filters: { id: imageIDs } })
+        .then((images) => {
+            images.forEach((item) => {
+                updateImageMetadata(
+                    item.url,
+                    `${clientUrl}/${
+                        productTypeUrlSlug[entityBeforeUpdate.type]
+                    }/${entityBeforeUpdate.slug}`
+                );
+            });
+        });
 };
