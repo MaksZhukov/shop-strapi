@@ -41,12 +41,14 @@ export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
     let clientUrl = strapi.config.get("server.clientUrl");
     setTimeout(async () => {
         const entity = await strapi.service(apiUID).findOne(data.id, {
-            populate: { images: true },
+            populate: { images: true, brand: true },
         });
         entity.images?.forEach((item) => {
             updateImageMetadata(
                 item.url,
-                `${clientUrl}/${productTypeUrlSlug[entity.type]}/${entity.slug}`
+                `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
+                    entity.brand?.slug
+                }/${entity.slug}`
             );
         });
     }, 100);
@@ -60,7 +62,7 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
     const entityBeforeUpdate = await strapi
         .service(apiUID)
         .findOne(data.params.where.id, {
-            populate: { images: true },
+            populate: { images: true, brand: true },
         });
     const paramsImagesIDs = data.params.data.images || [];
     let imageIDs = entityBeforeUpdate.images
@@ -76,7 +78,9 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
                     item.url,
                     `${clientUrl}/${
                         productTypeUrlSlug[entityBeforeUpdate.type]
-                    }/${entityBeforeUpdate.slug}`
+                    }/${entityBeforeUpdate.brand?.slug}/${
+                        entityBeforeUpdate.slug
+                    }`
                 );
             });
         });
