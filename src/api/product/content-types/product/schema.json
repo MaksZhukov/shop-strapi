@@ -1,0 +1,23 @@
+{
+    "kind": "collectionType",
+    "collectionName": "products",
+    "info": {
+      "singularName": "product",
+      "pluralName": "products",
+      "displayName": "Product"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "pluginOptions": {
+        "content-manager": {
+            "visible": true
+        },
+        "content-type-builder": {
+            "visible": true
+        }
+    },
+    "attributes": {
+    }
+  }
+  
