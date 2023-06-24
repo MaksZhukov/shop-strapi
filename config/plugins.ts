@@ -11,6 +11,7 @@ export default ({ env }) => ({
             },
             strategy: {
                 contentTypes: [
+                    "api::product.product",
                     "api::wheel.wheel",
                     "api::spare-part.spare-part",
                     "api::tire.tire",
@@ -19,6 +20,8 @@ export default ({ env }) => ({
                     "api::brand.brand",
                     "api::kind-spare-part.kind-spare-part",
                 ],
+                // debug: true,
+                hitpass: false,
             },
         },
     },
