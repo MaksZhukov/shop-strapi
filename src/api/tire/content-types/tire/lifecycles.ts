@@ -32,6 +32,9 @@ export default {
             data,
             "api::tire.tire"
         );
+        if (data.params.data.createdDate) {
+            data.params.data.createdAt = data.params.data.createdDate;
+        }
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
