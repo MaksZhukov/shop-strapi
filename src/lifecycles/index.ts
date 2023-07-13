@@ -54,6 +54,9 @@ export const beforeCreateProduct = async (event) => {
             slugify(data.name, { lower: true, strict: true }) + "-" + data.id;
         data.h1 = await getProductH1(data, event.model.singularName === "tire");
     }
+    if (data.createdDate){
+        data.createdAt = data.createdDate;
+    }
 };
 
 export const beforeCreateOrUpdateCar = (event) => {
