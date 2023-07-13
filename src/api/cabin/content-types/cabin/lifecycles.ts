@@ -34,6 +34,9 @@ export default {
             data,
             "api::cabin.cabin"
         );
+        if (data.params.data.createdDate) {
+            data.params.data.createdAt = data.params.data.createdDate;
+        }
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(
@@ -42,9 +45,6 @@ export default {
             "api::page-product-cabin.page-product-cabin"
         );
         removeFavoritesOnSold(data, "product.cabin");
-        if (data.params.data.createdDate) {
-            data.params.data.createdAt = data.params.data.createdDate;
-        }
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,
