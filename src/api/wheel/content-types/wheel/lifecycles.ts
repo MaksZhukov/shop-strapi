@@ -32,6 +32,9 @@ export default {
             data,
             "api::wheel.wheel"
         );
+        if (data.params.data.createdDate) {
+            data.params.data.createdAt = data.params.data.createdDate;
+        }
     },
     afterUpdate: (data) => {
         scheduleUpdateAltTextForProductImages(

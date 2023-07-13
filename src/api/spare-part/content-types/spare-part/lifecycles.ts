@@ -33,6 +33,9 @@ export default {
             data,
             "api::spare-part.spare-part"
         );
+        if (data.params.data.createdDate) {
+            data.params.data.createdAt = data.params.data.createdDate;
+        }
     },
     afterUpdate: async (data) => {
         scheduleUpdateAltTextForProductImages(
