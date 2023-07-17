@@ -6,6 +6,9 @@ export default ({ strapi }: { strapi: Strapi }) => {
             strapi
                 .service("plugin::internal.data")
                 .setBePaidTestMode(event.result.bePaidTestMode);
+            strapi
+                .service("plugin::internal.data")
+                .setCurrencyCoefficient(event.result.currencyCoefficient);
         },
     };
 };
