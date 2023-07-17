@@ -13,7 +13,6 @@ export default ({ env }) => ({
         tasks: cronTasks,
     },
     serverUrl: env("SERVER_URL"),
-    "currency-freaks-key": env("CURRENCY_KEY"),
     emailForNewProducts: env("EMAIL_FOR_NEW_PRODUCTS"),
     apiToken: env("API_TOKEN"),
     clientUrl: env("CLIENT_URL"),
@@ -22,9 +21,6 @@ export default ({ env }) => ({
     frontendNearFolderPath: env("FRONTEND_NEAR_FOLDER_PATH"),
     bepaidShopId: env("BEPAID_SHOP_ID"),
     bepaidShopKey: env("BEPAID_SHOP_KEY"),
-    cryptoAlgorithm: env("CRYPTO_ALGORITHM"),
-    cryptoKey: env("CRYPTO_KEY"),
-    cryptoIV: env("CRYPTO_IV"),
     telegramBotToken: env("TELEGRAM_BOT_TOKEN"),
     telegramChatId: env("TELEGRAM_CHAT_ID"),
 });

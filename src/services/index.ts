@@ -3,6 +3,7 @@ import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
 import { productTypeUrlSlug } from "../config";
 import { ALTS_ARR } from "./constants";
+import { CurrencyRate } from "./types";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -71,20 +72,20 @@ export const sendNewProductsToEmail = async ({ strapi }) => {
 };
 
 export const updateCurrency = async ({ strapi }) => {
-    let key = strapi.config.get("server.currency-freaks-key");
     try {
-        const {
-            data: {
-                rates: { BYN },
-            },
-        } = await axios.get(
-            `https://api.currencyfreaks.com/latest?apikey=${key}&symbols=BYN`,
-            { httpsAgent: new Agent({ rejectUnauthorized: false }) }
+        const { data } = await axios.get<CurrencyRate[]>(
+            `https://www.nbrb.by/api/exrates/rates?periodicity=0`,
+            {
+                httpsAgent: new Agent({ rejectUnauthorized: false }),
+            }
+        );
+        const usdExchangeRate = data.find(
+            (currency) => currency.Cur_Abbreviation === "USD"
         );
         await strapi.service("plugin::internal.data").createOrUpdate({
             data: {
                 currencyDate: new Date().getTime(),
-                currencyCoefficient: 1 / BYN,
+                currencyCoefficient: 1 / usdExchangeRate.Cur_OfficialRate,
             },
         });
     } catch (err) {

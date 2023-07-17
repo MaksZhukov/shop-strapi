@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "internal_data",
+  "info": {
+    "singularName": "data",
+    "pluralName": "datas",
+    "displayName": "Data",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
+  "attributes": {
+    "dateNewProductSentToEmail": {
+      "type": "datetime"
+    },
+    "dateProductsInCsvSentToEmail": {
+      "type": "datetime"
+    },
+    "dateYMLSentToEmail": {
+      "type": "datetime"
+    },
+    "currencyDate": {
+      "type": "datetime"
+    },
+    "currencyCoefficient": {
+      "type": "float"
+    },
+    "bePaidTestMode": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
