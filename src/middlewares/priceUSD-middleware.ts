@@ -2,7 +2,7 @@ export default (config, { strapi }) => {
     return async (context, next) => {
         await next();
         const { body } = context;
-        let coefficient = await strapi
+        let coefficient = strapi
             .service("plugin::internal.data")
             .getCurrencyCoefficient();
 
