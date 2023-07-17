@@ -4,7 +4,8 @@ import {
     hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
     sendNotificationOnStart,
-    sendProductsInCSVToEmail
+    sendProductsInCSVToEmail,
+    updateCurrency,
 } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
 import { hasDelayOfSendingYMLEmail, sendYMLsToEmail } from "./services/yml/yml";
