@@ -6,4 +6,5 @@ export default async ({ strapi }: { strapi: Strapi }) => {
             .service("plugin::internal.data")
             .createOrUpdate({ data: { currencyCoefficient: 0 } });
     }
+    strapi.service("plugin::internal.data").initiate();
 };
