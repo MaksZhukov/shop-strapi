@@ -13,7 +13,6 @@ export default ({ env }) => ({
         tasks: cronTasks,
     },
     serverUrl: env("SERVER_URL"),
-    "currency-freaks-key": env("CURRENCY_KEY"),
     emailForNewProducts: env("EMAIL_FOR_NEW_PRODUCTS"),
     apiToken: env("API_TOKEN"),
     clientUrl: env("CLIENT_URL"),
