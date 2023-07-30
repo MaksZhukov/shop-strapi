@@ -20,7 +20,8 @@ export default factories.createCoreController(
     "api::order.order",
     ({ strapi }) => ({
         async checkout(ctx) {
-            const { products = [] } = ctx.query;
+            const { products = [], paymentMethodType = "credit_card" } =
+                ctx.query;
 
             const productsEntities = await Promise.all(
                 products.map((item) =>
@@ -38,7 +39,8 @@ export default factories.createCoreController(
                     (prev, curr) => prev + (curr.discountPrice || curr.price),
                     0
                 ),
-                products
+                products,
+                paymentMethodType
             );
             return { data };
         },
