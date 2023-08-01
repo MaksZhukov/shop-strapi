@@ -13,19 +13,25 @@ export const checkout = async (
     description: string,
     amount: number,
     products: any[],
+    paymentMethodType: string,
     withNotification = true
 ) => {
     const bepaidShopId = strapi.config.get("server.bepaidShopId");
     const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
     const serverUrl = strapi.config.get("server.serverUrl");
+    const isApplySale = paymentMethodType === "credit_card";
     let timeCheckoutStart = performance.now();
     const test = await strapi
         .service("plugin::internal.data")
         .getBePaidTestMode();
-    const finalAmount = amount <= 500 ? amount * 0.9 : amount * 0.95;
-    const finalDescription = `${description}. Скидка ${
-        amount <= 500 ? "10" : "5"
-    }%`;
+    const finalAmount = isApplySale
+        ? amount <= 500
+            ? amount * 0.9
+            : amount * 0.95
+        : amount;
+    const finalDescription = isApplySale
+        ? `${description}. Скидка ${amount <= 500 ? "10" : "5"}%`
+        : description;
     const { data } = await axios.post(
         "https://checkout.bepaid.by/ctp/api/checkouts",
         {
@@ -52,6 +58,9 @@ export const checkout = async (
                     notification_url: `${serverUrl}/api/orders/notification?products=${JSON.stringify(
                         products
                     )}`,
+                },
+                payment_method: {
+                    types: [paymentMethodType],
                 },
             },
         },
