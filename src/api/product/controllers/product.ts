@@ -13,6 +13,7 @@ export default {
             ])
         ).reduce(
             (prev, curr) => ({
+                //@ts-expect-error error
                 data: [...prev.data, ...curr.results],
                 pagination: {},
             }),
