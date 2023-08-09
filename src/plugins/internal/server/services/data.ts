@@ -2,7 +2,6 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreService(
     "plugin::internal.data",
-    //@ts-expect-error error
     function () {
         return {
             coefficient: 0,
