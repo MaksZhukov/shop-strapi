@@ -1,6 +1,6 @@
-import utils from "@strapi/utils";
+import { errors } from "@strapi/utils";
 
-const { ApplicationError } = utils.errors;
+const { ApplicationError } = errors;
 
 export default (config, { strapi }) => {
     return async (context, next) => {
