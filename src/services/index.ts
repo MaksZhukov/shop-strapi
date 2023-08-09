@@ -311,7 +311,6 @@ export const scheduleUpdateAltTextForProductImages = (
             }),
             strapi.service(pageProductApiUID).find({ populate: { seo: true } }),
         ]);
-        //@ts-expect-error error
         entity.seo = getProductPageSeo(pageProduct.seo, entity);
         updateAltTextForProductImages(entity, entity.images);
     }, 1000);
