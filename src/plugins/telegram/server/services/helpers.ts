@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 import { productTypeUrlSlug } from "./config";
 
 const runProductsQueriesWithLimit = async (queries, limit, callback) => {
@@ -65,6 +63,7 @@ export const runProductsUrlsQueriesWithLimit = async (strapi, callback) => {
 export const createJobUrls = async (jobID, urls) => {
     const {
         count,
+        //@ts-expect-error error
         ids: [lastId],
     } = await strapi.db.query("plugin::telegram.urls").createMany({
         data: urls.map((item) => ({ url: item })),
