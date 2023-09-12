@@ -16,6 +16,11 @@
       "type": "component",
       "repeatable": false,
       "component": "general.footer"
+    },
+    "videoWidget": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.video-widget"
     }
   }
 }
