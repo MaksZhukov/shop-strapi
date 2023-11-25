@@ -322,7 +322,7 @@ export const scheduleUpdateAltTextForProductImages = (
         //@ts-expect-error error
         entity.seo = getProductPageSeo(pageProduct.seo, entity);
         updateAltTextForProductImages(entity, entity.images);
-    }, 1000);
+    }, 300);
 };
 
 export const getProductH1 = async (data, isTire: boolean) => {
