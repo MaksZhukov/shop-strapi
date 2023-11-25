@@ -25,6 +25,9 @@ export const updateImageMetadata = async (url, productUrl: string) => {
             })
             .toFile(pathToImage);
         await promises.unlink(pathToTmpImage);
+        console.log(
+            `UPDATED PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url}`
+        );
     } catch (err) {
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
@@ -44,6 +47,9 @@ export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
             populate: { images: true, brand: true },
         });
         entity.images?.forEach((item) => {
+            console.log(
+                `START UPDATING PRODUCT IMAGES AFTER CREATE FOR PRODUCT: ${data.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
+            );
             updateImageMetadata(
                 item.url,
                 `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
@@ -74,6 +80,9 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
         .findMany({ filters: { id: imageIDs } })
         .then((images) => {
             images.forEach((item) => {
+                console.log(
+                    `START UPDATING PRODUCT IMAGES BEFORE UPDATE FOR PRODUCT: ${data.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
+                );
                 updateImageMetadata(
                     item.url,
                     `${clientUrl}/${
