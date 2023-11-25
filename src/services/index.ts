@@ -263,10 +263,18 @@ export const updateAltTextForProductImages = (data, images) => {
             description: data.seo?.description,
         };
         let alt = values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
-        strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
-            alternativeText: alt,
-            caption: alt,
-        });
+        try {
+            strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
+                alternativeText: alt,
+                caption: alt,
+            });
+        } catch (err) {
+            console.log(
+                `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
+                    data
+                )}, IMAGES: ${JSON.stringify(images)}`
+            );
+        }
     });
 };
 
@@ -314,7 +322,7 @@ export const scheduleUpdateAltTextForProductImages = (
         //@ts-expect-error error
         entity.seo = getProductPageSeo(pageProduct.seo, entity);
         updateAltTextForProductImages(entity, entity.images);
-    }, 1000);
+    }, 300);
 };
 
 export const getProductH1 = async (data, isTire: boolean) => {
