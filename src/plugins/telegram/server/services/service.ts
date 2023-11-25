@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { Strapi } from "@strapi/strapi";
 import fs from "fs";
-import TelegramBot from 'node-telegram-bot-api';
+import TelegramBot from "node-telegram-bot-api";
 import path from "path";
 import {
     addTelegramInterval,
@@ -13,6 +13,7 @@ import {
 export default ({ strapi }: { strapi: Strapi }) => {
     const token = strapi.config.get("server.telegramBotToken");
     const bot = new TelegramBot(token, { polling: true });
+    console.log(`TELEGRAM BOT REGISTERED ${new Date().toLocaleDateString()}`);
     const jobsIntervalIds = {};
     return {
         bot,
