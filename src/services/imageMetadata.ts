@@ -57,7 +57,7 @@ export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
                 }/${entity.slug}`
             );
         });
-    }, 100);
+    }, 3000);
 };
 
 export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
