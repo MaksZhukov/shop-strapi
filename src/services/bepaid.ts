@@ -78,7 +78,7 @@ export const checkout = async (
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
             subject: "Strapi BE Checkout Log Time",
-            html: `checkout ${timeCheckoutEnd}`,
+            html: `checkout: ${timeCheckoutEnd}, app instance: ${process.env.NODE_APP_INSTANCE}`,
         });
     }
     return data.checkout;
