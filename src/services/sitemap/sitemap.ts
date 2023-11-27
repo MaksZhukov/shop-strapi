@@ -82,16 +82,16 @@ const generateSitemap = async () => {
 
 let timeoutId = null;
 
-const FIVE_MINUTES = 300000;
+const TWENTY_MINUTES = 1200000;
 
 const scheduleGenerateSitemap = () => {
     if (timeoutId) {
-        return;
+        clearTimeout(timeoutId);
     }
     timeoutId = setTimeout(async () => {
         timeoutId = null;
         await generateSitemap();
-    }, FIVE_MINUTES);
+    }, TWENTY_MINUTES);
 };
 
 export default scheduleGenerateSitemap;
