@@ -4,6 +4,7 @@ import sharp from "sharp";
 import { productTypeUrlSlug } from "../config";
 
 export const updateImageMetadata = async (url, productUrl: string) => {
+    const timeChangeImageMetadataStart = performance.now();
     try {
         const pathToImage = path.join(process.cwd(), "public", url);
         const pathToTmpImage = path.join(
@@ -25,8 +26,10 @@ export const updateImageMetadata = async (url, productUrl: string) => {
             })
             .toFile(pathToImage);
         await promises.unlink(pathToTmpImage);
+        const timeChangeImageMetadataEnd =
+            performance.now() - timeChangeImageMetadataStart;
         console.log(
-            `UPDATED PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url}`
+            `UPDATED PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url}, SPEND TIME: ${timeChangeImageMetadataEnd}`
         );
     } catch (err) {
         strapi.plugins.email.services.email.send({
@@ -47,9 +50,6 @@ export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
             populate: { images: true, brand: true },
         });
         entity.images?.forEach((item) => {
-            console.log(
-                `START UPDATING PRODUCT IMAGES AFTER CREATE FOR PRODUCT: ${data.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
-            );
             updateImageMetadata(
                 item.url,
                 `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
