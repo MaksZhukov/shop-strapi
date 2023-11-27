@@ -41,10 +41,10 @@ export default {
                 sendYMLsToEmail({ strapi });
             }
             sendNotificationOnStart();
+            scheduleGenerateSitemap();
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
-        scheduleGenerateSitemap();
     },
 };
