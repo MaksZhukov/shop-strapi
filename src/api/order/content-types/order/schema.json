@@ -41,6 +41,9 @@
     },
     "address": {
       "type": "string"
+    },
+    "handled": {
+      "type": "boolean"
     }
   }
 }
