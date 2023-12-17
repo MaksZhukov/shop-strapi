@@ -80,9 +80,8 @@ const HomePage = () => {
                 data: { data },
             } = await client.post(`/telegram/jobs`, body, { timeout: 600000 });
             setJobs([...jobs, data]);
-        } catch (err) {
-            setLoading(false);
-        }
+        } catch (err) {}
+        setLoading(false);
     };
 
     const handleClickDelete = (id: number) => async () => {
