@@ -4,6 +4,14 @@ import https from "https";
 
 axiosRetry(axios, {
     retries: 3,
+    onRetry(retryCount, error, requestConfig) {
+        console.log(
+            `RETRY CHECKOUT WITH COUNT: ${retryCount} ERROR : ${JSON.stringify(
+                error
+            )}, WITH REQUEST CONFIG: ${JSON.stringify(requestConfig)}`
+        );
+        return;
+    },
     retryDelay: () => 500,
 });
 
