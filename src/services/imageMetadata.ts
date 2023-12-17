@@ -32,6 +32,11 @@ export const updateImageMetadata = async (url, productUrl: string) => {
             `UPDATED PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url}, SPEND TIME: ${timeChangeImageMetadataEnd}`
         );
     } catch (err) {
+        console.log(
+            `ERROR UPDATE PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url} WITH ERROR : ${JSON.stringify(
+                err
+            )}`
+        );
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
@@ -81,7 +86,7 @@ export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
         .then((images) => {
             images.forEach((item) => {
                 console.log(
-                    `START UPDATING PRODUCT IMAGES BEFORE UPDATE FOR PRODUCT: ${data.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
+                    `START UPDATING PRODUCT IMAGES BEFORE UPDATE FOR PRODUCT: ${data.params.where.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
                 );
                 updateImageMetadata(
                     item.url,
