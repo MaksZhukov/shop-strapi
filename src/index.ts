@@ -31,15 +31,15 @@ export default {
             process.env.NODE_ENV === "production" &&
             process.env.NODE_APP_INSTANCE === "0"
         ) {
-            if (await hasDelayOfSendingNewProductsEmail(strapi)) {
-                sendNewProductsToEmail({ strapi });
-            }
-            if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
-                sendProductsInCSVToEmail({ strapi });
-            }
-            if (await hasDelayOfSendingYMLEmail(strapi)) {
-                sendYMLsToEmail({ strapi });
-            }
+            // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
+            //     sendNewProductsToEmail({ strapi });
+            // }
+            // if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
+            //     sendProductsInCSVToEmail({ strapi });
+            // }
+            // if (await hasDelayOfSendingYMLEmail(strapi)) {
+            //     sendYMLsToEmail({ strapi });
+            // }
             sendNotificationOnStart();
             scheduleGenerateSitemap();
             runScripts(strapi);
