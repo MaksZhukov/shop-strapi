@@ -5,21 +5,29 @@ export default factories.createCoreService(
     //@ts-expect-error error
     function () {
         return {
-            coefficient: 0,
+            currencyCoefficient: {
+                usd: 0,
+                rub: 0,
+            },
             bePaidTestMode: false,
             async initiate() {
                 const {
                     bePaidTestMode: bePaidTestModeValue,
                     currencyCoefficient,
-                } = await super.find();
-                this.coefficient = currencyCoefficient;
+                } = await super.find({
+                    populate: { currencyCoefficient: true },
+                });
+                this.currencyCoefficient = currencyCoefficient;
                 this.bePaidTestMode = bePaidTestModeValue;
             },
             getCurrencyCoefficient() {
-                return this.coefficient;
+                return this.currencyCoefficient;
             },
-            setCurrencyCoefficient(value: number) {
-                this.coefficient = value;
+            setCurrencyCoefficient(currencyCoefficient: {
+                usd: number;
+                rub: number;
+            }) {
+                this.currencyCoefficient = currencyCoefficient;
             },
             setBePaidTestMode(value: boolean) {
                 this.bePaidTestMode = value;

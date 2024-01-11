@@ -131,6 +131,9 @@
     },
     "videoLink": {
       "type": "string"
+    },
+    "priceRUB": {
+      "type": "integer"
     }
   }
 }
