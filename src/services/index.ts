@@ -82,10 +82,21 @@ export const updateCurrency = async ({ strapi }) => {
         const usdExchangeRate = data.find(
             (currency) => currency.Cur_Abbreviation === "USD"
         );
+        const rubExchangeRate = data.find(
+            (currency) => currency.Cur_Abbreviation === "RUB"
+        );
+
         await strapi.service("plugin::internal.data").createOrUpdate({
             data: {
                 currencyDate: new Date().getTime(),
-                currencyCoefficient: 1 / usdExchangeRate.Cur_OfficialRate,
+                currencyCoefficient: {
+                    usd:
+                        (1 / usdExchangeRate.Cur_OfficialRate) *
+                        usdExchangeRate.Cur_Scale,
+                    rub:
+                        (1 / rubExchangeRate.Cur_OfficialRate) *
+                        rubExchangeRate.Cur_Scale,
+                },
             },
         });
     } catch (err) {
