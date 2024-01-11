@@ -122,6 +122,9 @@
     "sold": {
       "type": "boolean",
       "default": false
+    },
+    "priceRUB": {
+      "type": "integer"
     }
   }
 }
