@@ -25,7 +25,7 @@
       "default": 0
     },
     "priceUSD": {
-      "type": "integer"
+      "type": "decimal"
     },
     "brand": {
       "type": "relation",
@@ -104,7 +104,7 @@
       "default": false
     },
     "priceRUB": {
-      "type": "integer"
+      "type": "decimal"
     }
   }
 }
