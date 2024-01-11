@@ -133,7 +133,7 @@
       "type": "string"
     },
     "priceRUB": {
-      "type": "integer"
+      "type": "decimal"
     }
   }
 }
