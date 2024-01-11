@@ -124,7 +124,7 @@
       "default": false
     },
     "priceRUB": {
-      "type": "integer"
+      "type": "decimal"
     }
   }
 }
