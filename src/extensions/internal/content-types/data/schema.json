@@ -31,12 +31,15 @@
     "currencyDate": {
       "type": "datetime"
     },
-    "currencyCoefficient": {
-      "type": "float"
-    },
     "bePaidTestMode": {
       "type": "boolean",
       "default": false
+    },
+    "currencyCoefficient": {
+      "displayName": "currency",
+      "type": "component",
+      "repeatable": false,
+      "component": "general.currency"
     }
   }
 }

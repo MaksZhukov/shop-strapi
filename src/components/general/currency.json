@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_general_currencies",
+  "info": {
+    "displayName": "currency"
+  },
+  "options": {},
+  "attributes": {
+    "usd": {
+      "type": "float"
+    },
+    "rub": {
+      "type": "float"
+    }
+  }
+}
