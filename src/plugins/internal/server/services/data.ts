@@ -17,7 +17,9 @@ export default factories.createCoreService(
                 } = await super.find({
                     populate: { currencyCoefficient: true },
                 });
-                this.currencyCoefficient = currencyCoefficient;
+                if (currencyCoefficient) {
+                    this.currencyCoefficient = currencyCoefficient;
+                }
                 this.bePaidTestMode = bePaidTestModeValue;
             },
             getCurrencyCoefficient() {
