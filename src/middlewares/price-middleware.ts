@@ -19,6 +19,7 @@ export default (config, { strapi }) => {
             } else {
                 body.data.priceUSD = body.data.price * coefficient.usd;
                 body.data.priceRUB = body.data.price * coefficient.rub;
+                console.log("PRICE_MIDDLEWARE", body.data, coefficient);
                 if (body.data.discountPrice) {
                     body.data.discountPriceUSD =
                         body.data.discountPrice * coefficient.usd;
