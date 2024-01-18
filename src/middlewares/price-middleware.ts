@@ -10,16 +10,24 @@ export default (config, { strapi }) => {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {
                     let { price, discountPrice } = item;
-                    item.priceUSD = price * coefficient.usd;
-                    item.priceRUB = price * coefficient.rub;
-                    if (discountPrice) {
-                        item.discountPriceUSD = discountPrice * coefficient.usd;
+                    console.log(
+                        "PRICE_MIDDLEWARE",
+                        body.data,
+                        coefficient,
+                        process.env.NODE_APP_INSTANCE
+                    );
+                    if (coefficient) {
+                        item.priceUSD = price * coefficient.usd;
+                        item.priceRUB = price * coefficient.rub;
+                        if (discountPrice) {
+                            item.discountPriceUSD =
+                                discountPrice * coefficient.usd;
+                        }
                     }
                 });
             } else {
                 body.data.priceUSD = body.data.price * coefficient.usd;
                 body.data.priceRUB = body.data.price * coefficient.rub;
-                console.log("PRICE_MIDDLEWARE", body.data, coefficient);
                 if (body.data.discountPrice) {
                     body.data.discountPriceUSD =
                         body.data.discountPrice * coefficient.usd;
