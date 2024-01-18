@@ -17,9 +17,18 @@ export default factories.createCoreService(
                 } = await super.find({
                     populate: { currencyCoefficient: true },
                 });
-                if (currencyCoefficient) {
+                if (
+                    currencyCoefficient &&
+                    currencyCoefficient.usd &&
+                    currencyCoefficient.rub
+                ) {
                     this.currencyCoefficient = currencyCoefficient;
                 }
+                console.log(
+                    "INIT_CURRENCY_COEFFICIENT",
+                    currencyCoefficient,
+                    process.env.NODE_APP_INSTANCE
+                );
                 this.bePaidTestMode = bePaidTestModeValue;
             },
             getCurrencyCoefficient() {
