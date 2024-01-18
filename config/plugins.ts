@@ -289,7 +289,7 @@ export default ({ env }) => ({
         resolve: "./src/plugins/internal",
     },
     telegram: {
-        enabled: true,
+        enabled: false,
         resolve: "./src/plugins/telegram",
     },
 });
