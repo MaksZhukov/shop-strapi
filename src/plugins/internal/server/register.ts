@@ -6,6 +6,7 @@ export default ({ strapi }: { strapi: Strapi }) => {
             strapi
                 .service("plugin::internal.data")
                 .setBePaidTestMode(event.result.bePaidTestMode);
+            console.log("AFTER_UPDATE", event.result);
             strapi
                 .service("plugin::internal.data")
                 .setCurrencyCoefficient(event.result.currencyCoefficient);
