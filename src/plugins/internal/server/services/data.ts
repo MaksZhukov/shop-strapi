@@ -32,6 +32,7 @@ export default factories.createCoreService(
                 this.bePaidTestMode = bePaidTestModeValue;
             },
             getCurrencyCoefficient() {
+                console.log("GET_CURRENCY_COEFFICIENT", this);
                 return this.currencyCoefficient;
             },
             setCurrencyCoefficient(currencyCoefficient: {

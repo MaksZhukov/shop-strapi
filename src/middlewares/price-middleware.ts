@@ -21,7 +21,12 @@ export default (config, { strapi }) => {
                     } else {
                         console.log(
                             "PRICE_MIDDLEWARE",
-                            coefficient,
+                            strapi.service("plugin::internal.data"),
+                            strapi.service("plugin::internal.data")
+                                .currencyCoefficient,
+                            strapi
+                                .service("plugin::internal.data")
+                                .getCurrencyCoefficient().coefficient,
                             process.env.NODE_APP_INSTANCE
                         );
                     }
