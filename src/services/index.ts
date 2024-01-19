@@ -1,4 +1,5 @@
 import axios from "axios";
+import fs from "fs";
 import { convertArrayToCSV } from "convert-array-to-csv";
 import { Agent } from "https";
 import { productTypeUrlSlug } from "../config";
@@ -117,6 +118,16 @@ export const hasDelayOfSendingProductsInCsvEmail = async (strapi) => {
         .find();
     return (
         new Date(dateProductsInCsvSentToEmail).getTime() <
+        new Date().getTime() - DAY_MS
+    );
+};
+
+export const hasDelayOfProductDescriptionGenerated = async (strapi) => {
+    const { dateProductFullDescriptionGenerated } = await strapi
+        .service("plugin::internal.data")
+        .find();
+    return (
+        new Date(dateProductFullDescriptionGenerated).getTime() <
         new Date().getTime() - DAY_MS
     );
 };
@@ -430,4 +441,64 @@ export const addProductUrlToTelegramAllProductsJobUrls = async (
             .query("plugin::telegram.urls")
             .create({ data: { url: productUrl, job: job.id } });
     }
+};
+
+export const generateProductFullDescription = async ({ strapi }) => {
+    let queries = [
+        {
+            queryUID: "api::spare-part.spare-part",
+            populate: ["brand"],
+        },
+        { queryUID: "api::cabin.cabin", populate: [] },
+        { queryUID: "api::wheel.wheel", populate: [] },
+        { queryUID: "api::tire.tire", populate: [] },
+    ];
+
+    const [
+        pageProductSparePart,
+        pageProductCabin,
+        pageProductTire,
+        pageProductWheel,
+    ] = await Promise.all([
+        strapi
+            .service("api::page-product-spare-part.page-product-spare-part")
+            .find(),
+        strapi.service("api::page-product-cabin.page-product-cabin").find(),
+        strapi.service("api::page-product-tire.page-product-tire").find(),
+        strapi.service("api::page-product-wheel.page-product-wheel").find(),
+    ]);
+    const additionalDescriptionByType = {
+        sparePart: pageProductSparePart.additionalDescription,
+        cabin: pageProductCabin.additionalDescription,
+        tire: pageProductTire.additionalDescription,
+        wheel: pageProductWheel.additionalDescription,
+    };
+    console.time("start");
+    const writeableStream = fs.createWriteStream(
+        "private/productDescriptions.json"
+    );
+    writeableStream.write("[");
+    await runProductsQueriesWithLimit(queries, 10000, (products: any[]) => {
+        const data = products.map((item) => ({
+            id: item.id,
+            type: item.type,
+            name: item.name,
+            description: item.description,
+            additionalDescription: getStringByTemplateStr(
+                additionalDescriptionByType[item.type],
+                item
+            ).replace(/<\/?[^>]+(>|$)/g, ""),
+        }));
+        writeableStream.write(
+            JSON.stringify(data, null, 2).replace("[", "").replace("]", "")
+        );
+    });
+    writeableStream.write("]");
+    writeableStream.end();
+    console.timeEnd("start");
+    await strapi.service("plugin::internal.data").createOrUpdate({
+        data: {
+            dateProductFullDescriptionGenerated: new Date().getTime(),
+        },
+    });
 };
