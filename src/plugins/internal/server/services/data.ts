@@ -39,6 +39,7 @@ export default factories.createCoreService(
                 usd: number;
                 rub: number;
             }) {
+                console.log("SET_CURRENCY_COEFFICIENT", currencyCoefficient);
                 this.currencyCoefficient = currencyCoefficient;
             },
             setBePaidTestMode(value: boolean) {
