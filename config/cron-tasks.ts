@@ -1,4 +1,5 @@
 import {
+    generateProductFullDescription,
     sendNewProductsToEmail,
     sendProductsInCSVToEmail,
     updateCurrency,
@@ -9,8 +10,6 @@ export default {
     // "0 9 * * *": sendNewProductsToEmail,
     // "1 9 * * *": sendProductsInCSVToEmail,
     // "2 9 * * *": sendYMLsToEmail,
-    "3 9 * * *": () => {
-        strapi.service("plugin::telegram.service")?.runTelegramMessages();
-    },
+    "0 0 * * *": generateProductFullDescription,
     "0 */12 * * *": updateCurrency,
 };
