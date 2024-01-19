@@ -25,6 +25,9 @@
         "dateProductsInCsvSentToEmail": {
             "type": "datetime"
         },
+        "dateProductFullDescriptionGenerated": {
+            "type": "datetime"
+        },
         "dateYMLSentToEmail": {
             "type": "datetime"
         },
