@@ -1,5 +1,7 @@
 import runScripts from "./scripts";
 import {
+    generateProductFullDescription,
+    hasDelayOfProductDescriptionGenerated,
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
     sendNewProductsToEmail,
@@ -40,6 +42,9 @@ export default {
             // if (await hasDelayOfSendingYMLEmail(strapi)) {
             //     sendYMLsToEmail({ strapi });
             // }
+            if (await hasDelayOfProductDescriptionGenerated(strapi)) {
+                generateProductFullDescription({ strapi });
+            }
             sendNotificationOnStart();
             scheduleGenerateSitemap();
 

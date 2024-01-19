@@ -1,7 +1,7 @@
 /**
  * Migration `zero-price-to-1`
  */
-console.log("hello");
+
 module.exports = {
     up: async (knex) => {
         await knex("cabins").where({ price: 0 }).update({
