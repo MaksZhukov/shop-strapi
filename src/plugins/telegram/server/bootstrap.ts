@@ -5,6 +5,6 @@ export default async ({ strapi }: { strapi: Strapi }) => {
         process.env.NODE_ENV === "production" &&
         process.env.NODE_APP_INSTANCE === "0"
     ) {
-        strapi.service("plugin::telegram.service")?.runTelegramMessages();
+        // strapi.service("plugin::telegram.service")?.runTelegramMessages();
     }
 };

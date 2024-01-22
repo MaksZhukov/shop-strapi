@@ -4,10 +4,12 @@ import {
     hasDelayOfProductDescriptionGenerated,
     hasDelayOfSendingNewProductsEmail,
     hasDelayOfSendingProductsInCsvEmail,
+    hasDelayOfUpdatingImagesMetadata,
     sendNewProductsToEmail,
     sendNotificationOnStart,
     sendProductsInCSVToEmail,
     updateCurrency,
+    updateImagesMetadata,
 } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
 import { hasDelayOfSendingYMLEmail, sendYMLsToEmail } from "./services/yml/yml";
@@ -52,5 +54,6 @@ export default {
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
+        updateImagesMetadata({ strapi });
     },
 };
