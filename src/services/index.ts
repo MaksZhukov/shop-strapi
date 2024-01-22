@@ -557,12 +557,12 @@ export const updateImagesMetadata = async ({ strapi }) => {
         queries,
         100,
         (products: any[]) => {
-            products.forEach((item) => {
-                item.images?.forEach((item) => {
+            products.forEach((entity) => {
+                entity.images?.forEach((item) => {
                     updateImageMetadata(
                         item.url,
-                        `${clientUrl}/${productTypeUrlSlug[item.type]}/${
-                            item.brand?.slug
+                        `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
+                            entity.brand?.slug
                         }/${item.slug}`
                     );
                 });
