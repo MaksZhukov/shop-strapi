@@ -4,10 +4,6 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import {
-    scheduleUpdateImageMetadataAfterCreateProduct,
-    scheduleUpdateImageMetadataBeforeUpdateProduct,
-} from "../../../../services/imageMetadata";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
 export default {
@@ -18,10 +14,6 @@ export default {
             "api::spare-part.spare-part",
             "api::page-product-spare-part.page-product-spare-part"
         );
-        scheduleUpdateImageMetadataAfterCreateProduct(
-            data.result,
-            "api::spare-part.spare-part"
-        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::spare-part.spare-part"
@@ -29,10 +21,6 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdateProduct(
-            data,
-            "api::spare-part.spare-part"
-        );
         if (data.params.data.createdDate) {
             data.params.data.createdAt = data.params.data.createdDate;
         }

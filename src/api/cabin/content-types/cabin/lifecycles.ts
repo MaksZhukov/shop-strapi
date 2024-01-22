@@ -4,10 +4,6 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import {
-    scheduleUpdateImageMetadataAfterCreateProduct,
-    scheduleUpdateImageMetadataBeforeUpdateProduct,
-} from "../../../../services/imageMetadata";
 
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
@@ -19,10 +15,6 @@ export default {
             "api::cabin.cabin",
             "api::page-product-cabin.page-product-cabin"
         );
-        scheduleUpdateImageMetadataAfterCreateProduct(
-            data.result,
-            "api::cabin.cabin"
-        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::cabin.cabin"
@@ -30,10 +22,6 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdateProduct(
-            data,
-            "api::cabin.cabin"
-        );
         if (data.params.data.createdDate) {
             data.params.data.createdAt = data.params.data.createdDate;
         }

@@ -26,7 +26,7 @@
       "type": "datetime"
     },
     "dateProductFullDescriptionGenerated": {
-        "type": "datetime"
+      "type": "datetime"
     },
     "dateYMLSentToEmail": {
       "type": "datetime"
@@ -43,6 +43,9 @@
       "type": "component",
       "repeatable": false,
       "component": "general.currency"
+    },
+    "dateUpdatingImagesMetadata": {
+      "type": "datetime"
     }
   }
 }
