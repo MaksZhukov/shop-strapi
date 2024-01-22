@@ -5,6 +5,7 @@ import { Agent } from "https";
 import { productTypeUrlSlug } from "../config";
 import { ALTS_ARR } from "./constants";
 import { CurrencyRate } from "./types";
+import { updateImageMetadata } from "./imageMetadata";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -128,6 +129,16 @@ export const hasDelayOfProductDescriptionGenerated = async (strapi) => {
         .find();
     return (
         new Date(dateProductFullDescriptionGenerated).getTime() <
+        new Date().getTime() - DAY_MS
+    );
+};
+
+export const hasDelayOfUpdatingImagesMetadata = async (strapi) => {
+    const { dateUpdatingImagesMetadata } = await strapi
+        .service("plugin::internal.data")
+        .find();
+    return (
+        new Date(dateUpdatingImagesMetadata).getTime() <
         new Date().getTime() - DAY_MS
     );
 };
@@ -392,7 +403,12 @@ export const removeFavoritesOnSold = async (data, component) => {
 };
 
 export const runProductsQueriesWithLimit = async (
-    queries: { queryUID: string; populate: string[]; select?: string[] }[],
+    queries: {
+        queryUID: string;
+        populate: string[];
+        select?: string[];
+        where?: any;
+    }[],
     limit,
     callback,
     timeout = 100
@@ -401,10 +417,11 @@ export const runProductsQueriesWithLimit = async (
     let page = 0;
     let products = [];
     while (index < queries.length) {
-        let { queryUID, select, populate } = queries[index];
+        let { queryUID, select, populate, where } = queries[index];
         const results = await strapi.db.query(queryUID).findMany({
             populate,
             select,
+            where,
             limit: limit - products.length,
             offset: page * limit,
         });
@@ -499,6 +516,65 @@ export const generateProductFullDescription = async ({ strapi }) => {
     await strapi.service("plugin::internal.data").createOrUpdate({
         data: {
             dateProductFullDescriptionGenerated: new Date().getTime(),
+        },
+    });
+};
+
+export const updateImagesMetadata = async ({ strapi }) => {
+    let clientUrl = strapi.config.get("server.clientUrl");
+    const { dateUpdatingImagesMetadata } = await strapi
+        .service("plugin::internal.data")
+        .find({});
+
+    const where = {
+        createdAt: { $gte: dateUpdatingImagesMetadata },
+        updatedAt: { $gte: dateUpdatingImagesMetadata },
+    };
+    const queries = [
+        {
+            queryUID: "api::spare-part.spare-part",
+            populate: ["brand", "images"],
+            where,
+        },
+        {
+            queryUID: "api::cabin.cabin",
+            populate: ["brand", "images"],
+            where,
+        },
+        {
+            queryUID: "api::wheel.wheel",
+            populate: ["brand", "images"],
+            where,
+        },
+        {
+            queryUID: "api::tire.tire",
+            populate: ["brand", "images"],
+            where,
+        },
+    ];
+
+    await runProductsQueriesWithLimit(
+        queries,
+        100,
+        (products: any[]) => {
+            console.log(products.length);
+            products.forEach((item) => {
+                item.images?.forEach((item) => {
+                    updateImageMetadata(
+                        item.url,
+                        `${clientUrl}/${productTypeUrlSlug[item.type]}/${
+                            item.brand?.slug
+                        }/${item.slug}`
+                    );
+                });
+            });
+        },
+        5000
+    );
+
+    await strapi.service("plugin::internal.data").createOrUpdate({
+        data: {
+            dateUpdatingImagesMetadata: new Date().getTime(),
         },
     });
 };
