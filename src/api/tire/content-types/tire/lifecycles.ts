@@ -4,10 +4,6 @@ import {
     removeFavoritesOnSold,
     scheduleUpdateAltTextForProductImages,
 } from "../../../../services";
-import {
-    scheduleUpdateImageMetadataAfterCreateProduct,
-    scheduleUpdateImageMetadataBeforeUpdateProduct,
-} from "../../../../services/imageMetadata";
 
 export default {
     beforeCreate: beforeCreateProduct,
@@ -17,10 +13,6 @@ export default {
             "api::tire.tire",
             "api::page-product-tire.page-product-tire"
         );
-        scheduleUpdateImageMetadataAfterCreateProduct(
-            data.result,
-            "api::tire.tire"
-        );
         addProductUrlToTelegramAllProductsJobUrls(
             data.result.id,
             "api::tire.tire"
@@ -28,10 +20,6 @@ export default {
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
-        await scheduleUpdateImageMetadataBeforeUpdateProduct(
-            data,
-            "api::tire.tire"
-        );
         if (data.params.data.createdDate) {
             data.params.data.createdAt = data.params.data.createdDate;
         }
