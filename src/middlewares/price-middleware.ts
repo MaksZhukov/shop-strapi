@@ -18,17 +18,6 @@ export default (config, { strapi }) => {
                             item.discountPriceUSD =
                                 discountPrice * coefficient.usd;
                         }
-                    } else {
-                        console.log(
-                            "PRICE_MIDDLEWARE",
-                            strapi.service("plugin::internal.data"),
-                            strapi.service("plugin::internal.data")
-                                .currencyCoefficient,
-                            strapi
-                                .service("plugin::internal.data")
-                                .getCurrencyCoefficient().coefficient,
-                            process.env.NODE_APP_INSTANCE
-                        );
                     }
                 });
             } else {
