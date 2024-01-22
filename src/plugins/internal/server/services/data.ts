@@ -24,22 +24,15 @@ export default factories.createCoreService(
                 ) {
                     this.currencyCoefficient = currencyCoefficient;
                 }
-                console.log(
-                    "INIT_CURRENCY_COEFFICIENT",
-                    currencyCoefficient,
-                    process.env.NODE_APP_INSTANCE
-                );
                 this.bePaidTestMode = bePaidTestModeValue;
             },
             getCurrencyCoefficient() {
-                console.log("GET_CURRENCY_COEFFICIENT", this);
                 return this.currencyCoefficient;
             },
             setCurrencyCoefficient(currencyCoefficient: {
                 usd: number;
                 rub: number;
             }) {
-                console.log("SET_CURRENCY_COEFFICIENT", currencyCoefficient);
                 this.currencyCoefficient = currencyCoefficient;
             },
             setBePaidTestMode(value: boolean) {
