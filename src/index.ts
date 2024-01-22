@@ -54,5 +54,6 @@ export default {
         } else if (process.env.NODE_ENV === "development") {
             runScripts(strapi);
         }
+        updateImagesMetadata({ strapi });
     },
 };
