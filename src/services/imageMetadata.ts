@@ -49,53 +49,53 @@ export const updateImageMetadata = async (url, productUrl: string) => {
 };
 
 export const scheduleUpdateImageMetadataAfterCreateProduct = (data, apiUID) => {
-    let clientUrl = strapi.config.get("server.clientUrl");
-    setTimeout(async () => {
-        const entity = await strapi.service(apiUID).findOne(data.id, {
-            populate: { images: true, brand: true },
-        });
-        entity.images?.forEach((item) => {
-            updateImageMetadata(
-                item.url,
-                `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
-                    entity.brand?.slug
-                }/${entity.slug}`
-            );
-        });
-    }, 3000);
+    // let clientUrl = strapi.config.get("server.clientUrl");
+    // setTimeout(async () => {
+    //     const entity = await strapi.service(apiUID).findOne(data.id, {
+    //         populate: { images: true, brand: true },
+    //     });
+    //     entity.images?.forEach((item) => {
+    //         updateImageMetadata(
+    //             item.url,
+    //             `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
+    //                 entity.brand?.slug
+    //             }/${entity.slug}`
+    //         );
+    //     });
+    // }, 3000);
 };
 
 export const scheduleUpdateImageMetadataBeforeUpdateProduct = async (
     data,
     apiUID
 ) => {
-    let clientUrl = strapi.config.get("server.clientUrl");
-    const entityBeforeUpdate = await strapi
-        .service(apiUID)
-        .findOne(data.params.where.id, {
-            populate: { images: true, brand: true },
-        });
-    const paramsImagesIDs = data.params.data.images || [];
-    let imageIDs = entityBeforeUpdate.images
-        ? paramsImagesIDs.filter(
-              (id) => !entityBeforeUpdate.images.some((item) => item.id === id)
-          )
-        : paramsImagesIDs;
-    strapi.plugins.upload.services.upload
-        .findMany({ filters: { id: imageIDs } })
-        .then((images) => {
-            images.forEach((item) => {
-                console.log(
-                    `START UPDATING PRODUCT IMAGES BEFORE UPDATE FOR PRODUCT: ${data.params.where.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
-                );
-                updateImageMetadata(
-                    item.url,
-                    `${clientUrl}/${
-                        productTypeUrlSlug[entityBeforeUpdate.type]
-                    }/${entityBeforeUpdate.brand?.slug}/${
-                        entityBeforeUpdate.slug
-                    }`
-                );
-            });
-        });
+    // let clientUrl = strapi.config.get("server.clientUrl");
+    // const entityBeforeUpdate = await strapi
+    //     .service(apiUID)
+    //     .findOne(data.params.where.id, {
+    //         populate: { images: true, brand: true },
+    //     });
+    // const paramsImagesIDs = data.params.data.images || [];
+    // let imageIDs = entityBeforeUpdate.images
+    //     ? paramsImagesIDs.filter(
+    //           (id) => !entityBeforeUpdate.images.some((item) => item.id === id)
+    //       )
+    //     : paramsImagesIDs;
+    // strapi.plugins.upload.services.upload
+    //     .findMany({ filters: { id: imageIDs } })
+    //     .then((images) => {
+    //         images.forEach((item) => {
+    //             console.log(
+    //                 `START UPDATING PRODUCT IMAGES BEFORE UPDATE FOR PRODUCT: ${data.params.where.id}, APIUID: ${apiUID}, IMAGE ID: ${item.id}`
+    //             );
+    //             updateImageMetadata(
+    //                 item.url,
+    //                 `${clientUrl}/${
+    //                     productTypeUrlSlug[entityBeforeUpdate.type]
+    //                 }/${entityBeforeUpdate.brand?.slug}/${
+    //                     entityBeforeUpdate.slug
+    //                 }`
+    //             );
+    //         });
+    //     });
 };
