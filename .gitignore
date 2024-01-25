@@ -116,6 +116,8 @@ dist
 
 strapi-plugin-generate-data
 package-lock.json
+private/productDescriptions.json
+tmp/*
 
 
 # bash

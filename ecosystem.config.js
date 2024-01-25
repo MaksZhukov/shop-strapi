@@ -21,7 +21,7 @@ module.exports = {
             env: {
                 NODE_ENV: "production",
             },
-            instances: "max",
+            instances: "4",
             exec_mode: "cluster",
             max_memory_restart: "800M",
             restart_delay: 5000,
