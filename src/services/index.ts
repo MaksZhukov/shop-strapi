@@ -563,7 +563,7 @@ export const updateImagesMetadata = async ({ strapi }) => {
                         item.url,
                         `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
                             entity.brand?.slug
-                        }/${item.slug}`
+                        }/${entity.slug}`
                     );
                 });
             });
