@@ -15,10 +15,10 @@ export default {
             "api::cabin.cabin",
             "api::page-product-cabin.page-product-cabin"
         );
-        addProductUrlToTelegramAllProductsJobUrls(
-            data.result.id,
-            "api::cabin.cabin"
-        );
+        // addProductUrlToTelegramAllProductsJobUrls(
+        //     data.result.id,
+        //     "api::cabin.cabin"
+        // );
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
