@@ -14,10 +14,10 @@ export default {
             "api::spare-part.spare-part",
             "api::page-product-spare-part.page-product-spare-part"
         );
-        addProductUrlToTelegramAllProductsJobUrls(
-            data.result.id,
-            "api::spare-part.spare-part"
-        );
+        // addProductUrlToTelegramAllProductsJobUrls(
+        //     data.result.id,
+        //     "api::spare-part.spare-part"
+        // );
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {

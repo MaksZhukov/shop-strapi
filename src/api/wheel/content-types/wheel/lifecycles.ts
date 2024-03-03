@@ -13,10 +13,10 @@ export default {
             "api::wheel.wheel",
             "api::page-product-wheel.page-product-wheel"
         );
-        addProductUrlToTelegramAllProductsJobUrls(
-            data.result.id,
-            "api::wheel.wheel"
-        );
+        // addProductUrlToTelegramAllProductsJobUrls(
+        //     data.result.id,
+        //     "api::wheel.wheel"
+        // );
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {

@@ -13,10 +13,10 @@ export default {
             "api::tire.tire",
             "api::page-product-tire.page-product-tire"
         );
-        addProductUrlToTelegramAllProductsJobUrls(
-            data.result.id,
-            "api::tire.tire"
-        );
+        // addProductUrlToTelegramAllProductsJobUrls(
+        //     data.result.id,
+        //     "api::tire.tire"
+        // );
         lifecycleSitemap();
     },
     beforeUpdate: async (data) => {
