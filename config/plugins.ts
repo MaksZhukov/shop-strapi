@@ -41,7 +41,8 @@ export default ({ env }) => ({
                     "api::generation.generation",
                 ],
                 debug: false,
-                hitpass: false,
+                hitpass: true,
+                enableEtagSupport: true
             },
         },
     },
