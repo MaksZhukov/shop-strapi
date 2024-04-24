@@ -2,10 +2,9 @@ export default (config, { strapi }) => {
     return async (context, next) => {
         await next();
         const { body } = context;
-        const coefficient = strapi
+        const coefficient = await strapi
             .service("plugin::internal.data")
             .getCurrencyCoefficient();
-
         if (body) {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {

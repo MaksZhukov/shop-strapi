@@ -22,7 +22,9 @@ export default factories.createCoreController(
         async checkout(ctx) {
             const { products = [], paymentMethodType = "credit_card" } =
                 ctx.query;
-
+            const coefficient = await strapi
+                .service("plugin::internal.data")
+                .getCurrencyCoefficient();
             const productsEntities = await Promise.all(
                 products.map((item) =>
                     strapi.db
@@ -34,7 +36,14 @@ export default factories.createCoreController(
                 return ctx.badRequest("one of the product is sold");
             }
             const data = await checkout(
-                productsEntities.map((item) => item.h1).join(", "),
+                productsEntities
+                    .map(
+                        (item) =>
+                            `${item.h1} ~${item.price * coefficient.usd} ~${
+                                item.price * coefficient.rub
+                            }₽`
+                    )
+                    .join(", "),
                 productsEntities.reduce(
                     (prev, curr) => prev + (curr.discountPrice || curr.price),
                     0

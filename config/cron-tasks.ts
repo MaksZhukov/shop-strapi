@@ -13,5 +13,5 @@ export default {
     // "2 9 * * *": sendYMLsToEmail,
     "0 0 * * *": updateImagesMetadata,
     "0 1 * * *": generateProductFullDescription,
-    "0 */12 * * *": updateCurrency,
+    "0 */3 * * *": updateCurrency,
 };
