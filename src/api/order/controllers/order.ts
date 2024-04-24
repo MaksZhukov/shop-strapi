@@ -39,9 +39,11 @@ export default factories.createCoreController(
                 productsEntities
                     .map(
                         (item) =>
-                            `${item.h1} ~${item.price * coefficient.usd} ~${
+                            `${item.h1} ~${(
+                                item.price * coefficient.usd
+                            ).toFixed()}$ ~${(
                                 item.price * coefficient.rub
-                            }₽`
+                            ).toFixed()}₽`
                     )
                     .join(", "),
                 productsEntities.reduce(
