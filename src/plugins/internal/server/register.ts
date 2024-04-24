@@ -7,14 +7,13 @@ export default ({ strapi }: { strapi: Strapi }) => {
                 .service("plugin::internal.data")
                 .setBePaidTestMode(event.result.bePaidTestMode);
             //@ts-expect-error error
-            const { currencyCoefficient } = await strapi
-                .service("plugin::internal.data")
-                .find({
-                    populate: { currencyCoefficient: true },
-                });
-            strapi
-                .service("plugin::internal.data")
-                .setCurrencyCoefficient(currencyCoefficient);
+            if (strapi.redis?.connections?.default?.client) {
+                //@ts-expect-error error
+                await strapi.redis.connections?.default?.client.expire(
+                    "currencyCoefficient",
+                    0
+                );
+            }
         },
     };
 };
