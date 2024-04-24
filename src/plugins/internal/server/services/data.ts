@@ -5,29 +5,39 @@ export default factories.createCoreService(
     //@ts-expect-error error
     function () {
         return {
-            currencyCoefficient: {
-                usd: 0,
-                rub: 0,
-            },
             bePaidTestMode: false,
-            async initiate() {
-                const {
-                    bePaidTestMode: bePaidTestModeValue,
-                    currencyCoefficient,
-                } = await super.find({
+            async getCurrencyCoefficient() {
+                //@ts-expect-error error
+                if (strapi.redis?.connections?.default?.client) {
+                    const currencyCoefficient =
+                        //@ts-expect-error error
+                        await strapi.redis.connections.default.client.get(
+                            "currencyCoefficient"
+                        );
+                    console.log(
+                        "CACHE currencyCoefficient",
+                        currencyCoefficient
+                    );
+                    if (currencyCoefficient) {
+                        return JSON.parse(currencyCoefficient);
+                    } else {
+                        const data = await super.find({
+                            populate: { currencyCoefficient: true },
+                        });
+                        //@ts-expect-error error
+                        await strapi.redis.connections.default.client.set(
+                            "currencyCoefficient",
+                            JSON.stringify(data.currencyCoefficient),
+                            "EX",
+                            3600
+                        );
+                        return data.currencyCoefficient;
+                    }
+                }
+                const data = await super.find({
                     populate: { currencyCoefficient: true },
                 });
-                if (
-                    currencyCoefficient &&
-                    currencyCoefficient.usd &&
-                    currencyCoefficient.rub
-                ) {
-                    this.currencyCoefficient = currencyCoefficient;
-                }
-                this.bePaidTestMode = bePaidTestModeValue;
-            },
-            getCurrencyCoefficient() {
-                return this.currencyCoefficient;
+                return data.currencyCoefficient;
             },
             setCurrencyCoefficient(currencyCoefficient: {
                 usd: number;
