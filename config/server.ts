@@ -18,7 +18,6 @@ export default ({ env }) => ({
     clientUrl: env("CLIENT_URL"),
     clientLocalUrl: env("CLIENT_LOCAL_URL"),
     revalidateToken: env("REVALIDATE_TOKEN"),
-    frontendNearFolderPath: env("FRONTEND_NEAR_FOLDER_PATH"),
     bepaidShopId: env("BEPAID_SHOP_ID"),
     bepaidShopKey: env("BEPAID_SHOP_KEY"),
     telegramBotToken: env("TELEGRAM_BOT_TOKEN"),
