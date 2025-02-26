@@ -16,7 +16,7 @@ export default ({ env }) => ({
     emailForNewProducts: env("EMAIL_FOR_NEW_PRODUCTS"),
     apiToken: env("API_TOKEN"),
     clientUrl: env("CLIENT_URL"),
-    clientLocalUrl: env("CLIENT_LOCAL_URL"),
+    clientLocalUrls: env("CLIENT_LOCAL_URLS").split(','),
     revalidateToken: env("REVALIDATE_TOKEN"),
     bepaidShopId: env("BEPAID_SHOP_ID"),
     bepaidShopKey: env("BEPAID_SHOP_KEY"),
