@@ -40,11 +40,9 @@ export default ({ env }) => ({
                     "api::engine-volume.engine-volume",
                     "api::generation.generation",
                 ],
-                debug: true,
-                logs: true,
-                hitpass: false,
-                clearRelatedCache: true,
-                enableEtagSupport: true,
+                debug: false,
+                hitpass: true,
+                enableEtagSupport: true
             },
         },
     },
@@ -72,9 +70,9 @@ export default ({ env }) => ({
             },
         },
         settings: {
-            defaultFrom: env("TARGET_EMAIL"),
-            defaultReplyTo: env("TARGET_EMAIL"),
-            testAddress: env("TARGET_EMAIL"),
+            defaultFrom: env("SMTP_USERNAME"),
+            defaultReplyTo: env("SMTP_USERNAME"),
+            testAddress: env("SMTP_USERNAME"),
         },
     },
     ckeditor: {
