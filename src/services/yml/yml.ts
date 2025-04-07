@@ -40,11 +40,8 @@ export const sendYMLsToEmail = async ({ strapi }) => {
     });
 
     let data = template(ymlAllOffers);
-    const frontendNearFolderPath = strapi.config.get(
-        "server.frontendNearFolderPath"
-    );
     const writeableStream = fs.createWriteStream(
-        frontendNearFolderPath + "/yml.xml"
+        process.cwd() + "/public/uploads/yml.xml"
     );
     for (let i = 0; i < data.length; i += 10000) {
         const chunk = data.slice(i, i + 10000);

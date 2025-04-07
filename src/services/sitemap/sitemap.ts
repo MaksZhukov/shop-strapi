@@ -65,12 +65,9 @@ const generateSitemap = async () => {
     ];
 
     let clientUrl = strapi.config.get("server.clientUrl");
-    const frontendNearFolderPath = strapi.config.get(
-        "server.frontendNearFolderPath"
-    );
     const sitemap = new SitemapStream({ hostname: clientUrl });
     const writeStream = fs.createWriteStream(
-        frontendNearFolderPath + "/sitemap.xml"
+        process.cwd() + "/public/uploads/sitemap.xml"
     );
     sitemap.pipe(writeStream);
     [...STATIC_LINKS, ...links].forEach((item) => {
