@@ -8,7 +8,7 @@ export default (config, { strapi }) =>
 
         return RateLimit.middleware({
             interval: 1 * 60 * 1000,
-            max: token && apiToken === token ? 500 : 50,
+            max: token && apiToken === token ? 5000 : 50,
             prefixKey: `${context.request.path}:${context.request.ip}`,
         })(context, next);
     };
