@@ -12,6 +12,6 @@ export default {
     // "1 9 * * *": sendProductsInCSVToEmail,
     // "2 9 * * *": sendYMLsToEmail,
     "0 0 * * *": updateImagesMetadata,
-    // "0 1 * * *": generateProductFullDescription,
+    "0 1 * * *": generateProductFullDescription,
     "0 */3 * * *": updateCurrency,
 };
