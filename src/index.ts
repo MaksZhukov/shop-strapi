@@ -44,9 +44,9 @@ export default {
             // if (await hasDelayOfSendingYMLEmail(strapi)) {
             //     sendYMLsToEmail({ strapi });
             // }
-            if (await hasDelayOfProductDescriptionGenerated(strapi)) {
-                generateProductFullDescription({ strapi });
-            }
+            // if (await hasDelayOfProductDescriptionGenerated(strapi)) {
+            //     generateProductFullDescription({ strapi });
+            // }
             sendNotificationOnStart();
             scheduleGenerateSitemap();
 
