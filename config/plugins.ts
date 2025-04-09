@@ -40,9 +40,8 @@ export default ({ env }) => ({
                     "api::engine-volume.engine-volume",
                     "api::generation.generation",
                 ],
-                debug: true,
-                hitpass: false,
-                clearRelatedCache: true,
+                debug: false,
+                hitpass: true,
                 enableEtagSupport: true
             },
         },
