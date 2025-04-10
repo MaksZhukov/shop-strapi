@@ -5,18 +5,15 @@ export default (config, { strapi }) => {
         const coefficient = await strapi
             .service("plugin::internal.data")
             .getCurrencyCoefficient();
-        if (body) {
+        if (body && coefficient) {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {
                     let { price, discountPrice } = item;
 
-                    if (coefficient) {
-                        item.priceUSD = price * coefficient.usd;
-                        item.priceRUB = price * coefficient.rub;
-                        if (discountPrice) {
-                            item.discountPriceUSD =
-                                discountPrice * coefficient.usd;
-                        }
+                    item.priceUSD = price * coefficient.usd;
+                    item.priceRUB = price * coefficient.rub;
+                    if (discountPrice) {
+                        item.discountPriceUSD = discountPrice * coefficient.usd;
                     }
                 });
             } else {
