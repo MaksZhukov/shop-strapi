@@ -17,7 +17,7 @@ export default (config, { strapi }) => {
                        <b>BODY</b>: ${JSON.stringify(context.request.body)}<br>
 					   <b>DESCRIPTION</b>: ${err.toString()}`,
             });
-            throw new ApplicationError(err.toString());
+            // throw new ApplicationError(err.toString());
         }
     };
 };
