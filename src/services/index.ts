@@ -302,12 +302,6 @@ export const updateAltTextForProductImages = (data, images) => {
                 caption: alt,
             });
         } catch (err) {
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: `ERROR updateAltTextForProductImages for ${image.id}`,
-                text: err.toString(),
-            });
             console.log(
                 `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
                     data

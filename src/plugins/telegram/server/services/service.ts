@@ -13,7 +13,6 @@ import {
 export default ({ strapi }: { strapi: Strapi }) => {
     const token = strapi.config.get("server.telegramBotToken");
     const bot = new TelegramBot(token, { polling: true });
-    console.log(`TELEGRAM BOT REGISTERED ${new Date().toLocaleDateString()}`);
     const jobsIntervalIds = {};
     return {
         bot,
