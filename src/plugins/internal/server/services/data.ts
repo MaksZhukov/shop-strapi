@@ -14,10 +14,6 @@ export default factories.createCoreService(
                         await strapi.redis.connections.default.client.get(
                             "currencyCoefficient"
                         );
-                    console.log(
-                        "CACHE currencyCoefficient",
-                        currencyCoefficient
-                    );
                     if (currencyCoefficient) {
                         return JSON.parse(currencyCoefficient);
                     } else {

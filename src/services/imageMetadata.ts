@@ -28,15 +28,7 @@ export const updateImageMetadata = async (url, productUrl: string) => {
         await promises.unlink(pathToTmpImage);
         const timeChangeImageMetadataEnd =
             performance.now() - timeChangeImageMetadataStart;
-        console.log(
-            `UPDATED PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url}, SPEND TIME: ${timeChangeImageMetadataEnd}`
-        );
     } catch (err) {
-        console.log(
-            `ERROR UPDATE PRODUCT IMAGES FOR PRODUCT URL : ${productUrl}, IMAGE URL: ${url} WITH ERROR : ${JSON.stringify(
-                err
-            )}`
-        );
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
