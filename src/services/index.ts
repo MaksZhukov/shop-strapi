@@ -305,14 +305,6 @@ export const updateAltTextForProductImages = (data, images) => {
                 }
             );
         } catch (err) {
-            strapi.plugins.email.services.email.send({
-                to: "maks_zhukov_97@mail.ru",
-                from: strapi.plugins.email.config("providerOptions.username"),
-                subject: "Strapi BE Error",
-                html: `<b>IMAGE</b>: ${JSON.stringify(image)}<br>
-                        <b>ALT</b>: ${JSON.stringify(alt)}<br>
-					   <b>DESCRIPTION</b>: ${err.toString()}`,
-            });
             console.log(
                 `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
                     data
@@ -394,6 +386,7 @@ export const sendNotificationOnStart = async () =>
         to: "maks_zhukov_97@mail.ru",
         from: strapi.plugins.email.config("providerOptions.username"),
         subject: "Start Strapi BE Successful",
+        text: `NODE_APP_INSTANCE: ${process.env.NODE_APP_INSTANCE}`,
     });
 
 export const removeFavoritesOnSold = async (data, component) => {
