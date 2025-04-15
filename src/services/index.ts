@@ -289,7 +289,7 @@ export const generateDefaultModelSnippets = (
 });
 
 export const updateAltTextForProductImages = (data, images) => {
-    images?.forEach((image, index) => {
+    images?.forEach(async (image, index) => {
         let values = {
             h1: data.h1,
             title: data.seo?.title,
@@ -297,11 +297,22 @@ export const updateAltTextForProductImages = (data, images) => {
         };
         let alt = values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
         try {
-            strapi.plugins.upload.services.upload.updateFileInfo(image.id, {
-                alternativeText: alt,
-                caption: alt,
-            });
+            await strapi.plugins.upload.services.upload.updateFileInfo(
+                image.id,
+                {
+                    alternativeText: alt,
+                    caption: alt,
+                }
+            );
         } catch (err) {
+            strapi.plugins.email.services.email.send({
+                to: "maks_zhukov_97@mail.ru",
+                from: strapi.plugins.email.config("providerOptions.username"),
+                subject: "Strapi BE Error",
+                html: `<b>IMAGE</b>: ${JSON.stringify(image)}<br>
+                        <b>ALT</b>: ${JSON.stringify(alt)}<br>
+					   <b>DESCRIPTION</b>: ${err.toString()}`,
+            });
             console.log(
                 `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
                     data
