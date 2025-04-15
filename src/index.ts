@@ -31,24 +31,23 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-        if (
-            process.env.NODE_ENV === "production" &&
-            process.env.NODE_APP_INSTANCE === "0"
-        ) {
-            // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
-            //     sendNewProductsToEmail({ strapi });
-            // }
-            // if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
-            //     sendProductsInCSVToEmail({ strapi });
-            // }
-            // if (await hasDelayOfSendingYMLEmail(strapi)) {
-            //     sendYMLsToEmail({ strapi });
-            // }
-            // if (await hasDelayOfProductDescriptionGenerated(strapi)) {
-            //     generateProductFullDescription({ strapi });
-            // }
+        if (process.env.NODE_ENV === "production") {
             sendNotificationOnStart();
-            scheduleGenerateSitemap();
+            if (process.env.NODE_APP_INSTANCE === "0") {
+                scheduleGenerateSitemap();
+                // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
+                //     sendNewProductsToEmail({ strapi });
+                // }
+                // if (await hasDelayOfSendingProductsInCsvEmail(strapi)) {
+                //     sendProductsInCSVToEmail({ strapi });
+                // }
+                // if (await hasDelayOfSendingYMLEmail(strapi)) {
+                //     sendYMLsToEmail({ strapi });
+                // }
+                // if (await hasDelayOfProductDescriptionGenerated(strapi)) {
+                //     generateProductFullDescription({ strapi });
+                // }
+            }
 
             runScripts(strapi);
         } else if (process.env.NODE_ENV === "development") {
