@@ -7,7 +7,7 @@
         "develop": "strapi develop",
         "start": "strapi start dist",
         "build": "npm run build-plugins && strapi build",
-        "build-plugins": "cd src/plugins/internal && npm run build && cd ../telegram && npm run build",
+        "build-plugins": "cd src/plugins/internal && npm run build",
         "strapi": "strapi",
         "postinstall": "patch-package"
     },
@@ -34,9 +34,9 @@
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-redis": "^1.1.0",
         "strapi-plugin-rest-cache": "^4.2.9",
-        "strapi-plugin-transformer": "^3.1.0",
+        "strapi-plugin-transformer": "^3.1.2",
         "strapi-provider-email-smtp": "^1.0.3",
-        "strapi-provider-rest-cache-memory": "^4.2.8",
+        "strapi-provider-rest-cache-memory": "^4.2.9",
         "strapi-provider-rest-cache-redis": "^4.2.9",
         "strapi-utils": "^3.6.11"
     },
