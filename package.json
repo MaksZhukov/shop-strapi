@@ -53,6 +53,7 @@
     "license": "MIT",
     "devDependencies": {
         "@types/lodash.uniqby": "^4.7.7",
+        "@types/minimatch": "^5.1.2",
         "patch-package": "^8.0.0",
         "typescript": "^5.8.3"
     }
