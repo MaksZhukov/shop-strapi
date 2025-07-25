@@ -75,8 +75,7 @@ export default ({ env }) => ({
             testAddress: env("SMTP_USERNAME"),
         },
     },
-    ckeditor: {
-        enabled: true,
+    "strapi-plugin-ckeditor": {
         config: {
             plugin: {
                 // disable data-theme tag setting //
