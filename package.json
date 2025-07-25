@@ -37,8 +37,7 @@
         "strapi-plugin-transformer": "^3.1.2",
         "strapi-provider-email-smtp": "^1.0.3",
         "strapi-provider-rest-cache-memory": "^4.2.9",
-        "strapi-provider-rest-cache-redis": "^4.2.9",
-        "strapi-utils": "^3.6.11"
+        "strapi-provider-rest-cache-redis": "^4.2.9"
     },
     "author": {
         "name": "A Strapi developer"
