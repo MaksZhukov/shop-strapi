@@ -73,17 +73,23 @@ export default factories.createCoreController(
                     },
                 }
             );
-            const result = await strapi.entityService.deleteMany(
-                "api::shopping-cart.shopping-cart",
-                {
-                    filters: {
-                        id: {
-                            $in: items.map((item) => item.id),
+
+            if (Array.isArray(items) && items.length > 0) {
+                const itemIds = items.map((item: any) => item.id);
+                const result = await strapi.entityService.deleteMany(
+                    "api::shopping-cart.shopping-cart",
+                    {
+                        filters: {
+                            id: {
+                                $in: itemIds,
+                            },
                         },
-                    },
-                }
-            );
-            return this.transformResponse(result);
+                    }
+                );
+                return this.transformResponse(result);
+            }
+
+            return this.transformResponse({ count: 0 });
         },
     })
 );

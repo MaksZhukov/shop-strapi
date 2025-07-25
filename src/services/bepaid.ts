@@ -59,8 +59,8 @@ export const checkout = async (
         },
         {
             auth: {
-                username: bepaidShopId,
-                password: bepaidShopKey,
+                username: bepaidShopId as string,
+                password: bepaidShopKey as string,
             },
             httpsAgent: new https.Agent({ rejectUnauthorized: false }),
         }

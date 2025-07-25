@@ -12,17 +12,20 @@ export default factories.createCoreController(
             return super.create(ctx);
         },
         async checkStatus(ctx) {
-            const [review] = await strapi.entityService.findMany(
+            const reviews = await strapi.entityService.findMany(
                 "api::review.review",
                 {
                     filters: {
+                        //@ts-expect-error error
                         email: ctx.query.email,
                     },
                 }
             );
+            const review = reviews[0];
             let status = !review
                 ? ""
-                : review.publishedAt
+                : //@ts-expect-error error
+                review.publishedAt
                 ? "published"
                 : "draft";
 
