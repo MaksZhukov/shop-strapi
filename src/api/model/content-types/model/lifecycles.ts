@@ -37,7 +37,7 @@ export default {
                     "",
                     event.result.name
                 ),
-            },
+            } as any,
         });
         lifecycleSitemap();
     },

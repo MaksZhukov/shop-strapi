@@ -44,7 +44,7 @@ export default {
                         "wheels"
                     ),
                 },
-            },
+            } as any,
         });
         lifecycleSitemap();
     },

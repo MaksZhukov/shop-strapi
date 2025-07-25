@@ -6,7 +6,7 @@ export const afterDeleteProduct = async (event) => {
     const { id, type } = event.result;
     const [{ results: resultFavorites }, { results: resultCarts }] =
         await Promise.all([
-            strapi.service<any>("api::favorite.favorite").find({
+            strapi.service("api::favorite.favorite").find({
                 filters: {
                     product: [
                         {
@@ -18,7 +18,7 @@ export const afterDeleteProduct = async (event) => {
                     ],
                 },
             }),
-            strapi.service<any>("api::shopping-cart.shopping-cart").find({
+            strapi.service("api::shopping-cart.shopping-cart").find({
                 filters: {
                     product: [
                         {
