@@ -7,12 +7,12 @@ export default factories.createCoreService(
             bePaidTestMode: false,
             async getCurrencyCoefficient() {
                 //@ts-expect-error error
-                if (strapi.redis?.connections?.default?.client) {
+                if (strapi.plugins["redis"]?.connections?.default?.client) {
                     const currencyCoefficient =
                         //@ts-expect-error error
-                        await strapi.redis.connections.default.client.get(
-                            "currencyCoefficient"
-                        );
+                        await strapi.plugins[
+                            "redis"
+                        ].connections.default.client.get("currencyCoefficient");
                     if (currencyCoefficient) {
                         return JSON.parse(currencyCoefficient);
                     } else {
@@ -20,7 +20,9 @@ export default factories.createCoreService(
                             populate: { currencyCoefficient: true },
                         });
                         //@ts-expect-error error
-                        await strapi.redis.connections.default.client.set(
+                        await strapi.plugins[
+                            "redis"
+                        ].connections.default.client.set(
                             "currencyCoefficient",
                             JSON.stringify(data.currencyCoefficient),
                             "EX",
