@@ -1,3 +1,4 @@
+import { Core } from "@strapi/strapi";
 import runScripts from "./scripts";
 import {
     generateProductFullDescription,
@@ -30,7 +31,7 @@ export default {
      * This gives you an opportunity to set up your data model,
      * run jobs, or perform some special logic.
      */
-    async bootstrap({ strapi }) {
+    async bootstrap({ strapi }: { strapi: Core.Strapi }) {
         if (process.env.NODE_ENV === "production") {
             sendNotificationOnStart();
             if (process.env.NODE_APP_INSTANCE === "0") {

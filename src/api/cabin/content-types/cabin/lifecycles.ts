@@ -13,7 +13,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::cabin.cabin",
-            "api::page-product-cabin.page-product-cabin"
+            "api::page-product-cabin.page-product-cabin",
         );
         // addProductUrlToTelegramAllProductsJobUrls(
         //     data.result.id,
@@ -30,7 +30,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::cabin.cabin",
-            "api::page-product-cabin.page-product-cabin"
+            "api::page-product-cabin.page-product-cabin",
         );
         removeFavoritesOnSold(data, "product.cabin");
         lifecycleSitemap();

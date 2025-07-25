@@ -26,11 +26,11 @@ export default factories.createCoreController(
                 .service("plugin::internal.data")
                 .getCurrencyCoefficient();
             const productsEntities = await Promise.all(
-                products.map((item) =>
+                (products as any[]).map((item) =>
                     strapi.db
                         .query(PRODUCT_API_UID_BY_TYPE[item.type])
-                        .findOne({ where: { id: item.id } })
-                )
+                        .findOne({ where: { id: item.id } }),
+                ),
             );
             if (productsEntities.some((item) => item.sold)) {
                 return ctx.badRequest("one of the product is sold");
@@ -43,15 +43,15 @@ export default factories.createCoreController(
                                 item.price * coefficient.usd
                             ).toFixed()}$ ~${(
                                 item.price * coefficient.rub
-                            ).toFixed()}₽`
+                            ).toFixed()}₽`,
                     )
                     .join(", "),
                 productsEntities.reduce(
                     (prev, curr) => prev + (curr.discountPrice || curr.price),
-                    0
+                    0,
                 ),
-                products,
-                paymentMethodType
+                products as any[],
+                paymentMethodType as string,
             );
             return { data };
         },
@@ -66,20 +66,20 @@ export default factories.createCoreController(
             } = ctx.request.body.transaction || {};
             if (status === "successful") {
                 const { products: rawProducts } = ctx.query;
-                const products = JSON.parse(rawProducts);
+                const products = JSON.parse(rawProducts as string);
                 const productsEntities = await Promise.all(
                     products.map((item) =>
                         strapi.db
                             .query(PRODUCT_API_UID_BY_TYPE[item.type])
-                            .findOne({ where: { id: item.id } })
-                    )
+                            .findOne({ where: { id: item.id } }),
+                    ),
                 );
                 if (productsEntities.some((item) => item.sold)) {
                     return ctx.badRequest("one of the product is sold");
                 } else {
-                    const entry = await strapi.entityService.create(
-                        "api::order.order",
-                        {
+                    const entry = await strapi
+                        .documents("api::order.order")
+                        .create({
                             data: {
                                 username: billing_address?.first_name,
                                 surname: billing_address?.last_name,
@@ -95,8 +95,7 @@ export default factories.createCoreController(
                                     product: item.id,
                                 })),
                             },
-                        }
-                    );
+                        });
                     products.forEach((item) => {
                         strapi.db
                             .query(PRODUCT_API_UID_BY_TYPE[item.type])
@@ -108,7 +107,7 @@ export default factories.createCoreController(
                     strapi.plugins.email.services.email.send({
                         to: customer?.email,
                         from: strapi.plugins.email.config(
-                            "providerOptions.username"
+                            "providerOptions.username",
                         ),
                         subject: "Заказ на razbor-auto.by",
                         html: `<b>Товар</b>: ${description}<br>
@@ -121,5 +120,5 @@ export default factories.createCoreController(
             }
             return { data: {} };
         },
-    })
+    }),
 );

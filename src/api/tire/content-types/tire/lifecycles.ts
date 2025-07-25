@@ -11,7 +11,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::tire.tire",
-            "api::page-product-tire.page-product-tire"
+            "api::page-product-tire.page-product-tire",
         );
         // addProductUrlToTelegramAllProductsJobUrls(
         //     data.result.id,
@@ -28,7 +28,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::tire.tire",
-            "api::page-product-tire.page-product-tire"
+            "api::page-product-tire.page-product-tire",
         );
         removeFavoritesOnSold(data, "product.tire");
         lifecycleSitemap();
