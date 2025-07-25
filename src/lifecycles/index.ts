@@ -1,8 +1,6 @@
-import utils from "@strapi/utils";
 import slugify from "slugify";
 import { getProductH1 } from "../services";
 import scheduleGenerateSitemap from "../services/sitemap/sitemap";
-const { ApplicationError } = utils.errors;
 
 export const afterDeleteProduct = async (event) => {
     const { id, type } = event.result;
@@ -47,7 +45,7 @@ export const afterDeleteProduct = async (event) => {
 export const beforeCreateProduct = async (event) => {
     const { data } = event.params;
     if (!data.brand) {
-        throw new ApplicationError("Brand is required");
+        throw new Error("Brand is required");
     }
     if (data.id && data.name) {
         data.slug =
