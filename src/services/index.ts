@@ -363,16 +363,14 @@ export const scheduleUpdateAltTextForProductImages = (
 export const getProductH1 = async (data, isTire: boolean) => {
     let h1 = data.name;
     if (data.brand) {
-        const brand = await strapi.entityService.findOne(
-            isTire ? "api::tire-brand.tire-brand" : "api::brand.brand",
-            data.brand
-        );
+        const brand = await strapi.documents(isTire ? "api::tire-brand.tire-brand" : "api::brand.brand").findOne({
+            documentId: "__TODO__"
+        });
         h1 += " " + (brand?.name || "");
         if (data.model) {
-            const model = await strapi.entityService.findOne(
-                "api::model.model",
-                data.model
-            );
+            const model = await strapi.documents("api::model.model").findOne({
+                documentId: "__TODO__"
+            });
             h1 += " " + model?.name || "";
             data.h1 = h1;
         }
