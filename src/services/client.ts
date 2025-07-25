@@ -10,8 +10,12 @@ axiosRetry(axios, {
 
 export const revalidateClientPage = async (path: string) => {
     try {
-        const clientLocalUrls = strapi.config.get("server.clientLocalUrls");
-        const revalidateToken = strapi.config.get("server.revalidateToken");
+        const clientLocalUrls = strapi.config.get(
+            "server.clientLocalUrls"
+        ) as string[];
+        const revalidateToken = strapi.config.get(
+            "server.revalidateToken"
+        ) as string;
         await Promise.all(
             clientLocalUrls.map((clientLocalUrl) =>
                 axios.get(

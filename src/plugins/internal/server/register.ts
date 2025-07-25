@@ -1,6 +1,7 @@
 import { Strapi } from "@strapi/strapi";
 
 export default ({ strapi }: { strapi: Strapi }) => {
+    //@ts-expect-error error
     strapi.contentType("plugin::internal.data").lifecycles = {
         afterUpdate: async (event) => {
             strapi

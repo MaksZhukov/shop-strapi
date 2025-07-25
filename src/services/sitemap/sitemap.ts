@@ -64,7 +64,7 @@ const generateSitemap = async () => {
         ...tireBrands.map((item) => generateLink(`/tires/${item.slug}`)),
     ];
 
-    let clientUrl = strapi.config.get("server.clientUrl");
+    let clientUrl = strapi.config.get("server.clientUrl") as string;
     const sitemap = new SitemapStream({ hostname: clientUrl });
     const writeStream = fs.createWriteStream(
         process.cwd() + "/public/uploads/sitemap.xml"
