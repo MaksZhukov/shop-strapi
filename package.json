@@ -7,7 +7,7 @@
         "develop": "strapi develop",
         "start": "strapi start dist",
         "build": "npm run build-plugins && strapi build",
-        "build-plugins": "cd src/plugins/internal && npm run build && cd ../telegram && npm run build",
+        "build-plugins": "cd src/plugins/internal && npm run build",
         "strapi": "strapi",
         "postinstall": "patch-package"
     },
@@ -25,19 +25,18 @@
         "koa2-ratelimit": "^1.1.3",
         "lodash.uniqby": "^4.7.0",
         "mysql": "2.18.1",
-        "node-telegram-bot-api": "^0.61.0",
         "qs": "^6.11.2",
         "react-select": "^5.7.4",
         "sharp": "^0.32.4",
-        "sitemap": "^7.1.1",
+        "sitemap": "^8.0.0",
         "slugify": "^1.6.6",
         "strapi-plugin-config-sync": "^1.1.3",
         "strapi-plugin-migrations": "^1.0.4",
         "strapi-plugin-redis": "^1.1.0",
         "strapi-plugin-rest-cache": "^4.2.9",
-        "strapi-plugin-transformer": "^3.1.0",
+        "strapi-plugin-transformer": "^3.1.2",
         "strapi-provider-email-smtp": "^1.0.3",
-        "strapi-provider-rest-cache-memory": "^4.2.8",
+        "strapi-provider-rest-cache-memory": "^4.2.9",
         "strapi-provider-rest-cache-redis": "^4.2.9",
         "strapi-utils": "^3.6.11"
     },
@@ -55,6 +54,6 @@
     "devDependencies": {
         "@types/lodash.uniqby": "^4.7.7",
         "patch-package": "^8.0.0",
-        "typescript": "^5.1.6"
+        "typescript": "^5.8.3"
     }
 }

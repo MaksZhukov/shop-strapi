@@ -42,7 +42,7 @@ export default ({ env }) => ({
                 ],
                 debug: false,
                 hitpass: true,
-                enableEtagSupport: true
+                enableEtagSupport: true,
             },
         },
     },
@@ -288,9 +288,5 @@ export default ({ env }) => ({
     internal: {
         enabled: true,
         resolve: "./src/plugins/internal",
-    },
-    telegram: {
-        enabled: false,
-        resolve: "./src/plugins/telegram",
     },
 });
