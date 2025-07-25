@@ -1,6 +1,9 @@
 import slugify from "slugify";
 import { lifecycleSitemap } from "../../../../lifecycles";
-import { generateDefaultBrandTextComponent, generateDefaultTireBrandSnippets } from "../../../../services";
+import {
+    generateDefaultBrandTextComponent,
+    generateDefaultTireBrandSnippets,
+} from "../../../../services";
 
 export default {
     beforeCreate(event) {
@@ -21,7 +24,7 @@ export default {
                         "Шины",
                         "tires"
                     ),
-                },
+                } as any,
             }
         );
         lifecycleSitemap();
