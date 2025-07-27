@@ -12,7 +12,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::spare-part.spare-part",
-            "api::page-product-spare-part.page-product-spare-part"
+            "api::page-product-spare-part.page-product-spare-part",
         );
         // addProductUrlToTelegramAllProductsJobUrls(
         //     data.result.id,
@@ -29,7 +29,7 @@ export default {
         scheduleUpdateAltTextForProductImages(
             data.result,
             "api::spare-part.spare-part",
-            "api::page-product-spare-part.page-product-spare-part"
+            "api::page-product-spare-part.page-product-spare-part",
         );
         removeFavoritesOnSold(data, "product.spare-part");
         lifecycleSitemap();
