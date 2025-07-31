@@ -1,4 +1,4 @@
-import type { Attribute, Schema } from '@strapi/strapi';
+import type { Schema, Attribute } from '@strapi/strapi';
 
 export interface BrandBrandText extends Schema.Component {
   collectionName: 'components_brand_brand_texts';
@@ -13,26 +13,13 @@ export interface BrandBrandText extends Schema.Component {
 export interface BrandBrandTypeProductTexts extends Schema.Component {
   collectionName: 'components_brand_brand_type_product_texts';
   info: {
-    description: '';
     displayName: 'Brand type product texts';
-  };
-  attributes: {
-    cabinTextBrand: Attribute.Component<'brand.brand-text'>;
-    sparePartBrandText: Attribute.Component<'brand.brand-text'>;
-    wheelTextBrand: Attribute.Component<'brand.brand-text'>;
-  };
-}
-
-export interface GeneralCard extends Schema.Component {
-  collectionName: 'components_general_card';
-  info: {
     description: '';
-    displayName: 'Card';
   };
   attributes: {
-    description: Attribute.String;
-    image: Attribute.Media<'images'>;
-    title: Attribute.String;
+    sparePartBrandText: Attribute.Component<'brand.brand-text'>;
+    cabinTextBrand: Attribute.Component<'brand.brand-text'>;
+    wheelTextBrand: Attribute.Component<'brand.brand-text'>;
   };
 }
 
@@ -42,8 +29,21 @@ export interface GeneralCardWithoutImage extends Schema.Component {
     displayName: 'CardWithoutImage';
   };
   attributes: {
-    description: Attribute.String;
     title: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
+export interface GeneralCard extends Schema.Component {
+  collectionName: 'components_general_card';
+  info: {
+    displayName: 'Card';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.String;
   };
 }
 
@@ -53,16 +53,16 @@ export interface GeneralCurrency extends Schema.Component {
     displayName: 'currency';
   };
   attributes: {
-    rub: Attribute.Float;
     usd: Attribute.Float;
+    rub: Attribute.Float;
   };
 }
 
 export interface GeneralFooter extends Schema.Component {
   collectionName: 'components_general_footers';
   info: {
-    description: '';
     displayName: 'footer';
+    description: '';
   };
   attributes: {
     firstBlock: Attribute.RichText &
@@ -88,11 +88,11 @@ export interface GeneralLabelAndValue extends Schema.Component {
 export interface GeneralLinkAndImage extends Schema.Component {
   collectionName: 'components_general_link_and_images';
   info: {
-    description: '';
     displayName: 'Link&Image';
+    description: '';
   };
   attributes: {
-    image: Attribute.Media<'images'> & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
     link: Attribute.String & Attribute.Required;
   };
 }
@@ -103,34 +103,34 @@ export interface GeneralVideoWidget extends Schema.Component {
     displayName: 'VideoWidget';
   };
   attributes: {
+    video: Attribute.Media;
     show: Attribute.Boolean & Attribute.DefaultTo<true>;
-    video: Attribute.Media<'videos'>;
   };
 }
 
 export interface PageVacanciesVacancies extends Schema.Component {
   collectionName: 'components_page_vacancies_vacancies';
   info: {
-    description: '';
     displayName: 'vacancies';
+    description: '';
   };
   attributes: {
+    title: Attribute.String;
+    image: Attribute.Media;
+    vacancy: Attribute.String;
     description: Attribute.Component<'general.label-and-value', true>;
     fullTitle: Attribute.String;
-    image: Attribute.Media<'images'>;
-    images: Attribute.Media<'images', true>;
-    requirements: Attribute.Text;
     responsibilities: Attribute.Text;
-    title: Attribute.String;
-    vacancy: Attribute.String;
+    requirements: Attribute.Text;
+    images: Attribute.Media;
   };
 }
 
 export interface ProductCabin extends Schema.Component {
   collectionName: 'components_product_cabins';
   info: {
-    description: '';
     displayName: 'Cabin';
+    description: '';
   };
   attributes: {
     product: Attribute.Relation<
@@ -144,11 +144,11 @@ export interface ProductCabin extends Schema.Component {
 export interface ProductSnippets extends Schema.Component {
   collectionName: 'components_product_snippets';
   info: {
-    description: '';
     displayName: 'snippets';
+    description: '';
   };
   attributes: {
-    benefits: Attribute.Media<'images', true>;
+    benefits: Attribute.Media;
     textAfterH1: Attribute.RichText;
   };
 }
@@ -170,8 +170,8 @@ export interface ProductSparePart extends Schema.Component {
 export interface ProductTire extends Schema.Component {
   collectionName: 'components_product_tires';
   info: {
-    description: '';
     displayName: 'Tire';
+    description: '';
   };
   attributes: {
     product: Attribute.Relation<'product.tire', 'oneToOne', 'api::tire.tire'>;
@@ -195,16 +195,16 @@ export interface ProductWheel extends Schema.Component {
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
-    description: '';
     displayName: 'seo';
+    description: '';
   };
   attributes: {
-    content: Attribute.RichText;
-    description: Attribute.String;
-    h1: Attribute.String;
-    images: Attribute.Media<'images', true>;
-    keywords: Attribute.String;
     title: Attribute.String;
+    description: Attribute.String;
+    keywords: Attribute.String;
+    h1: Attribute.String;
+    images: Attribute.Media;
+    content: Attribute.RichText;
   };
 }
 
@@ -214,9 +214,9 @@ export interface SeoShortSeo extends Schema.Component {
     displayName: 'shortSeo';
   };
   attributes: {
+    title: Attribute.String;
     description: Attribute.String;
     keywords: Attribute.String;
-    title: Attribute.String;
   };
 }
 
@@ -225,8 +225,8 @@ declare module '@strapi/types' {
     export interface Components {
       'brand.brand-text': BrandBrandText;
       'brand.brand-type-product-texts': BrandBrandTypeProductTexts;
-      'general.card': GeneralCard;
       'general.card-without-image': GeneralCardWithoutImage;
+      'general.card': GeneralCard;
       'general.currency': GeneralCurrency;
       'general.footer': GeneralFooter;
       'general.label-and-value': GeneralLabelAndValue;
