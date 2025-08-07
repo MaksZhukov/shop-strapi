@@ -91,6 +91,11 @@
     },
     "name": {
       "type": "string"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true,
+      "required": true
     }
   }
 }

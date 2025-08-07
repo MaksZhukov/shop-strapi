@@ -125,6 +125,11 @@
     },
     "priceRUB": {
       "type": "decimal"
+    },
+    "code": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
     }
   }
 }
