@@ -53,6 +53,10 @@
     },
     "slug": {
       "type": "string"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true
     }
   }
 }

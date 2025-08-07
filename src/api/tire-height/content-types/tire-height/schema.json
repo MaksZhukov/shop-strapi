@@ -20,6 +20,10 @@
       "relation": "oneToMany",
       "target": "api::tire.tire",
       "mappedBy": "height"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true
     }
   }
 }

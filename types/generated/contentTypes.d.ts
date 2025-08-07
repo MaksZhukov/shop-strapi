@@ -846,6 +846,7 @@ export interface ApiBrandBrand extends Schema.CollectionType {
       'oneToMany',
       'api::generation.generation'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -913,6 +914,7 @@ export interface ApiCabinCabin extends Schema.CollectionType {
     year: Attribute.Integer;
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     priceRUB: Attribute.Decimal;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -980,6 +982,7 @@ export interface ApiCarCar extends Schema.CollectionType {
       ]
     >;
     name: Attribute.String;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::car.car', 'oneToOne', 'admin::user'> &
@@ -1049,6 +1052,7 @@ export interface ApiCarOnPartsCarOnParts extends Schema.CollectionType {
         '\u0432\u0430\u0440\u0438\u0430\u0442\u043E\u0440'
       ]
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1094,6 +1098,7 @@ export interface ApiEngineVolumeEngineVolume extends Schema.CollectionType {
       'oneToMany',
       'api::spare-part.spare-part'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1196,6 +1201,7 @@ export interface ApiGenerationGeneration extends Schema.CollectionType {
       'api::brand.brand'
     >;
     slug: Attribute.String;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1239,6 +1245,7 @@ export interface ApiKindSparePartKindSparePart extends Schema.CollectionType {
       'api::cabin.cabin'
     >;
     slug: Attribute.UID<'api::kind-spare-part.kind-spare-part', 'name'>;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1335,6 +1342,7 @@ export interface ApiModelModel extends Schema.CollectionType {
     seoCabins: Attribute.Component<'seo.seo'>;
     seoWheels: Attribute.Component<'seo.seo'>;
     slug: Attribute.String;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2565,6 +2573,7 @@ export interface ApiSparePartSparePart extends Schema.CollectionType {
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     videoLink: Attribute.String;
     priceRUB: Attribute.Decimal;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2638,6 +2647,7 @@ export interface ApiTireTire extends Schema.CollectionType {
     >;
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     priceRUB: Attribute.Decimal;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::tire.tire', 'oneToOne', 'admin::user'> &
@@ -2669,6 +2679,7 @@ export interface ApiTireBrandTireBrand extends Schema.CollectionType {
     slug: Attribute.UID<'api::tire-brand.tire-brand', 'name'>;
     productBrandText: Attribute.Component<'brand.brand-text'>;
     image: Attribute.Media;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2692,6 +2703,7 @@ export interface ApiTireDiameterTireDiameter extends Schema.CollectionType {
     singularName: 'tire-diameter';
     pluralName: 'tire-diameters';
     displayName: 'Tire diameter';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -2703,6 +2715,7 @@ export interface ApiTireDiameterTireDiameter extends Schema.CollectionType {
       'oneToMany',
       'api::tire.tire'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2738,6 +2751,7 @@ export interface ApiTireHeightTireHeight extends Schema.CollectionType {
       'oneToMany',
       'api::tire.tire'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2773,6 +2787,7 @@ export interface ApiTireWidthTireWidth extends Schema.CollectionType {
       'oneToMany',
       'api::tire.tire'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2861,6 +2876,7 @@ export interface ApiWheelWheel extends Schema.CollectionType {
     distanceBetweenCenters: Attribute.Decimal;
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     priceRUB: Attribute.Decimal;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2896,6 +2912,7 @@ export interface ApiWheelDiameterWheelDiameter extends Schema.CollectionType {
       'oneToMany',
       'api::wheel.wheel'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2932,6 +2949,7 @@ export interface ApiWheelDiameterCenterHoleWheelDiameterCenterHole
       'oneToMany',
       'api::wheel.wheel'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2968,6 +2986,7 @@ export interface ApiWheelDiskOffsetWheelDiskOffset
       'oneToMany',
       'api::wheel.wheel'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3004,6 +3023,7 @@ export interface ApiWheelNumberHoleWheelNumberHole
       'oneToMany',
       'api::wheel.wheel'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3039,6 +3059,7 @@ export interface ApiWheelWidthWheelWidth extends Schema.CollectionType {
       'oneToMany',
       'api::wheel.wheel'
     >;
+    code: Attribute.BigInteger & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -105,6 +105,10 @@
     },
     "priceRUB": {
       "type": "decimal"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true
     }
   }
 }
