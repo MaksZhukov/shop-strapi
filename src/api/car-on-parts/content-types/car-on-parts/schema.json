@@ -99,7 +99,8 @@
       ]
     },
     "code": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "unique": true
     }
   }
 }

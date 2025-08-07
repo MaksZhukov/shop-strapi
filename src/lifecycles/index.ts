@@ -47,8 +47,11 @@ export const beforeCreateProduct = async (event) => {
     if (!data.brand) {
         throw new Error("Brand is required");
     }
-    //TODO id is deprecated, use code instead
     const slugId = data.code || data.id;
+    if (data.id && !data.code) {
+        data.code = data.id;
+    }
+    //TODO id is deprecated, use code instead
     if (slugId && data.name) {
         data.slug =
             slugify(data.name, { lower: true, strict: true }) + "-" + slugId;
@@ -61,6 +64,9 @@ export const beforeCreateProduct = async (event) => {
 
 export const beforeCreateOrUpdateCar = (event) => {
     const { data } = event.params;
+    if (data.id && !data.code) {
+        data.code = data.id;
+    }
     //TODO id is deprecated, use code instead
     const slugId = data.code || data.id;
     if (slugId) {
