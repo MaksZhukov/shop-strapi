@@ -47,9 +47,11 @@ export const beforeCreateProduct = async (event) => {
     if (!data.brand) {
         throw new Error("Brand is required");
     }
-    if (data.id && data.name) {
+    //TODO id is deprecated, use code instead
+    const slugId = data.code || data.id;
+    if (slugId && data.name) {
         data.slug =
-            slugify(data.name, { lower: true, strict: true }) + "-" + data.id;
+            slugify(data.name, { lower: true, strict: true }) + "-" + slugId;
         data.h1 = await getProductH1(data, event.model.singularName === "tire");
     }
     if (data.createdDate) {
@@ -59,7 +61,9 @@ export const beforeCreateProduct = async (event) => {
 
 export const beforeCreateOrUpdateCar = (event) => {
     const { data } = event.params;
-    if (data.id) {
+    //TODO id is deprecated, use code instead
+    const slugId = data.code || data.id;
+    if (slugId) {
         let name =
             (data.brand ?? "") +
             " " +
@@ -68,8 +72,7 @@ export const beforeCreateOrUpdateCar = (event) => {
             (data.manufactureDate
                 ? `${new Date(data.manufactureDate).getFullYear()}`
                 : "");
-        data.slug =
-            slugify(name, { lower: true, strict: true }) + "-" + data.id;
+        data.slug = slugify(name, { lower: true, strict: true }) + "-" + slugId;
     }
 };
 
