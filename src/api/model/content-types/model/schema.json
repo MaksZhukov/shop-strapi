@@ -75,6 +75,10 @@
     "slug": {
       "type": "string",
       "required": false
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true
     }
   }
 }
