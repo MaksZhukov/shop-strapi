@@ -33,6 +33,11 @@
       "relation": "oneToMany",
       "target": "api::spare-part.spare-part",
       "mappedBy": "volume"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true,
+      "required": true
     }
   }
 }

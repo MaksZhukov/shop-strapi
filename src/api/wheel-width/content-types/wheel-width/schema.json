@@ -21,6 +21,11 @@
       "relation": "oneToMany",
       "target": "api::wheel.wheel",
       "mappedBy": "width"
+    },
+    "code": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
     }
   }
 }

@@ -89,6 +89,11 @@
       "relation": "oneToMany",
       "target": "api::generation.generation",
       "mappedBy": "brand"
+    },
+    "code": {
+      "type": "biginteger",
+      "unique": true,
+      "required": true
     }
   }
 }
