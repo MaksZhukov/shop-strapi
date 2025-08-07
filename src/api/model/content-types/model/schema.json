@@ -78,7 +78,6 @@
     },
     "code": {
       "type": "biginteger",
-      "required": true,
       "unique": true
     }
   }

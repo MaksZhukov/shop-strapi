@@ -36,8 +36,7 @@
     },
     "code": {
       "type": "biginteger",
-      "unique": true,
-      "required": true
+      "unique": true
     }
   }
 }
