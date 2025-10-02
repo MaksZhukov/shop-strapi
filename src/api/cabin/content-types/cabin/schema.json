@@ -103,6 +103,9 @@
     "code": {
       "type": "biginteger",
       "unique": true
+    },
+    "olem": {
+      "type": "string"
     }
   }
 }
