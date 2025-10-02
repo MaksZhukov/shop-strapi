@@ -915,6 +915,7 @@ export interface ApiCabinCabin extends Schema.CollectionType {
     sold: Attribute.Boolean & Attribute.DefaultTo<false>;
     priceRUB: Attribute.Decimal;
     code: Attribute.BigInteger & Attribute.Unique;
+    olem: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2574,6 +2575,7 @@ export interface ApiSparePartSparePart extends Schema.CollectionType {
     videoLink: Attribute.String;
     priceRUB: Attribute.Decimal;
     code: Attribute.BigInteger & Attribute.Unique;
+    olem: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
