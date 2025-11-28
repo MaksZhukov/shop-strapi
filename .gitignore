@@ -116,7 +116,6 @@ dist
 .strapi-updater.json
 
 strapi-plugin-generate-data
-package-lock.json
 private/productDescriptions.json
 tmp/*
 
