@@ -2463,25 +2463,24 @@ export interface ApiShoppingCartShoppingCart extends Schema.CollectionType {
   info: {
     singularName: 'shopping-cart';
     pluralName: 'shopping-carts';
-    displayName: 'Shopping cart(INACTIVE)';
+    displayName: 'Shopping cart';
     description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    usersPermissionsUser: Attribute.Relation<
+    user: Attribute.Relation<
       'api::shopping-cart.shopping-cart',
       'oneToOne',
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<
-      ['product.spare-part', 'product.tire', 'product.wheel']
+      ['product.spare-part', 'product.tire', 'product.wheel', 'product.cabin']
     > &
       Attribute.SetMinMax<{
         max: 1;
       }>;
-    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
