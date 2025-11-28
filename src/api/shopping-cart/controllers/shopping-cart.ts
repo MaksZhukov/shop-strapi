@@ -13,7 +13,7 @@ export default factories.createCoreController(
                 ...ctx.query,
                 populate: "product.product.images",
                 filters: {
-                    usersPermissionsUser: userId,
+                    user: userId,
                 },
             };
             const result = await super.find(ctx);
@@ -33,9 +33,7 @@ export default factories.createCoreController(
         async create(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = { populate: ["product.product.images"] };
-            ctx.request.body.data.usersPermissionsUser = userId;
-            const productId = ctx.request.body.data.product[0].product;
-            ctx.request.body.data.uid = userId + "-" + productId;
+            ctx.request.body.data.user = userId;
             const result = await super.create(ctx);
             return {
                 data: {
@@ -56,7 +54,7 @@ export default factories.createCoreController(
                     .findOne({
                         where: {
                             id,
-                            usersPermissionsUser: userId,
+                            user: userId,
                         },
                     })
             ) {
@@ -69,7 +67,7 @@ export default factories.createCoreController(
                 "api::shopping-cart.shopping-cart",
                 {
                     filters: {
-                        usersPermissionsUser: userId,
+                        user: userId,
                     },
                 }
             );

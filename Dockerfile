@@ -1,4 +1,4 @@
-FROM node:18.17.0-alpine
+FROM node:22.17-alpine
 RUN apk --no-cache add git
 RUN git clone https://github.com/MaksZhukov/shop-strapi.git
 WORKDIR /shop-strapi
