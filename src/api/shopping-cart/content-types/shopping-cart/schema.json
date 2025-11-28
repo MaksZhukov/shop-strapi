@@ -4,7 +4,7 @@
   "info": {
     "singularName": "shopping-cart",
     "pluralName": "shopping-carts",
-    "displayName": "Shopping cart(INACTIVE)",
+    "displayName": "Shopping cart",
     "description": ""
   },
   "options": {
@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "usersPermissionsUser": {
+    "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
@@ -22,13 +22,10 @@
       "components": [
         "product.spare-part",
         "product.tire",
-        "product.wheel"
+        "product.wheel",
+        "product.cabin"
       ],
       "max": 1
-    },
-    "uid": {
-      "type": "uid",
-      "required": true
     }
   }
 }
