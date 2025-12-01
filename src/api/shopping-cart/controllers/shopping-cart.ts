@@ -18,12 +18,15 @@ export default factories.createCoreController(
             };
             const result = await super.find(ctx);
             return {
+                ...result,
                 data: result.data.map((item) => {
                     return {
                         ...item,
                         attributes: {
-                            ...item,
-                            product: item.product[0].product.data,
+                            ...item.attributes,
+                            product:
+                                item.attributes.product[0]?.product?.data ||
+                                null,
                         },
                     };
                 }),
