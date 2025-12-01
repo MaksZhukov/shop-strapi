@@ -18,12 +18,15 @@ export default factories.createCoreController(
             };
             const result = await super.find(ctx);
             return {
+                ...result,
                 data: result.data.map((item) => {
                     return {
                         ...item,
                         attributes: {
-                            ...item,
-                            product: item.product[0].product.data,
+                            ...item.attributes,
+                            product:
+                                item.attributes.product[0]?.product?.data ||
+                                null,
                         },
                     };
                 }),
@@ -63,31 +66,19 @@ export default factories.createCoreController(
         },
         async deleteMany(ctx) {
             const userId = ctx.state.user.id;
-            const items = await strapi.entityService.findMany(
+            const { ids } = ctx.query;
+            const result = await strapi.db.entityManager.deleteMany(
                 "api::shopping-cart.shopping-cart",
                 {
                     filters: {
                         user: userId,
+                        id: {
+                            $in: ids,
+                        },
                     },
                 }
             );
-
-            if (Array.isArray(items) && items.length > 0) {
-                const itemIds = items.map((item: any) => item.id);
-                const result = await strapi.entityService.deleteMany(
-                    "api::shopping-cart.shopping-cart",
-                    {
-                        filters: {
-                            id: {
-                                $in: itemIds,
-                            },
-                        },
-                    }
-                );
-                return this.transformResponse(result);
-            }
-
-            return this.transformResponse({ count: 0 });
+            return this.transformResponse(result);
         },
     })
 );
