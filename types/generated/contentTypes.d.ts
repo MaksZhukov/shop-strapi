@@ -707,6 +707,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     >;
     phone: Attribute.String;
     address: Attribute.String;
+    shoppingCartItems: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::shopping-cart.shopping-cart'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2472,7 +2477,7 @@ export interface ApiShoppingCartShoppingCart extends Schema.CollectionType {
   attributes: {
     user: Attribute.Relation<
       'api::shopping-cart.shopping-cart',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<

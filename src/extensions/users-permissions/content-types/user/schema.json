@@ -68,6 +68,12 @@
     },
     "address": {
       "type": "string"
+    },
+    "shoppingCartItems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shopping-cart.shopping-cart",
+      "mappedBy": "user"
     }
   }
 }
