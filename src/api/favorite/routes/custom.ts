@@ -3,7 +3,7 @@ export default {
         {
             method: "DELETE",
             path: "/favorites",
-            handler: "favorite.deleteAll",
+            handler: "favorite.deleteMany",
         },
     ],
 };

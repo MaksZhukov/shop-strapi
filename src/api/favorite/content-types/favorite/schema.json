@@ -12,10 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "usersPermissionsUser": {
+    "user": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "favorites"
     },
     "product": {
       "type": "dynamiczone",
@@ -25,10 +26,6 @@
         "product.spare-part"
       ],
       "max": 1
-    },
-    "uid": {
-      "type": "uid",
-      "required": true
     }
   }
 }

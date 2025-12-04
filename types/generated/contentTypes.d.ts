@@ -712,6 +712,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::shopping-cart.shopping-cart'
     >;
+    favorites: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::favorite.favorite'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1134,9 +1139,9 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    usersPermissionsUser: Attribute.Relation<
+    user: Attribute.Relation<
       'api::favorite.favorite',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<
@@ -1145,7 +1150,6 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
-    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

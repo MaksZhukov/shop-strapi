@@ -74,6 +74,12 @@
       "relation": "oneToMany",
       "target": "api::shopping-cart.shopping-cart",
       "mappedBy": "user"
+    },
+    "favorites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::favorite.favorite",
+      "mappedBy": "user"
     }
   }
 }
