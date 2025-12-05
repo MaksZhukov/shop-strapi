@@ -1081,6 +1081,36 @@ export interface ApiCarOnPartsCarOnParts extends Schema.CollectionType {
   };
 }
 
+export interface ApiCatalogCatalog extends Schema.SingleType {
+  collectionName: 'catalogs';
+  info: {
+    singularName: 'catalog';
+    pluralName: 'catalogs';
+    displayName: 'Catalog';
+    description: 'Catalog with categorized kind spare parts';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    categories: Attribute.Component<'catalog.category', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEngineVolumeEngineVolume extends Schema.CollectionType {
   collectionName: 'engine_volumes';
   info: {
@@ -3110,6 +3140,7 @@ declare module '@strapi/types' {
       'api::cabin.cabin': ApiCabinCabin;
       'api::car.car': ApiCarCar;
       'api::car-on-parts.car-on-parts': ApiCarOnPartsCarOnParts;
+      'api::catalog.catalog': ApiCatalogCatalog;
       'api::engine-volume.engine-volume': ApiEngineVolumeEngineVolume;
       'api::favorite.favorite': ApiFavoriteFavorite;
       'api::generation.generation': ApiGenerationGeneration;
