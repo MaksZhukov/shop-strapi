@@ -14,7 +14,7 @@ export default factories.createCoreController(
                 ...ctx.query,
                 populate: "product.product.images",
                 filters: {
-                    usersPermissionsUser: userId,
+                    user: userId,
                 },
             };
             const { data, meta } = await super.find(ctx);
@@ -41,11 +41,7 @@ export default factories.createCoreController(
         async create(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = { populate: ["product.product.images"] };
-            ctx.request.body.data.usersPermissionsUser = userId;
-            const productId = ctx.request.body.data.product[0].product;
-            const component = ctx.request.body.data.product[0].__component;
-            ctx.request.body.data.uid =
-                userId + "-" + productId + "-" + component;
+            ctx.request.body.data.user = userId;
             const result = await super.create(ctx);
             return {
                 data: {
@@ -64,35 +60,28 @@ export default factories.createCoreController(
                 await strapi.db.query("api::favorite.favorite").findOne({
                     where: {
                         id,
-                        usersPermissionsUser: userId,
+                        user: userId,
                     },
                 })
             ) {
                 return super.delete(ctx);
             }
         },
-        async deleteAll(ctx) {
+        async deleteMany(ctx) {
             const { ids } = ctx.query;
             const userId = ctx.state.user.id;
-            const favorites = await strapi.db
-                .query("api::favorite.favorite")
-                .findMany({
-                    where: {
-                        id: ids,
-                        usersPermissionsUser: userId,
+            const result = await strapi.db.entityManager.deleteMany(
+                "api::favorite.favorite",
+                {
+                    filters: {
+                        user: userId,
+                        id: {
+                            $in: ids,
+                        },
                     },
-                });
-            if (
-                favorites
-                    .map((item) => item.id)
-                    .every((id) => ids.includes(`${id}`))
-            ) {
-                return strapi.db.query("api::favorite.favorite").deleteMany({
-                    where: {
-                        id: ids,
-                    },
-                });
-            }
+                }
+            );
+            return this.transformResponse(result);
         },
     })
 );

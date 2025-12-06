@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_catalog_categories",
+  "info": {
+    "displayName": "Category",
+    "description": "Catalog category with kind spare parts"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "kindSpareParts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::kind-spare-part.kind-spare-part"
+    }
+  }
+}
+

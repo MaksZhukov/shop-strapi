@@ -488,10 +488,10 @@ export interface PluginInternalData extends Schema.SingleType {
     singularName: 'data';
     pluralName: 'datas';
     displayName: 'Data';
-    description: '';
   };
   options: {
     draftAndPublish: false;
+    comment: '';
   };
   pluginOptions: {
     'content-manager': {
@@ -507,9 +507,13 @@ export interface PluginInternalData extends Schema.SingleType {
     dateProductFullDescriptionGenerated: Attribute.DateTime;
     dateYMLSentToEmail: Attribute.DateTime;
     currencyDate: Attribute.DateTime;
-    bePaidTestMode: Attribute.Boolean & Attribute.DefaultTo<false>;
-    currencyCoefficient: Attribute.Component<'general.currency'>;
-    dateUpdatingImagesMetadata: Attribute.DateTime;
+    currencyCoefficient: Attribute.Decimal;
+    bePaidTestModeUsers: Attribute.Relation<
+      'plugin::internal.data',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    > &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -707,6 +711,16 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
     >;
     phone: Attribute.String;
     address: Attribute.String;
+    shoppingCartItems: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::shopping-cart.shopping-cart'
+    >;
+    favorites: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::favorite.favorite'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1071,6 +1085,36 @@ export interface ApiCarOnPartsCarOnParts extends Schema.CollectionType {
   };
 }
 
+export interface ApiCatalogCatalog extends Schema.SingleType {
+  collectionName: 'catalogs';
+  info: {
+    singularName: 'catalog';
+    pluralName: 'catalogs';
+    displayName: 'Catalog';
+    description: 'Catalog with categorized kind spare parts';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    categories: Attribute.Component<'catalog.category', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::catalog.catalog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiEngineVolumeEngineVolume extends Schema.CollectionType {
   collectionName: 'engine_volumes';
   info: {
@@ -1129,9 +1173,9 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    usersPermissionsUser: Attribute.Relation<
+    user: Attribute.Relation<
       'api::favorite.favorite',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<
@@ -1140,7 +1184,6 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
-    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2472,7 +2515,7 @@ export interface ApiShoppingCartShoppingCart extends Schema.CollectionType {
   attributes: {
     user: Attribute.Relation<
       'api::shopping-cart.shopping-cart',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<
@@ -3101,6 +3144,7 @@ declare module '@strapi/types' {
       'api::cabin.cabin': ApiCabinCabin;
       'api::car.car': ApiCarCar;
       'api::car-on-parts.car-on-parts': ApiCarOnPartsCarOnParts;
+      'api::catalog.catalog': ApiCatalogCatalog;
       'api::engine-volume.engine-volume': ApiEngineVolumeEngineVolume;
       'api::favorite.favorite': ApiFavoriteFavorite;
       'api::generation.generation': ApiGenerationGeneration;

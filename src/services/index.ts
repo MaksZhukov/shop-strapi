@@ -6,6 +6,7 @@ import { productTypeUrlSlug } from "../config";
 import { ALTS_ARR } from "./constants";
 import { CurrencyRate } from "./types";
 import { updateImageMetadata } from "./imageMetadata";
+export { populateCatalog } from "./catalog";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 

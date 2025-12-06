@@ -23,6 +23,22 @@ export interface BrandBrandTypeProductTexts extends Schema.Component {
   };
 }
 
+export interface CatalogCategory extends Schema.Component {
+  collectionName: 'components_catalog_categories';
+  info: {
+    displayName: 'Category';
+    description: 'Catalog category with kind spare parts';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    kindSpareParts: Attribute.Relation<
+      'catalog.category',
+      'manyToMany',
+      'api::kind-spare-part.kind-spare-part'
+    >;
+  };
+}
+
 export interface GeneralCardWithoutImage extends Schema.Component {
   collectionName: 'components_general_card_without_images';
   info: {
@@ -225,6 +241,7 @@ declare module '@strapi/types' {
     export interface Components {
       'brand.brand-text': BrandBrandText;
       'brand.brand-type-product-texts': BrandBrandTypeProductTexts;
+      'catalog.category': CatalogCategory;
       'general.card-without-image': GeneralCardWithoutImage;
       'general.card': GeneralCard;
       'general.currency': GeneralCurrency;

@@ -37,8 +37,10 @@
         "currencyCoefficient": {
             "type": "decimal"
         },
-        "bePaidTestMode": {
-            "type": "boolean",
+        "bePaidTestModeUsers": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "plugin::users-permissions.user",
             "default": false
         }
     }
