@@ -35,7 +35,10 @@
             "type": "datetime"
         },
         "currencyCoefficient": {
-            "type": "decimal"
+            "displayName": "currency",
+            "type": "component",
+            "repeatable": false,
+            "component": "general.currency"
         },
         "bePaidTestModeUsers": {
             "type": "relation",
