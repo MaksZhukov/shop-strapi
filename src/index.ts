@@ -32,9 +32,6 @@ export default {
      * run jobs, or perform some special logic.
      */
     async bootstrap({ strapi }) {
-        // Populate catalog on startup
-        await populateCatalog({ strapi });
-
         if (process.env.NODE_ENV === "production") {
             sendNotificationOnStart();
             if (process.env.NODE_APP_INSTANCE === "0") {
