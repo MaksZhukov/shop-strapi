@@ -20,6 +20,7 @@ export default factories.createCoreController(
     "api::order.order",
     ({ strapi }) => ({
         async checkout(ctx) {
+            const user = ctx.state.user;
             const { products = [], paymentMethodType = "credit_card" } =
                 ctx.query;
             const coefficient = await strapi
@@ -36,6 +37,7 @@ export default factories.createCoreController(
                 return ctx.badRequest("one of the product is sold");
             }
             const data = await checkout(
+                user,
                 productsEntities
                     .map(
                         (item) =>

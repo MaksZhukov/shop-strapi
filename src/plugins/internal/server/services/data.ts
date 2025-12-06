@@ -4,7 +4,6 @@ export default factories.createCoreService(
     "plugin::internal.data",
     function () {
         return {
-            bePaidTestMode: false,
             async getCurrencyCoefficient() {
                 //@ts-expect-error error
                 if (strapi.redis?.connections?.default?.client) {
@@ -39,12 +38,6 @@ export default factories.createCoreService(
                 rub: number;
             }) {
                 this.currencyCoefficient = currencyCoefficient;
-            },
-            setBePaidTestMode(value: boolean) {
-                this.bePaidTestMode = value;
-            },
-            getBePaidTestMode() {
-                return this.bePaidTestMode;
             },
         };
     }

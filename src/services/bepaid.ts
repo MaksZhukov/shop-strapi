@@ -8,8 +8,10 @@ axiosRetry(axios, {
 });
 
 const TWENTY_MINUTES = 600000 * 2;
+const BE_PAID_HOST_URL = "https://checkout.bepaid.by";
 
 export const checkout = async (
+    user: any | null,
     description: string,
     amount: number,
     products: any[],
@@ -20,16 +22,20 @@ export const checkout = async (
     const bepaidShopKey = strapi.config.get("server.bepaidShopKey");
     const serverUrl = strapi.config.get("server.serverUrl");
 
-    const test = await strapi
-        .service("plugin::internal.data")
-        .getBePaidTestMode();
+    const internalData = await strapi.service("plugin::internal.data").find({
+        populate: { bePaidTestModeUsers: true },
+    });
+
+    const isTestModeUser = internalData?.bePaidTestModeUsers?.some(
+        (item: any) => item.id === user?.id
+    );
 
     let timeCheckoutStart = performance.now();
     const { data } = await axios.post(
-        "https://checkout.bepaid.by/ctp/api/checkouts",
+        `${BE_PAID_HOST_URL}/ctp/api/checkouts`,
         {
             checkout: {
-                test,
+                test: isTestModeUser,
                 transaction_type: "payment",
                 order: {
                     amount: amount * 100,
