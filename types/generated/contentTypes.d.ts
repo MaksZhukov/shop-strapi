@@ -488,10 +488,10 @@ export interface PluginInternalData extends Schema.SingleType {
     singularName: 'data';
     pluralName: 'datas';
     displayName: 'Data';
-    description: '';
   };
   options: {
     draftAndPublish: false;
+    comment: '';
   };
   pluginOptions: {
     'content-manager': {
@@ -507,9 +507,13 @@ export interface PluginInternalData extends Schema.SingleType {
     dateProductFullDescriptionGenerated: Attribute.DateTime;
     dateYMLSentToEmail: Attribute.DateTime;
     currencyDate: Attribute.DateTime;
-    bePaidTestMode: Attribute.Boolean & Attribute.DefaultTo<false>;
-    currencyCoefficient: Attribute.Component<'general.currency'>;
-    dateUpdatingImagesMetadata: Attribute.DateTime;
+    currencyCoefficient: Attribute.Decimal;
+    bePaidTestModeUsers: Attribute.Relation<
+      'plugin::internal.data',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    > &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
