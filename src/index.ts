@@ -36,6 +36,7 @@ export default {
             sendNotificationOnStart();
             if (process.env.NODE_APP_INSTANCE === "0") {
                 scheduleGenerateSitemap();
+                updateCurrency({ strapi });
                 // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
                 //     sendNewProductsToEmail({ strapi });
                 // }
