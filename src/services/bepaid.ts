@@ -26,7 +26,7 @@ export const checkout = async (
         populate: { bePaidTestModeUsers: true },
     });
 
-    const isTestModeUser = internalData?.bePaidTestModeUsers.some(
+    const isTestModeUser = internalData?.bePaidTestModeUsers?.some(
         (item: any) => item.id === user?.id
     );
 
