@@ -1,9 +1,5 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import {
-    addProductUrlToTelegramAllProductsJobUrls,
-    removeFavoritesOnSold,
-    scheduleUpdateAltTextForProductImages,
-} from "../../../../services";
+import { scheduleUpdateAltTextForProductImages } from "../../../../services";
 
 export default {
     beforeCreate: beforeCreateProduct,
@@ -30,7 +26,6 @@ export default {
             "api::tire.tire",
             "api::page-product-tire.page-product-tire"
         );
-        removeFavoritesOnSold(data, "product.tire");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

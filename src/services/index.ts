@@ -389,26 +389,6 @@ export const sendNotificationOnStart = async () =>
         text: `NODE_APP_INSTANCE: ${process.env.NODE_APP_INSTANCE}`,
     });
 
-export const removeFavoritesOnSold = async (data, component) => {
-    if (data.result.sold) {
-        // const favorites = await strapi.db
-        //     .query("api::favorite.favorite")
-        //     .findMany({
-        //         where: {
-        //             product: {
-        //                 __component: `product.${component}`,
-        //                 product: data.result.id,
-        //             },
-        //         },
-        //     });
-        // await strapi.db.query("api::favorite.favorite").deleteMany({
-        //     where: {
-        //         id: favorites.map((item) => item.id),
-        //     },
-        // });
-    }
-};
-
 export const runProductsQueriesWithLimit = async (
     queries: {
         queryUID: string;
