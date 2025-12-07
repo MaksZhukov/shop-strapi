@@ -391,18 +391,21 @@ export const sendNotificationOnStart = async () =>
 
 export const removeFavoritesOnSold = async (data, component) => {
     if (data.result.sold) {
-        const favorites = await strapi.db
-            .query("api::favorite.favorite")
-            .findMany({
-                where: {
-                    uid: { $endsWith: `-${data.result.id}-${component}` },
-                },
-            });
-        await strapi.db.query("api::favorite.favorite").deleteMany({
-            where: {
-                id: favorites.map((item) => item.id),
-            },
-        });
+        // const favorites = await strapi.db
+        //     .query("api::favorite.favorite")
+        //     .findMany({
+        //         where: {
+        //             product: {
+        //                 __component: `product.${component}`,
+        //                 product: data.result.id,
+        //             },
+        //         },
+        //     });
+        // await strapi.db.query("api::favorite.favorite").deleteMany({
+        //     where: {
+        //         id: favorites.map((item) => item.id),
+        //     },
+        // });
     }
 };
 
