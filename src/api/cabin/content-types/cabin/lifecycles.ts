@@ -1,9 +1,5 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import {
-    addProductUrlToTelegramAllProductsJobUrls,
-    removeFavoritesOnSold,
-    scheduleUpdateAltTextForProductImages,
-} from "../../../../services";
+import { scheduleUpdateAltTextForProductImages } from "../../../../services";
 
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
@@ -32,7 +28,6 @@ export default {
             "api::cabin.cabin",
             "api::page-product-cabin.page-product-cabin"
         );
-        removeFavoritesOnSold(data, "product.cabin");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,

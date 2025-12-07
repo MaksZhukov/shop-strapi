@@ -1,9 +1,5 @@
 import { beforeCreateProduct, lifecycleSitemap } from "../../../../lifecycles";
-import {
-    addProductUrlToTelegramAllProductsJobUrls,
-    removeFavoritesOnSold,
-    scheduleUpdateAltTextForProductImages,
-} from "../../../../services";
+import { scheduleUpdateAltTextForProductImages } from "../../../../services";
 // import { afterDeleteProduct } from "../../../../lifecycles";
 
 export default {
@@ -31,7 +27,6 @@ export default {
             "api::spare-part.spare-part",
             "api::page-product-spare-part.page-product-spare-part"
         );
-        removeFavoritesOnSold(data, "product.spare-part");
         lifecycleSitemap();
     },
     afterDelete: lifecycleSitemap,
