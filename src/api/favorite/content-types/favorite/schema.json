@@ -23,7 +23,8 @@
       "components": [
         "product.tire",
         "product.wheel",
-        "product.spare-part"
+        "product.spare-part",
+        "product.cabin"
       ],
       "max": 1
     }
