@@ -135,7 +135,7 @@ export const hasDelayOfProductDescriptionGenerated = async (strapi) => {
 };
 
 export const hasDelayOfUpdatingImagesMetadata = async (strapi) => {
-    const { dateUpdatingImagesMetadata } = await strapi
+    const { dateUpdatingImagesMetadata = new Date() } = await strapi
         .service("plugin::internal.data")
         .find();
     return (
@@ -516,7 +516,7 @@ export const generateProductFullDescription = async ({ strapi }) => {
 
 export const updateImagesMetadata = async ({ strapi }) => {
     let clientUrl = strapi.config.get("server.clientUrl");
-    const { dateUpdatingImagesMetadata } = await strapi
+    const { dateUpdatingImagesMetadata = new Date() } = await strapi
         .service("plugin::internal.data")
         .find({});
 

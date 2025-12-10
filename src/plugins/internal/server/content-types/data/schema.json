@@ -34,6 +34,9 @@
         "currencyDate": {
             "type": "datetime"
         },
+        "dateUpdatingImagesMetadata": {
+            "type": "datetime"
+        },
         "currencyCoefficient": {
             "displayName": "currency",
             "type": "component",
