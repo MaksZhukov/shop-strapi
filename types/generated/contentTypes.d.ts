@@ -1179,7 +1179,7 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
       'plugin::users-permissions.user'
     >;
     product: Attribute.DynamicZone<
-      ['product.tire', 'product.wheel', 'product.spare-part']
+      ['product.tire', 'product.wheel', 'product.spare-part', 'product.cabin']
     > &
       Attribute.SetMinMax<{
         max: 1;
