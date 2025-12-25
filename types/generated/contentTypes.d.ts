@@ -1184,6 +1184,7 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
+    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1427,6 +1428,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     transactionId: Attribute.String;
     address: Attribute.String;
     handled: Attribute.Boolean;
+    paymentStatus: Attribute.Enumeration<['pending', 'paid']>;
+    paymentMethod: Attribute.Enumeration<['online', 'offline']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -2524,6 +2527,7 @@ export interface ApiShoppingCartShoppingCart extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
+    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

@@ -3,7 +3,7 @@
  */
 
 import { factories } from "@strapi/strapi";
-import { checkout } from "../../../services/bepaid";
+import { checkout, checkoutV1 } from "../../../services/bepaid";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -122,6 +122,123 @@ export default factories.createCoreController(
                 }
             }
             return { data: {} };
+        },
+
+        async checkoutV1(ctx) {
+            const user = ctx.state.user;
+            const {
+                products = [],
+                paymentMethod,
+                userName,
+                phone,
+                email,
+                address,
+            } = ctx.request.body.data;
+            const productsEntities = await Promise.all(
+                products.map((item) =>
+                    strapi.db
+                        .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                        .findOne({ where: { id: item.id } })
+                )
+            );
+            if (productsEntities.some((item) => item.sold)) {
+                return ctx.badRequest("one of the product is sold");
+            }
+
+            const order = await strapi.entityService.create(
+                "api::order.order",
+                {
+                    data: {
+                        username: userName,
+                        surname: userName,
+                        phone: phone,
+                        email: email,
+                        address: address,
+                        paymentMethod: paymentMethod,
+                        paymentStatus: "pending",
+                        products: products.map((item) => ({
+                            __component: `product.${
+                                COMPONENT_PRODUCT_TYPE[item.type] || item.type
+                            }`,
+                            product: item.id,
+                        })),
+                    },
+                }
+            );
+            products.forEach((item) => {
+                strapi.db.query(PRODUCT_API_UID_BY_TYPE[item.type]).update({
+                    where: { id: item.id },
+                    data: { sold: true },
+                });
+            });
+
+            const totalAmount = productsEntities.reduce(
+                (prev, curr) => prev + (curr.discountPrice || curr.price),
+                0
+            );
+            if (paymentMethod === "online") {
+                const data = await checkoutV1(
+                    user,
+                    order,
+                    "Заказ номер " + order.id,
+                    totalAmount
+                );
+                return { data: { order: order, checkout: data } };
+            }
+            return { data: { order: order, checkout: null } };
+        },
+
+        async notificationV1(ctx) {
+            const { uid, status, amount, description, customer } =
+                ctx.request.body.transaction || {};
+            const { orderId } = ctx.query;
+            if (status === "successful") {
+                await strapi.entityService.update("api::order.order", orderId, {
+                    data: {
+                        transactionId: uid,
+                        paymentStatus: "paid",
+                    },
+                });
+
+                if (customer?.email) {
+                    try {
+                        await strapi
+                            .service("api::shopping-cart.shopping-cart")
+                            .removeOrderedItemsFromShoppingCart(
+                                customer.email,
+                                orderId
+                            );
+                    } catch (error) {
+                        console.error(
+                            "Error removing shopping-cart items:",
+                            error
+                        );
+                    }
+                }
+
+                if (customer.email) {
+                    strapi.plugins.email.services.email.send({
+                        to: customer.email,
+                        from: strapi.plugins.email.config(
+                            "providerOptions.username"
+                        ),
+                        subject: "Заказ #" + orderId + " на razbor-auto.by",
+                        html: `<b>Товар</b>: ${description}<br>
+                        <b>Стоимость</b>: ${(amount / 100).toFixed(2)} BYN<br> 
+                        `,
+                    });
+                }
+
+                return { data: { success: true } };
+            }
+            if (status === "expired") {
+                await strapi
+                    .service("api::order.order")
+                    .removeExpiredUnpaidOrderById(+orderId);
+
+                return { data: { success: true } };
+            }
+            return { data: { success: false } };
         },
     })
 );

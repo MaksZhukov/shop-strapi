@@ -44,6 +44,20 @@
     },
     "handled": {
       "type": "boolean"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "paid"
+      ]
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "online",
+        "offline"
+      ]
     }
   }
 }
