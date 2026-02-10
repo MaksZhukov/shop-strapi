@@ -23,7 +23,7 @@ export default factories.createCoreService(
                 }
 
                 const order = await strapi.entityService.findOne(
-                    "api::order.order",
+                    "api::order-v1.order-v1",
                     orderId,
                     {
                         populate: ["products"],
