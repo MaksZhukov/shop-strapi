@@ -1184,6 +1184,7 @@ export interface ApiFavoriteFavorite extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
+    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -1437,6 +1438,53 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOrderV1OrderV1 extends Schema.CollectionType {
+  collectionName: 'orders_v1';
+  info: {
+    singularName: 'order-v1';
+    pluralName: 'orders-v1';
+    displayName: 'Order V1';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    username: Attribute.String;
+    phone: Attribute.String;
+    products: Attribute.DynamicZone<
+      ['product.spare-part', 'product.tire', 'product.wheel', 'product.cabin']
+    >;
+    email: Attribute.String;
+    transactionId: Attribute.String;
+    address: Attribute.String;
+    handled: Attribute.Boolean;
+    paymentStatus: Attribute.Enumeration<['pending', 'paid']>;
+    paymentMethod: Attribute.Enumeration<
+      ['online', 'cash', 'bank_transfer', 'pickup', 'receive_invoice']
+    >;
+    file: Attribute.Media;
+    userType: Attribute.Enumeration<['individual', 'legal']>;
+    tin: Attribute.String;
+    companyName: Attribute.String;
+    comment: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order-v1.order-v1',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order-v1.order-v1',
       'oneToOne',
       'admin::user'
     > &
@@ -2524,6 +2572,7 @@ export interface ApiShoppingCartShoppingCart extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 1;
       }>;
+    uid: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -3152,6 +3201,7 @@ declare module '@strapi/types' {
       'api::layout.layout': ApiLayoutLayout;
       'api::model.model': ApiModelModel;
       'api::order.order': ApiOrderOrder;
+      'api::order-v1.order-v1': ApiOrderV1OrderV1;
       'api::page-about.page-about': ApiPageAboutPageAbout;
       'api::page-article.page-article': ApiPageArticlePageArticle;
       'api::page-autocomis.page-autocomis': ApiPageAutocomisPageAutocomis;
