@@ -38,6 +38,21 @@ export default factories.createCoreController(
 
             const fileFromForm = ctx.request.files?.file;
 
+            if (!userType || !phone || !email) {
+                return ctx.badRequest("userType, phone and email are required");
+            }
+
+            if (userType === "legal") {
+                if (!tin || !companyName || !fileFromForm) {
+                    return ctx.badRequest("tin and companyName are required");
+                }
+            }
+            if (userType === "individual") {
+                if (!phone) {
+                    return ctx.badRequest("phone is required");
+                }
+            }
+
             let fileId: number | null = null;
 
             if (fileFromForm && fileFromForm.size > 0) {
