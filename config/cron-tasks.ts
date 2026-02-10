@@ -15,6 +15,6 @@ export default {
     // "0 1 * * *": generateProductFullDescription,
     "0 */3 * * *": updateCurrency,
     "*/5 * * * *": ({ strapi }) => {
-        strapi.service("api::order.order").cleanupExpiredUnpaidOrders();
+        strapi.service("api::order-v1.order-v1").cleanupExpiredUnpaidOrders();
     },
 };
