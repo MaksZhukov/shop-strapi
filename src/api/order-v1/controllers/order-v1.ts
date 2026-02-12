@@ -103,25 +103,39 @@ export default factories.createCoreController(
                     },
                 }
             );
-            products.forEach((item) => {
-                strapi.db.query(PRODUCT_API_UID_BY_TYPE[item.type]).update({
-                    where: { id: item.id },
-                    data: { sold: true },
-                });
-            });
+
+            // products.forEach((item) => {
+            //     strapi.db.query(PRODUCT_API_UID_BY_TYPE[item.type]).update({
+            //         where: { id: item.id },
+            //         data: { sold: true },
+            //     });
+            // });
 
             const totalAmount = productsEntities.reduce(
                 (prev, curr) => prev + (curr.discountPrice || curr.price),
                 0
             );
             if (paymentMethod === "online") {
-                const data = await checkoutV1(
-                    user,
-                    order,
-                    "Заказ номер " + order.id,
-                    totalAmount
-                );
-                return { data: { order: order, checkout: data } };
+                try {
+                    const data = await checkoutV1(
+                        user,
+                        order,
+                        "Заказ номер " + order.id,
+                        totalAmount
+                    );
+                    return { data: { order: order, checkout: data } };
+                } catch (error) {
+                    products.forEach((item) => {
+                        strapi.db
+                            .query(PRODUCT_API_UID_BY_TYPE[item.type])
+                            .update({
+                                where: { id: item.id },
+                                data: { sold: false },
+                            });
+                    });
+
+                    throw error;
+                }
             }
             return { data: { order: order, checkout: null } };
         },
