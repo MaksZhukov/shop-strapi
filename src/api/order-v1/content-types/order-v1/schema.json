@@ -61,7 +61,8 @@
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files"
       ]
     },
     "userType": {
