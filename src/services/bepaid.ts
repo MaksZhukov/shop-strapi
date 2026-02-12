@@ -133,6 +133,7 @@ export const checkoutV1 = async (
     });
 
     let timeCheckoutStart = performance.now();
+    const expiredAt = new Date(Date.now() + ORDER_EXPIRED_TIME).toISOString();
     const { data } = await axios.post(
         `${BE_PAID_HOST_URL}/ctp/api/checkouts`,
         {
@@ -143,9 +144,7 @@ export const checkoutV1 = async (
                     amount: amount * 100,
                     currency: "BYN",
                     description,
-                    expired_at: new Date(
-                        new Date().getTime() + ORDER_EXPIRED_TIME
-                    ),
+                    expired_at: expiredAt,
                 },
                 customer: {
                     email: order.email,
