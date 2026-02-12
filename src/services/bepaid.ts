@@ -103,6 +103,35 @@ export const checkoutV1 = async (
         (item: any) => item.id === user?.id
     );
 
+    console.log("checkoutV1", {
+        checkout: {
+            test: true,
+            transaction_type: "payment",
+            order: {
+                amount: amount * 100,
+                currency: "BYN",
+                description,
+                expired_at: new Date(new Date().getTime() + ORDER_EXPIRED_TIME),
+            },
+            customer: {
+                email: order.email,
+                first_name: order.username,
+                phone: order.phone,
+                address: order.address,
+            },
+            settings: {
+                language: "ru",
+                customer_fields: {
+                    visible: [],
+                },
+                notification_url: `${serverUrl}/api/orders/notification-v1?orderId=${order.id}`,
+            },
+            payment_method: {
+                types: ["credit_card"],
+            },
+        },
+    });
+
     let timeCheckoutStart = performance.now();
     const { data } = await axios.post(
         `${BE_PAID_HOST_URL}/ctp/api/checkouts`,
@@ -121,7 +150,6 @@ export const checkoutV1 = async (
                 customer: {
                     email: order.email,
                     first_name: order.username,
-                    last_name: order.surname,
                     phone: order.phone,
                     address: order.address,
                 },
