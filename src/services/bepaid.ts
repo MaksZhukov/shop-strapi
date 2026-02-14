@@ -90,7 +90,7 @@ export const checkoutV1 = async (
     order: any,
     description: string,
     amount: number
-) => {
+): Promise<{ token: string }> => {
     const bepaidShopId = strapi.config.get<string>("server.bepaidShopId");
     const bepaidShopKey = strapi.config.get<string>("server.bepaidShopKey");
     const serverUrl = strapi.config.get<string>("server.serverUrl");
