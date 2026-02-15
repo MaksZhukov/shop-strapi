@@ -2,7 +2,12 @@ export default [
     "strapi::logger",
     "strapi::errors",
     "strapi::security",
-    "strapi::cors",
+    {
+        name: "strapi::cors",
+        config: {
+            credentials: true,
+        },
+    },
     "strapi::poweredBy",
     "strapi::query",
     "strapi::body",
@@ -10,6 +15,7 @@ export default [
     "strapi::favicon",
     "strapi::public",
     "global::rate-limit",
+    "global::auth-cookies",
     ...(process.env.NODE_ENV === "production"
         ? ["global::catching-errors"]
         : []),
