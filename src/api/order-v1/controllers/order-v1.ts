@@ -81,7 +81,7 @@ export default factories.createCoreController(
                 }
             );
 
-            await orderService.markProductsAsSold(products);
+            // await orderService.markProductsAsSold(products);
 
             const totalAmount =
                 orderService.calculateOrderTotal(productsEntities);
