@@ -10,5 +10,10 @@ export default {
             path: "/orders-v1/notification",
             handler: "order-v1.notification",
         },
+        {
+            method: "POST",
+            path: "/orders-v1/cancel",
+            handler: "order-v1.cancel",
+        },
     ],
 };

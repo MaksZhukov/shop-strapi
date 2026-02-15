@@ -5,22 +5,12 @@
 import { factories } from "@strapi/strapi";
 import { checkoutV1 } from "../../../services/bepaid";
 
-const PRODUCT_API_UID_BY_TYPE = {
-    cabin: "api::cabin.cabin",
-    wheel: "api::wheel.wheel",
-    tire: "api::tire.tire",
-    sparePart: "api::spare-part.spare-part",
-};
-
-const COMPONENT_PRODUCT_TYPE = {
-    sparePart: "spare-part",
-};
-
 export default factories.createCoreController(
     "api::order-v1.order-v1",
     ({ strapi }) => ({
         async checkout(ctx) {
             const user = ctx.state.user;
+            const orderService = strapi.service("api::order-v1.order-v1");
 
             const {
                 products: rawProducts,
@@ -37,24 +27,15 @@ export default factories.createCoreController(
             const products = JSON.parse(rawProducts);
 
             const fileFromForm = ctx.request.files?.file;
-
-            if (!userType || !phone || !email) {
-                return ctx.badRequest("userType, phone and email are required");
-            }
-
-            if (userType === "legal") {
-                if (!tin || !companyName || !fileFromForm) {
-                    return ctx.badRequest("tin and companyName are required");
-                }
-            }
-            if (userType === "individual") {
-                if (!phone) {
-                    return ctx.badRequest("phone is required");
-                }
+            const validationError = orderService.validateCheckoutPayload(
+                { userType, phone, email, tin, companyName },
+                Boolean(fileFromForm?.size)
+            );
+            if (validationError) {
+                return ctx.badRequest(validationError);
             }
 
             let fileId: number | null = null;
-
             if (fileFromForm && fileFromForm.size > 0) {
                 const uploadService =
                     strapi.plugins["upload"].service("upload");
@@ -68,53 +49,43 @@ export default factories.createCoreController(
                 fileId = uploaded?.id ?? null;
             }
 
-            const productsEntities = await Promise.all(
-                products.map((item) =>
-                    strapi.db
-                        .query(PRODUCT_API_UID_BY_TYPE[item.type])
-                        .findOne({ where: { id: item.id } })
-                )
-            );
-            if (productsEntities.some((item) => item.sold)) {
-                return ctx.badRequest("one of the product is sold");
+            const { entities: productsEntities, error: productsError } =
+                await orderService.getProductEntitiesAndValidateNotSold(
+                    products
+                );
+            if (productsError) {
+                return ctx.badRequest(productsError);
             }
+
+            const orderData = orderService.createOrderData(
+                products,
+                {
+                    userName,
+                    phone,
+                    email,
+                    address,
+                    userType,
+                    tin,
+                    companyName,
+                    comment,
+                    paymentMethod,
+                },
+                fileId
+            );
 
             const order = await strapi.entityService.create(
                 "api::order-v1.order-v1",
                 {
-                    data: {
-                        username: userName,
-                        phone: phone,
-                        email: email,
-                        address: address,
-                        userType: userType,
-                        tin: tin,
-                        companyName: companyName,
-                        comment: comment,
-                        file: fileId,
-                        paymentMethod: paymentMethod,
-                        paymentStatus: "pending",
-                        products: products.map((item) => ({
-                            __component: `product.${
-                                COMPONENT_PRODUCT_TYPE[item.type] || item.type
-                            }`,
-                            product: item.id,
-                        })),
-                    },
+                    data: orderData,
+                    populate: ["products.product"],
                 }
             );
 
-            // products.forEach((item) => {
-            //     strapi.db.query(PRODUCT_API_UID_BY_TYPE[item.type]).update({
-            //         where: { id: item.id },
-            //         data: { sold: true },
-            //     });
-            // });
+            await orderService.markProductsAsSold(products);
 
-            const totalAmount = productsEntities.reduce(
-                (prev, curr) => prev + (curr.discountPrice || curr.price),
-                0
-            );
+            const totalAmount =
+                orderService.calculateOrderTotal(productsEntities);
+
             if (paymentMethod === "online") {
                 try {
                     const data = await checkoutV1(
@@ -123,78 +94,95 @@ export default factories.createCoreController(
                         "Заказ номер " + order.id,
                         totalAmount
                     );
-                    return { data: { order: order, checkout: data } };
-                } catch (error) {
-                    products.forEach((item) => {
-                        strapi.db
-                            .query(PRODUCT_API_UID_BY_TYPE[item.type])
-                            .update({
-                                where: { id: item.id },
-                                data: { sold: false },
-                            });
-                    });
 
+                    await strapi.entityService.update(
+                        "api::order-v1.order-v1",
+                        order.id,
+                        { data: { checkoutToken: data.token } }
+                    );
+                    return { data: { order, checkout: data } };
+                } catch (error) {
+                    await orderService.revertProductsSoldStatus(products);
                     throw error;
                 }
+            } else {
+                await orderService.sendOrderConfirmationEmail(
+                    email,
+                    order,
+                    totalAmount
+                );
             }
-            return { data: { order: order, checkout: null } };
+
+            return { data: { order, checkout: null } };
         },
 
         async notification(ctx) {
-            const { uid, status, amount, description, customer } =
+            const { uid, status, amount, customer } =
                 ctx.request.body.transaction || {};
             const { orderId } = ctx.query;
-            if (status === "successful") {
+            const orderService = strapi.service("api::order-v1.order-v1");
+            const order = await strapi.entityService.findOne(
+                "api::order-v1.order-v1",
+                orderId,
+                { populate: ["products.product"] }
+            );
+            if (!order) {
+                return ctx.badRequest("Order not found");
+            }
+            if (status === "successful" && customer?.email) {
                 await strapi.entityService.update(
                     "api::order-v1.order-v1",
                     orderId,
                     {
                         data: {
                             transactionId: uid,
+                            checkoutToken: null,
                             paymentStatus: "paid",
                         },
                     }
                 );
 
-                if (customer?.email) {
-                    try {
-                        await strapi
-                            .service("api::shopping-cart.shopping-cart")
-                            .removeOrderedItemsFromShoppingCart(
-                                customer.email,
-                                orderId
-                            );
-                    } catch (error) {
-                        console.error(
-                            "Error removing shopping-cart items:",
-                            error
+                try {
+                    await strapi
+                        .service("api::shopping-cart.shopping-cart")
+                        .removeOrderedItemsFromShoppingCart(
+                            customer.email,
+                            orderId
                         );
-                    }
+                } catch (error) {
+                    console.error("Error removing shopping-cart items:", error);
                 }
 
-                if (customer.email) {
-                    strapi.plugins.email.services.email.send({
-                        to: customer.email,
-                        from: strapi.plugins.email.config(
-                            "providerOptions.username"
-                        ),
-                        subject: "Заказ #" + orderId + " на razbor-auto.by",
-                        html: `<b>Товар</b>: ${description}<br>
-                        <b>Стоимость</b>: ${(amount / 100).toFixed(2)} BYN<br> 
-                        `,
-                    });
-                }
+                const totalAmountByn = amount / 100;
+                await orderService.sendOrderConfirmationEmail(
+                    customer.email,
+                    order,
+                    totalAmountByn
+                );
 
                 return { data: { success: true } };
             }
             if (status === "expired") {
-                await strapi
-                    .service("api::order-v1.order-v1")
-                    .removeExpiredUnpaidOrderById(+orderId);
-
+                await orderService.removeExpiredUnpaidOrder(order);
                 return { data: { success: true } };
             }
             return { data: { success: false } };
+        },
+
+        async cancel(ctx) {
+            const orderService = strapi.service("api::order-v1.order-v1");
+            const token = ctx.request.body.token;
+            if (!token) {
+                return ctx.badRequest("Token is required");
+            }
+            const trimmedToken = token.trim();
+            const result = await orderService.cancelOrderByCheckoutToken(
+                trimmedToken
+            );
+            if (!result.success) {
+                return ctx.badRequest(result.error ?? "Cancel failed");
+            }
+            return { data: { success: true } };
         },
     })
 );

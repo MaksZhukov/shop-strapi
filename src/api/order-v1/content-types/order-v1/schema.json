@@ -1,85 +1,51 @@
 {
-  "kind": "collectionType",
-  "collectionName": "orders_v1",
-  "info": {
-    "singularName": "order-v1",
-    "pluralName": "orders-v1",
-    "displayName": "Order V1",
-    "description": ""
-  },
-  "options": {
-    "draftAndPublish": false
-  },
-  "pluginOptions": {},
-  "attributes": {
-    "username": {
-      "type": "string"
+    "kind": "collectionType",
+    "collectionName": "orders_v1",
+    "info": {
+        "singularName": "order-v1",
+        "pluralName": "orders-v1",
+        "displayName": "Order V1",
+        "description": ""
     },
-    "phone": {
-      "type": "string"
-    },
-    "products": {
-      "type": "dynamiczone",
-      "components": [
-        "product.spare-part",
-        "product.tire",
-        "product.wheel",
-        "product.cabin"
-      ]
-    },
-    "email": {
-      "type": "string"
-    },
-    "transactionId": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string"
-    },
-    "handled": {
-      "type": "boolean"
-    },
-    "paymentStatus": {
-      "type": "enumeration",
-      "enum": [
-        "pending",
-        "paid"
-      ]
-    },
-    "paymentMethod": {
-      "type": "enumeration",
-      "enum": [
-        "online",
-        "cash",
-        "bank_transfer",
-        "pickup",
-        "receive_invoice"
-      ]
-    },
-    "file": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
-    "userType": {
-      "type": "enumeration",
-      "enum": [
-        "individual",
-        "legal"
-      ]
-    },
-    "tin": {
-      "type": "string"
-    },
-    "companyName": {
-      "type": "string"
-    },
-    "comment": {
-      "type": "string"
+    "options": { "draftAndPublish": false },
+    "pluginOptions": {},
+    "attributes": {
+        "username": { "type": "string" },
+        "phone": { "type": "string" },
+        "products": {
+            "type": "dynamiczone",
+            "components": [
+                "product.spare-part",
+                "product.tire",
+                "product.wheel",
+                "product.cabin"
+            ]
+        },
+        "email": { "type": "string" },
+        "transactionId": { "type": "string" },
+        "checkoutToken": { "type": "string" },
+        "address": { "type": "string" },
+        "handled": { "type": "boolean" },
+        "paymentStatus": { "type": "enumeration", "enum": ["pending", "paid"] },
+        "paymentMethod": {
+            "type": "enumeration",
+            "enum": [
+                "online",
+                "cash",
+                "bank_transfer",
+                "pickup",
+                "receive_invoice"
+            ]
+        },
+        "file": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": ["images", "files"]
+        },
+        "userType": { "type": "enumeration", "enum": ["individual", "legal"] },
+        "tin": { "type": "string" },
+        "companyName": { "type": "string" },
+        "comment": { "type": "string" }
     }
-  }
 }

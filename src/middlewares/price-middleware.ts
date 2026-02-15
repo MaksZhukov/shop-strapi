@@ -5,6 +5,7 @@ export default (config, { strapi }) => {
         const coefficient = await strapi
             .service("plugin::internal.data")
             .getCurrencyCoefficient();
+
         if (body && coefficient) {
             if (Array.isArray(body.data)) {
                 body.data.forEach((item) => {
