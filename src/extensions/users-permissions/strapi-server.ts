@@ -40,14 +40,26 @@ export default (plugin) => {
         return originalAuthCallback(ctx);
     };
 
-    plugin.routes["content-api"].routes.unshift({
-        method: "PUT",
-        path: "/users/me",
-        handler: "user.updateMe",
-        config: {
-            prefix: "",
+    plugin.controllers.auth.logout = (ctx) => ctx.send({ ok: true });
+
+    plugin.routes["content-api"].routes.unshift(
+        {
+            method: "POST",
+            path: "/auth/logout",
+            handler: "auth.logout",
+            config: {
+                prefix: "",
+            },
         },
-    });
+        {
+            method: "PUT",
+            path: "/users/me",
+            handler: "user.updateMe",
+            config: {
+                prefix: "",
+            },
+        }
+    );
 
     return plugin;
 };
