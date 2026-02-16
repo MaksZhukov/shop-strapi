@@ -1,6 +1,5 @@
 const AUTH_COOKIE_NAME = "token";
 const AUTH_COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 30;
-
 export default (config, { strapi }) => {
     return async (ctx, next) => {
         const cookieToken = ctx.cookies.get(AUTH_COOKIE_NAME);

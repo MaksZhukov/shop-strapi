@@ -195,7 +195,7 @@ export default factories.createCoreService(
             productsEntities: Array<{ price?: number; discountPrice?: number }>
         ) {
             return productsEntities.reduce(
-                (prev, curr) => prev + (curr.discountPrice ?? curr.price ?? 0),
+                (prev, curr) => prev + (curr.discountPrice || curr.price || 0),
                 0
             );
         },
