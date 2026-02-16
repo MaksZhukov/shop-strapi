@@ -4,14 +4,14 @@ const AUTH_COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 30;
 export default (config, { strapi }) => {
     return async (ctx, next) => {
         const cookieToken = ctx.cookies.get(AUTH_COOKIE_NAME);
+        console.log("cookieToken", cookieToken);
         const existingAuth = ctx.request.headers?.authorization;
         if (cookieToken && !existingAuth) {
             ctx.request.headers.authorization = `Bearer ${cookieToken}`;
         }
         await next();
         const shouldSetAuthCookie =
-            (ctx.url.endsWith("/auth/local") && ctx.method === "POST") ||
-            ctx.url.endsWith("/api/auth/google/callback");
+            ctx.url.endsWith("/auth/local") && ctx.method === "POST";
 
         if (shouldSetAuthCookie && ctx.status === 200) {
             const { jwt } = ctx.body ?? {};
