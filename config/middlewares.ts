@@ -16,7 +16,7 @@ export default [
     "strapi::public",
     "global::rate-limit",
     "global::auth-cookies",
-    ...(process.env.NODE_ENV === "production"
-        ? ["global::catching-errors"]
-        : []),
+    // ...(process.env.NODE_ENV === "production"
+    //     ? ["global::catching-errors"]
+    //     : []),
 ];
