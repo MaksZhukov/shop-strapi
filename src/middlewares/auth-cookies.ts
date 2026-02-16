@@ -20,7 +20,7 @@ export default (config, { strapi }) => {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === "production",
                     maxAge: AUTH_COOKIE_MAX_AGE,
-                    domain: process.env.COOKIE_DOMAIN || "localhost",
+                    domain: process.env.COOKIE_DOMAIN,
                     path: "/",
                     sameSite: "lax",
                 });
