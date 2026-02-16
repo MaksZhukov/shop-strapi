@@ -9,12 +9,12 @@ export default (config, { strapi }) => {
             ctx.request.headers.authorization = `Bearer ${cookieToken}`;
         }
         await next();
-        if (
-            ctx.url.endsWith("/auth/local") &&
-            ctx.method === "POST" &&
-            ctx.status === 200
-        ) {
-            const { jwt } = ctx.body;
+        const shouldSetAuthCookie =
+            (ctx.url.endsWith("/auth/local") && ctx.method === "POST") ||
+            ctx.url.endsWith("/api/auth/google/callback");
+
+        if (shouldSetAuthCookie && ctx.status === 200) {
+            const { jwt } = ctx.body ?? {};
             if (jwt) {
                 ctx.cookies.set(AUTH_COOKIE_NAME, jwt, {
                     httpOnly: true,
