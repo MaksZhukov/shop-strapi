@@ -17,8 +17,8 @@ export default {
         },
         {
             method: "POST",
-            path: "/orders-v1/reissue-checkout",
-            handler: "order-v1.reissueCheckout",
+            path: "/orders-v1/reissue-checkout-token",
+            handler: "order-v1.reissueCheckoutToken",
         },
     ],
 };

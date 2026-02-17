@@ -185,7 +185,7 @@ export default factories.createCoreController(
             return { data: { success: true } };
         },
 
-        async reissueCheckout(ctx) {
+        async reissueCheckoutToken(ctx) {
             const orderService = strapi.service("api::order-v1.order-v1");
             const { token, orderId } = ctx.request.body;
 
