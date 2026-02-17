@@ -15,5 +15,10 @@ export default {
             path: "/orders-v1/cancel",
             handler: "order-v1.cancel",
         },
+        {
+            method: "POST",
+            path: "/orders-v1/reissue-checkout",
+            handler: "order-v1.reissueCheckout",
+        },
     ],
 };

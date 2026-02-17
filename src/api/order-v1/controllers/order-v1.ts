@@ -184,5 +184,54 @@ export default factories.createCoreController(
             }
             return { data: { success: true } };
         },
+
+        async reissueCheckout(ctx) {
+            const orderService = strapi.service("api::order-v1.order-v1");
+            const { token, orderId } = ctx.request.body;
+
+            if (!token) {
+                return ctx.badRequest("Token is required");
+            }
+            if (!orderId) {
+                return ctx.badRequest("Valid orderId is required");
+            }
+
+            const [order] = await strapi.entityService.findMany(
+                "api::order-v1.order-v1",
+                {
+                    filters: {
+                        id: orderId,
+                        checkoutToken: token,
+                    },
+                    populate: ["products.product"],
+                }
+            );
+
+            if (!order) {
+                return ctx.badRequest("Order not found");
+            }
+
+            const productsEntities = (order.products ?? [])
+                .map((p) => p.product)
+                .filter(Boolean);
+
+            const totalAmount =
+                orderService.calculateOrderTotal(productsEntities);
+
+            const data = await checkoutV1(
+                ctx.state.user,
+                order,
+                "Заказ номер " + order.id,
+                totalAmount
+            );
+
+            await strapi.entityService.update(
+                "api::order-v1.order-v1",
+                order.id,
+                { data: { checkoutToken: data.token } }
+            );
+
+            return { data: { checkout: data } };
+        },
     })
 );
