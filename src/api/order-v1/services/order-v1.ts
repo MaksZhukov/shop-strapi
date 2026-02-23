@@ -59,7 +59,7 @@ export default factories.createCoreService(
             ) {
                 return { success: false, error: "Token is required" };
             }
-            const orders = await strapi.entityService.findMany(
+            const [order] = await strapi.entityService.findMany(
                 "api::order-v1.order-v1",
                 {
                     filters: {
@@ -71,7 +71,6 @@ export default factories.createCoreService(
                     limit: 1,
                 }
             );
-            const order = orders?.[0];
             if (!order) {
                 return {
                     success: false,

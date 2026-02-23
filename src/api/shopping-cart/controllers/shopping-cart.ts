@@ -7,32 +7,6 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreController(
     "api::shopping-cart.shopping-cart",
     ({ strapi }) => ({
-        async find(ctx) {
-            const userId = ctx.state.user.id;
-            ctx.query = {
-                ...ctx.query,
-                populate: "product.product.images",
-                filters: {
-                    user: userId,
-                },
-            };
-            const result = await super.find(ctx);
-            return {
-                ...result,
-                data: result.data.map((item) => {
-                    return {
-                        ...item,
-                        attributes: {
-                            ...item.attributes,
-                            product:
-                                item.attributes.product[0]?.product?.data ||
-                                null,
-                        },
-                    };
-                }),
-            };
-        },
-
         async create(ctx) {
             const userId = ctx.state.user.id;
             ctx.query = { populate: ["product.product.images"] };
