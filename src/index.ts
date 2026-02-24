@@ -10,6 +10,7 @@ import {
     sendNotificationOnStart,
     sendProductsInCSVToEmail,
     updateCurrency,
+    updateImagesAltText,
     updateImagesMetadata,
 } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
@@ -37,6 +38,8 @@ export default {
             if (process.env.NODE_APP_INSTANCE === "0") {
                 scheduleGenerateSitemap();
                 updateCurrency({ strapi });
+                updateImagesAltText({ strapi });
+
                 // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
                 //     sendNewProductsToEmail({ strapi });
                 // }
