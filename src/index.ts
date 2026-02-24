@@ -1,20 +1,6 @@
 import runScripts from "./scripts";
-import {
-    generateProductFullDescription,
-    hasDelayOfProductDescriptionGenerated,
-    hasDelayOfSendingNewProductsEmail,
-    hasDelayOfSendingProductsInCsvEmail,
-    hasDelayOfUpdatingImagesMetadata,
-    populateCatalog,
-    sendNewProductsToEmail,
-    sendNotificationOnStart,
-    sendProductsInCSVToEmail,
-    updateCurrency,
-    updateImagesAltText,
-    updateImagesMetadata,
-} from "./services";
+import { sendNotificationOnStart, updateCurrency } from "./services";
 import scheduleGenerateSitemap from "./services/sitemap";
-import { hasDelayOfSendingYMLEmail, sendYMLsToEmail } from "./services/yml/yml";
 
 export default {
     /**
@@ -38,7 +24,6 @@ export default {
             if (process.env.NODE_APP_INSTANCE === "0") {
                 scheduleGenerateSitemap();
                 updateCurrency({ strapi });
-                updateImagesAltText({ strapi });
 
                 // if (await hasDelayOfSendingNewProductsEmail(strapi)) {
                 //     sendNewProductsToEmail({ strapi });
