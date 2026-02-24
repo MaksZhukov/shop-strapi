@@ -290,29 +290,30 @@ export const generateDefaultModelSnippets = (
 });
 
 export const updateAltTextForProductImages = (data, images) => {
-    images?.forEach(async (image, index) => {
-        let values = {
-            h1: data.h1,
-            title: data.seo?.title,
-            description: data.seo?.description,
-        };
-        let alt = values[ALTS_ARR[index]] || data.h1 + " " + ALTS_ARR[index];
-        try {
-            await strapi.plugins.upload.services.upload.updateFileInfo(
-                image.id,
-                {
-                    alternativeText: alt,
-                    caption: alt,
-                }
-            );
-        } catch (err) {
-            console.log(
-                `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
-                    data
-                )}, IMAGES: ${JSON.stringify(images)}`
-            );
-        }
-    });
+    if (!images) {
+        return;
+    }
+    return Promise.all(
+        images.map(async (image, index) => {
+            let alt = data.h1 + ` - Фото ${index + 1}`;
+            try {
+                await strapi.plugins.upload.services.upload.updateFileInfo(
+                    image.id,
+                    {
+                        alternativeText: alt,
+                        caption: alt,
+                    }
+                );
+                console.log(`Updated alt text for image ${image.id}`);
+            } catch (err) {
+                console.log(
+                    `ERROR updateFileInfo for PRODUCT: ${JSON.stringify(
+                        data
+                    )}, IMAGES: ${JSON.stringify(images)}`
+                );
+            }
+        })
+    );
 };
 
 export const getStringByTemplateStr = (value: string, data: any) => {
@@ -570,4 +571,48 @@ export const updateImagesMetadata = async ({ strapi }) => {
             dateUpdatingImagesMetadata: new Date().getTime(),
         },
     });
+};
+
+export const updateImagesAltText = async ({ strapi }) => {
+    console.log("Start updateImagesAltText");
+    const queries = [
+        {
+            queryUID: "api::spare-part.spare-part",
+            populate: ["brand", "images"],
+        },
+        {
+            queryUID: "api::cabin.cabin",
+            populate: ["brand", "images"],
+        },
+        {
+            queryUID: "api::wheel.wheel",
+            populate: ["brand", "images"],
+        },
+        {
+            queryUID: "api::tire.tire",
+            populate: ["brand", "images"],
+        },
+    ];
+
+    await runProductsQueriesWithLimit(
+        queries,
+        1000,
+        async (products: any[]) => {
+            console.log(
+                "Start updateImagesAltText for products",
+                products.length
+            );
+            await Promise.all(
+                products.map((entity) =>
+                    updateAltTextForProductImages(entity, entity.images)
+                )
+            );
+            console.log(
+                "End updateImagesAltText for products",
+                products.length
+            );
+        },
+        1000
+    );
+    console.log("End updateImagesAltText");
 };
