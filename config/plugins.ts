@@ -284,6 +284,11 @@ export default ({ env }) => ({
     //         // sizeLimit: 1 * 1024 * 1024,
     //     },
     // },
+    "import-export-entries": {
+        config: {
+            serverPublicHostname: env("SERVER_URL"),
+        },
+    },
     internal: {
         enabled: true,
         resolve: "./src/plugins/internal",
