@@ -20,7 +20,7 @@ export default (config, { strapi }) => {
                     maxAge: AUTH_COOKIE_MAX_AGE,
                     domain: process.env.COOKIE_DOMAIN,
                     path: "/",
-                    sameSite: "lax",
+                    sameSite: "none",
                 });
             }
         }
