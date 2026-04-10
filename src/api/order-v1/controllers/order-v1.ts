@@ -88,7 +88,7 @@ export default factories.createCoreController(
 
             if (paymentMethod === "online") {
                 try {
-                    const data = await checkoutV1(
+                    const { checkout, expiresAt } = await checkoutV1(
                         user,
                         order,
                         "Заказ номер " + order.id,
@@ -98,11 +98,23 @@ export default factories.createCoreController(
                     await strapi.entityService.update(
                         "api::order-v1.order-v1",
                         order.id,
-                        { data: { checkoutToken: data.token } }
+                        {
+                            data: {
+                                checkoutToken: checkout.token as string,
+                                checkoutExpiresAt: expiresAt,
+                            },
+                        }
                     );
-                    return { data: { order, checkout: data } };
+                    return { data: { order, checkout } };
                 } catch (error) {
-                    await orderService.revertProductsSoldStatus(products);
+                    try {
+                        await orderService.removeExpiredUnpaidOrder(order);
+                    } catch (cleanupErr) {
+                        console.error(
+                            "order-v1 checkout: failed to remove order after checkoutV1 error",
+                            cleanupErr
+                        );
+                    }
                     throw error;
                 }
             } else {
@@ -127,6 +139,17 @@ export default factories.createCoreController(
                 { populate: ["products.product"] }
             );
             if (!order) {
+                if (status === "successful") {
+                    console.error(
+                        "order-v1 notification: successful payment but order row missing (possible cleanup race); reconcile via bepaid",
+                        {
+                            orderId,
+                            transactionUid: uid,
+                            amount,
+                            customerEmail: customer?.email,
+                        }
+                    );
+                }
                 return ctx.badRequest("Order not found");
             }
             if (status === "successful" && customer?.email) {
@@ -137,6 +160,7 @@ export default factories.createCoreController(
                         data: {
                             transactionId: uid,
                             checkoutToken: null,
+                            checkoutExpiresAt: null,
                             paymentStatus: "paid",
                         },
                     }
@@ -210,6 +234,12 @@ export default factories.createCoreController(
             if (!order) {
                 return ctx.badRequest("Order not found");
             }
+            if (order.paymentMethod !== "online") {
+                return ctx.badRequest("Order is not an online payment order");
+            }
+            if (order.paymentStatus === "paid") {
+                return ctx.badRequest("Order is already paid");
+            }
 
             const productsEntities = (order.products ?? [])
                 .map((p) => p.product)
@@ -218,20 +248,31 @@ export default factories.createCoreController(
             const totalAmount =
                 orderService.calculateOrderTotal(productsEntities);
 
-            const data = await checkoutV1(
-                ctx.state.user,
-                order,
-                "Заказ номер " + order.id,
-                totalAmount
-            );
-
-            await strapi.entityService.update(
-                "api::order-v1.order-v1",
-                order.id,
-                { data: { checkoutToken: data.token } }
-            );
-
-            return { data: { checkout: data } };
+            try {
+                const { checkout, expiresAt } = await checkoutV1(
+                    ctx.state.user,
+                    order,
+                    "Заказ номер " + order.id,
+                    totalAmount
+                );
+                await strapi.entityService.update(
+                    "api::order-v1.order-v1",
+                    order.id,
+                    {
+                        data: {
+                            checkoutToken: checkout.token,
+                            checkoutExpiresAt: expiresAt,
+                        },
+                    }
+                );
+                return { data: { checkout } };
+            } catch (error) {
+                console.error("order-v1 reissueCheckoutToken failed", {
+                    orderId: order.id,
+                    error,
+                });
+                throw error;
+            }
         },
     })
 );

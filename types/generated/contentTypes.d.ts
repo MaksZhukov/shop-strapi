@@ -1465,6 +1465,7 @@ export interface ApiOrderV1OrderV1 extends Schema.CollectionType {
     email: Attribute.String;
     transactionId: Attribute.String;
     checkoutToken: Attribute.String;
+    checkoutExpiresAt: Attribute.DateTime;
     address: Attribute.String;
     handled: Attribute.Boolean;
     paymentStatus: Attribute.Enumeration<['pending', 'paid']>;

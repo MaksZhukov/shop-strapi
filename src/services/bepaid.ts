@@ -92,7 +92,7 @@ export const checkoutV1 = async (
     order: any,
     description: string,
     amount: number
-): Promise<{ token: string }> => {
+): Promise<{ checkout: { token: string }; expiresAt: string }> => {
     const bepaidShopId = strapi.config.get<string>("server.bepaidShopId");
     const bepaidShopKey = strapi.config.get<string>("server.bepaidShopKey");
     const serverUrl = strapi.config.get<string>("server.serverUrl");
@@ -154,5 +154,5 @@ export const checkoutV1 = async (
         html: `checkout: ${timeCheckoutEnd}, app instance: ${process.env.NODE_APP_INSTANCE}`,
     });
 
-    return data.checkout;
+    return { checkout: data.checkout, expiresAt: expiredAt };
 };

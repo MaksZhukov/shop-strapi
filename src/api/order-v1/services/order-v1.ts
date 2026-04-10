@@ -3,10 +3,7 @@
  */
 
 import { factories } from "@strapi/strapi";
-import {
-    ORDER_CLEANUP_GRACE_MS,
-    ORDER_EXPIRED_TIME,
-} from "../../../services/bepaid";
+import { ORDER_CLEANUP_GRACE_MS } from "../../../services/bepaid";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -24,9 +21,9 @@ export default factories.createCoreService(
     ({ strapi }) => ({
         async cleanupExpiredUnpaidOrders() {
             try {
-                const expiredAt = new Date(
-                    Date.now() - ORDER_EXPIRED_TIME - ORDER_CLEANUP_GRACE_MS
-                );
+                const graceCutoffISO = new Date(
+                    Date.now() - ORDER_CLEANUP_GRACE_MS
+                ).toISOString();
 
                 const expiredOrders = await strapi.entityService.findMany(
                     "api::order-v1.order-v1",
@@ -34,7 +31,7 @@ export default factories.createCoreService(
                         filters: {
                             paymentMethod: "online",
                             paymentStatus: { $ne: "paid" },
-                            createdAt: { $lt: expiredAt },
+                            checkoutExpiresAt: { $lt: graceCutoffISO },
                         },
                         populate: ["products.product"],
                     }
@@ -88,7 +85,11 @@ export default factories.createCoreService(
 
         async removeExpiredUnpaidOrder(order) {
             try {
-                const products = order.products
+                if (order.paymentStatus === "paid") {
+                    return;
+                }
+
+                const products = (order.products ?? [])
                     .map((product) => product.product)
                     .flat();
 
