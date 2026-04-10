@@ -24,6 +24,7 @@
         "email": { "type": "string" },
         "transactionId": { "type": "string" },
         "checkoutToken": { "type": "string" },
+        "checkoutExpiresAt": { "type": "datetime" },
         "address": { "type": "string" },
         "handled": { "type": "boolean" },
         "paymentStatus": { "type": "enumeration", "enum": ["pending", "paid"] },
