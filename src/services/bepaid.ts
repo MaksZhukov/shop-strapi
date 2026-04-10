@@ -8,6 +8,8 @@ axiosRetry(axios, {
 });
 
 export const ORDER_EXPIRED_TIME = 600000 * 2;
+/** Unpaid orders are removed this long after checkout expiry (webhook / last-second pay). */
+export const ORDER_CLEANUP_GRACE_MS = 60_000;
 const BE_PAID_HOST_URL = "https://checkout.bepaid.by";
 
 export const checkout = async (

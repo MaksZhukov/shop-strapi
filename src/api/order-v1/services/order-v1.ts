@@ -3,7 +3,10 @@
  */
 
 import { factories } from "@strapi/strapi";
-import { ORDER_EXPIRED_TIME } from "../../../services/bepaid";
+import {
+    ORDER_CLEANUP_GRACE_MS,
+    ORDER_EXPIRED_TIME,
+} from "../../../services/bepaid";
 
 const PRODUCT_API_UID_BY_TYPE = {
     cabin: "api::cabin.cabin",
@@ -21,7 +24,9 @@ export default factories.createCoreService(
     ({ strapi }) => ({
         async cleanupExpiredUnpaidOrders() {
             try {
-                const expiredAt = new Date(Date.now() - ORDER_EXPIRED_TIME);
+                const expiredAt = new Date(
+                    Date.now() - ORDER_EXPIRED_TIME - ORDER_CLEANUP_GRACE_MS
+                );
 
                 const expiredOrders = await strapi.entityService.findMany(
                     "api::order-v1.order-v1",
