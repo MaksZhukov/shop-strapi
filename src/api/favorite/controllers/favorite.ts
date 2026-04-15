@@ -12,7 +12,7 @@ export default factories.createCoreController(
             const userId = ctx.state.user.id;
             ctx.query = {
                 ...ctx.query,
-                populate: "product.product.images",
+                populate: ["product.product.images", "product.product.brand"],
                 filters: {
                     user: userId,
                 },
