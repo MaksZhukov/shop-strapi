@@ -507,7 +507,8 @@ export interface PluginInternalData extends Schema.SingleType {
     dateProductFullDescriptionGenerated: Attribute.DateTime;
     dateYMLSentToEmail: Attribute.DateTime;
     currencyDate: Attribute.DateTime;
-    currencyCoefficient: Attribute.Decimal;
+    dateUpdatingImagesMetadata: Attribute.DateTime;
+    currencyCoefficient: Attribute.Component<'general.currency'>;
     bePaidTestModeUsers: Attribute.Relation<
       'plugin::internal.data',
       'oneToMany',
