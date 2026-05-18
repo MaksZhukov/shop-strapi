@@ -8,6 +8,7 @@ import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import configSync from "strapi-plugin-config-sync/strapi-admin";
 import importExportEntries from "strapi-plugin-import-export-entries/strapi-admin";
 import restCache from "strapi-plugin-rest-cache/strapi-admin";
+import internal from "../../src/plugins/internal/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 import customisations from "../../src/admin/app.tsx";
@@ -21,5 +22,6 @@ renderAdmin(document.getElementById("strapi"), {
     "config-sync": configSync,
     "import-export-entries": importExportEntries,
     "rest-cache": restCache,
+    internal: internal,
   },
 });

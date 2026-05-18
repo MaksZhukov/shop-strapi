@@ -1,0 +1,10 @@
+{
+  "plugin.name": "Internal",
+  "page.title": "Internal",
+  "page.subtitle": "Внутренние инструменты для экспорта и обслуживания магазина",
+  "section.categories.title": "Категории",
+  "section.categories.description": "JSON с title, description и h1 для каталога: марки, модели, поколения и виды запчастей.",
+  "download": "Скачать категории",
+  "downloadSuccess": "Готово",
+  "error": "Произошла ошибка"
+}
