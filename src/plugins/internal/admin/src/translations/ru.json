@@ -3,8 +3,8 @@
   "page.title": "Internal",
   "page.subtitle": "Внутренние инструменты для экспорта и обслуживания магазина",
   "section.categories.title": "Категории",
-  "section.categories.description": "JSON с title, description и h1 для каталога: марки, модели, поколения и виды запчастей.",
-  "download": "Скачать категории",
+  "section.categories.description": "Скачать SEO каталога в JSON — заголовок, описание и H1 для марок, моделей, поколений и видов запчастей.",
+  "download": "Скачать каталог",
   "downloadSuccess": "Готово",
   "error": "Произошла ошибка"
 }

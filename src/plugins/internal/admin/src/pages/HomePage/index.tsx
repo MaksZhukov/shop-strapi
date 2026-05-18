@@ -75,7 +75,7 @@ const HomePage = () => {
                             {formatMessage({
                                 id: getTrad("section.categories.description"),
                                 defaultMessage:
-                                    "JSON с title, description и h1 для каталога: марки, модели, поколения и виды запчастей.",
+                                    "Скачать SEO каталога в JSON — заголовок, описание и H1 для марок, моделей, поколений и видов запчастей.",
                             })}
                         </Typography>
                     </Box>
@@ -88,7 +88,7 @@ const HomePage = () => {
                         >
                             {formatMessage({
                                 id: getTrad("download"),
-                                defaultMessage: "Скачать категории",
+                                defaultMessage: "Скачать каталог",
                             })}
                         </Button>
                     </Flex>
