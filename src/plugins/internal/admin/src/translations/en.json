@@ -3,8 +3,8 @@
   "page.title": "Internal",
   "page.subtitle": "Internal tools for shop export and maintenance",
   "section.categories.title": "Categories",
-  "section.categories.description": "JSON with title, description, and h1 for the catalog: brands, models, generations, and spare part types.",
-  "download": "Download categories",
+  "section.categories.description": "Download catalog SEO as JSON — title, description, and H1 for brands, models, generations, and spare part types.",
+  "download": "Download catalog",
   "downloadSuccess": "Done",
   "error": "Something went wrong"
 }
