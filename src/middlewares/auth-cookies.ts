@@ -1,5 +1,14 @@
 const AUTH_COOKIE_NAME = "token";
 const AUTH_COOKIE_MAX_AGE = 1000 * 60 * 60 * 24 * 30;
+
+const getAuthCookieOptions = () => ({
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    domain: process.env.COOKIE_DOMAIN,
+    path: "/",
+    sameSite: "none" as const,
+});
+
 export default (config, { strapi }) => {
     return async (ctx, next) => {
         const cookieToken = ctx.cookies.get(AUTH_COOKIE_NAME);
@@ -15,17 +24,18 @@ export default (config, { strapi }) => {
             const { jwt } = ctx.body ?? {};
             if (jwt) {
                 ctx.cookies.set(AUTH_COOKIE_NAME, jwt, {
-                    httpOnly: true,
-                    secure: process.env.NODE_ENV === "production",
+                    ...getAuthCookieOptions(),
                     maxAge: AUTH_COOKIE_MAX_AGE,
-                    domain: process.env.COOKIE_DOMAIN,
-                    path: "/",
-                    sameSite: "none",
                 });
             }
         }
-        if (ctx.url.includes("/auth/logout")) {
-            ctx.cookies.set(AUTH_COOKIE_NAME, null);
+        const shouldClearAuthCookie =
+            ctx.url.includes("/auth/logout") &&
+            ctx.method === "POST" &&
+            ctx.status === 200;
+
+        if (shouldClearAuthCookie) {
+            ctx.cookies.set(AUTH_COOKIE_NAME, null, getAuthCookieOptions());
         }
     };
 };
