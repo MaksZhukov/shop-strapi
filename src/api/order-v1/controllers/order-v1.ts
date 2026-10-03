@@ -4,6 +4,7 @@
 
 import { factories } from "@strapi/strapi";
 import { checkoutV1 } from "../../../services/bepaid";
+import { verifyRecaptcha } from "../../../services/recaptcha";
 
 export default factories.createCoreController(
     "api::order-v1.order-v1",
@@ -23,7 +24,14 @@ export default factories.createCoreController(
                 tin,
                 companyName,
                 comment,
+                recaptchaToken,
             } = ctx.request.body;
+            // Anyone can place an order, so the request must prove a browser is behind it.
+            if (!(await verifyRecaptcha(recaptchaToken))) {
+                return ctx.badRequest("reCAPTCHA failed", {
+                    error: "browser-error",
+                });
+            }
             const products = JSON.parse(rawProducts);
 
             const fileFromForm = ctx.request.files?.file;
