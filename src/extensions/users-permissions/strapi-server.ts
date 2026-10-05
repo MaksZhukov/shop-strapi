@@ -14,9 +14,9 @@ export default (plugin) => {
     const originalAuthRegister = plugin.controllers.auth.register.bind(
         plugin.controllers.auth
     );
+    // The shop sends a fresh token with every register and local login; a call without one is rejected.
     plugin.controllers.auth.register = async (ctx) => {
-        const token = ctx.request.body?.recaptchaToken;
-        if (token && !(await verifyRecaptcha(token))) {
+        if (!(await verifyRecaptcha(ctx.request.body?.recaptchaToken))) {
             return ctx.badRequest("reCAPTCHA failed", {
                 error: "browser-error",
             });
@@ -29,13 +29,13 @@ export default (plugin) => {
     );
     plugin.controllers.auth.callback = async (ctx) => {
         const provider = ctx.params?.provider ?? "local";
-        const token = ctx.request.body?.recaptchaToken;
-        if (provider === "local" && token) {
-            if (!(await verifyRecaptcha(token))) {
-                return ctx.badRequest("reCAPTCHA failed", {
-                    error: "browser-error",
-                });
-            }
+        if (
+            provider === "local" &&
+            !(await verifyRecaptcha(ctx.request.body?.recaptchaToken))
+        ) {
+            return ctx.badRequest("reCAPTCHA failed", {
+                error: "browser-error",
+            });
         }
         return originalAuthCallback(ctx);
     };

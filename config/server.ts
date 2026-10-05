@@ -3,6 +3,8 @@ import cronTasks from "./cron-tasks";
 export default ({ env }) => ({
     host: env("HOST", "0.0.0.0"),
     port: env.int("PORT", 1337),
+    // behind nginx: take the client ip from X-Forwarded-For
+    proxy: env.bool("IS_PROXIED", true),
     app: {
         keys: env.array("APP_KEYS"),
     },
