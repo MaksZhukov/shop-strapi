@@ -10,5 +10,11 @@ export default ({ env }) => ({
             ssl: env.bool("DATABASE_SSL", true),
             multipleStatements: true,
         },
+        pool: {
+            min: env.int("DATABASE_POOL_MIN", 2),
+            max: env.int("DATABASE_POOL_MAX", 20),
+            acquireTimeoutMillis: env.int("DATABASE_POOL_ACQUIRE_TIMEOUT", 30000),
+        },
+        acquireConnectionTimeout: env.int("DATABASE_POOL_ACQUIRE_TIMEOUT", 30000),
     },
 });
