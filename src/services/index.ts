@@ -551,17 +551,19 @@ export const updateImagesMetadata = async ({ strapi }) => {
     await runProductsQueriesWithLimit(
         queries,
         100,
-        (products: any[]) => {
-            products.forEach((entity) => {
-                entity.images?.forEach((item) => {
-                    updateImageMetadata(
+        // one image at a time: firing every sharp job of a batch at once
+        // spiked native memory far past the Node heap limit
+        async (products: any[]) => {
+            for (const entity of products) {
+                for (const item of entity.images ?? []) {
+                    await updateImageMetadata(
                         item.url,
                         `${clientUrl}/${productTypeUrlSlug[entity.type]}/${
                             entity.brand?.slug
                         }/${entity.slug}`
                     );
-                });
-            });
+                }
+            }
         },
         5000
     );
