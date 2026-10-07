@@ -1,19 +1,21 @@
+import { randomUUID } from "crypto";
 import { promises } from "fs";
 import path from "path";
 import sharp from "sharp";
 import { productTypeUrlSlug } from "../config";
 
 export const updateImageMetadata = async (url, productUrl: string) => {
-    const timeChangeImageMetadataStart = performance.now();
+    const pathToImage = path.join(process.cwd(), "public", url);
+    // same directory as the original, so the final rename stays on one
+    // filesystem and is atomic; the extension tells sharp the output format
+    const pathToTmpImage = path.join(
+        path.dirname(pathToImage),
+        `tmp_${randomUUID()}_${path.basename(pathToImage)}`
+    );
     try {
-        const pathToImage = path.join(process.cwd(), "public", url);
-        const pathToTmpImage = path.join(
-            process.cwd(),
-            "public",
-            url.replace("uploads/", "uploads/tmp")
-        );
-        await sharp(pathToImage).toFile(pathToTmpImage);
-        await sharp(pathToTmpImage)
+        // the original is only read here; it is replaced only after the new
+        // file is fully written, so a failed write can't truncate or remove it
+        await sharp(pathToImage)
             .withMetadata({
                 exif: {
                     IFD0: {
@@ -24,9 +26,12 @@ export const updateImageMetadata = async (url, productUrl: string) => {
                     },
                 },
             })
-            .toFile(pathToImage);
-        await promises.unlink(pathToTmpImage);
+            .toFile(pathToTmpImage);
+        await promises.rename(pathToTmpImage, pathToImage);
     } catch (err) {
+        strapi.log.error(
+            `updateImageMetadata failed for ${url} (product ${productUrl}): ${err}`
+        );
         strapi.plugins.email.services.email.send({
             to: "maks_zhukov_97@mail.ru",
             from: strapi.plugins.email.config("providerOptions.username"),
@@ -35,5 +40,7 @@ export const updateImageMetadata = async (url, productUrl: string) => {
                    <b>URL</b>: ${url}<br>
                    <b>PRODUCT URL</b>: ${productUrl}<br>`,
         });
+    } finally {
+        await promises.rm(pathToTmpImage, { force: true });
     }
 };
